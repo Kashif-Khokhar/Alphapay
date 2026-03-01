@@ -1,16 +1,129 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+<img src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 
-Currently, two official plugins are available:
+# ⚡ AlphaPay — University Payment Portal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**A premium, fully-simulated university fee payment portal built with React + Vite.**  
+Beautiful light-theme UI with glassmorphism, animated 3D payment card, real-time analytics, and cinematic micro-interactions.
 
-## React Compiler
+</div>
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 **Simulated Login** — Demo mode, any credentials work
+- 💳 **3D Interactive Credit Card** — Flip animation, EMV chip, real-time preview
+- 📊 **Payment Analytics** — Success rate, total spent, animated progress bars
+- 📋 **Transaction History** — Live search, filter by status, paginated table
+- 🆘 **Help & Support** — Accordion FAQ, contact cards, contact form
+- 🎨 **Premium Light UI** — White glassmorphism cards, emerald/amber accents, micro-animations
+- 📱 **Responsive** — Works on desktop, tablet, and mobile
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 19 | UI Framework |
+| Vite 7 | Build Tool / Dev Server |
+| Tailwind CSS 4 | Utility Styling |
+| React Router DOM 7 | Client-side Routing |
+| Lucide React | Icon Library |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm / yarn / pnpm
+
+### Installation
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/Kashif-Khokhar/Alphapay.git
+cd Alphapay
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the dev server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── components/
+│   ├── Navbar.jsx          # Fixed top navigation bar
+│   ├── PaymentForm.jsx     # 3D card + payment form
+│   ├── StatusMessage.jsx   # Payment success/fail screen
+│   └── TransactionTable.jsx # Transaction list table
+├── pages/
+│   ├── Login.jsx           # Split-panel login page
+│   ├── Dashboard.jsx       # Stats, quick actions, recent txns
+│   ├── Checkout.jsx        # Secure payment page
+│   ├── History.jsx         # Filtered transaction history
+│   ├── Reports.jsx         # Payment analytics
+│   └── Support.jsx         # FAQ + contact form
+├── services/
+│   └── api.js              # Simulated API (no real backend)
+├── App.jsx                 # Routes
+└── index.css               # Global styles & animations
+```
+
+---
+
+## 📸 Screenshots
+
+> All transactions are **100% simulated** — no real card data is used or stored.
+
+| Login | Dashboard |
+|---|---|
+| Split-panel login with particle rain | Stats, quick actions, recent history |
+
+| Checkout | Reports |
+|---|---|
+| 3D flip card with EMV chip | Animated progress bars + analytics |
+
+---
+
+## 📜 Available Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
+
+---
+
+## ⚠️ Disclaimer
+
+This is a **demonstration project** for a university payment portal. All payment functionality is fully simulated. No real financial transactions take place, and no sensitive card data is stored or transmitted.
+
+---
+
+## 👤 Author
+
+**Kashif Khokhar**  
+[GitHub](https://github.com/Kashif-Khokhar)
+
+---
+
+<div align="center">
+  Made with ❤️ using React + Vite · © 2025
+</div>
