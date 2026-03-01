@@ -48,6 +48,35 @@ export const makePayment = async (paymentData) => {
   });
 };
 
+// Simulate a Bank Transfer API call
+export const makeTransfer = async (transferData) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const isSuccess = Math.random() > 0.1; // 90% success for transfers
+      const status = isSuccess ? 'SUCCESS' : 'FAILED';
+
+      const transaction = {
+        transactionId: `TRF-${Date.now()}`,
+        name: `${transferData.bank.name} Transfer`,
+        accountNumber: `**** ${transferData.accountNumber.slice(-4)}`,
+        amount: parseFloat(transferData.amount).toFixed(2),
+        description: transferData.purpose || 'Money Transfer',
+        status,
+        date: new Date().toLocaleString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
+      };
+
+      saveTransaction(transaction);
+      resolve(transaction);
+    }, 2000);
+  });
+};
+
 // Simulated login
 export const loginUser = async (username, password) => {
   return new Promise((resolve, reject) => {
@@ -69,7 +98,6 @@ export const loginUser = async (username, password) => {
   });
 };
 
-// Get current logged in user — returns a guest user if no one is logged in
 export const getCurrentUser = () => {
   try {
     const data = localStorage.getItem('uniPay_user');
@@ -77,13 +105,15 @@ export const getCurrentUser = () => {
   } catch {
     // ignore
   }
-  // Default guest user (no login required for now)
-  return {
-    name: 'Guest User',
-    email: 'guest@university.edu',
-    studentId: 'STU-00000',
-    balance: '10000.00',
+  // Default fallback user when login is bypassed
+  const defaultUser = {
+    name: 'rohaan12@gmail.com',
+    email: 'rohaan12@gmail.com',
+    studentId: 'STU-6838',
+    balance: 1679.07,
   };
+  localStorage.setItem('uniPay_user', JSON.stringify(defaultUser));
+  return defaultUser;
 };
 
 // Logout

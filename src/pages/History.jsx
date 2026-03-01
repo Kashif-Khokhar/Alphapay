@@ -27,8 +27,8 @@ export default function History() {
     .filter(t => !search || t.transactionId?.toLowerCase().includes(search.toLowerCase()) || t.description?.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '64px' }}>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-10">
         {/* Header */}
         <div className="flex flex-wrap items-end justify-between gap-4 mb-8 animate-fade-up">
           <div>

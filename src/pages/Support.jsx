@@ -34,8 +34,8 @@ export default function Support() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '64px' }}>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-10 pb-16">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-10 pb-16">
         {/* Header */}
         <div className="mb-10 animate-fade-up">
           <div className="flex items-center gap-2 mb-3">

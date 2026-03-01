@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #17e0b5;
+  /* SadaPay Teal */
+  --primary-dark: #12b894;
+  --secondary: #121212;
+  /* Deep Navy/Black */
+  --accent: #ff4d6d;
+  --bg-main: #fcfcfc;
+  --text-main: #121212;
+}
 
 * {
   box-sizing: border-box;
@@ -24,8 +35,8 @@ select {
 }
 
 body {
-  font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
-  background-color: #f0fdf4;
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--bg-main);
   background-image:
     radial-gradient(ellipse 80% 60% at 0% 0%, rgba(16, 185, 129, 0.10) 0%, transparent 60%),
     radial-gradient(ellipse 60% 50% at 100% 100%, rgba(245, 158, 11, 0.07) 0%, transparent 60%),
@@ -47,8 +58,34 @@ body {
   background: #f1f5f9;
 }
 
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #10b981, #f59e0b);
+  background: var(--primary);
   border-radius: 99px;
 }
 

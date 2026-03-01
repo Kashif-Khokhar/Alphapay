@@ -8,6 +8,7 @@ import Checkout  from './pages/Checkout';
 import History   from './pages/History';
 import Reports   from './pages/Reports';
 import Support   from './pages/Support';
+import Cards     from './pages/Cards';
 
 function WithNav({ children }) {
   return <>{children}</>;
@@ -20,12 +21,13 @@ function App() {
         <Route path="/login"     element={<Login />} />
         <Route path="/dashboard" element={<WithNav><Navbar /><Dashboard /></WithNav>} />
         <Route path="/checkout"  element={<WithNav><Navbar /><Checkout  /></WithNav>} />
+        <Route path="/card"      element={<WithNav><Navbar /><Cards     /></WithNav>} />
         <Route path="/history"   element={<WithNav><Navbar /><History   /></WithNav>} />
         <Route path="/reports"   element={<WithNav><Navbar /><Reports   /></WithNav>} />
         <Route path="/support"   element={<WithNav><Navbar /><Support   /></WithNav>} />
 
-        {/* Redirect root → Login, unknown → Dashboard */}
-        <Route path="/"  element={<Navigate to="/login" replace />} />
+        {/* Redirect root → Dashboard, unknown → Dashboard */}
+        <Route path="/"  element={<Navigate to="/dashboard" replace />} />
         <Route path="*"  element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </BrowserRouter>
