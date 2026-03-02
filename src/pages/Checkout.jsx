@@ -18,7 +18,7 @@ export default function Checkout() {
             </div>
             Send Money
           </h1>
-          <p className="text-slate-500 text-sm mt-2 ml-14">Instantly transfer funds to any bank account in Pakistan.</p>
+          <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">Instantly transfer funds to any bank account in Pakistan.</p>
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-8 items-start">

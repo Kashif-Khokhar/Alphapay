@@ -49,7 +49,7 @@ export default function Support() {
             </div>
             Help &amp; Support
           </h1>
-          <p className="text-slate-500 text-sm mt-2 ml-14">Get help with your payments or contact the university team.</p>
+          <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">Get help with your payments or contact the university team.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-start">

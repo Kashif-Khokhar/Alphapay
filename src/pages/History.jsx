@@ -43,7 +43,7 @@ export default function History() {
               </div>
               Transactions
             </h1>
-            <p className="text-slate-500 text-sm mt-2 ml-14">All your past payments and their statuses.</p>
+            <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">All your past payments and their statuses.</p>
           </div>
           <div className="flex gap-3">
             <button onClick={() => navigate('/checkout')}

@@ -56,7 +56,7 @@ export default function Reports() {
               </div>
               Payment Analytics
             </h1>
-            <p className="text-slate-500 text-sm mt-2 ml-14">
+            <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">
               {user?.name} · <span className="text-teal-600 font-semibold font-mono">{user?.studentId}</span>
             </p>
           </div>
