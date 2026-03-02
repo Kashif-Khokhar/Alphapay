@@ -16,13 +16,15 @@ Beautiful light-theme UI with glassmorphism, animated 3D payment card, real-time
 
 ## ✨ Features
 
-- 🔐 **Simulated Login** — Demo mode, any credentials work
-- 💳 **3D Interactive Credit Card** — Flip animation, EMV chip, real-time preview
-- 📊 **Payment Analytics** — Success rate, total spent, animated progress bars
-- 📋 **Transaction History** — Live search, filter by status, paginated table
-- 🆘 **Help & Support** — Accordion FAQ, contact cards, contact form
-- 🎨 **Premium Light UI** — White glassmorphism cards, emerald/amber accents, micro-animations
-- 📱 **Responsive** — Works on desktop, tablet, and mobile
+  - 🔐 **Simulated Login** — Demo mode, any credentials work
+  - 💳 **Virtual Cards Management** — View, freeze, and interact with multiple dynamic 3D cards
+  - 💸 **Send/Receive Money** — Polished peer-to-peer transfer flow and quick-actions
+  - 💳 **3D Interactive Credit Card** — Flip animation, EMV chip, real-time preview
+  - 📊 **Payment Analytics** — Success rate, total spent, animated progress bars
+  - 📋 **Transaction History** — Live search, filter by status, paginated table
+  - 🆘 **Help & Support** — Accordion FAQ, contact cards, contact form
+  - 🎨 **Premium Light UI** — White glassmorphism cards, emerald/amber accents, micro-animations
+  - 📱 **Responsive** — Works on desktop, tablet, and mobile
 
 ---
 
@@ -64,25 +66,28 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## 📂 Project Structure
 
-```
-src/
-├── components/
-│   ├── Navbar.jsx          # Fixed top navigation bar
-│   ├── PaymentForm.jsx     # 3D card + payment form
-│   ├── StatusMessage.jsx   # Payment success/fail screen
-│   └── TransactionTable.jsx # Transaction list table
-├── pages/
-│   ├── Login.jsx           # Split-panel login page
-│   ├── Dashboard.jsx       # Stats, quick actions, recent txns
-│   ├── Checkout.jsx        # Secure payment page
-│   ├── History.jsx         # Filtered transaction history
-│   ├── Reports.jsx         # Payment analytics
-│   └── Support.jsx         # FAQ + contact form
-├── services/
-│   └── api.js              # Simulated API (no real backend)
-├── App.jsx                 # Routes
-└── index.css               # Global styles & animations
-```
+  ```
+  src/
+  ├── components/
+  │   ├── Navbar.jsx          # Fixed top navigation bar
+  │   ├── PaymentForm.jsx     # 3D card + payment form
+  │   ├── SendMoneyFlow.jsx   # Quick transfer component
+  │   ├── StatusMessage.jsx   # Payment success/fail screen
+  │   ├── TransactionTable.jsx # Transaction list table
+  │   └── VirtualCard.jsx     # Animated interactive virtual card
+  ├── pages/
+  │   ├── Login.jsx           # Split-panel login page
+  │   ├── Dashboard.jsx       # Stats, quick actions, recent txns
+  │   ├── Checkout.jsx        # Secure payment page
+  │   ├── Cards.jsx           # Virtual cards management page
+  │   ├── History.jsx         # Filtered transaction history
+  │   ├── Reports.jsx         # Payment analytics
+  │   └── Support.jsx         # FAQ + contact form
+  ├── services/
+  │   └── api.js              # Simulated API (no real backend)
+  ├── App.jsx                 # Routes
+  └── index.css               # Global styles & animations
+  ```
 
 ---
 
@@ -97,6 +102,10 @@ src/
 | Checkout | Reports |
 |---|---|
 | 3D flip card with EMV chip | Animated progress bars + analytics |
+
+| My Cards | Send Money |
+|---|---|
+| Manage virtual cards with freeze/unfreeze actions | Peer-to-peer quick transfers with animations |
 
 ---
 
