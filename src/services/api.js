@@ -77,17 +77,28 @@ export const makeTransfer = async (transferData) => {
   });
 };
 
+// Helper to generate unique card details
+const generateCardDetails = () => {
+  const cardNumber = "4782" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, '0');
+  const month = Math.floor(Math.random() * 12 + 1).toString().padStart(2, '0');
+  const year = (new Date().getFullYear() + Math.floor(Math.random() * 5 + 1)).toString().slice(-2);
+  const cvv = Math.floor(Math.random() * 900 + 100).toString();
+  return { cardNumber, expiry: `${month}/${year}`, cvv };
+};
+
 // Simulated login
 export const loginUser = async (username, password) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // Accept any non-empty credentials for demo
       if (username && password) {
+        const cardDetails = generateCardDetails();
         const user = {
           name: username === 'admin' ? 'Admin User' : username,
-          email: `${username}@university.edu`,
+          email: `${username}@alphapay.edu`,
           studentId: 'STU-' + Math.floor(10000 + Math.random() * 90000),
           balance: (Math.random() * 5000 + 500).toFixed(2),
+          ...cardDetails
         };
         localStorage.setItem('uniPay_user', JSON.stringify(user));
         resolve(user);
@@ -101,16 +112,28 @@ export const loginUser = async (username, password) => {
 export const getCurrentUser = () => {
   try {
     const data = localStorage.getItem('uniPay_user');
-    if (data) return JSON.parse(data);
+    if (data) {
+      const user = JSON.parse(data);
+      // Ensure existing users get card details if they don't have them
+      if (!user.cardNumber) {
+        const cardDetails = generateCardDetails();
+        const updatedUser = { ...user, ...cardDetails };
+        localStorage.setItem('uniPay_user', JSON.stringify(updatedUser));
+        return updatedUser;
+      }
+      return user;
+    }
   } catch {
     // ignore
   }
   // Default fallback user when login is bypassed
+  const cardDetails = generateCardDetails();
   const defaultUser = {
     name: 'rohaan12@gmail.com',
     email: 'rohaan12@gmail.com',
     studentId: 'STU-6838',
     balance: 1679.07,
+    ...cardDetails
   };
   localStorage.setItem('uniPay_user', JSON.stringify(defaultUser));
   return defaultUser;

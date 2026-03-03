@@ -20,63 +20,65 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Top Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-[20px] saturate-150 h-20 px-8 flex items-center justify-between border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hidden md:flex">
-        <Link to="/dashboard" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
-            <span className="text-[#17e0b5] font-black text-2xl italic">α</span>
-          </div>
-          <span className="font-extrabold text-xl tracking-tighter text-secondary">
-            Alpha<span className="text-primary">Pay</span>
-          </span>
-        </Link>
-
-        {/* Desktop Links */}
-        <ul className="flex items-center gap-1 h-full">
-          {NAV_LINKS.map(({ to, label, icon: Icon }) => {
-            const active = location.pathname === to;
-            return (
-              <li key={to} className="h-full flex items-center">
-                <Link to={to} className="relative h-full px-5 flex items-center group">
-                  <div className={`flex items-center gap-2 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-400 group-hover:text-slate-800 group-hover:-translate-y-[1px]'}`}>
-                    <Icon size={18} strokeWidth={active ? 2.5 : 2} className={active ? '' : 'opacity-80 group-hover:opacity-100'} />
-                    <span>{label}</span>
-                  </div>
-                  {/* Glowing Active Underline */}
-                  {active && (
-                    <motion.div 
-                      layoutId="desktop-nav-indicator"
-                      className="absolute bottom-0 left-2 right-2 h-[3px] bg-primary rounded-t-full shadow-[0_-2px_8px_rgba(23,224,181,0.6)]"
-                      initial={false}
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="flex items-center gap-5">
-          {/* Animated Notification Bell */}
-          <button className="p-2 text-slate-400 hover:text-secondary group relative transition-colors">
-            <Bell size={22} className="group-hover:origin-top group-hover:animate-swing" />
-            <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
-          </button>
-          
-          <div className="group relative">
-            <div className="w-[42px] h-[42px] rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-lg shadow-[0_4px_12px_rgba(13,18,84,0.15)] cursor-pointer hover:scale-105 transition-all outline outline-2 outline-white outline-offset-[3px]">
-              {user?.name?.charAt(0) || 'K'}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-[20px] saturate-150 h-20 border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hidden md:flex">
+        <div className="max-w-6xl mx-auto w-full px-8 flex items-center justify-between h-full">
+          <Link to="/dashboard" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
+              <span className="text-[#17e0b5] font-black text-2xl italic">α</span>
             </div>
+            <span className="font-extrabold text-xl tracking-tighter text-secondary">
+              Alpha<span className="text-primary">Pay</span>
+            </span>
+          </Link>
+
+          {/* Desktop Links */}
+          <ul className="flex items-center gap-1 h-full">
+            {NAV_LINKS.map(({ to, label, icon: Icon }) => {
+              const active = location.pathname === to;
+              return (
+                <li key={to} className="h-full flex items-center">
+                  <Link to={to} className="relative h-full px-5 flex items-center group">
+                    <div className={`flex items-center gap-2 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-400 group-hover:text-slate-800 group-hover:-translate-y-[1px]'}`}>
+                      <Icon size={18} strokeWidth={active ? 2.5 : 2} className={active ? '' : 'opacity-80 group-hover:opacity-100'} />
+                      <span>{label}</span>
+                    </div>
+                    {/* Glowing Active Underline */}
+                    {active && (
+                      <motion.div 
+                        layoutId="desktop-nav-indicator"
+                        className="absolute bottom-0 left-2 right-2 h-[3px] bg-primary rounded-t-full shadow-[0_-2px_8px_rgba(23,224,181,0.6)]"
+                        initial={false}
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="flex items-center gap-5">
+            {/* Animated Notification Bell */}
+            <button className="p-2 text-slate-400 hover:text-secondary group relative transition-colors">
+              <Bell size={22} className="group-hover:origin-top group-hover:animate-swing" />
+              <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
+            </button>
             
-            {/* Premium Dropdown */}
-            <div className="absolute top-[120%] right-0 w-56 bg-white/95 backdrop-blur-xl rounded-[20px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 z-[60] origin-top-right scale-95 group-hover:scale-100">
-               <div className="px-4 py-3 border-b border-slate-50 mb-2">
-                 <p className="text-sm font-bold text-slate-800 truncate">{user?.name || 'Kashif Ali'}</p>
-                 <p className="text-[11px] font-medium text-slate-400">{user?.role || 'Premium User'}</p>
-               </div>
-               <button onClick={handleLogout} className="w-full text-left px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 rounded-xl flex items-center gap-3 transition-colors">
-                  <LogOut size={16} /> Log out securely
-               </button>
+            <div className="group relative">
+              <div className="w-[42px] h-[42px] rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-lg shadow-[0_4px_12px_rgba(13,18,84,0.15)] cursor-pointer hover:scale-105 transition-all outline outline-2 outline-white outline-offset-[3px]">
+                {user?.name?.charAt(0) || 'K'}
+              </div>
+              
+              {/* Premium Dropdown */}
+              <div className="absolute top-[120%] right-0 w-56 bg-white/95 backdrop-blur-xl rounded-[20px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 z-[60] origin-top-right scale-95 group-hover:scale-100">
+                 <div className="px-4 py-3 border-b border-slate-50 mb-2">
+                   <p className="text-sm font-bold text-slate-800 truncate">{user?.name || 'Kashif Ali'}</p>
+                   <p className="text-[11px] font-medium text-slate-400">{user?.role || 'Premium User'}</p>
+                 </div>
+                 <button onClick={handleLogout} className="w-full text-left px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 rounded-xl flex items-center gap-3 transition-colors">
+                    <LogOut size={16} /> Log out securely
+                 </button>
+              </div>
             </div>
           </div>
         </div>

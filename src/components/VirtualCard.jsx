@@ -8,7 +8,9 @@ export default function VirtualCard({
   holderName = "K S REHMAN", 
   fullNumber = "4782780040847157", 
   expiry = "02/30", 
-  cvv = "733" 
+  cvv = "733",
+  isRevealed: externalRevealed = null,
+  onToggle = null
 }) {
   const ref = useRef(null);
 
@@ -22,7 +24,9 @@ export default function VirtualCard({
 
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isRevealed, setIsRevealed] = useState(false);
+  const [internalRevealed, setInternalRevealed] = useState(false);
+
+  const isRevealed = externalRevealed !== null ? externalRevealed : internalRevealed;
 
   useEffect(() => {
     // Reset spring to 0 when not hovering
@@ -60,11 +64,8 @@ export default function VirtualCard({
     setMousePosition({ x: 50, y: 50 });
   };
 
-  const handleClick = () => {
-    setIsRevealed(prev => !prev);
-  };
 
-  const numberGroups = fullNumber.match(/.{1,4}/g) || [];
+  const numberGroups = (fullNumber || "").match(/.{1,4}/g) || [];
 
   return (
     <motion.div
@@ -72,18 +73,17 @@ export default function VirtualCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
       style={{
         transformStyle: "preserve-3d",
         transform,
       }}
-      className="relative w-[280px] h-[440px] rounded-[32px] overflow-hidden cursor-pointer shadow-2xl transition-shadow duration-300 group"
+      className="relative w-[280px] h-[440px] rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-300 group"
     >
       {/* Dynamic Background Gradient (NayaPay Style) */}
       <div 
         className="absolute inset-0 transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(165deg, #0d1254 0%, #301f6e 40%, #a2298e 75%, #ef3054 100%)'
+          background: 'linear-gradient(165deg, #020617 0%, #0d1254 40%, #115e59 80%, #17e0b5 100%)'
         }}
       />
 
@@ -101,17 +101,19 @@ export default function VirtualCard({
 
       {/* Card Content - elevated in 3D */}
       <div 
-        className="absolute inset-0 p-8 flex flex-col justify-between"
+        className="absolute inset-0 px-14 py-16 flex flex-col justify-between"
         style={{ transform: "translateZ(50px)" }}
       >
         {/* Top Header */}
         <div className="flex justify-between items-start h-[160px]">
           {/* Logo representation */}
-          <div className="text-white flex flex-col -space-y-1 mt-1 drop-shadow-md">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 20L20 5L30 20H25L20 12.5L15 20H10Z" fill="white"/>
-              <path d="M10 20L20 35L30 20H25L20 27.5L15 20H10Z" fill="white"/>
-            </svg>
+          <div className="flex items-center gap-3 drop-shadow-lg">
+            <div className="w-9 h-9 bg-secondary rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-[#17e0b5] font-black text-xl italic">α</span>
+            </div>
+            <span className="font-bold text-lg tracking-tighter text-white">
+              Alpha<span className="text-[#17e0b5]">Pay</span>
+            </span>
           </div>
           
           <AnimatePresence mode="wait">
@@ -155,7 +157,7 @@ export default function VirtualCard({
           <div className="flex-1 flex gap-8">
             {!isRevealed ? (
               <div className="flex items-end h-9">
-                <span className="text-white font-bold tracking-widest text-[22px] font-mono drop-shadow-sm">{fullNumber.slice(-4)}</span>
+                <span className="text-white font-bold tracking-widest text-[22px] font-mono drop-shadow-sm">{(fullNumber || "").slice(-4)}</span>
               </div>
             ) : (
                <motion.div 
@@ -181,9 +183,9 @@ export default function VirtualCard({
           </div>
           
           {/* VISA Logo */}
-          <div className="w-[72px] h-[24px] relative opacity-90 drop-shadow-md pb-1 shrink-0">
-            <svg viewBox="0 0 50 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21.5796 0.165039H18.397L15.3995 10.3807L14.7088 6.94273C14.4719 5.61399 13.4111 4.31687 11.2335 3.52267L19.4975 15.65H23.0102L28.1824 0.165039H24.5779L21.5796 0.165039ZM34.7214 10.8407L36.3243 6.4385L37.2882 10.8407H34.7214ZM38.2575 1.51604C37.5259 1.51604 36.9365 1.93339 36.6508 2.62886L30.9822 15.65H34.7214L35.4674 13.5678H40.0911L40.5262 15.65H43.9113L40.7303 0.165039H38.2575V1.51604ZM13.8841 0.165039H4.15617C3.39414 0.165039 2.72124 0.536768 2.37892 1.21852L0.0153809 13.5678C0.35467 13.0649 1.10928 12.3888 2.05374 12.0003C3.59756 11.3653 5.48003 10.3204 6.70327 8.35515C8.0463 6.19553 7.8288 3.42852 13.8841 0.165039ZM28.5303 15.65H32.1221L35.5901 0.165039H32.0624L28.5303 15.65Z" fill="white"/>
+          <div className="w-[64px] h-[20px] relative opacity-90 drop-shadow-md mb-1 shrink-0">
+            <svg viewBox="0 0 100 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M36.7 22.8H41L43.7 6.3H39.4L36.7 22.8ZM58.9 6.6C57.1 6.3 54.3 6 51.5 6C45 6 40.4 9.5 40.4 14.6C40.4 18.2 43.6 20.2 46.1 21.4C48.6 22.6 49.5 23.4 49.5 24.5C49.4 26.2 47.4 26.9 45.6 26.9C43.8 26.9 42 26.4 40.5 25.6L39.8 28.9C41.3 29.6 44.1 30.2 46.9 30.2C53.7 30.2 58.1 26.8 58.2 21.7C58.2 18.4 56.1 15.9 51.2 13.5C48.7 12.3 47.8 11.5 47.8 10.5C47.8 9 49.5 8.1 52.1 8.1C54.1 8.1 56.1 8.6 57.5 9.2L58.2 5.9C57.4 5.6 58.1 5.9 58.9 6.6ZM81.2 6.3H77.2C75.8 6.3 75.1 7.1 74.5 8.5L68.8 22.8H73.3L74.2 20.3H79.8L80.5 22.8H84.8L81.2 6.3ZM75.1 17.5L77 12.3L78.1 17.5H75.1ZM14.3 6.3L9.1 19.3L8.6 16.5C7.9 11.7 4.1 7.4 0 7.4V7.9C2.7 8.5 5.5 10.6 7.4 13.1C7.8 13.6 8.3 14.4 9.1 17.5L13.7 30H18L26 6.3H14.3Z" fill="white"/>
             </svg>
           </div>
         </div>
