@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { Snowflake } from 'lucide-react';
 
 const ROTATION_RANGE = 25;
 const HALF_ROTATION_RANGE = 25 / 2;
@@ -10,6 +11,7 @@ export default function VirtualCard({
   expiry = "02/30", 
   cvv = "733",
   isRevealed: externalRevealed = null,
+  isFrozen = false,
   onToggle = null
 }) {
   const ref = useRef(null);
@@ -178,6 +180,25 @@ export default function VirtualCard({
           </div>
         </div>
       </div>
+
+      {/* Frozen Overlay */}
+      <AnimatePresence>
+        {isFrozen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-50 flex flex-col items-center justify-center p-6 text-center"
+            style={{ transform: "translateZ(60px)" }}
+          >
+            <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4 border border-white/20">
+              <Snowflake size={32} className="text-white" />
+            </div>
+            <p className="text-white text-lg font-black tracking-tight uppercase italic">Frozen</p>
+            <p className="text-white/60 text-[10px] font-bold mt-1 uppercase tracking-widest">Unfreeze to use card</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

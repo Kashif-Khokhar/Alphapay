@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { ShieldCheck, Snowflake, Eye, EyeOff, Settings } from 'lucide-react';
+import { ShieldCheck, Snowflake, Eye, EyeOff, Settings, Plus } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import VirtualCard from '../components/VirtualCard';
 import { getCurrentUser } from '../services/api';
 
 export default function Cards() {
   const user = getCurrentUser();
   const [isRevealed, setIsRevealed] = useState(false);
+  const [isFrozen, setIsFrozen] = useState(false);
+  const [showLimits, setShowLimits] = useState(false);
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
@@ -33,6 +36,7 @@ export default function Cards() {
                 expiry={user?.expiry}
                 cvv={user?.cvv}
                 isRevealed={isRevealed}
+                isFrozen={isFrozen}
                 onToggle={() => setIsRevealed(!isRevealed)}
              />
           </div>
@@ -40,23 +44,30 @@ export default function Cards() {
           {/* Controls & Stats */}
           <div className="flex-1 w-full max-w-md animate-slide-left space-y-8">
             
-            <div className="bg-white rounded-[24px] p-12 shadow-sm border border-slate-100 flex items-center justify-between">
+            <div className={`bg-white rounded-[24px] p-12 shadow-sm border ${isFrozen ? 'border-rose-100' : 'border-slate-100'} flex items-center justify-between transition-colors duration-500`}>
               <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center">
+                 <div className={`w-12 h-12 ${isFrozen ? 'bg-rose-50 text-rose-500' : 'bg-teal-50 text-teal-600'} rounded-full flex items-center justify-center transition-colors`}>
                     <ShieldCheck size={24} />
                  </div>
                  <div>
                     <h3 className="font-bold text-slate-800">Card Status</h3>
-                    <p className="text-[11px] font-bold tracking-widest uppercase text-teal-500">Active & Secure</p>
+                    <p className={`text-[11px] font-bold tracking-widest uppercase ${isFrozen ? 'text-rose-500' : 'text-teal-500'} transition-colors`}>
+                      {isFrozen ? 'Frozen & Locked' : 'Active & Secure'}
+                    </p>
                  </div>
               </div>
-              <div className="h-3 w-3 bg-teal-500 rounded-full shadow-[0_0_12px_rgba(20,184,166,0.6)] animate-pulse" />
+              <div className={`h-3 w-3 ${isFrozen ? 'bg-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.6)]' : 'bg-teal-500 shadow-[0_0_12px_rgba(20,184,166,0.6)]'} rounded-full animate-pulse transition-all duration-500`} />
             </div>
 
             <div className="bg-white rounded-[24px] p-4 shadow-sm border border-slate-100 grid grid-cols-3 divide-x divide-slate-50">
-               <button className="flex flex-col items-center gap-2 p-4 group hover:bg-slate-50 transition-colors rounded-xl">
-                  <Snowflake size={20} className="text-slate-400 group-hover:text-blue-500 transition-colors" />
-                  <span className="text-xs font-bold text-slate-600 group-hover:text-slate-900">Freeze</span>
+               <button 
+                 onClick={() => setIsFrozen(!isFrozen)}
+                 className="flex flex-col items-center gap-2 p-4 group hover:bg-slate-50 transition-colors rounded-xl"
+               >
+                  <Snowflake size={20} className={`${isFrozen ? 'text-blue-500' : 'text-slate-400 group-hover:text-blue-500'} transition-colors`} />
+                  <span className={`text-xs font-bold ${isFrozen ? 'text-slate-900' : 'text-slate-600 group-hover:text-slate-900'}`}>
+                    {isFrozen ? 'Unfreeze' : 'Freeze'}
+                  </span>
                </button>
                <button 
                   onClick={() => setIsRevealed(!isRevealed)}
@@ -71,7 +82,10 @@ export default function Cards() {
                     {isRevealed ? "Hide Details" : "Show Details"}
                   </span>
                </button>
-               <button className="flex flex-col items-center gap-2 p-4 group hover:bg-slate-50 transition-colors rounded-xl">
+               <button 
+                 onClick={() => setShowLimits(true)}
+                 className="flex flex-col items-center gap-2 p-4 group hover:bg-slate-50 transition-colors rounded-xl"
+               >
                   <Settings size={20} className="text-slate-400 group-hover:text-slate-900 transition-colors" />
                   <span className="text-xs font-bold text-slate-600 group-hover:text-slate-900">Limits</span>
                </button>
@@ -99,6 +113,67 @@ export default function Cards() {
         </div>
 
       </div>
+
+      {/* Limits Modal */}
+      <AnimatePresence>
+        {showLimits && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowLimits(false)}
+              className="absolute inset-0 bg-slate-900/40 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-md bg-white rounded-[40px] p-10 shadow-2xl border border-white"
+            >
+              <div className="flex justify-between items-center mb-8">
+                <h2 className="text-2xl font-black text-slate-800 tracking-tight">Card Limits</h2>
+                <button 
+                  onClick={() => setShowLimits(false)}
+                  className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-colors"
+                >
+                  <Plus size={20} className="rotate-45" />
+                </button>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  { label: 'Daily Purchase', value: 'PKR 150,000', used: 'PKR 12,400', percent: 8 },
+                  { label: 'Monthly Limit', value: 'PKR 1,500,000', used: 'PKR 12,400', percent: 1 },
+                  { label: 'ATM Withdrawal', value: 'PKR 50,000', used: 'PKR 0', percent: 0 },
+                  { label: 'Online Payment', value: 'PKR 100,000', used: 'PKR 12,400', percent: 12 }
+                ].map((limit) => (
+                  <div key={limit.label} className="space-y-2">
+                    <div className="flex justify-between text-[11px] font-black uppercase tracking-widest">
+                      <span className="text-slate-400">{limit.label}</span>
+                      <span className="text-slate-800">{limit.used} / {limit.value}</span>
+                    </div>
+                    <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        animate={{ width: `${limit.percent}%` }}
+                        className="h-full bg-teal-500 rounded-full"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button 
+                onClick={() => setShowLimits(false)}
+                className="w-full mt-10 bg-slate-900 text-white py-4 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition-colors"
+              >
+                Done
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
