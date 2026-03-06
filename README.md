@@ -18,7 +18,9 @@ Beautiful light-theme UI with glassmorphism, animated 3D payment card, real-time
 
   - 🔐 **Simulated Login** — Demo mode, any credentials work
   - 💳 **Virtual Cards Management** — View, freeze, and interact with multiple dynamic 3D cards
-  - 💸 **Send/Receive Money** — Polished peer-to-peer transfer flow and quick-actions
+  - 💸 **Send/Receive Money** — Polished peer-to-peer transfer flow and request money functionality
+  - ⚡ **Bill Payments** — Categorized bill payment simulation (Electricity, Mobile, Gas, etc.)
+  - 💰 **Add Funds** — Simulated top-up flow for the AlphaPay wallet
   - 💳 **3D Interactive Credit Card** — Flip animation, EMV chip, real-time preview
   - 📊 **Payment Analytics** — Success rate, total spent, animated progress bars
   - 📋 **Transaction History** — Live search, filter by status, paginated table
@@ -82,6 +84,9 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
   │   ├── Cards.jsx           # Virtual cards management page
   │   ├── History.jsx         # Filtered transaction history
   │   ├── Reports.jsx         # Payment analytics
+  │   ├── RequestMoney.jsx    # Money request interface
+  │   ├── PayBills.jsx        # Bill payment portal
+  │   ├── AddMoney.jsx        # Wallet top-up flow
   │   └── Support.jsx         # FAQ + contact form
   ├── services/
   │   └── api.js              # Simulated API (no real backend)

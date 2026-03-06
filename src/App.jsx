@@ -9,6 +9,9 @@ import History   from './pages/History';
 import Reports   from './pages/Reports';
 import Support   from './pages/Support';
 import Cards     from './pages/Cards';
+import RequestMoney from './pages/RequestMoney';
+import PayBills from './pages/PayBills';
+import AddMoney from './pages/AddMoney';
 
 function WithNav({ children }) {
   return <>{children}</>;
@@ -25,6 +28,9 @@ function App() {
         <Route path="/history"   element={<WithNav><Navbar /><History   /></WithNav>} />
         <Route path="/reports"   element={<WithNav><Navbar /><Reports   /></WithNav>} />
         <Route path="/support"   element={<WithNav><Navbar /><Support   /></WithNav>} />
+        <Route path="/request"   element={<WithNav><Navbar /><RequestMoney /></WithNav>} />
+        <Route path="/bills"     element={<WithNav><Navbar /><PayBills /></WithNav>} />
+        <Route path="/add-money" element={<WithNav><Navbar /><AddMoney /></WithNav>} />
 
         {/* Redirect root → Dashboard, unknown → Dashboard */}
         <Route path="/"  element={<Navigate to="/dashboard" replace />} />

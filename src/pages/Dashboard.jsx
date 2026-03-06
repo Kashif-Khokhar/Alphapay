@@ -179,9 +179,9 @@ export default function Dashboard() {
            <div className="grid grid-cols-4 gap-4 sm:gap-6">
               {[
                 { label: 'Send', icon: ArrowUpRight, color: 'bg-[#17e0b5]', text: 'text-secondary', onClick: () => navigate('/checkout') },
-                { label: 'Request', icon: ArrowDownLeft, color: 'bg-secondary', text: 'text-primary' },
-                { label: 'Bill', icon: Zap, color: 'bg-amber-400', text: 'text-secondary' },
-                { label: 'Add', icon: Plus, color: 'bg-white', text: 'text-secondary', border: 'border-slate-200' },
+                { label: 'Request', icon: ArrowDownLeft, color: 'bg-white', text: 'text-secondary', onClick: () => navigate('/request') },
+                { label: 'Bill', icon: Zap, color: 'bg-amber-400', text: 'text-secondary', onClick: () => navigate('/bills') },
+                { label: 'Add', icon: Plus, color: 'bg-white', text: 'text-secondary', border: 'border-2 border-slate-900', onClick: () => navigate('/add-money') },
               ].map((btn, i) => (
                 <button key={btn.label} onClick={btn.onClick} className="flex flex-col items-center gap-3 group">
                    <div className={`w-16 h-16 sm:w-20 sm:h-20 ${btn.color} ${btn.border || ''} rounded-[2rem] flex items-center justify-center shadow-xl shadow-slate-200/50 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 group-active:scale-95 border border-transparent`}>
