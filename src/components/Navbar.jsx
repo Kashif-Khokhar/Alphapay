@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CreditCard, History, BarChart2, Bell, LogOut } from 'lucide-react';
+import { LayoutDashboard, CreditCard, History, BarChart2, Bell, LogOut, User, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { logoutUser, getCurrentUser } from '../services/api';
 
@@ -69,14 +69,25 @@ export default function Navbar() {
                 {user?.name?.charAt(0) || 'K'}
               </div>
               
-              {/* Premium Dropdown */}
-              <div className="absolute top-[120%] right-0 w-56 bg-white/95 backdrop-blur-xl rounded-[20px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 z-[60] origin-top-right scale-95 group-hover:scale-100">
-                 <div className="px-4 py-3 border-b border-slate-50 mb-2">
-                   <p className="text-sm font-bold text-slate-800 truncate">{user?.name || 'Kashif Ali'}</p>
-                   <p className="text-[11px] font-medium text-slate-400">{user?.role || 'Premium User'}</p>
-                 </div>
-                 <button onClick={handleLogout} className="w-full text-left px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 rounded-xl flex items-center gap-3 transition-colors">
-                    <LogOut size={16} /> Log out securely
+              <div className="absolute top-[120%] right-0 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 z-[60] origin-top-right scale-95 group-hover:scale-100 overflow-hidden">
+                 <button onClick={() => navigate('/profile')} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
+                      <User size={18} strokeWidth={2.5} />
+                    </div>
+                    Profile
+                 </button>
+                 <button onClick={() => navigate('/settings')} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4 mt-0.5">
+                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
+                      <Settings size={18} strokeWidth={2.5} />
+                    </div>
+                    Settings
+                 </button>
+                 <div className="h-px bg-slate-50 mx-2 my-2" />
+                 <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-sm font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
+                      <LogOut size={18} strokeWidth={2.5} />
+                    </div>
+                    Logout
                  </button>
               </div>
             </div>

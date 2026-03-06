@@ -68,29 +68,29 @@ export default function Dashboard() {
             </div>
             
             {/* Header Menu List */}
-            <div className="absolute top-full right-0 mt-3 w-48 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover/header-menu:opacity-100 pointer-events-none group-hover/header-menu:pointer-events-auto transition-all duration-200 transform translate-y-3 group-hover/header-menu:translate-y-0 p-2 z-50">
-               <button onClick={() => navigate('/profile')} className="w-full text-left px-4 py-3 text-[13px] font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
-                    <User size={16} strokeWidth={2.5} />
+            <div className="absolute top-full right-0 mt-3 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover/header-menu:opacity-100 pointer-events-none group-hover/header-menu:pointer-events-auto transition-all duration-200 transform translate-y-3 group-hover/header-menu:translate-y-0 p-2 z-50 overflow-hidden">
+               <button onClick={() => navigate('/profile')} className="w-full text-left px-4 py-3.5 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
+                    <User size={18} strokeWidth={2.5} />
                   </div>
                   Profile
                </button>
-               <button onClick={() => navigate('/settings')} className="w-full text-left px-4 py-3 text-[13px] font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-3 mt-1">
-                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
-                    <Settings size={16} strokeWidth={2.5} />
+               <button onClick={() => navigate('/settings')} className="w-full text-left px-4 py-3.5 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4 mt-0.5">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
+                    <Settings size={18} strokeWidth={2.5} />
                   </div>
                   Settings
                </button>
-               <div className="h-px bg-slate-100 mx-2 my-2" />
+               <div className="h-px bg-slate-50 mx-2 my-2" />
                <button 
                  onClick={() => {
                    logoutUser();
                    navigate('/login');
                  }} 
-                 className="w-full text-left px-4 py-3 text-[13px] font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-3"
+                 className="w-full text-left px-4 py-3.5 text-sm font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-4"
                >
-                  <div className="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
-                    <LogOut size={16} strokeWidth={2.5} />
+                  <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
+                    <LogOut size={18} strokeWidth={2.5} />
                   </div>
                   Logout
                </button>
