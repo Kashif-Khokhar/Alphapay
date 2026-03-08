@@ -124,7 +124,7 @@ export default function Dashboard() {
              {/* Insights Card (Clickable to /reports) */}
              <div 
                onClick={() => navigate('/reports')}
-               className="bg-[#f8fafc] rounded-[32px] p-6 flex flex-col justify-between cursor-pointer relative overflow-hidden h-[200px] shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300 group border border-white/60"
+               className="bg-[#f8fafc] rounded-[32px] p-6 flex flex-col gap-4 cursor-pointer relative shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300 group border border-white/60"
              >
                 <div className="flex justify-between items-start relative z-10">
                   <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-slate-800 transition-transform duration-300 group-hover:scale-110">
@@ -132,14 +132,14 @@ export default function Dashboard() {
                   </div>
                   <ChevronRight size={20} className="text-slate-300 group-hover:translate-x-1 group-hover:text-slate-600 transition-all duration-300" />
                 </div>
-                <div className="relative z-10 mt-6">
+                <div className="relative z-10">
                    <p className="text-[11px] font-black text-slate-300 uppercase tracking-[0.2em] mb-1">Insights</p>
-                   <p className="text-[19px] font-black text-slate-800 tracking-tight">Monthly Plan</p>
+                   <p className="text-[19px] font-black text-slate-800 tracking-tight leading-tight">Monthly Plan</p>
                 </div>
              </div>
              
              {/* Savings Card with ... Dropdown */}
-             <div className="bg-[#f8fafc] rounded-[32px] p-6 flex flex-col justify-between relative h-[200px] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-white/60">
+             <div className="bg-[#f8fafc] rounded-[32px] p-6 flex flex-col gap-4 relative shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-white/60">
                 <div className="flex justify-between items-start relative z-10">
                   <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-slate-800">
                     <Wallet size={24} strokeWidth={2.5} />
@@ -162,9 +162,9 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-6">
+                <div>
                    <p className="text-[11px] font-black text-slate-400/80 uppercase tracking-[0.2em] mb-1">Saving</p>
-                   <p className="text-[20px] font-black text-[#131720] tracking-tight">PKR 12,400</p>
+                   <p className="text-[20px] font-black text-[#131720] tracking-tight leading-tight">PKR 12,400</p>
                 </div>
              </div>
           </div>

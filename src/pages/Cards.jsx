@@ -44,7 +44,7 @@ export default function Cards() {
           {/* Controls & Stats */}
           <div className="flex-1 w-full max-w-md animate-slide-left space-y-8">
             
-            <div className={`bg-white rounded-[24px] p-12 shadow-sm border ${isFrozen ? 'border-rose-100' : 'border-slate-100'} flex items-center justify-between transition-colors duration-500`}>
+            <div className={`bg-white rounded-[24px] p-6 shadow-sm border ${isFrozen ? 'border-rose-100' : 'border-slate-100'} flex items-center justify-between transition-colors duration-500`}>
               <div className="flex items-center gap-4">
                  <div className={`w-12 h-12 ${isFrozen ? 'bg-rose-50 text-rose-500' : 'bg-teal-50 text-teal-600'} rounded-full flex items-center justify-center transition-colors`}>
                     <ShieldCheck size={24} />
@@ -91,7 +91,7 @@ export default function Cards() {
                </button>
             </div>
 
-            <div className="bg-white rounded-[24px] p-12 shadow-sm border border-slate-100">
+            <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-100">
                <h3 className="font-bold text-slate-800 mb-4">Card Details</h3>
                <div className="space-y-4">
                  <div className="flex justify-between items-center pb-4 border-b border-slate-50">

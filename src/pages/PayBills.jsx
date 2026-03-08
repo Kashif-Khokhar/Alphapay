@@ -60,7 +60,7 @@ export default function PayBills() {
                     <div className={`w-14 h-14 rounded-2xl ${cat.color} flex items-center justify-center transition-transform group-hover:scale-110`}>
                       <cat.icon size={28} />
                     </div>
-                    <span className="text-[11px] font-black text-secondary uppercase tracking-widest">{cat.label}</span>
+                    <span className="text-[11px] font-black text-secondary uppercase tracking-wide text-center leading-tight">{cat.label}</span>
                   </button>
                 ))}
               </div>
