@@ -92,11 +92,8 @@ export default function RequestMoney() {
                 />
               </div>
 
-              <button 
-                type="submit"
-                className="w-full bg-secondary text-primary font-black py-4 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-slate-200 hover:scale-[1.02] active:scale-[0.98] transition-all"
-              >
-                Send Request <Send size={18} />
+              <button type="submit" className="btn btn-dark btn-full">
+                <Send size={15} /> Send Request
               </button>
             </form>
           )}

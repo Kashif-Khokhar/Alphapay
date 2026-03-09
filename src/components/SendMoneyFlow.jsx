@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Building2, User, Landmark, DollarSign, Send, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Building2, User, Search, DollarSign, Send, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import StatusMessage from './StatusMessage';
 import { makeTransfer } from '../services/api';
 
@@ -31,6 +31,7 @@ export default function SendMoneyFlow() {
   
   const [status, setStatus] = useState('idle'); // idle, checking, paying, done
   const [transaction, setTransaction] = useState(null);
+  const [bankSearch, setBankSearch] = useState('');
 
   const set = (key, value) => setFormData(prev => ({ ...prev, [key]: value }));
 
@@ -78,14 +79,14 @@ export default function SendMoneyFlow() {
 
   if (status === 'done' && transaction) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-white rounded-3xl p-8 shadow-xl border border-slate-100 animate-fade-up">
+      <div className="w-full bg-white rounded-3xl p-8 shadow-xl border border-slate-100 animate-fade-up">
         <StatusMessage transaction={transaction} onRetry={resetFlow} />
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100 relative min-h-[500px] flex flex-col">
+    <div className="w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100 relative min-h-[500px] flex flex-col">
       
       {/* Header / Back Button */}
       <div className="p-6 border-b border-slate-50 flex items-center justify-between pb-4">
@@ -115,21 +116,63 @@ export default function SendMoneyFlow() {
                 <p className="text-slate-500 text-sm">Select the receiver's bank to begin transfer.</p>
               </div>
               
-              <div className="relative mb-6">
-                <Landmark className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input type="text" placeholder="Search by bank name..." className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border-none rounded-2xl text-sm font-medium focus:ring-2 focus:ring-teal-500 outline-none placeholder:text-slate-400 transition-all" />
+              <div className="flex items-center gap-3 mb-6 px-4 py-3 bg-slate-50 rounded-2xl focus-within:ring-2 focus-within:ring-teal-500 transition-all">
+                <Search size={17} className="text-slate-400 flex-shrink-0" />
+                <input
+                  type="text"
+                  placeholder="Search by bank name..."
+                  value={bankSearch}
+                  onChange={e => setBankSearch(e.target.value)}
+                  className="flex-1 bg-transparent border-none text-sm font-medium outline-none placeholder:text-slate-400"
+                />
+                {bankSearch && (
+                  <button onClick={() => setBankSearch('')} className="text-slate-400 hover:text-slate-600 transition-colors">
+                    <span className="text-lg leading-none">&times;</span>
+                  </button>
+                )}
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {POPULAR_BANKS.map(bank => (
-                  <button key={bank.id} onClick={() => handleBankSelect(bank)} className="bg-white border border-slate-100 hover:border-teal-200 hover:bg-teal-50/50 hover:shadow-md p-4 flex flex-col items-center gap-3 rounded-[20px] transition-all duration-200 active:scale-95 group">
-                    <div className="transition-transform group-hover:-translate-y-1 duration-300">
-                      {bank.icon}
-                    </div>
-                    <span className="text-xs font-bold text-slate-700 text-center">{bank.name}</span>
-                  </button>
-                ))}
-              </div>
+              {(() => {
+                const q = bankSearch.trim().toLowerCase();
+                const sorted = q
+                  ? [...POPULAR_BANKS].sort((a, b) => {
+                      const an = a.name.toLowerCase();
+                      const bn = b.name.toLowerCase();
+                      const aStarts = an.startsWith(q);
+                      const bStarts = bn.startsWith(q);
+                      const aIncludes = an.includes(q);
+                      const bIncludes = bn.includes(q);
+                      if (aStarts && !bStarts) return -1;
+                      if (!aStarts && bStarts) return 1;
+                      if (aIncludes && !bIncludes) return -1;
+                      if (!aIncludes && bIncludes) return 1;
+                      return 0;
+                    })
+                  : POPULAR_BANKS;
+                return (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {sorted.map(bank => {
+                      const isMatch = q && bank.name.toLowerCase().includes(q);
+                      return (
+                        <button
+                          key={bank.id}
+                          onClick={() => { setBankSearch(''); handleBankSelect(bank); }}
+                          className={`border px-4 py-3 flex flex-row items-center gap-4 rounded-[20px] transition-all duration-200 active:scale-95 group
+                            ${isMatch
+                              ? 'bg-teal-50 border-teal-300 shadow-md'
+                              : 'bg-white border-slate-100 hover:border-teal-200 hover:bg-teal-50/50 hover:shadow-md'}`}
+                        >
+                          <div className="transition-transform group-hover:scale-110 duration-300 flex-shrink-0">
+                            {bank.icon}
+                          </div>
+                          <span className="text-sm font-bold text-slate-700 text-left">{bank.name}</span>
+                          {isMatch && <span className="ml-auto text-[10px] font-black text-teal-600 uppercase tracking-wide">Match</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </motion.div>
           )}
 
@@ -150,26 +193,26 @@ export default function SendMoneyFlow() {
               </div>
 
               <form onSubmit={handleAccountSubmit} className="flex-1 flex flex-col">
-                <div className="relative mb-8">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-500" size={20} />
-                  <input 
-                    type="text" 
+                <div className="flex items-center gap-3 mb-8 px-4 py-4 bg-white border-2 border-slate-200 rounded-2xl focus-within:border-teal-500 focus-within:ring-4 focus-within:ring-teal-500/10 transition-all">
+                  <User className="text-teal-500 flex-shrink-0" size={20} />
+                  <input
+                    type="text"
                     autoFocus
-                    placeholder="PK35 SADA 0000 0000 0000" 
+                    placeholder="PK35 SADA 0000 0000 0000"
                     value={formData.accountNumber}
                     onChange={e => set('accountNumber', e.target.value)}
-                    className="w-full pl-12 pr-4 py-5 bg-white border-2 border-slate-200 rounded-2xl text-lg font-bold font-mono text-slate-800 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all uppercase" 
-                    required 
+                    className="flex-1 bg-transparent border-none text-lg font-bold font-mono text-slate-800 outline-none uppercase placeholder:text-slate-300"
+                    required
                   />
                 </div>
                 
                 <div className="mt-auto">
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     disabled={formData.accountNumber.length < 8 || status === 'checking'}
-                    className="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 disabled:bg-slate-200 disabled:text-slate-400 transition-colors hover:bg-slate-800 active:scale-95"
+                    className="btn btn-dark btn-full"
                   >
-                    {status === 'checking' ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : 'Continue'}
+                    {status === 'checking' ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : 'Continue →'}
                   </button>
                 </div>
               </form>
@@ -212,16 +255,15 @@ export default function SendMoneyFlow() {
                 </div>
 
                 <div className="mt-auto pb-2">
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     disabled={!formData.amount || formData.amount <= 0 || status === 'paying'}
-                    className="w-full flex items-center justify-center gap-3 text-white font-black py-4 rounded-[20px] text-lg disabled:opacity-50 transition-all hover:-translate-y-1 active:scale-95"
-                    style={{ background: 'linear-gradient(135deg, #12b894, #17e0b5)', boxShadow: '0 10px 25px -5px rgba(23,224,181,0.4)' }}
+                    className="btn btn-primary btn-full"
                   >
                     {status === 'paying' ? (
-                      <span className="w-6 h-6 border-3 border-white/40 border-t-white rounded-full animate-spin-slow" />
+                      <span className="w-4 h-4 border-2 border-black/30 border-t-black/70 rounded-full animate-spin-slow" />
                     ) : (
-                      <><Send size={18} strokeWidth={2.5} /> Send Money</>
+                      <><Send size={15} strokeWidth={2.5} /> Send Money</>
                     )}
                   </button>
                 </div>

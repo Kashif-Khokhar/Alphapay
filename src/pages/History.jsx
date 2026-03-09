@@ -28,7 +28,7 @@ export default function History() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-10">
+      <div className="relative z-10 w-full px-6 py-10">
         {/* Header */}
         <div className="flex flex-wrap items-end justify-between gap-4 mb-8 animate-fade-up">
           <div>
@@ -47,24 +47,23 @@ export default function History() {
           </div>
           <div className="flex gap-3">
             <button onClick={() => navigate('/checkout')}
-              className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-bold text-sm"
-              style={{ background: 'linear-gradient(135deg, #059669, #10b981)', boxShadow: '0 8px 22px rgba(16,185,129,0.3)' }}>
-              <CreditCard size={14} /> New Payment
+              className="btn btn-primary">
+              <CreditCard size={13} /> New Payment
             </button>
             <button onClick={refresh}
-              className="btn-glow flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm text-slate-600 hover:text-emerald-700 bg-white border border-slate-200 shadow-sm transition-colors">
-              <RefreshCw size={14} /> Refresh
+              className="btn btn-outline">
+              <RefreshCw size={13} /> Refresh
             </button>
           </div>
         </div>
 
         {/* Search + Filters */}
         <div className="flex flex-wrap items-center gap-3 mb-6 animate-fade-up animate-delay-100">
-          <div className="relative flex-1 min-w-[200px] max-w-sm">
-            <Search size={13} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+          <div className="flex items-center gap-3 flex-1 min-w-[200px] max-w-sm px-4 py-2.5 bg-white border border-slate-200 rounded-xl shadow-sm focus-within:ring-2 focus-within:ring-emerald-500 transition-all">
+            <Search size={14} className="text-slate-400 flex-shrink-0" />
             <input type="text" placeholder="Search by ID or description…" value={search}
               onChange={e => setSearch(e.target.value)}
-              className="glow-input w-full bg-white border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 outline-none shadow-sm" />
+              className="flex-1 bg-transparent border-none text-sm text-slate-700 placeholder-slate-400 outline-none" />
           </div>
           <div className="flex items-center gap-2">
             <Filter size={13} className="text-slate-400" />

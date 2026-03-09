@@ -1,4 +1,4 @@
-import { CheckCircle, XCircle, Clock, ArrowUpDown, TrendingUp } from 'lucide-react';
+import { CheckCircle, XCircle, Clock, Receipt, TrendingUp } from 'lucide-react';
 
 const STATUS = {
   SUCCESS:    { badgeCls: 'text-emerald-700 bg-emerald-50 border-emerald-200',  dot: 'bg-emerald-500', Icon: CheckCircle },
@@ -7,17 +7,6 @@ const STATUS = {
 };
 
 export default function TransactionTable({ transactions = [] }) {
-  if (!transactions.length) {
-    return (
-      <div className="hover-card bg-white rounded-2xl p-16 text-center animate-fade-up border border-slate-100 shadow-sm">
-        <div className="animate-float w-16 h-16 rounded-full bg-emerald-100 border-2 border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto mb-5">
-          <ArrowUpDown size={28} strokeWidth={1.5} />
-        </div>
-        <h3 className="text-lg font-black text-slate-800 mb-2">No Transactions Found</h3>
-        <p className="text-slate-500 text-sm">Try changing your filters or make your first payment.</p>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden animate-fade-up shadow-sm border border-slate-100">
@@ -42,31 +31,43 @@ export default function TransactionTable({ transactions = [] }) {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((tx) => {
-              const cfg = STATUS[tx.status] || STATUS.PROCESSING;
-              const { Icon } = cfg;
-              return (
-                <tr key={tx.transactionId} className="tx-row border-b border-slate-50 last:border-0">
-                  <td className="px-5 py-4">
-                    <div className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
-                      <span className="badge-pop font-mono text-[11px] text-emerald-700 font-bold cursor-default">{tx.transactionId}</span>
-                    </div>
-                  </td>
-                  <td className="px-5 py-4 text-slate-600 max-w-[160px] truncate text-xs">{tx.description || 'University Fee'}</td>
-                  <td className="px-5 py-4 font-mono text-[11px] text-slate-400">{tx.cardNumber}</td>
-                  <td className="px-5 py-4"><span className="font-black text-slate-800 text-sm">PKR {parseFloat(tx.amount).toLocaleString()}</span></td>
-                  <td className="px-5 py-4">
-                    <span className={`badge-pop inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-black border cursor-default ${cfg.badgeCls}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
-                      <Icon size={10} strokeWidth={2.5} />
-                      {tx.status}
-                    </span>
-                  </td>
-                  <td className="px-5 py-4 text-slate-400 text-[11px] whitespace-nowrap font-mono">{tx.date}</td>
-                </tr>
-              );
-            })}
+            {transactions.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="py-16 text-center">
+                  <div className="w-16 h-16 rounded-full bg-teal-50 border-2 border-teal-200 flex items-center justify-center text-teal-500 mx-auto mb-5">
+                    <Receipt size={28} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-black text-slate-800 mb-2">No Transactions Found</h3>
+                  <p className="text-slate-500 text-sm">Try changing your filters or make your first payment.</p>
+                </td>
+              </tr>
+            ) : (
+              transactions.map((tx) => {
+                const cfg = STATUS[tx.status] || STATUS.PROCESSING;
+                const { Icon } = cfg;
+                return (
+                  <tr key={tx.transactionId} className="tx-row border-b border-slate-50 last:border-0">
+                    <td className="px-5 py-4">
+                      <div className="flex items-center gap-2">
+                        <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
+                        <span className="badge-pop font-mono text-[11px] text-emerald-700 font-bold cursor-default">{tx.transactionId}</span>
+                      </div>
+                    </td>
+                    <td className="px-5 py-4 text-slate-600 max-w-[160px] truncate text-xs">{tx.description || 'University Fee'}</td>
+                    <td className="px-5 py-4 font-mono text-[11px] text-slate-400">{tx.cardNumber}</td>
+                    <td className="px-5 py-4"><span className="font-black text-slate-800 text-sm">PKR {parseFloat(tx.amount).toLocaleString()}</span></td>
+                    <td className="px-5 py-4">
+                      <span className={`badge-pop inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-black border cursor-default ${cfg.badgeCls}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
+                        <Icon size={10} strokeWidth={2.5} />
+                        {tx.status}
+                      </span>
+                    </td>
+                    <td className="px-5 py-4 text-slate-400 text-[11px] whitespace-nowrap font-mono">{tx.date}</td>
+                  </tr>
+                );
+              })
+            )}
           </tbody>
         </table>
       </div>

@@ -212,15 +212,11 @@ export default function Login() {
 
               {/* Submit */}
               <button type="submit" disabled={loading}
-                className="btn-glow group w-full flex items-center justify-center gap-2.5 text-white font-bold py-4 rounded-2xl text-sm mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
-                style={{
-                  background: 'linear-gradient(135deg, #059669, #10b981, #0d9488)',
-                  boxShadow: loading ? 'none' : '0 10px 28px rgba(16,185,129,0.35)',
-                }}>
+                className="btn btn-primary btn-full mt-1">
                 {loading ? (
-                  <><span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin-slow" />Signing in…</>
+                  <><span className="w-4 h-4 border-2 border-black/30 border-t-black/80 rounded-full animate-spin-slow" />Signing in…</>
                 ) : (
-                  <>Sign In <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" /></>
+                  <>Sign In <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" /></>
                 )}
               </button>
             </form>

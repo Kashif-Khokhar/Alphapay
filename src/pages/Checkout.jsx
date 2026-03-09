@@ -4,7 +4,7 @@ import SendMoneyFlow from '../components/SendMoneyFlow';
 export default function Checkout() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-10 pb-24">
+      <div className="relative z-10 w-full px-6 py-10 pb-24">
         {/* Header */}
         <div className="mb-9 animate-fade-up">
           <div className="flex items-center gap-2 mb-3">

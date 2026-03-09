@@ -89,11 +89,8 @@ export default function AddMoney() {
                 ))}
               </div>
 
-              <button 
-                type="submit"
-                className="w-full bg-secondary text-primary font-black py-4 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-slate-200 hover:scale-[1.02] active:scale-[0.98] transition-all mt-4"
-              >
-                Add PKR {amount || '0'} <Plus size={18} />
+              <button type="submit" className="btn btn-dark btn-full mt-4">
+                <Plus size={15} /> Add PKR {amount || '0'}
               </button>
             </form>
           )}

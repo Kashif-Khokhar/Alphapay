@@ -746,3 +746,106 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+/* ─── Global Button System ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(.34, 1.56, .64, 1), box-shadow 0.2s ease, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  opacity: 0;
+  transition: left 0.55s ease, opacity 0.2s;
+}
+
+.btn:not(:disabled):hover::after {
+  opacity: 1;
+  left: 125%;
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Primary — teal gradient */
+.btn-primary {
+  background: linear-gradient(135deg, #17e0b5 0%, #10b981 100%);
+  color: #0f172a;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:not(:disabled):hover {
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.42);
+}
+
+/* Dark — slate */
+.btn-dark {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+.btn-dark:not(:disabled):hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.30);
+}
+
+/* Outline ghost */
+.btn-outline {
+  background: transparent;
+  color: #475569;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn-outline:not(:disabled):hover {
+  border-color: #17e0b5;
+  color: #0f766e;
+  background: rgba(16, 185, 129, 0.06);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+/* Danger */
+.btn-danger {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+}
+
+.btn-danger:not(:disabled):hover {
+  box-shadow: 0 8px 22px rgba(244, 63, 94, 0.42);
+}
+
+/* Full width variant */
+.btn-full {
+  width: 100%;
+}

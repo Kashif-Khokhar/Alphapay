@@ -41,12 +41,12 @@ export default function PayBills() {
         <div className="bg-white rounded-[32px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
           {!selectedCategory ? (
             <div className="space-y-6">
-              <div className="relative mb-8">
-                <Search size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input 
-                  type="text" 
+              <div className="flex items-center gap-3 mb-8 px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus-within:ring-2 focus-within:ring-teal-500 transition-all">
+                <Search size={17} className="text-slate-400 flex-shrink-0" />
+                <input
+                  type="text"
                   placeholder="Search biller..."
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-14 pr-5 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
+                  className="flex-1 bg-transparent border-none text-sm font-bold text-secondary outline-none placeholder:text-slate-400"
                 />
               </div>
 
@@ -114,11 +114,11 @@ export default function PayBills() {
                   <p className="text-2xl font-black tracking-tighter">PKR 4,500.00</p>
                 </div>
 
-                <button 
+                <button
                   type="submit"
-                  className="w-full bg-primary text-secondary font-black py-4 rounded-2xl shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="btn btn-primary btn-full"
                 >
-                  Confirm & Pay Now
+                  Confirm &amp; Pay Now
                 </button>
               </form>
             </div>

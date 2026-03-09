@@ -171,10 +171,8 @@ export default function Support() {
                     onChange={e => set('message', e.target.value)}
                     className="glow-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none resize-none" />
                 </div>
-                <button type="submit"
-                  className="btn-glow w-full flex items-center justify-center gap-2.5 text-white font-bold py-3.5 rounded-xl text-sm mt-1"
-                  style={{ background: 'linear-gradient(135deg, #e11d48, #f59e0b)', boxShadow: '0 10px 24px rgba(225,29,72,0.25)' }}>
-                  <Send size={14} /> Send Message <Sparkles size={12} className="opacity-70" />
+                <button type="submit" className="btn btn-primary btn-full mt-1">
+                  <Send size={13} /> Send Message <Sparkles size={11} className="opacity-70" />
                 </button>
                 <p className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 mt-1">
                   <AlertCircle size={10} /> Demo mode — messages are not actually sent
