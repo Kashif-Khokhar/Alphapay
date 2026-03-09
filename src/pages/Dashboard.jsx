@@ -47,18 +47,18 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen pb-32 px-4 sm:px-6" style={{ paddingTop: '140px' }}>
+    <div className="min-h-screen pb-32 px-4 sm:px-6" style={{ paddingTop: '100px' }}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-6xl mx-auto space-y-12"
+        className="max-w-6xl mx-auto space-y-8 sm:space-y-12"
       >
         
         {/* Header Section */}
         <motion.div variants={itemVariants} className="flex justify-between items-end">
           <div>
-            <h1 className="text-3xl font-black text-secondary tracking-tighter">
+            <h1 className="text-2xl sm:text-3xl font-black text-secondary tracking-tighter">
               Hello, {user?.name?.split(' ')[0]} 👋
             </h1>
           </div>
@@ -102,7 +102,7 @@ export default function Dashboard() {
         <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div className="md:col-span-6">
              {/* Large Balance Display */}
-             <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 h-full flex flex-col justify-center relative overflow-hidden group">
+             <div className="bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-slate-100 h-full flex flex-col justify-center relative group">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-teal-50 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-700" />
                 <div className="relative z-10">
                   <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-3">Total Balance</p>

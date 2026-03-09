@@ -34,15 +34,15 @@ export default function Support() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-10 pb-16">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-16">
         {/* Header */}
         <div className="mb-10 animate-fade-up">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-rose-500 live-dot" />
             <p className="text-xs font-bold uppercase tracking-widest text-rose-600">Help Center</p>
           </div>
-          <h1 className="text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
+          <h1 className="text-2xl sm:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             <div className="w-11 h-11 rounded-xl bg-rose-100 flex items-center justify-center">
               <LifeBuoy size={20} className="text-rose-600" strokeWidth={2} />

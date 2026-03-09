@@ -40,45 +40,45 @@ export default function Reports() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-10 pb-16">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-32">
         {/* Header */}
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-10 animate-fade-up">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 animate-fade-up">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-teal-500 live-dot" />
               <p className="text-xs font-bold uppercase tracking-widest text-teal-600">Analytics</p>
             </div>
-            <h1 className="text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
+            <h1 className="text-2xl sm:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              <div className="w-11 h-11 rounded-xl bg-teal-100 flex items-center justify-center">
-                <BarChart2 size={20} className="text-teal-600" strokeWidth={2} />
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-teal-100 flex items-center justify-center shrink-0">
+                <BarChart2 size={18} className="text-teal-600" strokeWidth={2} />
               </div>
               Payment Analytics
             </h1>
-            <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">
+            <p className="text-slate-500 text-sm mt-2">
               {user?.name} · <span className="text-teal-600 font-semibold font-mono">{user?.studentId}</span>
             </p>
           </div>
           <button onClick={() => navigate('/checkout')}
-            className="btn-glow flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm text-white"
+            className="btn-glow flex items-center justify-center gap-2.5 w-full sm:w-auto px-6 py-3 rounded-2xl font-bold text-sm text-white shrink-0"
             style={{ background: 'linear-gradient(135deg, #059669, #10b981)', boxShadow: '0 10px 24px rgba(16,185,129,0.3)' }}>
-            <CreditCard size={16} /> Make Payment <ArrowRight size={14} />
+            <CreditCard size={15} /> Make Payment <ArrowRight size={13} />
           </button>
         </div>
 
         {/* Stat Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
           {statCards.map(({ label, value, Icon, bg, text, border }, i) => (
             <div key={label}
-              className={`stat-card card-shine bg-white border border-l-4 ${border} rounded-2xl p-5 flex flex-col gap-3 cursor-default shadow-sm
+              className={`stat-card card-shine bg-white border border-l-4 ${border} rounded-2xl p-3 sm:p-5 flex flex-col gap-2 sm:gap-3 cursor-default shadow-sm
                 animate-fade-up animate-delay-${(i + 1) * 100}`}>
-              <div className={`stat-icon w-11 h-11 rounded-xl ${bg} ${text} flex items-center justify-center`}>
-                <Icon size={20} strokeWidth={1.8} />
+              <div className={`stat-icon w-9 h-9 sm:w-11 sm:h-11 rounded-xl ${bg} ${text} flex items-center justify-center`}>
+                <Icon size={17} strokeWidth={1.8} />
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{label}</p>
-                <p className="text-xl font-black text-slate-800 leading-tight">{value}</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{label}</p>
+                <p className="text-base sm:text-xl font-black text-slate-800 leading-tight break-all">{value}</p>
               </div>
             </div>
           ))}

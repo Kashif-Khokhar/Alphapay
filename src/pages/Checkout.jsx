@@ -3,22 +3,22 @@ import SendMoneyFlow from '../components/SendMoneyFlow';
 
 export default function Checkout() {
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '140px' }}>
-      <div className="relative z-10 w-full px-6 py-10 pb-24">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
+      <div className="relative z-10 w-full px-4 sm:px-6 py-8 pb-24">
         {/* Header */}
-        <div className="mb-9 animate-fade-up">
+        <div className="mb-8 animate-fade-up">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2 h-2 rounded-full bg-teal-500 live-dot" />
             <p className="text-xs font-bold uppercase tracking-widest text-teal-600">AlphaPay Transfer</p>
           </div>
-          <h1 className="text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
+          <h1 className="text-2xl sm:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-teal-100">
-              <Send size={20} className="text-teal-600 ml-1" strokeWidth={2.5} />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center bg-teal-100 shrink-0">
+              <Send size={18} className="text-teal-600 ml-0.5" strokeWidth={2.5} />
             </div>
             Send Money
           </h1>
-          <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">Instantly transfer funds to any bank account in Pakistan.</p>
+          <p className="text-slate-500 text-sm mt-2">Instantly transfer funds to any bank account in Pakistan.</p>
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-8 items-start">
@@ -26,10 +26,10 @@ export default function Checkout() {
             <SendMoneyFlow />
           </div>
 
-          {/* Sidebar */}
-          <div className="flex flex-col gap-4 animate-slide-right">
+          {/* Sidebar — hidden on mobile */}
+          <div className="hidden xl:flex flex-col gap-4 animate-slide-right">
             {/* Recent Payees */}
-            <div className="sidebar-card bg-white rounded-2xl p-5 border border-slate-100 shadow-sm relative overflow-hidden">
+            <div className="sidebar-card bg-white rounded-2xl p-5 border border-slate-100 shadow-sm relative">
               <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-3xl -mr-10 -mt-10" />
               <div className="flex items-center justify-between mb-4 relative z-10">
                 <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">

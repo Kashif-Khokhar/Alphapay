@@ -21,7 +21,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen pb-32 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '140px' }}>
+    <div className="min-h-screen pb-32 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -60,7 +60,7 @@ export default function Profile() {
                </div>
             </div>
 
-            <div className="bg-slate-900 rounded-[32px] p-6 text-white overflow-hidden relative group cursor-default">
+            <div className="bg-slate-900 rounded-[32px] p-6 text-white relative group cursor-default">
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary rounded-full blur-[80px] -mr-16 -mt-16 opacity-20 group-hover:scale-125 transition-transform duration-700" />
                <div className="relative z-10">
                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Total Savings</p>

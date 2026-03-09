@@ -86,7 +86,7 @@ export default function SendMoneyFlow() {
   }
 
   return (
-    <div className="w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100 relative min-h-[500px] flex flex-col">
+    <div className="w-full bg-white rounded-3xl shadow-2xl border border-slate-100 relative min-h-[500px] flex flex-col">
       
       {/* Header / Back Button */}
       <div className="p-6 border-b border-slate-50 flex items-center justify-between pb-4">

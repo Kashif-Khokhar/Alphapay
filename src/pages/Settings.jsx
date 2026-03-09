@@ -73,7 +73,7 @@ export default function Settings() {
   const groups = activeTab === 'Account' ? accountGroups : privacyGroups;
 
   return (
-    <div className="min-h-screen pb-32 px-4 sm:px-6 flex flex-col items-center" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '140px' }}>
+    <div className="min-h-screen pb-32 px-4 sm:px-6 flex flex-col items-center" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function Settings() {
           <h1 className="text-3xl font-black text-secondary tracking-tighter">Settings</h1>
         </div>
 
-        <div className="bg-white rounded-[40px] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100">
+        <div className="bg-white rounded-[40px] shadow-2xl shadow-slate-200/50 border border-slate-100">
            {/* Tabs */}
            <div className="flex p-2 bg-slate-50/50 border-b border-slate-100">
               {['Account', 'Wallet', 'Privacy'].map(tab => (

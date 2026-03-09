@@ -78,8 +78,9 @@ export default function VirtualCard({
       style={{
         transformStyle: "preserve-3d",
         transform,
+        aspectRatio: '0.636',
       }}
-      className="relative w-[280px] h-[440px] rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-300 group"
+      className="relative w-full max-w-[280px] rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-300 group"
     >
       {/* Dynamic Background Gradient (Midnight Teal Theme) */}
       <div 

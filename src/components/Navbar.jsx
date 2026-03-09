@@ -96,35 +96,28 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Bottom Nav (Floating Dock) */}
-      <nav className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm bg-white/80 backdrop-blur-[24px] saturate-[180%] rounded-[3rem] h-20 shadow-[0_12px_40px_-12px_rgba(23,224,181,0.25)] flex items-center justify-around px-2 border border-white/60 z-50">
+      <nav className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[94%] max-w-sm bg-white/90 backdrop-blur-[24px] saturate-[180%] rounded-[2rem] h-[68px] shadow-[0_12px_40px_-12px_rgba(23,224,181,0.3)] flex items-end justify-around px-3 pb-2 border border-white/60 z-50">
         {NAV_LINKS.map(({ to, icon: Icon, label }) => {
           const active = location.pathname === to;
           return (
-            <Link key={to} to={to} className="relative flex-1 flex flex-col items-center justify-center h-full group">
+            <Link key={to} to={to} className="relative flex-1 flex flex-col items-center justify-end gap-0.5 pb-0.5 h-full group">
               <div 
-                className={`relative flex items-center justify-center w-12 h-12 rounded-[1.25rem] transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                className={`relative flex items-center justify-center w-11 h-9 rounded-2xl transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
                   active 
-                    ? 'bg-secondary text-primary shadow-lg -translate-y-5 shadow-secondary/20' 
+                    ? 'bg-secondary text-primary shadow-md -translate-y-3' 
                     : 'text-slate-400 group-active:scale-90 hover:text-slate-600'
                 }`}
               >
-                <Icon size={22} strokeWidth={active ? 2.5 : 2} />
+                <Icon size={20} strokeWidth={active ? 2.5 : 2} />
               </div>
               
               <span 
-                className={`absolute bottom-2 text-[10px] font-black uppercase tracking-widest transition-all duration-400 ${
-                  active 
-                    ? 'text-secondary opacity-100 translate-y-0' 
-                    : 'text-slate-400 opacity-0 translate-y-2'
+                className={`text-[9px] font-black uppercase tracking-widest transition-colors duration-300 ${
+                  active ? 'text-secondary' : 'text-slate-400'
                 }`}
               >
                 {label}
               </span>
-
-              {/* Dot indicator for inactive state */}
-              {!active && (
-                <span className="absolute bottom-3 w-1 h-1 rounded-full bg-slate-300 transition-opacity duration-300 opacity-100 group-hover:opacity-0" />
-              )}
             </Link>
           );
         })}

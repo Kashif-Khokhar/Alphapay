@@ -9,7 +9,7 @@ const STATUS = {
 export default function TransactionTable({ transactions = [] }) {
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden animate-fade-up shadow-sm border border-slate-100">
+    <div className="bg-white rounded-2xl animate-fade-up shadow-sm border border-slate-100">
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
