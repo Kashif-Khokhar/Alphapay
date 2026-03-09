@@ -124,6 +124,9 @@ export default function PayBills() {
             </div>
           )}
         </div>
+        
+        {/* Mobile Spacer to clear the bottom dock */}
+        <div className="h-40 md:hidden" />
       </motion.div>
     </div>
   );

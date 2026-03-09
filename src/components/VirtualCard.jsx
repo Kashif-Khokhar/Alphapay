@@ -78,9 +78,9 @@ export default function VirtualCard({
       style={{
         transformStyle: "preserve-3d",
         transform,
-        aspectRatio: '0.636',
+        aspectRatio: '1.585',
       }}
-      className="relative w-full max-w-[280px] rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-300 group"
+      className="relative w-full max-w-[440px] rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-300 group"
     >
       {/* Dynamic Background Gradient (Midnight Teal Theme) */}
       <div 
@@ -104,7 +104,7 @@ export default function VirtualCard({
 
       {/* Card Content - elevated in 3D */}
       <div 
-        className="absolute inset-[40px] flex flex-col justify-between"
+        className="absolute inset-6 sm:inset-[40px] flex flex-col justify-between"
         style={{ transform: "translateZ(50px)" }}
       >
         {/* Top Header */}

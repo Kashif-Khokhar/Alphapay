@@ -89,9 +89,13 @@ export default function History() {
           </p>
         )}
 
+
         <div className="animate-fade-up animate-delay-200">
           <TransactionTable transactions={filtered} />
         </div>
+
+        {/* Mobile Spacer to clear the bottom dock */}
+        <div className="h-40 md:hidden" />
       </div>
     </div>
   );

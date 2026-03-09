@@ -203,16 +203,16 @@ export default function Settings() {
              </div>
            )}
 
-           <div className="bg-rose-50 p-8 flex flex-col items-center">
-              <p className="text-xs font-black text-rose-600 uppercase tracking-widest mb-4">Danger Zone</p>
-              <button className="w-full bg-white text-rose-500 font-black py-4 rounded-2xl shadow-sm border border-rose-100 hover:bg-rose-500 hover:text-white transition-all">
-                Delete Account
-              </button>
-           </div>
-        </div>
-      </motion.div>
+            <div className="bg-rose-50 p-8 flex flex-col items-center">
+               <p className="text-xs font-black text-rose-600 uppercase tracking-widest mb-4">Danger Zone</p>
+               <button className="w-full bg-white text-rose-500 font-black py-4 rounded-2xl shadow-sm border border-rose-100 hover:bg-rose-500 hover:text-white transition-all">
+                 Delete Account
+               </button>
+            </div>
+         </div>
+         {/* Mobile Spacer to clear the bottom dock */}
+         <div className="h-40 md:hidden" />
+       </motion.div>
     </div>
   );
 }
-
-

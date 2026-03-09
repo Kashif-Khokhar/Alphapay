@@ -29,7 +29,7 @@ export default function Cards() {
         <div className="flex flex-col md:flex-row gap-8 items-start justify-center">
           
           {/* Card Presentation */}
-          <div className="animate-slide-up w-full flex justify-center md:block md:w-auto">
+          <div className="animate-slide-up w-full flex justify-center md:block md:w-[450px] shrink-0">
              <VirtualCard 
                 holderName={user?.name || "KASHIF ALI"} 
                 fullNumber={user?.cardNumber}
@@ -111,6 +111,9 @@ export default function Cards() {
 
           </div>
         </div>
+
+        {/* Mobile Spacer to clear the bottom dock */}
+        <div className="h-40 md:hidden" />
 
       </div>
 

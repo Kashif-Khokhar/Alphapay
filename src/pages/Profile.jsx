@@ -137,7 +137,10 @@ export default function Profile() {
                 </div>
              </div>
           </motion.div>
+
         </div>
+        {/* Mobile Spacer to clear the bottom dock */}
+        <div className="h-40 md:hidden" />
       </motion.div>
     </div>
   );

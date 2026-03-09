@@ -186,6 +186,9 @@ export default function Reports() {
             </button>
           ))}
         </div>
+        
+        {/* Mobile Spacer to clear the bottom dock */}
+        <div className="h-40 md:hidden" />
       </div>
     </div>
   );

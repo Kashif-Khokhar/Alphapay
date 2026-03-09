@@ -98,6 +98,9 @@ export default function RequestMoney() {
             </form>
           )}
         </div>
+        
+        {/* Mobile Spacer to clear the bottom dock */}
+        <div className="h-40 md:hidden" />
       </motion.div>
     </div>
   );
