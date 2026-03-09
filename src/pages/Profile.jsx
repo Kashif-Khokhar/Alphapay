@@ -128,10 +128,16 @@ export default function Profile() {
                 </div>
 
                 <div className="mt-8 flex gap-4">
-                  <button className="flex-1 bg-slate-900 text-white font-black py-4 rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                  <button onClick={() => navigate('/settings')} className="flex-1 bg-slate-900 text-white font-black py-4 rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98]">
                     Edit Profile
                   </button>
-                  <button className="flex-1 bg-slate-50 text-slate-400 font-black py-4 rounded-2xl hover:bg-slate-100 hover:text-secondary transition-all">
+                  <button 
+                    onClick={() => {
+                      localStorage.removeItem('uniPay_user');
+                      window.location.reload();
+                    }}
+                    className="flex-1 bg-slate-50 text-slate-400 font-black py-4 rounded-2xl hover:bg-slate-100 hover:text-secondary transition-all"
+                  >
                     Reset Data
                   </button>
                 </div>

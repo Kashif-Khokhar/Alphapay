@@ -7,7 +7,6 @@ import {
   ChevronRight, Wallet, TrendingUp
 } from 'lucide-react';
 import { getCurrentUser, getTransactions, logoutUser } from '../services/api';
-import { User, Settings } from 'lucide-react';
 
 function AnimatedBalance({ value }) {
   return (
@@ -66,43 +65,11 @@ export default function Dashboard() {
         className="max-w-6xl mx-auto space-y-8 sm:space-y-12"
       >
         
-        {/* Header Section */}
         <motion.div variants={itemVariants} className="flex justify-between items-end">
           <div>
             <h1 className="text-2xl sm:text-3xl font-black text-secondary tracking-tighter">
               Hello, {user?.name?.split(' ')[0]} 👋
             </h1>
-          </div>
-          <div className="relative menu-container">
-            <div 
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveMenu(activeMenu === 'header' ? null : 'header');
-              }}
-              className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-secondary border border-white/40 shadow-xl cursor-pointer hover:scale-105 active:scale-95 transition-all"
-            >
-              <MoreHorizontal size={20} />
-            </div>
-            
-            {/* Header Menu List */}
-            <div className={`absolute top-full right-0 mt-3 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white transition-all duration-200 transform p-2 z-50 overflow-hidden ${
-              activeMenu === 'header' 
-                ? 'opacity-100 translate-y-0 pointer-events-auto' 
-                : 'opacity-0 translate-y-3 pointer-events-none'
-            }`}>
-               <button onClick={() => navigate('/profile')} className="w-full text-left px-4 py-3.5 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
-                    <User size={18} strokeWidth={2.5} />
-                  </div>
-                  Profile
-               </button>
-               <button onClick={() => navigate('/settings')} className="w-full text-left px-4 py-3.5 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4 mt-0.5">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
-                    <Settings size={18} strokeWidth={2.5} />
-                  </div>
-                  Settings
-               </button>
-            </div>
           </div>
         </motion.div>
 

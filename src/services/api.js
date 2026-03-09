@@ -114,6 +114,13 @@ export const getCurrentUser = () => {
     const data = localStorage.getItem('uniPay_user');
     if (data) {
       const user = JSON.parse(data);
+
+      // FORCE RESET if it's the old default "rohaan" account
+      if (user.name === 'rohaan12@gmail.com') {
+        localStorage.removeItem('uniPay_user');
+        return getCurrentUser(); // Re-run to get the new default
+      }
+
       // Ensure existing users get card details if they don't have them
       if (!user.cardNumber) {
         const cardDetails = generateCardDetails();
@@ -129,10 +136,10 @@ export const getCurrentUser = () => {
   // Default fallback user when login is bypassed
   const cardDetails = generateCardDetails();
   const defaultUser = {
-    name: 'rohaan12@gmail.com',
-    email: 'rohaan12@gmail.com',
-    studentId: 'STU-6838',
-    balance: 1679.07,
+    name: 'Kashif',
+    email: 'kashif@alphapay.edu',
+    studentId: 'STU-1204',
+    balance: 14500.00,
     ...cardDetails
   };
   localStorage.setItem('uniPay_user', JSON.stringify(defaultUser));

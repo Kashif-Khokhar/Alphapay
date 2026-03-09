@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -15,6 +16,17 @@ export default function Navbar() {
   const navigate  = useNavigate();
   const location  = useLocation();
   const user      = getCurrentUser();
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.profile-menu-container')) {
+        setShowProfileMenu(false);
+      }
+    };
+    window.addEventListener('click', handleClickOutside);
+    return () => window.removeEventListener('click', handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -63,19 +75,29 @@ export default function Navbar() {
               <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
             </button>
             
-            <div className="group relative">
-              <div className="w-[42px] h-[42px] rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-lg shadow-[0_4px_12px_rgba(13,18,84,0.15)] cursor-pointer hover:scale-105 transition-all outline outline-2 outline-white outline-offset-[3px]">
+            <div className="relative profile-menu-container">
+              <div 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowProfileMenu(!showProfileMenu);
+                }}
+                className={`w-[42px] h-[42px] rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-lg shadow-[0_4px_12px_rgba(13,18,84,0.15)] cursor-pointer hover:scale-105 transition-all outline outline-2 outline-white outline-offset-[3px] ${showProfileMenu ? 'ring-2 ring-primary/30' : ''}`}
+              >
                 {user?.name?.charAt(0) || 'K'}
               </div>
               
-              <div className="absolute top-[120%] right-0 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 z-[60] origin-top-right scale-95 group-hover:scale-100 overflow-hidden">
-                 <button onClick={() => navigate('/profile')} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
+              <div className={`absolute top-[120%] right-0 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white p-2 z-[60] origin-top-right transition-all duration-300 transform ${
+                showProfileMenu 
+                  ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
+                  : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
+              } overflow-hidden`}>
+                 <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
                       <User size={18} strokeWidth={2.5} />
                     </div>
                     Profile
                  </button>
-                 <button onClick={() => navigate('/settings')} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4 mt-0.5">
+                 <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4 mt-0.5">
                     <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
                       <Settings size={18} strokeWidth={2.5} />
                     </div>
@@ -113,6 +135,38 @@ export default function Navbar() {
             </Link>
           );
         })}
+
+        {/* Mobile Profile Trigger */}
+        <div className="relative flex-1 flex flex-col items-center justify-end gap-0.5 pb-0.5 h-full profile-menu-container">
+           <div 
+             onClick={(e) => {
+               e.stopPropagation();
+               setShowProfileMenu(!showProfileMenu);
+             }}
+             className={`relative flex items-center justify-center w-11 h-9 rounded-2xl transition-all duration-300 ${
+               showProfileMenu 
+                 ? 'bg-secondary text-primary shadow-md -translate-y-3 scale-110' 
+                 : 'text-slate-400'
+             }`}
+           >
+             <User size={20} strokeWidth={showProfileMenu ? 2.5 : 2} />
+           </div>
+           <span className={`text-[9px] font-black uppercase tracking-widest ${showProfileMenu ? 'text-secondary' : 'text-slate-400'}`}>Me</span>
+
+           {/* Mobile Profile Menu */}
+           <div className={`absolute bottom-[110%] right-0 w-48 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.15)] border border-white p-2 transition-all duration-300 transform origin-bottom-right ${
+             showProfileMenu 
+               ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
+               : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
+           }`}>
+              <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-slate-50 rounded-xl flex items-center gap-3">
+                 <User size={16} /> Profile
+              </button>
+              <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-slate-50 rounded-xl flex items-center gap-3 mt-0.5">
+                 <Settings size={16} /> Settings
+              </button>
+           </div>
+        </div>
       </nav>
     </>
   );
