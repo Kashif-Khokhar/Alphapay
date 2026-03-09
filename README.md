@@ -6,10 +6,10 @@
 <img src="https://img.shields.io/badge/Framer_Motion-12-EF0082?style=for-the-badge&logo=framer&logoColor=white" />
 <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 
-# ⚡ AlphaPay — University Payment Portal
+# ⚡ AlphaPay — Next-Gen University Payment Portal
 
-**A premium, fully-simulated university fee payment portal built with React + Vite.**  
-Beautiful light-theme UI with glassmorphism, animated 3D payment card, real-time analytics, and cinematic micro-interactions.
+**A premium, mobile-first simulated university fee payment portal built with React + Vite.**  
+Experience a stunning light-theme UI with glassmorphism, animated 3D payment cards, real-time analytics, and cinematic micro-interactions designed for the ultimate mobile experience.
 
 </div>
 
@@ -17,32 +17,27 @@ Beautiful light-theme UI with glassmorphism, animated 3D payment card, real-time
 
 ## ✨ Features
 
-- 🔐 **Simulated Login** — Demo mode, any credentials work
-- 💳 **Virtual Cards Management** — View, freeze, and interact with multiple dynamic 3D cards
-- 💸 **Send/Receive Money** — Polished peer-to-peer transfer flow and request money functionality
-- ⚡ **Bill Payments** — Categorized bill payment simulation (Electricity, Mobile, Gas, etc.)
-- 💰 **Add Funds** — Simulated top-up flow for the AlphaPay wallet
-- 💳 **3D Interactive Credit Card** — Flip animation, EMV chip, real-time preview
-- 📊 **Payment Analytics** — Success rate, total spent, animated progress bars
-- 📋 **Transaction History** — Live search, filter by status, paginated table
-- 👤 **User Profile** — View and manage account details
-- ⚙️ **Settings** — App preferences and configuration
-- 🆘 **Help & Support** — Accordion FAQ, contact cards, contact form
-- 🎨 **Premium Light UI** — White glassmorphism cards, emerald/amber accents, micro-animations
-- 📱 **Fully Responsive** — Works seamlessly on desktop, tablet, and mobile
+- 📱 **Mobile-First Design** — Seamless experience on all devices with a custom floating navigation dock for mobile.
+- 💳 **3D Interactive Virtual Cards** — Flip animation, EMV chip, and real-time preview. Now with fluid, responsive sizing.
+- 💸 **Send & Receive Money** — Polished peer-to-peer transfer flow and request money functionality.
+- 📊 **Payment Analytics** — Real-time insights into spending, success rates, and monthly plans with animated charts.
+- 📋 **Transaction HISTORY** — Advanced filtering, search, and responsive mobile card views.
+- 🆘 **Intelligent FAQ** — Smart help center with accordion sections and interactive contact forms.
+- 🎨 **Cinematic UI/UX** — White glassmorphism, emerald accents, and state-based animations optimized for touch.
+- ⚡ **Demo Efficiency** — Direct dashboard access for instant portal exploration.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Version | Purpose |
-|---|---|---|
-| React | 19 | UI Framework |
-| Vite | 7 | Build Tool / Dev Server |
-| Tailwind CSS | 4 | Utility-first Styling |
-| Framer Motion | 12 | Animations & Transitions |
-| React Router DOM | 7 | Client-side Routing |
-| Lucide React | Latest | Icon Library |
+| Technology | Purpose |
+|---|---|
+| **React 19** | Modern UI Component Framework |
+| **Vite 7** | Ultra-fast Build Tool & Dev Server |
+| **Tailwind CSS 4** | Modern Utility-First Styling |
+| **Framer Motion 12** | Cinematic Animations & Gestures |
+| **React Router 7** | Robust Client-Side Routing |
+| **Lucide React** | Premium Iconography |
 
 ---
 
@@ -66,7 +61,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+The application will be available at [http://localhost:5173](http://localhost:5173).
 
 ---
 
@@ -75,52 +70,34 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 ```
 src/
 ├── components/
-│   ├── Navbar.jsx           # Fixed top navigation bar
-│   ├── PaymentForm.jsx      # 3D card + payment form
-│   ├── SendMoneyFlow.jsx    # Quick transfer component
-│   ├── StatusMessage.jsx    # Payment success/fail screen
-│   ├── TransactionTable.jsx # Transaction list table
-│   └── VirtualCard.jsx      # Animated interactive virtual card
+│   ├── Navbar.jsx           # Responsive Top/Bottom Navigation Dock
+│   ├── VirtualCard.jsx      # Fluid 3D Interactive Card Component
+│   ├── SendMoneyFlow.jsx    # Animated peer-to-peer transfer flow
+│   └── StatusMessage.jsx    # Dynamic payment status screens
 ├── pages/
-│   ├── Login.jsx            # Split-panel login page
-│   ├── Dashboard.jsx        # Stats, quick actions, recent txns
-│   ├── Checkout.jsx         # Secure payment page
-│   ├── Cards.jsx            # Virtual cards management page
-│   ├── History.jsx          # Filtered transaction history
-│   ├── Reports.jsx          # Payment analytics
-│   ├── RequestMoney.jsx     # Money request interface
-│   ├── PayBills.jsx         # Bill payment portal
-│   ├── AddMoney.jsx         # Wallet top-up flow
-│   ├── Profile.jsx          # User profile page
-│   ├── Settings.jsx         # App settings & preferences
-│   └── Support.jsx          # FAQ + contact form
+│   ├── Dashboard.jsx        # Smart stats, quick access & activity
+│   ├── Cards.jsx            # Card management & security portal
+│   ├── Reports.jsx          # Mobile-responsive payment analytics
+│   ├── History.jsx          # Advanced transaction record explorer
+│   └── Profile & Settings   # Account management & preferences
 ├── services/
-│   └── api.js               # Simulated API (no real backend)
-├── App.jsx                  # Routes
-└── index.css                # Global styles & animations
+│   └── api.js               # Simulated State & Mock API Services
+└── index.css                # Custom animations & global design tokens
 ```
 
 ---
 
 ## 📸 Screenshots
 
-> All transactions are **100% simulated** — no real card data is used or stored.
+> **Note**: This is a pure demonstration project. All data is simulated and no real financial transactions take place.
 
-| Login | Dashboard |
+| Mobile Dashboard | 3D Virtual Card |
 |---|---|
-| Split-panel login with particle rain | Stats, quick actions, recent history |
+| Floating dock + Quick access | Flip preview + Responsive scale |
 
-| Checkout | Reports |
+| Payment Analytics | Transaction History |
 |---|---|
-| 3D flip card with EMV chip | Animated progress bars + analytics |
-
-| My Cards | Send Money |
-|---|---|
-| Manage virtual cards with freeze/unfreeze actions | Peer-to-peer quick transfers with animations |
-
-| Profile | Pay Bills |
-|---|---|
-| Account details & avatar | Categorized simulated bill payments |
+| Animated insights cards | Responsive mobile card list |
 
 ---
 
@@ -130,24 +107,18 @@ src/
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
-npm run lint     # Run ESLint
+npm run lint     # Run code quality audit
 ```
-
----
-
-## ⚠️ Disclaimer
-
-This is a **demonstration project** for a university payment portal. All payment functionality is fully simulated. No real financial transactions take place, and no sensitive card data is stored or transmitted.
 
 ---
 
 ## 👤 Author
 
 **Kashif Khokhar**  
-[GitHub](https://github.com/Kashif-Khokhar)
+[GitHub Profile](https://github.com/Kashif-Khokhar)
 
 ---
 
 <div align="center">
-  Made with ❤️ using React + Vite · © 2026
+  Built with ❤️ for High-Performance UI Design · © 2026
 </div>

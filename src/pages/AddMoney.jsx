@@ -20,7 +20,7 @@ export default function AddMoney() {
   };
 
   return (
-    <div className="min-h-screen pb-32 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

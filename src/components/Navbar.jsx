@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CreditCard, History, BarChart2, Bell, LogOut, User, Settings } from 'lucide-react';
+import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { logoutUser, getCurrentUser } from '../services/api';
+import { getCurrentUser } from '../services/api';
 
 const NAV_LINKS = [
   { to: '/dashboard', label: 'Home', icon: LayoutDashboard },
@@ -15,7 +15,6 @@ export default function Navbar() {
   const navigate  = useNavigate();
   const location  = useLocation();
   const user      = getCurrentUser();
-  const handleLogout = () => { logoutUser(); navigate('/login'); };
 
   return (
     <>
@@ -81,14 +80,7 @@ export default function Navbar() {
                       <Settings size={18} strokeWidth={2.5} />
                     </div>
                     Settings
-                 </button>
-                 <div className="h-px bg-slate-50 mx-2 my-2" />
-                 <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-sm font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
-                      <LogOut size={18} strokeWidth={2.5} />
-                    </div>
-                    Logout
-                 </button>
+                  </button>
               </div>
             </div>
           </div>

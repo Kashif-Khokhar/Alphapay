@@ -12,7 +12,7 @@ export default function Cards() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-24">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-40">
         
         {/* Header */}
         <div className="mb-8 animate-fade-up">

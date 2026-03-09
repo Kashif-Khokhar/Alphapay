@@ -7,7 +7,7 @@ import {
   ChevronRight, Wallet, TrendingUp
 } from 'lucide-react';
 import { getCurrentUser, getTransactions, logoutUser } from '../services/api';
-import { User, Settings, LogOut } from 'lucide-react';
+import { User, Settings } from 'lucide-react';
 
 function AnimatedBalance({ value }) {
   return (
@@ -27,8 +27,19 @@ export default function Dashboard() {
   const user = getCurrentUser();
   const [transactions] = useState(() => getTransactions());
   const [mounted, setMounted] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null); // 'header' | 'savings' | null
   
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => { 
+    setMounted(true); 
+    
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.menu-container')) {
+        setActiveMenu(null);
+      }
+    };
+    window.addEventListener('click', handleClickOutside);
+    return () => window.removeEventListener('click', handleClickOutside);
+  }, []);
 
   const recent = transactions.slice(0, 3);
   const totalSpent = transactions.filter(t => t.status === 'SUCCESS').reduce((s, t) => s + parseFloat(t.amount || 0), 0);
@@ -47,7 +58,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen pb-32 px-4 sm:px-6" style={{ paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-6" style={{ paddingTop: '100px' }}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -62,13 +73,23 @@ export default function Dashboard() {
               Hello, {user?.name?.split(' ')[0]} 👋
             </h1>
           </div>
-          <div className="relative group/header-menu">
-            <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-secondary border border-white/40 shadow-xl cursor-pointer hover:scale-105 active:scale-95 transition-all">
+          <div className="relative menu-container">
+            <div 
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveMenu(activeMenu === 'header' ? null : 'header');
+              }}
+              className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-secondary border border-white/40 shadow-xl cursor-pointer hover:scale-105 active:scale-95 transition-all"
+            >
               <MoreHorizontal size={20} />
             </div>
             
             {/* Header Menu List */}
-            <div className="absolute top-full right-0 mt-3 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover/header-menu:opacity-100 pointer-events-none group-hover/header-menu:pointer-events-auto transition-all duration-200 transform translate-y-3 group-hover/header-menu:translate-y-0 p-2 z-50 overflow-hidden">
+            <div className={`absolute top-full right-0 mt-3 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white transition-all duration-200 transform p-2 z-50 overflow-hidden ${
+              activeMenu === 'header' 
+                ? 'opacity-100 translate-y-0 pointer-events-auto' 
+                : 'opacity-0 translate-y-3 pointer-events-none'
+            }`}>
                <button onClick={() => navigate('/profile')} className="w-full text-left px-4 py-3.5 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
                     <User size={18} strokeWidth={2.5} />
@@ -80,19 +101,6 @@ export default function Dashboard() {
                     <Settings size={18} strokeWidth={2.5} />
                   </div>
                   Settings
-               </button>
-               <div className="h-px bg-slate-50 mx-2 my-2" />
-               <button 
-                 onClick={() => {
-                   logoutUser();
-                   navigate('/login');
-                 }} 
-                 className="w-full text-left px-4 py-3.5 text-sm font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-4"
-               >
-                  <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
-                    <LogOut size={18} strokeWidth={2.5} />
-                  </div>
-                  Logout
                </button>
             </div>
           </div>
@@ -146,13 +154,23 @@ export default function Dashboard() {
                   </div>
                   
                   {/* Dropdown Menu Container */}
-                  <div className="relative group/menu">
-                    <button className="w-10 h-10 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.03)] flex items-center justify-center text-slate-800 hover:bg-slate-50 transition-colors">
+                  <div className="relative menu-container">
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveMenu(activeMenu === 'savings' ? null : 'savings');
+                      }}
+                      className="w-10 h-10 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.03)] flex items-center justify-center text-slate-800 hover:bg-slate-50 transition-colors"
+                    >
                       <MoreHorizontal size={20} strokeWidth={3} />
                     </button>
                     
                     {/* The Menu List */}
-                    <div className="absolute top-full right-0 mt-3 w-40 bg-white/95 backdrop-blur-xl rounded-[20px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white opacity-0 group-hover/menu:opacity-100 pointer-events-none group-hover/menu:pointer-events-auto transition-all duration-200 transform translate-y-3 group-hover/menu:translate-y-0 p-2 z-50">
+                    <div className={`absolute top-full right-0 mt-3 w-40 bg-white/95 backdrop-blur-xl rounded-[20px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white transition-all duration-200 transform p-2 z-50 ${
+                      activeMenu === 'savings'
+                        ? 'opacity-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 translate-y-3 pointer-events-none'
+                    }`}>
                        <button onClick={() => navigate('/history')} className="w-full text-left px-3 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-xl transition-colors">
                           View Details
                        </button>
