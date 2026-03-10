@@ -64,20 +64,20 @@ export default function StatusMessage({ transaction, onRetry }) {
   ];
 
   return (
-    <div className="hover-card holo-card bg-white w-full max-w-lg mx-auto rounded-2xl p-8 flex flex-col items-center gap-6 animate-scale-in shadow-xl border border-slate-100"
-      style={{ boxShadow: cfg.glow }}>
+    <div className="w-full max-w-lg mx-auto p-8 pt-12 flex flex-col items-center gap-6 animate-scale-in"
+      style={{ boxShadow: 'none' }}>
 
       {/* Status icon */}
       <div className="relative">
         <div className={`absolute inset-[-12px] rounded-full animate-pulse-glow opacity-30 ${cfg.ringBg} border ${cfg.ringBorder}`} />
-        <div className={`animate-float w-24 h-24 rounded-full border-2 ${cfg.ringBorder} ${cfg.ringBg} ${cfg.textColor} flex items-center justify-center relative z-10`}>
+        <div className={`w-24 h-24 rounded-full border-2 ${cfg.ringBorder} ${cfg.ringBg} ${cfg.textColor} flex items-center justify-center relative z-10`}>
           {transaction.status === 'PROCESSING'
             ? <Icon size={44} className="animate-spin-slow" strokeWidth={1.5} />
             : <Icon size={44} strokeWidth={1.5} />
           }
         </div>
         {transaction.status === 'SUCCESS' && (
-          <Sparkles size={14} className="absolute -top-1 -right-1 text-amber-500 animate-float" style={{ animationDelay: '0.5s' }} />
+          <Sparkles size={14} className="absolute -top-1 -right-1 text-amber-500" style={{ animationDelay: '0.5s' }} />
         )}
       </div>
 
@@ -86,7 +86,7 @@ export default function StatusMessage({ transaction, onRetry }) {
         <h2 className="text-2xl font-black text-slate-800 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
           {cfg.title}
         </h2>
-        <p className="text-slate-500 text-sm mt-1">{cfg.subtitle}</p>
+        <p className="text-slate-600 text-sm mt-1">{cfg.subtitle}</p>
         <span className={`badge-pop inline-flex items-center gap-1.5 mt-3 px-4 py-1.5 rounded-full text-xs font-bold border cursor-default ${cfg.badgeCls}`}>
           <Icon size={10} /> {transaction.status}
         </span>
@@ -96,12 +96,12 @@ export default function StatusMessage({ transaction, onRetry }) {
       <div className="w-full rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
         {rows.map(({ label, value, mono, copyable }, i) => (
           <div key={label} className={`tx-row flex justify-between items-center px-5 py-3.5 text-sm ${i !== rows.length - 1 ? 'border-b border-slate-100' : ''}`}>
-            <span className="text-slate-400 font-medium text-xs uppercase tracking-wide">{label}</span>
+            <span className="text-slate-600 font-medium text-xs uppercase tracking-wide">{label}</span>
             <div className="flex items-center gap-2">
-              <span className={`font-semibold text-right max-w-[55%] truncate ${mono ? 'font-mono text-emerald-600 text-xs' : 'text-slate-700'}`}>{value}</span>
+              <span className={`font-semibold text-right ${mono ? 'font-mono text-emerald-600 text-xs' : 'text-slate-700'}`}>{value}</span>
               {copyable && (
                 <button onClick={copyId} className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-all duration-200
-                  ${copied ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-200 text-slate-500 hover:bg-slate-300'}`}>
+                  ${copied ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-200 text-slate-600 hover:bg-slate-300'}`}>
                   <Copy size={10} />
                 </button>
               )}
@@ -124,7 +124,7 @@ export default function StatusMessage({ transaction, onRetry }) {
           </button>
         )}
         <button onClick={() => navigate('/history')}
-          className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-slate-500 hover:text-emerald-600 font-bold text-sm bg-white border border-slate-200 shadow-sm hover:border-emerald-200 transition-colors">
+          className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-slate-600 hover:text-emerald-600 font-bold text-sm bg-white border border-slate-200 shadow-sm hover:border-emerald-200 transition-colors">
           History <ArrowRight size={13} />
         </button>
       </div>

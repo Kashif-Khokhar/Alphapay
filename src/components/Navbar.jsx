@@ -49,7 +49,7 @@ export default function Navbar() {
               return (
                 <li key={to} className="h-full flex items-center">
                   <Link to={to} className="relative h-full px-5 flex items-center group">
-                    <div className={`flex items-center gap-2 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-400 group-hover:text-slate-800 group-hover:-translate-y-[1px]'}`}>
+                    <div className={`flex items-center gap-2 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-500 group-hover:text-slate-800 group-hover:-translate-y-[1px]'}`}>
                       <Icon size={18} strokeWidth={active ? 2.5 : 2} className={active ? '' : 'opacity-80 group-hover:opacity-100'} />
                       <span>{label}</span>
                     </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-5">
             {/* Animated Notification Bell */}
-            <button className="p-2 text-slate-400 hover:text-secondary group relative transition-colors">
+            <button className="p-2 text-slate-500 hover:text-secondary group relative transition-colors">
               <Bell size={22} className="group-hover:origin-top group-hover:animate-swing" />
               <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
             </button>
@@ -119,7 +119,7 @@ export default function Navbar() {
                 className={`relative flex items-center justify-center w-11 h-9 rounded-2xl transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
                   active 
                     ? 'bg-secondary text-primary shadow-md -translate-y-3' 
-                    : 'text-slate-400 group-active:scale-90 hover:text-slate-600'
+                    : 'text-slate-500 group-active:scale-90 hover:text-slate-600'
                 }`}
               >
                 <Icon size={20} strokeWidth={active ? 2.5 : 2} />
@@ -127,7 +127,7 @@ export default function Navbar() {
               
               <span 
                 className={`text-[9px] font-black uppercase tracking-widest transition-colors duration-300 ${
-                  active ? 'text-secondary' : 'text-slate-400'
+                  active ? 'text-secondary' : 'text-slate-500'
                 }`}
               >
                 {label}
@@ -146,12 +146,12 @@ export default function Navbar() {
              className={`relative flex items-center justify-center w-11 h-9 rounded-2xl transition-all duration-300 ${
                showProfileMenu 
                  ? 'bg-secondary text-primary shadow-md -translate-y-3 scale-110' 
-                 : 'text-slate-400'
+                 : 'text-slate-500'
              }`}
            >
              <User size={20} strokeWidth={showProfileMenu ? 2.5 : 2} />
            </div>
-           <span className={`text-[9px] font-black uppercase tracking-widest ${showProfileMenu ? 'text-secondary' : 'text-slate-400'}`}>Me</span>
+           <span className={`text-[9px] font-black uppercase tracking-widest ${showProfileMenu ? 'text-secondary' : 'text-slate-500'}`}>Me</span>
 
            {/* Mobile Profile Menu */}
            <div className={`absolute bottom-[110%] right-0 w-48 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.15)] border border-white p-2 transition-all duration-300 transform origin-bottom-right ${

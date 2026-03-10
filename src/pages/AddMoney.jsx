@@ -52,9 +52,9 @@ export default function AddMoney() {
           ) : (
             <form onSubmit={handleAdd} className="space-y-8">
               <div className="text-center mb-8">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Enter Amount</p>
+                <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4">Enter Amount</p>
                 <div className="relative inline-block">
-                  <span className="absolute -left-12 top-1/2 -translate-y-1/2 text-2xl font-black text-slate-300">PKR</span>
+                  <span className="absolute -left-12 top-1/2 -translate-y-1/2 text-2xl font-black text-slate-400">PKR</span>
                   <input 
                     type="number" 
                     required
@@ -68,7 +68,7 @@ export default function AddMoney() {
               </div>
 
               <div className="space-y-4">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-1">Select Method</p>
+                <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] px-1">Select Method</p>
                 {methods.map((method) => (
                   <label 
                     key={method.id}
@@ -80,7 +80,7 @@ export default function AddMoney() {
                     </div>
                     <div>
                       <p className="text-sm font-black text-secondary leading-none mb-1">{method.label}</p>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{method.desc}</p>
+                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{method.desc}</p>
                     </div>
                     <div className="ml-auto w-5 h-5 rounded-full border-2 border-slate-200 flex items-center justify-center check-circle transition-all">
                       <div className="w-2.5 h-2.5 rounded-full bg-primary scale-0 transition-transform" />

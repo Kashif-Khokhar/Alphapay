@@ -95,7 +95,7 @@ export default function Login() {
               Pay Smarter,<br />
               <span className="gradient-text">Not Harder.</span>
             </h1>
-            <p className="text-slate-500 text-base leading-relaxed max-w-sm">
+            <p className="text-slate-600 text-base leading-relaxed max-w-sm">
               The most advanced university payment platform. Instant, secure, and beautifully designed.
             </p>
           </div>
@@ -118,13 +118,13 @@ export default function Login() {
             {[['₨ 2B+', 'Processed'], ['99.9%', 'Uptime'], ['< 1s', 'Payment Speed']].map(([val, label]) => (
               <div key={label} className="flex flex-col">
                 <span className="text-2xl font-black text-slate-800">{val}</span>
-                <span className="text-xs text-slate-400 font-medium">{label}</span>
+                <span className="text-xs text-slate-500 font-medium">{label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-slate-400 text-xs">University of Technology · FinTech Division · 2025</p>
+        <p className="text-slate-500 text-xs">University of Technology · FinTech Division · 2025</p>
       </div>
 
       {/* Vertical divider */}
@@ -150,14 +150,14 @@ export default function Login() {
               </div>
               <div className="text-center">
                 <h1 className="text-3xl font-black gradient-text" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>AlphaPay</h1>
-                <p className="text-slate-500 text-sm mt-1">University Payment Portal</p>
+                <p className="text-slate-600 text-sm mt-1">University Payment Portal</p>
               </div>
             </div>
 
             <div className="mb-7">
               <h2 className="text-2xl font-black text-slate-800 tracking-tight"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Welcome back</h2>
-              <p className="text-slate-500 text-sm mt-1">Sign in to access your payment dashboard</p>
+              <p className="text-slate-600 text-sm mt-1">Sign in to access your payment dashboard</p>
             </div>
 
             {/* Demo hint */}
@@ -171,7 +171,7 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {/* Username */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Username</label>
+                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Username</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
                     ${focused === 'username' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
@@ -186,7 +186,7 @@ export default function Login() {
 
               {/* Password */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Password</label>
+                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Password</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
                     ${focused === 'password' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
@@ -222,7 +222,7 @@ export default function Login() {
             </form>
 
             <div className="gradient-line mt-7 mb-4" />
-            <p className="text-center text-slate-400 text-[11px]">University of Technology · FinTech Payment Portal · v2.0</p>
+            <p className="text-center text-slate-500 text-[11px]">University of Technology · FinTech Payment Portal · v2.0</p>
           </div>
         </div>
       </div>

@@ -9,7 +9,10 @@
   /* Deep Navy/Black */
   --accent: #ff4d6d;
   --bg-main: #fcfcfc;
-  --text-main: #121212;
+  --text-main: #0f172a;
+  /* Darker navy for main text */
+  --text-muted: #475569;
+  /* Slate-600 equivalent for better contrast */
 }
 
 * {
@@ -43,10 +46,19 @@ body {
     radial-gradient(ellipse 50% 40% at 60% 40%, rgba(20, 184, 166, 0.06) 0%, transparent 55%),
     radial-gradient(ellipse 40% 30% at 20% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
   background-attachment: fixed;
-  color: #0f172a;
+  color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary);
 }
 
 /* ─── Premium scrollbar ─── */
@@ -619,11 +631,14 @@ body {
 
 /* ─── Transaction row ─── */
 .tx-row {
-  position: relative;
-  transition: background 0.18s ease, padding-left 0.2s ease;
+  transition: background 0.18s ease;
 }
 
-.tx-row::before {
+.tx-indicator-cell {
+  position: relative;
+}
+
+.tx-indicator-cell::before {
   content: '';
   position: absolute;
   left: 0;
@@ -639,10 +654,9 @@ body {
 
 .tx-row:hover {
   background: rgba(16, 185, 129, 0.04);
-  padding-left: 6px;
 }
 
-.tx-row:hover::before {
+.tx-row:hover .tx-indicator-cell::before {
   transform: scaleY(1);
 }
 

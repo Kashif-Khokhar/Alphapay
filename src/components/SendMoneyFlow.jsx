@@ -77,13 +77,6 @@ export default function SendMoneyFlow() {
     setTransaction(null);
   };
 
-  if (status === 'done' && transaction) {
-    return (
-      <div className="w-full bg-white rounded-3xl p-8 shadow-xl border border-slate-100 animate-fade-up">
-        <StatusMessage transaction={transaction} onRetry={resetFlow} />
-      </div>
-    );
-  }
 
   return (
     <div className="w-full bg-white rounded-3xl shadow-2xl border border-slate-100 relative min-h-[500px] flex flex-col">
@@ -220,7 +213,7 @@ export default function SendMoneyFlow() {
           )}
 
           {/* STEP 3: ENTER AMOUNT */}
-          {step === 3 && (
+          {step === 3 && status !== 'done' && (
             <motion.div key="step3" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col text-center">
               <div className="flex flex-col items-center justify-center mb-8 bg-slate-50 py-4 px-6 rounded-3xl mx-auto border border-slate-100">
                 <div className="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center mb-2 z-10 -mt-8 border border-slate-100">
@@ -273,6 +266,13 @@ export default function SendMoneyFlow() {
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Instant & Secure Transfer</p>
                 </div>
               </form>
+            </motion.div>
+          )}
+
+          {/* STEP 4: DONE */}
+          {status === 'done' && transaction && (
+            <motion.div key="done" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col items-center justify-center py-4">
+              <StatusMessage transaction={transaction} onRetry={resetFlow} />
             </motion.div>
           )}
 

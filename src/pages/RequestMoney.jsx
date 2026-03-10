@@ -37,7 +37,7 @@ export default function RequestMoney() {
             <div className="w-20 h-20 rounded-[2.5rem] bg-secondary flex items-center justify-center text-primary mb-4 shadow-lg">
               <ArrowDownLeft size={36} strokeWidth={2.5} />
             </div>
-            <p className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Generate Request</p>
+            <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Generate Request</p>
           </div>
 
           {isRequested ? (
@@ -55,9 +55,9 @@ export default function RequestMoney() {
           ) : (
             <form onSubmit={handleRequest} className="space-y-6">
               <div>
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">Amount (PKR)</label>
+                <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] block mb-2 px-1">Amount (PKR)</label>
                 <div className="relative">
-                  <span className="absolute left-5 top-1/2 -translate-y-1/2 text-lg font-black text-slate-400">PKR</span>
+                  <span className="absolute left-5 top-1/2 -translate-y-1/2 text-lg font-black text-slate-500">PKR</span>
                   <input 
                     type="number" 
                     required
@@ -70,9 +70,9 @@ export default function RequestMoney() {
               </div>
 
               <div>
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">From (Username/Tag)</label>
+                <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] block mb-2 px-1">From (Username/Tag)</label>
                 <div className="relative">
-                  <User size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <User size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500" />
                   <input 
                     type="text" 
                     required
@@ -83,7 +83,7 @@ export default function RequestMoney() {
               </div>
 
               <div>
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">Note (Optional)</label>
+                <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] block mb-2 px-1">Note (Optional)</label>
                 <textarea 
                   placeholder="What's this for?"
                   value={note}

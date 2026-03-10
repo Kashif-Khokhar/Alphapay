@@ -13,9 +13,9 @@ function AnimatedBalance({ value }) {
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="text-4xl font-black flex items-baseline gap-1 tracking-tighter"
+      className="text-4xl font-black flex items-baseline gap-1 tracking-tighter text-slate-900"
     >
-      <span className="text-xl font-bold opacity-60">PKR</span>
+      <span className="text-xl font-bold opacity-70">PKR</span>
       {value.toLocaleString()}
     </motion.div>
   );
@@ -80,7 +80,7 @@ export default function Dashboard() {
              <div className="bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-slate-100 h-full flex flex-col justify-center relative group">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-teal-50 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-700" />
                 <div className="relative z-10">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-3">Total Balance</p>
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-3">Total Balance</p>
                   <AnimatedBalance value={user?.balance || 0} />
                   
                   <div className="mt-8 flex gap-3">
@@ -105,10 +105,10 @@ export default function Dashboard() {
                   <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-slate-800 transition-transform duration-300 group-hover:scale-110">
                     <TrendingUp size={24} strokeWidth={2.5} />
                   </div>
-                  <ChevronRight size={20} className="text-slate-300 group-hover:translate-x-1 group-hover:text-slate-600 transition-all duration-300" />
+                  <ChevronRight size={20} className="text-slate-400 group-hover:translate-x-1 group-hover:text-slate-700 transition-all duration-300" />
                 </div>
                 <div className="relative z-10">
-                   <p className="text-[11px] font-black text-slate-300 uppercase tracking-[0.2em] mb-1">Insights</p>
+                   <p className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1">Insights</p>
                    <p className="text-[19px] font-black text-slate-800 tracking-tight leading-tight">Monthly Plan</p>
                 </div>
              </div>
@@ -148,7 +148,7 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div>
-                   <p className="text-[11px] font-black text-slate-400/80 uppercase tracking-[0.2em] mb-1">Saving</p>
+                   <p className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] mb-1">Saving</p>
                    <p className="text-[20px] font-black text-[#131720] tracking-tight leading-tight">PKR 12,400</p>
                 </div>
              </div>
@@ -158,7 +158,7 @@ export default function Dashboard() {
         {/* Quick Actions Redesign */}
         <motion.div variants={itemVariants} className="space-y-6">
            <div className="flex justify-between items-center px-2">
-              <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Quick Access</h2>
+              <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Quick Access</h2>
               <MoreHorizontal size={16} className="text-slate-300" />
            </div>
            <div className="grid grid-cols-4 gap-4 sm:gap-6">
@@ -181,7 +181,7 @@ export default function Dashboard() {
         {/* Transactions Feed */}
         <motion.div variants={itemVariants} className="space-y-6 pb-12">
            <div className="flex justify-between items-center px-2">
-              <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Activity</h2>
+              <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Activity</h2>
               <button onClick={() => navigate('/history')} className="text-xs font-black text-primary hover:opacity-70 transition-opacity">View History</button>
            </div>
 
@@ -194,7 +194,7 @@ export default function Dashboard() {
                       </div>
                       <div>
                          <p className="text-sm font-black text-secondary">{tx.description}</p>
-                         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">{tx.date}</p>
+                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">{tx.date}</p>
                       </div>
                    </div>
                    <div className="text-right">
@@ -209,7 +209,7 @@ export default function Dashboard() {
               )) : (
                 <div className="premium-card p-16 text-center bg-slate-50/50 border-dashed border-slate-200 shadow-none">
                    <Activity size={32} className="mx-auto text-slate-200 mb-4" />
-                   <p className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">No Activity Yet</p>
+                   <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">No Activity Yet</p>
                 </div>
               )}
            </div>

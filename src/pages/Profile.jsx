@@ -53,7 +53,7 @@ export default function Profile() {
                </div>
                <div className="text-center mt-6">
                  <h2 className="text-xl font-black text-secondary">{user?.name}</h2>
-                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Premium Member</p>
+                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Premium Member</p>
                  <div className="flex items-center justify-center gap-1 mt-3">
                    {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
                  </div>
@@ -63,7 +63,7 @@ export default function Profile() {
             <div className="bg-slate-900 rounded-[32px] p-6 text-white relative group cursor-default">
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary rounded-full blur-[80px] -mr-16 -mt-16 opacity-20 group-hover:scale-125 transition-transform duration-700" />
                <div className="relative z-10">
-                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Total Savings</p>
+                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Total Savings</p>
                  <p className="text-2xl font-black tracking-tighter text-primary">PKR {Number(user?.balance).toLocaleString()}</p>
                  <div className="h-1 bg-white/10 rounded-full mt-4 overflow-hidden">
                     <motion.div 
@@ -72,7 +72,7 @@ export default function Profile() {
                       className="h-full bg-primary"
                     />
                  </div>
-                 <p className="text-[10px] font-bold text-slate-500 mt-2">65% of your monthly goal</p>
+                 <p className="text-[10px] font-bold text-slate-600 mt-2">65% of your monthly goal</p>
                </div>
             </div>
           </motion.div>
@@ -80,7 +80,7 @@ export default function Profile() {
           {/* Details Panel */}
           <motion.div variants={itemVariants} className="md:col-span-2 space-y-6">
              <div className="bg-white rounded-[40px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
-                <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Account Information</h3>
+                <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-6">Account Information</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-6 group">
@@ -88,7 +88,7 @@ export default function Profile() {
                        <User size={22} />
                     </div>
                     <div className="flex-1 pb-6 border-b border-slate-50">
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Full Name</p>
+                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Full Name</p>
                        <p className="text-lg font-black text-secondary">{user?.name}</p>
                     </div>
                   </div>
@@ -98,7 +98,7 @@ export default function Profile() {
                        <Mail size={22} />
                     </div>
                     <div className="flex-1 pb-6 border-b border-slate-50">
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Email Address</p>
+                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Email Address</p>
                        <p className="text-lg font-black text-secondary break-all">{user?.email}</p>
                     </div>
                   </div>
@@ -108,7 +108,7 @@ export default function Profile() {
                        <IdCard size={22} />
                     </div>
                     <div className="flex-1 pb-6 border-b border-slate-50">
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Student ID</p>
+                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Student ID</p>
                        <p className="text-lg font-black text-secondary">{user?.studentId}</p>
                     </div>
                   </div>
@@ -118,7 +118,7 @@ export default function Profile() {
                        <ShieldCheck size={22} />
                     </div>
                     <div className="flex-1">
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Security Status</p>
+                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Security Status</p>
                        <div className="flex items-center gap-2 flex-wrap">
                          <p className="text-lg font-black text-secondary">Advanced Recovery Active</p>
                          <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-600 text-[8px] font-black uppercase tracking-tighter">Verified</span>
@@ -131,12 +131,12 @@ export default function Profile() {
                   <button onClick={() => navigate('/settings')} className="flex-1 bg-slate-900 text-white font-black py-4 rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98]">
                     Edit Profile
                   </button>
-                  <button 
+                    <button 
                     onClick={() => {
                       localStorage.removeItem('uniPay_user');
                       window.location.reload();
                     }}
-                    className="flex-1 bg-slate-50 text-slate-400 font-black py-4 rounded-2xl hover:bg-slate-100 hover:text-secondary transition-all"
+                    className="flex-1 bg-slate-50 text-slate-500 font-black py-4 rounded-2xl hover:bg-slate-100 hover:text-secondary transition-all"
                   >
                     Reset Data
                   </button>

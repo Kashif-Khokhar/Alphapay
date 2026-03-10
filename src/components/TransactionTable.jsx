@@ -22,8 +22,8 @@ export default function TransactionTable({ transactions = [] }) {
                 { label: 'Status',        icon: null },
                 { label: 'Date',          icon: null },
               ].map(({ label, icon }) => (
-                <th key={label} className="px-5 py-4 text-left whitespace-nowrap">
-                  <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                <th key={label} className={`px-5 py-4 text-left whitespace-nowrap ${label === 'Transaction ID' ? 'w-[180px]' : ''}`}>
+                  <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                     {icon}{label}
                   </div>
                 </th>
@@ -47,10 +47,10 @@ export default function TransactionTable({ transactions = [] }) {
                 const { Icon } = cfg;
                 return (
                   <tr key={tx.transactionId} className="tx-row border-b border-slate-50 last:border-0">
-                    <td className="px-5 py-4">
-                      <div className="flex items-center gap-2">
-                        <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
-                        <span className="badge-pop font-mono text-[11px] text-emerald-700 font-bold cursor-default">{tx.transactionId}</span>
+                    <td className="px-5 py-4 w-[180px] tx-indicator-cell">
+                      <div className="flex items-center gap-1.5 px-1">
+                        <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
+                        <span className="badge-pop font-mono text-[11px] text-emerald-700 font-bold cursor-default whitespace-nowrap">{tx.transactionId}</span>
                       </div>
                     </td>
                     <td className="px-5 py-4 text-slate-600 max-w-[160px] truncate text-xs">{tx.description || 'University Fee'}</td>
