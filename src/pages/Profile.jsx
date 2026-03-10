@@ -21,12 +21,12 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen pb-40 px-4 sm:px-6" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-4xl mx-auto"
+        className="max-w-[1600px] mx-auto"
       >
         <div className="flex items-center gap-4 mb-10">
           <button 

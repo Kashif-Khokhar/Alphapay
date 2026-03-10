@@ -35,7 +35,7 @@ export default function Support() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-40">
+      <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-8 md:px-12 pt-8 pb-40">
         {/* Header */}
         <div className="mb-10 animate-fade-up">
           <div className="flex items-center gap-2 mb-3">

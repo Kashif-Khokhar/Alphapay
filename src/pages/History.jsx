@@ -28,7 +28,7 @@ export default function History() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
-      <div className="relative z-10 w-full px-4 sm:px-6 py-8 pb-40">
+      <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-8 md:px-12 py-8 pb-40">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 animate-fade-up">
           <div>
@@ -90,9 +90,7 @@ export default function History() {
         )}
 
 
-        <div className="animate-fade-up animate-delay-200">
-          <TransactionTable transactions={filtered} />
-        </div>
+        <TransactionTable transactions={filtered} />
 
         {/* Mobile Spacer to clear the bottom dock */}
         <div className="h-40 md:hidden" />

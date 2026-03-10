@@ -73,11 +73,11 @@ export default function Settings() {
   const groups = activeTab === 'Account' ? accountGroups : privacyGroups;
 
   return (
-    <div className="min-h-screen pb-40 px-4 sm:px-6 flex flex-col items-center" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12 flex flex-col items-center" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-xl"
+        className="w-full max-w-[1600px] mx-auto"
       >
         <div className="flex items-center gap-4 mb-10 text-center justify-center">
           <button

@@ -41,7 +41,7 @@ const CONFIG = {
   },
 };
 
-export default function StatusMessage({ transaction, onRetry }) {
+export default function StatusMessage({ transaction, onRetry, onClose }) {
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
   if (!transaction) return null;
@@ -64,8 +64,7 @@ export default function StatusMessage({ transaction, onRetry }) {
   ];
 
   return (
-    <div className="w-full max-w-lg mx-auto p-8 pt-12 flex flex-col items-center gap-6 animate-scale-in"
-      style={{ boxShadow: 'none' }}>
+    <div className="w-full max-w-lg mx-auto p-8 pt-16 flex flex-col items-center gap-6">
 
       {/* Status icon */}
       <div className="relative">
@@ -112,7 +111,7 @@ export default function StatusMessage({ transaction, onRetry }) {
 
       {/* Buttons */}
       <div className="flex flex-wrap gap-3 w-full justify-center">
-        <button onClick={() => navigate('/dashboard')}
+        <button onClick={() => { navigate('/dashboard'); onClose?.(); }}
           className="btn-glow flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-bold text-sm"
           style={{ background: cfg.btnBg, boxShadow: `0 8px 20px ${cfg.btnShadow}` }}>
           <LayoutDashboard size={14} /> Dashboard
@@ -123,7 +122,7 @@ export default function StatusMessage({ transaction, onRetry }) {
             <RefreshCw size={14} /> Try Again
           </button>
         )}
-        <button onClick={() => navigate('/history')}
+        <button onClick={() => { navigate('/history'); onClose?.(); }}
           className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-slate-600 hover:text-emerald-600 font-bold text-sm bg-white border border-slate-200 shadow-sm hover:border-emerald-200 transition-colors">
           History <ArrowRight size={13} />
         </button>

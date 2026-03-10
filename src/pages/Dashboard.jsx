@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowUpRight, ArrowDownLeft, Zap, CreditCard, 
   ShieldCheck, Activity, Plus, MoreHorizontal,
-  ChevronRight, Wallet, TrendingUp
+  ChevronRight, Wallet, TrendingUp, X
 } from 'lucide-react';
+import StatusMessage from '../components/StatusMessage';
 import { getCurrentUser, getTransactions, logoutUser } from '../services/api';
 
 function AnimatedBalance({ value }) {
@@ -27,6 +28,7 @@ export default function Dashboard() {
   const [transactions] = useState(() => getTransactions());
   const [mounted, setMounted] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null); // 'header' | 'savings' | null
+  const [selectedTx, setSelectedTx] = useState(null);
   
   useEffect(() => { 
     setMounted(true); 
@@ -57,12 +59,12 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen pb-40 px-4 sm:px-6" style={{ paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ paddingTop: '100px' }}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-6xl mx-auto space-y-8 sm:space-y-12"
+        className="max-w-[1600px] mx-auto space-y-8 sm:space-y-12"
       >
         
         <motion.div variants={itemVariants} className="flex justify-between items-end">
@@ -187,10 +189,14 @@ export default function Dashboard() {
 
            <div className="space-y-4">
               {recent.length > 0 ? recent.map((tx, i) => (
-                <div key={tx.transactionId} className="premium-card p-5 flex items-center justify-between group hover:border-primary/40 active:scale-[0.99] transition-all">
+                <div 
+                  key={tx.transactionId} 
+                  onClick={() => setSelectedTx(tx)}
+                  className="premium-card p-5 flex items-center justify-between group hover:border-primary/40 active:scale-[0.99] transition-all cursor-pointer"
+                >
                    <div className="flex items-center gap-5">
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-colors ${tx.status === 'SUCCESS' ? 'bg-primary/10 text-primary' : 'bg-rose-50 text-rose-500'}`}>
-                         {tx.status === 'SUCCESS' ? <ArrowDownLeft size={24} /> : <Activity size={24} />}
+                         {tx.status === 'SUCCESS' ? <ArrowUpRight size={24} /> : <Activity size={24} />}
                       </div>
                       <div>
                          <p className="text-sm font-black text-secondary">{tx.description}</p>
@@ -215,6 +221,34 @@ export default function Dashboard() {
            </div>
         </motion.div>
 
+        <AnimatePresence>
+          {selectedTx && (
+            <div 
+              className="fixed inset-0 z-[10000] overflow-y-auto no-scrollbar bg-slate-900/60 backdrop-blur-md px-4 py-8 flex justify-center items-center"
+              onClick={() => setSelectedTx(null)}
+            >
+              <div className="w-full flex justify-center py-4">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  className="relative w-full max-w-lg bg-white rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
+                  onClick={e => e.stopPropagation()}
+                >
+                  <button 
+                    onClick={() => setSelectedTx(null)}
+                    className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all border border-slate-100"
+                  >
+                    <X size={20} />
+                  </button>
+                  <div className="w-full pb-8">
+                    <StatusMessage transaction={selectedTx} onClose={() => setSelectedTx(null)} />
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          )}
+        </AnimatePresence>
 
         {/* Mobile Spacer to clear the bottom dock */}
         <div className="h-40 md:hidden" />

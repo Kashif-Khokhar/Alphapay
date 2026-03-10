@@ -32,7 +32,7 @@ export default function Navbar() {
     <>
       {/* Desktop Top Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-[20px] saturate-150 h-20 border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hidden md:flex">
-        <div className="max-w-6xl mx-auto w-full px-8 flex items-center justify-between h-full">
+        <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-8 md:px-12 flex items-center justify-between h-full">
           <Link to="/dashboard" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
               <span className="text-[#17e0b5] font-black text-2xl italic">α</span>
