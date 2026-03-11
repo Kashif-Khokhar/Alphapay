@@ -77,7 +77,7 @@ export default function Settings() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-[1600px] mx-auto"
+        className="w-full max-w-[850px] mx-auto"
       >
         <div className="flex items-center gap-4 mb-10 text-center justify-center">
           <button
@@ -105,7 +105,7 @@ export default function Settings() {
 
            {/* Account & Privacy tabs — each with own groups */}
            {activeTab !== 'Wallet' && (
-             <div className="px-10 pt-12 pb-8 space-y-10">
+             <div className="px-6 md:px-10 pt-10 pb-8 space-y-8">
                {groups.map((group) => (
                  <div key={group.title}>
                    <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-2">{group.title}</h3>
@@ -132,7 +132,7 @@ export default function Settings() {
 
            {/* Wallet tab — Transfer Limits */}
            {activeTab === 'Wallet' && (
-             <div className="px-10 pt-12 pb-8 space-y-6">
+             <div className="px-6 md:px-10 pt-10 pb-8 space-y-6">
                {/* Header */}
                <div className="flex items-center gap-3">
                  <div className="w-11 h-11 rounded-2xl bg-orange-50 flex items-center justify-center">
