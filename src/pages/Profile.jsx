@@ -60,19 +60,19 @@ export default function Profile() {
                </div>
             </div>
 
-            <div className="bg-slate-900 rounded-[32px] p-6 text-white relative group cursor-default">
+            <div className="bg-slate-900 rounded-[40px] p-10 text-white relative group cursor-default shadow-2xl shadow-slate-900/40 overflow-hidden">
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary rounded-full blur-[80px] -mr-16 -mt-16 opacity-20 group-hover:scale-125 transition-transform duration-700" />
-               <div className="relative z-10">
-                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Total Savings</p>
-                 <p className="text-2xl font-black tracking-tighter text-primary">PKR {Number(user?.balance).toLocaleString()}</p>
-                 <div className="h-1 bg-white/10 rounded-full mt-4 overflow-hidden">
+               <div className="relative z-10 flex flex-col items-center text-center">
+                 <p className="text-[10px] font-black uppercase tracking-widest text-primary/80 mb-2">Total Savings</p>
+                 <p className="text-3xl font-black tracking-tighter text-white">PKR {Number(user?.balance).toLocaleString()}</p>
+                 <div className="h-1 bg-white/10 rounded-full mt-4 overflow-hidden w-full">
                     <motion.div 
                       initial={{ width: 0 }}
                       animate={{ width: '65%' }}
                       className="h-full bg-primary"
                     />
                  </div>
-                 <p className="text-[10px] font-bold text-slate-600 mt-2">65% of your monthly goal</p>
+                 <p className="text-[10px] font-bold text-white/50 mt-4">65% of your monthly goal</p>
                </div>
             </div>
           </motion.div>
