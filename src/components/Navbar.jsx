@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings, CheckCircle2, AlertCircle, Info } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getCurrentUser } from '../services/api';
 
 const NAV_LINKS = [
@@ -12,16 +12,48 @@ const NAV_LINKS = [
   { to: '/reports',   label: 'Stats', icon: BarChart2 },
 ];
 
+const NOTIFICATIONS = [
+  {
+    id: 1,
+    type: 'success',
+    title: 'Payment Successful',
+    message: 'Utility bill payment to AlphaPay has been processed.',
+    time: '2 mins ago',
+    icon: CheckCircle2,
+    color: 'text-primary'
+  },
+  {
+    id: 2,
+    type: 'warning',
+    title: 'Low Balance',
+    message: 'Your account balance is below PKR 1,000.',
+    time: '1 hour ago',
+    icon: AlertCircle,
+    color: 'text-accent'
+  },
+  {
+    id: 3,
+    type: 'info',
+    title: 'New Feature',
+    message: 'Try our new Virtual Card feature for online shopping.',
+    time: '5 hours ago',
+    icon: Info,
+    color: 'text-blue-500'
+  }
+];
+
 export default function Navbar() {
   const navigate  = useNavigate();
   const location  = useLocation();
   const user      = getCurrentUser();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
   
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (!e.target.closest('.profile-menu-container')) {
+      if (!e.target.closest('.profile-menu-container') && !e.target.closest('.notifications-container')) {
         setShowProfileMenu(false);
+        setShowNotifications(false);
       }
     };
     window.addEventListener('click', handleClickOutside);
@@ -70,10 +102,52 @@ export default function Navbar() {
 
           <div className="flex items-center gap-5">
             {/* Animated Notification Bell */}
-            <button className="p-2 text-slate-500 hover:text-secondary group relative transition-colors">
-              <Bell size={22} className="group-hover:origin-top group-hover:animate-swing" />
-              <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
-            </button>
+            <div className="relative notifications-container">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowNotifications(!showNotifications);
+                  setShowProfileMenu(false);
+                }}
+                className={`p-2 text-slate-500 hover:text-secondary group relative transition-colors ${showNotifications ? 'text-secondary bg-slate-50 rounded-xl' : ''}`}
+              >
+                <Bell size={22} className="group-hover:origin-top group-hover:animate-swing" />
+                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
+              </button>
+
+              <AnimatePresence>
+                {showNotifications && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    className="absolute top-[120%] right-0 w-80 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white p-2 z-[60] origin-top-right overflow-hidden"
+                  >
+                    <div className="px-4 py-3 border-b border-slate-100 flex items-center justify-between">
+                      <h3 className="font-extrabold text-secondary text-sm">Notifications</h3>
+                      <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider rounded-full">3 New</span>
+                    </div>
+                    <div className="max-h-[320px] overflow-y-auto custom-scrollbar p-1">
+                      {NOTIFICATIONS.map((notif) => (
+                        <div key={notif.id} className="p-3 hover:bg-slate-50 rounded-2xl transition-colors flex items-start gap-4 cursor-pointer group">
+                          <div className={`w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${notif.color}`}>
+                            <notif.icon size={20} strokeWidth={2.5} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-secondary text-xs truncate">{notif.title}</h4>
+                            <p className="text-slate-500 text-[11px] leading-relaxed mt-0.5">{notif.message}</p>
+                            <span className="text-[10px] text-slate-400 font-medium mt-1 inline-block">{notif.time}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <button className="w-full py-3 text-center text-[11px] font-black text-primary hover:bg-primary/5 rounded-xl transition-colors mt-1">
+                      View All Activity
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             
             <div className="relative profile-menu-container">
               <div 
