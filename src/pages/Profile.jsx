@@ -79,47 +79,47 @@ export default function Profile() {
 
           {/* Details Panel */}
           <motion.div variants={itemVariants} className="md:col-span-2 space-y-6">
-             <div className="bg-white rounded-[40px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
-                <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-6">Account Information</h3>
+             <div className="bg-white rounded-[40px] p-10 shadow-xl shadow-slate-200/50 border border-slate-100">
+                <h3 className="text-xl font-black text-secondary uppercase tracking-tight mb-8 text-center pb-6 border-b border-slate-50">Account Information</h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-6 group">
+                  <div className="flex flex-col items-center gap-3 group text-center">
                     <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center transition-transform group-hover:scale-110">
                        <User size={22} />
                     </div>
-                    <div className="flex-1 pb-6 border-b border-slate-50">
+                    <div className="flex-1 pb-6 border-b border-slate-50 w-full">
                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Full Name</p>
                        <p className="text-lg font-black text-secondary">{user?.name}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-6 group">
+                  <div className="flex flex-col items-center gap-3 group text-center">
                     <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center transition-transform group-hover:scale-110">
                        <Mail size={22} />
                     </div>
-                    <div className="flex-1 pb-6 border-b border-slate-50">
+                    <div className="flex-1 pb-6 border-b border-slate-50 w-full">
                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Email Address</p>
                        <p className="text-lg font-black text-secondary break-all">{user?.email}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-6 group">
+                  <div className="flex flex-col items-center gap-3 group text-center">
                     <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center transition-transform group-hover:scale-110">
                        <IdCard size={22} />
                     </div>
-                    <div className="flex-1 pb-6 border-b border-slate-50">
+                    <div className="flex-1 pb-6 border-b border-slate-50 w-full">
                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Student ID</p>
                        <p className="text-lg font-black text-secondary">{user?.studentId}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-6 group !border-none">
+                  <div className="flex flex-col items-center gap-3 group !border-none text-center">
                     <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center transition-transform group-hover:scale-110">
                        <ShieldCheck size={22} />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 w-full">
                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Security Status</p>
-                       <div className="flex items-center gap-2 flex-wrap">
+                       <div className="flex flex-col items-center gap-2">
                          <p className="text-lg font-black text-secondary">Advanced Recovery Active</p>
                          <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-600 text-[8px] font-black uppercase tracking-tighter">Verified</span>
                        </div>
