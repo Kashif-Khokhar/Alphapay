@@ -21,124 +21,131 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ background: 'linear-gradient(135deg, #fcfcfc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ paddingTop: '120px' }}>
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-[1600px] mx-auto"
+        className="max-w-[1400px] mx-auto"
       >
-        <div className="flex items-center gap-4 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+               <div className="w-2.5 h-2.5 rounded-full bg-primary live-dot" />
+               <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Identity Vault</p>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">My Profile</h1>
+          </div>
           <button 
             onClick={() => navigate(-1)}
-            className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-secondary hover:bg-slate-50 transition-colors"
+            className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-secondary hover:bg-slate-50 transition-all shadow-xl shadow-slate-200/40"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={24} strokeWidth={3} />
           </button>
-          <h1 className="text-2xl font-black text-secondary tracking-tighter">My Profile</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Avatar Panel */}
-          <motion.div variants={itemVariants} className="md:col-span-1 space-y-6">
-            <div className="bg-white rounded-[32px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col items-center">
-               <div className="relative group">
-                  <div className="w-32 h-32 rounded-[3.5rem] bg-secondary text-primary flex items-center justify-center font-black text-4xl shadow-2xl relative z-10">
+          <motion.div variants={itemVariants} className="lg:col-span-4 space-y-8">
+            <div className="premium-card flex flex-col items-center">
+               <div className="relative group perspective-1000">
+                  <div className="w-40 h-40 rounded-[4rem] bg-secondary text-primary flex items-center justify-center font-black text-5xl shadow-2xl relative z-10 border-4 border-white/5 transition-transform duration-700 group-hover:rotate-y-12">
                      {user?.name?.charAt(0) || 'K'}
                   </div>
-                  <div className="absolute inset-0 rounded-[3.5rem] bg-primary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <button className="absolute bottom-0 right-0 w-10 h-10 rounded-2xl bg-white shadow-lg flex items-center justify-center text-slate-600 hover:text-primary transition-all z-20 hover:scale-110 active:scale-95">
-                    <Camera size={18} />
+                  <div className="absolute inset-0 rounded-[4rem] bg-primary blur-3xl opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <button className="absolute -bottom-2 -right-2 w-12 h-12 rounded-2xl bg-white shadow-2xl flex items-center justify-center text-secondary hover:text-primary transition-all z-20 hover:scale-110 active:scale-95 border border-slate-50">
+                    <Camera size={20} strokeWidth={3} />
                   </button>
                </div>
-               <div className="text-center mt-6">
-                 <h2 className="text-xl font-black text-secondary">{user?.name}</h2>
-                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Premium Member</p>
-                 <div className="flex items-center justify-center gap-1 mt-3">
-                   {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
+               <div className="text-center mt-10">
+                 <h2 className="text-2xl font-black text-secondary tracking-tight">{user?.name}</h2>
+                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mt-2">Alpha Member Since 2024</p>
+                 <div className="flex items-center justify-center gap-1.5 mt-5">
+                   {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-primary text-primary" />)}
                  </div>
                </div>
             </div>
 
-            <div className="bg-slate-900 rounded-[40px] p-10 text-white relative group cursor-default shadow-2xl shadow-slate-900/40 overflow-hidden">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-primary rounded-full blur-[80px] -mr-16 -mt-16 opacity-20 group-hover:scale-125 transition-transform duration-700" />
+            <div className="bg-secondary rounded-[48px] p-12 text-white relative group overflow-hidden shadow-2xl">
+               <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-30 group-hover:scale-125 transition-transform duration-1000" />
                <div className="relative z-10 flex flex-col items-center text-center">
-                 <p className="text-[10px] font-black uppercase tracking-widest text-primary/80 mb-2">Total Savings</p>
-                 <p className="text-3xl font-black tracking-tighter text-white">PKR {Number(user?.balance).toLocaleString()}</p>
-                 <div className="h-1 bg-white/10 rounded-full mt-4 overflow-hidden w-full">
+                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4">Vault Balance</p>
+                 <p className="text-4xl font-black tracking-tighter text-white">PKR {Number(user?.balance).toLocaleString()}</p>
+                 <div className="h-1.5 bg-white/5 rounded-full mt-8 overflow-hidden w-full">
                     <motion.div 
                       initial={{ width: 0 }}
                       animate={{ width: '65%' }}
-                      className="h-full bg-primary"
+                      transition={{ duration: 1.5, ease: "circOut" }}
+                      className="h-full bg-primary shadow-[0_0_20px_rgba(16,185,129,0.8)]"
                     />
                  </div>
-                 <p className="text-[10px] font-bold text-white/50 mt-4">65% of your monthly goal</p>
+                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mt-6 italic">Secure Asset Allocation</p>
                </div>
             </div>
           </motion.div>
 
           {/* Details Panel */}
-          <motion.div variants={itemVariants} className="md:col-span-2 space-y-6">
-             <div className="bg-white rounded-[40px] p-10 shadow-xl shadow-slate-200/50 border border-slate-100">
-                <h3 className="text-xl font-black text-secondary uppercase tracking-tight mb-8 text-center pb-6 border-b border-slate-50">Account Information</h3>
+          <motion.div variants={itemVariants} className="lg:col-span-8 space-y-8">
+             <div className="premium-card">
+                <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em] mb-12 text-center">Validated Security Data</h3>
                 
-                <div className="space-y-6">
-                  <div className="flex flex-col items-center gap-3 group text-center">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                       <User size={22} />
-                    </div>
-                    <div className="flex-1 pb-6 border-b border-slate-50 w-full">
-                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Full Name</p>
-                       <p className="text-lg font-black text-secondary">{user?.name}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-center gap-3 group text-center">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                       <Mail size={22} />
-                    </div>
-                    <div className="flex-1 pb-6 border-b border-slate-50 w-full">
-                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Email Address</p>
-                       <p className="text-lg font-black text-secondary break-all">{user?.email}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-center gap-3 group text-center">
-                    <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                       <IdCard size={22} />
-                    </div>
-                    <div className="flex-1 pb-6 border-b border-slate-50 w-full">
-                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Student ID</p>
-                       <p className="text-lg font-black text-secondary">{user?.studentId}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-center gap-3 group !border-none text-center">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                       <ShieldCheck size={22} />
-                    </div>
-                    <div className="flex-1 w-full">
-                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Security Status</p>
-                       <div className="flex flex-col items-center gap-2">
-                         <p className="text-lg font-black text-secondary">Advanced Recovery Active</p>
-                         <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-600 text-[8px] font-black uppercase tracking-tighter">Verified</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div className="space-y-2 group">
+                    <div className="flex items-center gap-4 mb-4">
+                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                          <User size={22} strokeWidth={3} />
                        </div>
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</p>
+                    </div>
+                    <p className="text-xl font-black text-secondary pl-20">{user?.name}</p>
+                  </div>
+
+                  <div className="space-y-2 group">
+                    <div className="flex items-center gap-4 mb-4">
+                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                          <Mail size={22} strokeWidth={3} />
+                       </div>
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email Access</p>
+                    </div>
+                    <p className="text-xl font-black text-secondary pl-20 break-all">{user?.email}</p>
+                  </div>
+
+                  <div className="space-y-2 group">
+                    <div className="flex items-center gap-4 mb-4">
+                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                          <IdCard size={22} strokeWidth={3} />
+                       </div>
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Student Credentials</p>
+                    </div>
+                    <p className="text-xl font-black text-secondary pl-20">{user?.studentId}</p>
+                  </div>
+
+                  <div className="space-y-2 group">
+                    <div className="flex items-center gap-4 mb-4">
+                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                          <ShieldCheck size={22} strokeWidth={3} />
+                       </div>
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Level</p>
+                    </div>
+                    <div className="pl-20 flex items-center gap-3">
+                       <p className="text-xl font-black text-secondary">Verified</p>
+                       <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[8px] font-black uppercase tracking-widest animate-pulse">Alpha Secure</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-8 flex gap-4">
-                  <button onClick={() => navigate('/settings')} className="flex-1 bg-slate-900 text-white font-black py-4 rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                    Edit Profile
+                <div className="mt-16 flex flex-col sm:flex-row gap-6 border-t border-slate-50 pt-10">
+                  <button onClick={() => navigate('/settings')} className="flex-1 h-16 bg-secondary text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] shadow-2xl active:scale-[0.98]">
+                    Modify Portfolio
                   </button>
                     <button 
                     onClick={() => {
                       localStorage.removeItem('uniPay_user');
                       window.location.reload();
                     }}
-                    className="flex-1 bg-slate-50 text-slate-500 font-black py-4 rounded-2xl hover:bg-slate-100 hover:text-secondary transition-all"
+                    className="flex-1 h-16 bg-white border border-slate-100 text-slate-400 font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-rose-50 hover:text-rose-500 hover:border-rose-100 transition-all"
                   >
-                    Reset Data
+                    Reset Environment
                   </button>
                 </div>
              </div>

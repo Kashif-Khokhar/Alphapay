@@ -79,50 +79,46 @@ export default function SendMoneyFlow() {
 
 
   return (
-    <div className="w-full bg-white rounded-3xl shadow-2xl border border-slate-100 relative min-h-[500px] flex flex-col">
+    <div className="w-full glass-premium rounded-[40px] shadow-2xl relative min-h-[550px] flex flex-col overflow-hidden">
+      <div className="absolute inset-0 bg-primary/5 -z-10" />
       
       {/* Header / Back Button */}
-      <div className="p-6 border-b border-slate-50 flex items-center justify-between pb-4">
+      <div className="px-10 py-8 border-b border-slate-50 flex items-center justify-between">
         {step > 1 ? (
-          <button onClick={prevStep} className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-colors">
+          <button onClick={prevStep} className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-slate-100 transition-all">
             <ChevronLeft size={20} />
           </button>
-        ) : <div className="w-10 h-10" />}
+        ) : <div className="w-12 h-12" />}
         
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           {[1, 2, 3].map(i => (
-            <div key={i} className={`h-1.5 rounded-full transition-all duration-300 ${step >= i ? 'w-8 bg-teal-500' : 'w-2 bg-slate-200'}`} />
+            <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${step >= i ? 'w-10 bg-primary' : 'w-2 bg-slate-100'}`} />
           ))}
         </div>
-        <div className="w-10 h-10" />
+        <div className="w-12 h-12" />
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 relative p-6 flex flex-col">
+      <div className="flex-1 relative px-10 py-8 flex flex-col">
         <AnimatePresence mode="wait">
           
           {/* STEP 1: SELECT BANK */}
           {step === 1 && (
             <motion.div key="step1" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col">
-              <div className="mb-6">
-                <h2 className="text-2xl font-black text-slate-800 tracking-tight mb-2">Send Money</h2>
-                <p className="text-slate-500 text-sm">Select the receiver's bank to begin transfer.</p>
+              <div className="mb-10">
+                <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Select Institution</h2>
+                <p className="text-slate-500 font-bold text-sm">Choose a gateway for your asset transfer.</p>
               </div>
               
-              <div className="flex items-center gap-3 mb-6 px-4 py-3 bg-slate-50 rounded-2xl focus-within:ring-2 focus-within:ring-teal-500 transition-all">
-                <Search size={17} className="text-slate-400 flex-shrink-0" />
+              <div className="flex items-center gap-4 mb-8 px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus-within:border-primary/50 focus-within:bg-white transition-all">
+                <Search size={20} className="text-slate-500" />
                 <input
                   type="text"
-                  placeholder="Search by bank name..."
+                  placeholder="Filter network..."
                   value={bankSearch}
                   onChange={e => setBankSearch(e.target.value)}
-                  className="flex-1 bg-transparent border-none text-sm font-medium outline-none placeholder:text-slate-400"
+                  className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-slate-300 tracking-tight"
                 />
-                {bankSearch && (
-                  <button onClick={() => setBankSearch('')} className="text-slate-400 hover:text-slate-600 transition-colors">
-                    <span className="text-lg leading-none">&times;</span>
-                  </button>
-                )}
               </div>
 
               {(() => {
@@ -133,36 +129,25 @@ export default function SendMoneyFlow() {
                       const bn = b.name.toLowerCase();
                       const aStarts = an.startsWith(q);
                       const bStarts = bn.startsWith(q);
-                      const aIncludes = an.includes(q);
-                      const bIncludes = bn.includes(q);
                       if (aStarts && !bStarts) return -1;
                       if (!aStarts && bStarts) return 1;
-                      if (aIncludes && !bIncludes) return -1;
-                      if (!aIncludes && bIncludes) return 1;
                       return 0;
                     })
                   : POPULAR_BANKS;
                 return (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {sorted.map(bank => {
-                      const isMatch = q && bank.name.toLowerCase().includes(q);
-                      return (
-                        <button
-                          key={bank.id}
-                          onClick={() => { setBankSearch(''); handleBankSelect(bank); }}
-                          className={`border px-4 py-3 flex flex-row items-center gap-4 rounded-[20px] transition-all duration-200 active:scale-95 group
-                            ${isMatch
-                              ? 'bg-teal-50 border-teal-300 shadow-md'
-                              : 'bg-white border-slate-100 hover:border-teal-200 hover:bg-teal-50/50 hover:shadow-md'}`}
-                        >
-                          <div className="transition-transform group-hover:scale-110 duration-300 flex-shrink-0">
-                            {bank.icon}
-                          </div>
-                          <span className="text-sm font-bold text-slate-700 text-left">{bank.name}</span>
-                          {isMatch && <span className="ml-auto text-[10px] font-black text-teal-600 uppercase tracking-wide">Match</span>}
-                        </button>
-                      );
-                    })}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {sorted.map(bank => (
+                      <button
+                        key={bank.id}
+                        onClick={() => { setBankSearch(''); handleBankSelect(bank); }}
+                        className="bg-slate-50 border border-slate-100 p-5 flex flex-row items-center gap-4 rounded-[28px] transition-all hover:bg-white hover:border-primary/20 hover:scale-[1.02] active:scale-95 group shadow-sm"
+                      >
+                        <div className="transition-transform group-hover:scale-110 duration-500">
+                          {bank.icon}
+                        </div>
+                        <span className="text-sm font-black text-secondary tracking-tight">{bank.name}</span>
+                      </button>
+                    ))}
                   </div>
                 );
               })()}
@@ -172,29 +157,29 @@ export default function SendMoneyFlow() {
           {/* STEP 2: ENTER ACCOUNT */}
           {step === 2 && (
             <motion.div key="step2" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col">
-              <div className="flex items-center gap-3 mb-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+              <div className="flex items-center gap-5 mb-10 p-6 bg-slate-50 rounded-[32px] border border-slate-100 shadow-sm">
                 {formData.bank?.icon}
                 <div>
-                  <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Sending to</p>
-                  <p className="font-bold text-slate-800">{formData.bank?.name}</p>
+                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Channel</p>
+                  <p className="font-black text-secondary tracking-tight">{formData.bank?.name}</p>
                 </div>
               </div>
 
-              <div className="mb-6">
-                <h2 className="text-2xl font-black text-slate-800 tracking-tight mb-2">Account Details</h2>
-                <p className="text-slate-500 text-sm">Enter the receiver's IBAN or Account Number.</p>
+              <div className="mb-10">
+                <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Global Address</h2>
+                <p className="text-slate-500 font-bold text-sm">Enter the IBAN or account hash of the recipient.</p>
               </div>
 
               <form onSubmit={handleAccountSubmit} className="flex-1 flex flex-col">
-                <div className="flex items-center gap-3 mb-8 px-4 py-4 bg-white border-2 border-slate-200 rounded-2xl focus-within:border-teal-500 focus-within:ring-4 focus-within:ring-teal-500/10 transition-all">
-                  <User className="text-teal-500 flex-shrink-0" size={20} />
+                <div className="flex items-center gap-5 mb-10 px-8 py-6 bg-slate-50 border-2 border-slate-100 rounded-[32px] focus-within:border-primary focus-within:bg-white transition-all shadow-sm">
+                  <User className="text-primary" size={24} />
                   <input
                     type="text"
                     autoFocus
-                    placeholder="PK35 SADA 0000 0000 0000"
+                    placeholder="PK00 XXXX 0000 0000 0000"
                     value={formData.accountNumber}
                     onChange={e => set('accountNumber', e.target.value)}
-                    className="flex-1 bg-transparent border-none text-lg font-bold font-mono text-slate-800 outline-none uppercase placeholder:text-slate-300"
+                    className="flex-1 bg-transparent border-none text-xl font-black font-mono text-secondary outline-none uppercase placeholder:text-slate-200"
                     required
                   />
                 </div>
@@ -203,9 +188,9 @@ export default function SendMoneyFlow() {
                   <button
                     type="submit"
                     disabled={formData.accountNumber.length < 8 || status === 'checking'}
-                    className="btn btn-dark btn-full"
+                    className="w-full bg-primary text-secondary py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
                   >
-                    {status === 'checking' ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : 'Continue →'}
+                    {status === 'checking' ? <div className="w-5 h-5 border-3 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto" /> : 'Validate Address'}
                   </button>
                 </div>
               </form>
@@ -215,55 +200,57 @@ export default function SendMoneyFlow() {
           {/* STEP 3: ENTER AMOUNT */}
           {step === 3 && status !== 'done' && (
             <motion.div key="step3" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col text-center">
-              <div className="flex flex-col items-center justify-center mb-8 bg-slate-50 py-4 px-6 rounded-3xl mx-auto border border-slate-100">
-                <div className="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center mb-2 z-10 -mt-8 border border-slate-100">
-                  <User size={20} className="text-slate-400" />
+              <div className="flex flex-col items-center justify-center mb-12 bg-slate-50 py-8 px-10 rounded-[40px] border border-slate-100 shadow-sm max-w-sm mx-auto w-full relative">
+                <div className="w-14 h-14 bg-white rounded-2xl shadow-xl flex items-center justify-center mb-4 absolute -top-7 border border-slate-100">
+                  <User size={24} className="text-primary" />
                 </div>
-                <p className="text-slate-800 font-bold text-lg">{formData.accountTitle}</p>
-                <p className="text-slate-400 text-xs font-mono">{formData.bank?.name} • {formData.accountNumber.slice(-4)}</p>
+                <p className="text-secondary font-black text-xl tracking-tight mb-1">{formData.accountTitle}</p>
+                <p className="text-slate-500 text-[11px] font-black uppercase tracking-widest">{formData.bank?.name} &bull; {formData.accountNumber.slice(-4)}</p>
               </div>
 
               <form onSubmit={handleSend} className="flex-1 flex flex-col">
-                <div className="flex items-center justify-center gap-2 mb-8">
-                  <span className="text-3xl font-bold text-slate-300">PKR</span>
+                <div className="flex items-center justify-center gap-4 mb-12">
+                  <span className="text-4xl font-black text-slate-700 tracking-tighter">PKR</span>
                   <input 
                     type="number" 
                     autoFocus
                     placeholder="0" 
                     value={formData.amount}
                     onChange={e => set('amount', e.target.value)}
-                    className="w-full max-w-[200px] bg-transparent border-none text-6xl md:text-7xl font-black text-slate-800 focus:ring-0 outline-none text-center p-0 tracking-tighter" 
+                    className="w-full max-w-[300px] bg-transparent border-none text-7xl md:text-8xl font-black text-secondary focus:ring-0 outline-none text-center p-0 tracking-tighter" 
                     required 
                   />
                 </div>
 
-                <div className="mb-8 max-w-[280px] mx-auto w-full">
+                <div className="mb-12 max-w-sm mx-auto w-full group">
                   <input 
                     type="text" 
-                    placeholder="Add a note (optional)" 
+                    placeholder="Transfer Memo (optional)" 
                     value={formData.purpose}
                     onChange={e => set('purpose', e.target.value)}
-                    className="w-full bg-slate-50 border-none rounded-xl py-3 px-4 text-center text-sm font-medium placeholder:text-slate-400 focus:ring-2 focus:ring-teal-500 outline-none" 
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-5 px-8 text-center text-sm font-black text-secondary placeholder:text-slate-300 focus:bg-white focus:border-primary/30 outline-none transition-all shadow-sm" 
                   />
                 </div>
 
-                <div className="mt-auto pb-2">
+                <div className="mt-auto pb-4">
                   <button
                     type="submit"
                     disabled={!formData.amount || formData.amount <= 0 || status === 'paying'}
-                    className="btn btn-primary btn-full"
+                    className="w-full bg-primary text-secondary py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
                   >
                     {status === 'paying' ? (
-                      <span className="w-4 h-4 border-2 border-black/30 border-t-black/70 rounded-full animate-spin-slow" />
+                      <div className="w-6 h-6 border-3 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto" />
                     ) : (
-                      <><Send size={15} strokeWidth={2.5} /> Send Money</>
+                      <div className="flex items-center justify-center gap-3">
+                        <Send size={20} strokeWidth={3} /> Execute Transfer
+                      </div>
                     )}
                   </button>
                 </div>
                 
-                <div className="flex items-center justify-center gap-1.5 mt-4">
-                  <ShieldCheck size={12} className="text-teal-500" />
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Instant & Secure Transfer</p>
+                <div className="flex items-center justify-center gap-2 mt-4">
+                  <ShieldCheck size={14} className="text-primary" />
+                  <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">End-to-End Encryption Active</p>
                 </div>
               </form>
             </motion.div>

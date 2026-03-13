@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { History as HistoryIcon, CreditCard, RefreshCw, TrendingUp, CheckCircle, XCircle, Search, Filter } from 'lucide-react';
+import { History as HistoryIcon, CreditCard, RefreshCw, TrendingUp, CheckCircle, XCircle, Search, Filter, Plus } from 'lucide-react';
 import TransactionTable from '../components/TransactionTable';
 import { getTransactions } from '../services/api';
 
@@ -27,54 +27,64 @@ export default function History() {
     .filter(t => !search || t.transactionId?.toLowerCase().includes(search.toLowerCase()) || t.description?.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
-      <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-8 md:px-12 py-8 pb-40">
+    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ paddingTop: '120px' }}>
+      <div className="max-w-[1400px] mx-auto w-full">
+        
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 animate-fade-up">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 animate-fade-up">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 live-dot" />
-              <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Transaction History</p>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-2.5 h-2.5 rounded-full bg-primary live-dot" />
+              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Digital Ledger</p>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                <HistoryIcon size={18} className="text-emerald-600" strokeWidth={2} />
-              </div>
-              Transactions
+            <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
+              History
             </h1>
-            <p className="text-slate-500 text-sm mt-2">All your past payments and their statuses.</p>
+            <p className="text-slate-500 font-bold text-sm mt-3">A complete record of your vault's activity and transactions.</p>
           </div>
-          <div className="flex gap-3 shrink-0">
-            <button onClick={() => navigate('/checkout')}
-              className="btn btn-primary">
-              <CreditCard size={13} /> New Payment
-            </button>
+          <div className="flex gap-4 shrink-0">
             <button onClick={refresh}
-              className="btn btn-outline">
-              <RefreshCw size={13} /> Refresh
+              className="h-14 px-8 rounded-2xl bg-white border border-slate-100 flex items-center gap-3 font-black text-xs uppercase tracking-widest text-secondary hover:bg-slate-50 transition-all">
+              <RefreshCw size={18} /> Sync
+            </button>
+            <button onClick={() => navigate('/checkout')}
+              className="h-14 px-8 rounded-2xl bg-primary flex items-center gap-3 font-black text-xs uppercase tracking-widest text-secondary shadow-lg hover:scale-105 active:scale-95 transition-all">
+              <Plus size={18} /> New Entry
             </button>
           </div>
         </div>
 
         {/* Search + Filters */}
-        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 mb-6 animate-fade-up animate-delay-100">
-          <div className="flex items-center gap-3 w-full sm:flex-1 sm:min-w-[200px] sm:max-w-sm px-4 py-2.5 bg-white border border-slate-200 rounded-xl shadow-sm focus-within:ring-2 focus-within:ring-emerald-500 transition-all">
-            <Search size={14} className="text-slate-400 flex-shrink-0" />
-            <input type="text" placeholder="Search transactions…" value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="flex-1 bg-transparent border-none text-sm text-slate-700 placeholder-slate-400 outline-none" />
+        <div className="flex flex-col lg:flex-row lg:items-center gap-6 mb-10">
+          <div className="flex-1 max-w-xl group">
+             <div className="relative">
+                <Search size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors" />
+                <input 
+                  type="text" 
+                  placeholder="Filter by description or ID..." 
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  className="w-full h-16 pl-16 pr-6 bg-white rounded-[24px] border border-slate-50 shadow-xl shadow-slate-200/40 text-sm font-bold text-secondary placeholder-slate-300 outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                />
+             </div>
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
-            <Filter size={13} className="text-slate-400 shrink-0" />
-            {FILTERS.map(({ key, label, Icon, active }) => (
-              <button key={key} onClick={() => setFilter(key)}
-                className={`filter-pill flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold border transition-all duration-200 whitespace-nowrap
-                  ${filter === key ? active : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300 hover:text-slate-700 shadow-sm'}`}>
-                <Icon size={11} />
-                {label}
-                <span className={`min-w-[20px] h-5 flex items-center justify-center rounded-full text-[10px] font-black
-                  ${filter === key ? 'bg-white/60' : 'bg-slate-100'}`}>
+          
+          <div className="flex items-center gap-3 overflow-x-auto pb-4 lg:pb-0 no-scrollbar">
+            {FILTERS.map(({ key, label, Icon }) => (
+              <button 
+                key={key} 
+                onClick={() => setFilter(key)}
+                className={`h-16 px-8 rounded-[24px] flex items-center gap-4 transition-all duration-500 whitespace-nowrap ${
+                  filter === key 
+                    ? 'bg-secondary text-white shadow-2xl scale-105' 
+                    : 'bg-white text-slate-400 border border-slate-50 hover:border-primary/20 hover:text-secondary'
+                }`}
+              >
+                <Icon size={18} strokeWidth={3} className={filter === key ? 'text-primary' : ''} />
+                <span className="text-[11px] font-black uppercase tracking-widest">{label}</span>
+                <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black ${
+                  filter === key ? 'bg-white/10 text-primary' : 'bg-slate-50 text-slate-400'
+                }`}>
                   {counts[key]}
                 </span>
               </button>
@@ -83,14 +93,14 @@ export default function History() {
         </div>
 
         {search && (
-          <p className="text-xs text-slate-400 mb-4 animate-fade-in">
-            Showing <span className="text-slate-700 font-bold">{filtered.length}</span> results for
-            <span className="text-emerald-600 font-bold"> "{search}"</span>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-6">
+            Refining by <span className="text-primary italic">"{search}"</span> — Found {filtered.length} matches
           </p>
         )}
 
-
-        <TransactionTable transactions={filtered} />
+        <div className="animate-fade-up">
+           <TransactionTable transactions={filtered} />
+        </div>
 
         {/* Mobile Spacer to clear the bottom dock */}
         <div className="h-40 md:hidden" />

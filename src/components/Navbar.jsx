@@ -1,15 +1,15 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings, CheckCircle2, AlertCircle, Info } from 'lucide-react';
+import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings, CheckCircle2, AlertCircle, Info, Wallet } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getCurrentUser } from '../services/api';
 
 const NAV_LINKS = [
-  { to: '/dashboard', label: 'Home', icon: LayoutDashboard },
-  { to: '/card',      label: 'Card', icon: CreditCard },
-  { to: '/checkout',  label: 'Pay',  icon: CreditCard },
-  { to: '/history',   label: 'History', icon: History },
-  { to: '/reports',   label: 'Stats', icon: BarChart2 },
+  { to: '/dashboard', label: 'Home',    icon: LayoutDashboard, color: 'icon-success' },
+  { to: '/card',      label: 'Card',    icon: CreditCard,      color: 'icon-action'  },
+  { to: '/checkout',  label: 'Pay',     icon: Wallet,          color: 'icon-warning' },
+  { to: '/history',   label: 'History', icon: History,         color: 'icon-action'    },
+  { to: '/reports',   label: 'Stats',   icon: BarChart2,       color: 'icon-premium' },
 ];
 
 const NOTIFICATIONS = [
@@ -20,7 +20,8 @@ const NOTIFICATIONS = [
     message: 'Utility bill payment to AlphaPay has been processed.',
     time: '2 mins ago',
     icon: CheckCircle2,
-    color: 'text-primary'
+    color: 'icon-success',
+    bgColor: 'icon-bg-emerald'
   },
   {
     id: 2,
@@ -29,7 +30,8 @@ const NOTIFICATIONS = [
     message: 'Your account balance is below PKR 1,000.',
     time: '1 hour ago',
     icon: AlertCircle,
-    color: 'text-accent'
+    color: 'icon-danger',
+    bgColor: 'icon-bg-rose'
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const NOTIFICATIONS = [
     message: 'Try our new Virtual Card feature for online shopping.',
     time: '5 hours ago',
     icon: Info,
-    color: 'text-blue-500'
+    color: 'icon-action',
+    bgColor: 'icon-bg-teal'
   }
 ];
 
@@ -63,34 +66,37 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Top Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-[20px] saturate-150 h-20 border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hidden md:flex">
-        <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-8 md:px-12 flex items-center justify-between h-full">
-          <Link to="/dashboard" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
-              <span className="text-[#17e0b5] font-black text-2xl italic">α</span>
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1400px] h-20 rounded-[32px] glass-premium shadow-2xl transition-all duration-500 hidden md:flex items-center px-10">
+        <div className="w-full flex items-center justify-between h-full">
+          <Link to="/dashboard" className="flex items-center gap-4 group">
+            <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
+              <span className="text-primary font-black text-3xl italic">α</span>
             </div>
-            <span className="font-extrabold text-xl tracking-tighter text-secondary">
+            <span className="font-black text-2xl tracking-tighter text-secondary">
               Alpha<span className="text-primary">Pay</span>
             </span>
           </Link>
 
           {/* Desktop Links */}
-          <ul className="flex items-center gap-1 h-full">
-            {NAV_LINKS.map(({ to, label, icon: Icon }) => {
+          <ul className="flex items-center gap-2">
+            {NAV_LINKS.map((link) => {
+              const { to, label, icon: Icon } = link;
               const active = location.pathname === to;
               return (
-                <li key={to} className="h-full flex items-center">
-                  <Link to={to} className="relative h-full px-5 flex items-center group">
-                    <div className={`flex items-center gap-2 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-500 group-hover:text-slate-800 group-hover:-translate-y-[1px]'}`}>
-                      <Icon size={18} strokeWidth={active ? 2.5 : 2} className={active ? '' : 'opacity-80 group-hover:opacity-100'} />
-                      <span>{label}</span>
+                <li key={to}>
+                  <Link to={to} className="relative px-6 py-3 flex items-center group">
+                    <div className={`flex items-center gap-2.5 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-500 group-hover:text-slate-800'}`}>
+                      <Icon 
+                        size={18} 
+                        strokeWidth={active ? 3 : 2} 
+                        className={active ? link.color : 'opacity-80 group-hover:opacity-100 group-hover:text-primary'} 
+                      />
+                      <span className="tracking-tight">{label}</span>
                     </div>
-                    {/* Glowing Active Underline */}
                     {active && (
                       <motion.div 
-                        layoutId="desktop-nav-indicator"
-                        className="absolute bottom-0 left-2 right-2 h-[3px] bg-primary rounded-t-full shadow-[0_-2px_8px_rgba(23,224,181,0.6)]"
-                        initial={false}
+                        layoutId="nav-pill"
+                        className="absolute inset-0 bg-primary/10 rounded-2xl -z-10"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -100,8 +106,7 @@ export default function Navbar() {
             })}
           </ul>
 
-          <div className="flex items-center gap-5">
-            {/* Animated Notification Bell */}
+          <div className="flex items-center gap-6">
             <div className="relative notifications-container">
               <button 
                 onClick={(e) => {
@@ -109,137 +114,147 @@ export default function Navbar() {
                   setShowNotifications(!showNotifications);
                   setShowProfileMenu(false);
                 }}
-                className={`p-2 text-slate-500 hover:text-secondary group relative transition-colors ${showNotifications ? 'text-secondary bg-slate-50 rounded-xl' : ''}`}
+                className={`w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${showNotifications ? 'bg-secondary text-primary' : 'text-slate-500 hover:bg-slate-100'}`}
               >
-                <Bell size={22} className="group-hover:origin-top group-hover:animate-swing" />
-                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white shadow-sm ring-2 ring-accent/20"></span>
+                <Bell size={22} className={showNotifications ? 'animate-none' : 'group-hover:animate-swing'} />
+                <span className="absolute top-3 right-3 w-2.5 h-2.5 bg-accent rounded-full border-2 border-white"></span>
               </button>
 
               <AnimatePresence>
                 {showNotifications && (
                   <motion.div 
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute top-[120%] right-0 w-80 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white p-2 z-[60] origin-top-right overflow-hidden"
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    className="absolute top-[120%] right-0 w-80 glass-premium rounded-[32px] shadow-2xl p-2 z-[60] origin-top-right"
                   >
-                    <div className="px-4 py-3 border-b border-slate-100 flex items-center justify-between">
-                      <h3 className="font-extrabold text-secondary text-sm">Notifications</h3>
-                      <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider rounded-full">3 New</span>
+                    <div className="px-5 py-4 border-b border-slate-100/50 flex items-center justify-between">
+                      <h3 className="font-black text-secondary text-sm">Notifications</h3>
+                      <span className="px-2.5 py-1 bg-primary/20 text-primary text-[10px] font-black uppercase tracking-wider rounded-full">3 New</span>
                     </div>
-                    <div className="max-h-[320px] overflow-y-auto custom-scrollbar p-1">
+                    <div className="max-h-[320px] overflow-y-auto p-1 space-y-1">
                       {NOTIFICATIONS.map((notif) => (
-                        <div key={notif.id} className="p-3 hover:bg-slate-50 rounded-2xl transition-colors flex items-start gap-4 cursor-pointer group">
-                          <div className={`w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${notif.color}`}>
-                            <notif.icon size={20} strokeWidth={2.5} />
+                        <div key={notif.id} className="p-4 hover:bg-white/50 rounded-2xl transition-colors flex items-start gap-4 cursor-pointer group">
+                          <div className={`w-12 h-12 rounded-2xl ${notif.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${notif.color}`}>
+                            <notif.icon size={20} strokeWidth={3} />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-secondary text-xs truncate">{notif.title}</h4>
+                            <h4 className="font-extrabold text-secondary text-[13px] truncate">{notif.title}</h4>
                             <p className="text-slate-500 text-[11px] leading-relaxed mt-0.5">{notif.message}</p>
-                            <span className="text-[10px] text-slate-400 font-medium mt-1 inline-block">{notif.time}</span>
+                            <span className="text-[10px] text-slate-400 font-bold mt-1.5 inline-block uppercase tracking-wider">{notif.time}</span>
                           </div>
                         </div>
                       ))}
                     </div>
-                    <button className="w-full py-3 text-center text-[11px] font-black text-primary hover:bg-primary/5 rounded-xl transition-colors mt-1">
-                      View All Activity
-                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
             
             <div className="relative profile-menu-container">
-              <div 
+              <button 
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowProfileMenu(!showProfileMenu);
                 }}
-                className={`w-[42px] h-[42px] rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-lg shadow-[0_4px_12px_rgba(13,18,84,0.15)] cursor-pointer hover:scale-105 transition-all outline outline-2 outline-white outline-offset-[3px] ${showProfileMenu ? 'ring-2 ring-primary/30' : ''}`}
+                className={`w-12 h-12 rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-xl shadow-lg hover:scale-105 transition-all outline outline-4 outline-white/50 outline-offset-0 ${showProfileMenu ? 'ring-4 ring-primary/20' : ''}`}
               >
                 {user?.name?.charAt(0) || 'K'}
-              </div>
+              </button>
               
-              <div className={`absolute top-[120%] right-0 w-52 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white p-2 z-[60] origin-top-right transition-all duration-300 transform ${
-                showProfileMenu 
-                  ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
-                  : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
-              } overflow-hidden`}>
-                 <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
-                      <User size={18} strokeWidth={2.5} />
-                    </div>
-                    Profile
-                 </button>
-                 <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-3 text-sm font-black text-secondary hover:bg-slate-50 rounded-2xl transition-colors flex items-center gap-4 mt-0.5">
-                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
-                      <Settings size={18} strokeWidth={2.5} />
-                    </div>
-                    Settings
-                  </button>
-              </div>
+              <AnimatePresence>
+                {showProfileMenu && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    className="absolute top-[120%] right-0 w-60 glass-premium rounded-[32px] shadow-2xl p-2 z-[60] origin-top-right"
+                  >
+                     <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-4 text-sm font-black text-secondary hover:bg-white/50 rounded-2xl transition-colors flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-800">
+                          <User size={18} strokeWidth={3} />
+                        </div>
+                        Profile
+                     </button>
+                     <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-4 text-sm font-black text-secondary hover:bg-white/50 rounded-2xl transition-colors flex items-center gap-4 mt-1">
+                        <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-800">
+                          <Settings size={18} strokeWidth={3} />
+                        </div>
+                        Settings
+                      </button>
+                      <div className="h-px bg-slate-100/50 my-1 mx-2" />
+                      <button className="w-full text-left px-4 py-4 text-sm font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-4">
+                         <div className="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center">
+                            <AlertCircle size={18} strokeWidth={3} />
+                         </div>
+                         Logout
+                      </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Mobile Bottom Nav (Floating Dock) */}
-      <nav className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[94%] max-w-sm bg-white/90 backdrop-blur-[24px] saturate-[180%] rounded-[2rem] h-[68px] shadow-[0_12px_40px_-12px_rgba(23,224,181,0.3)] flex items-end justify-around px-3 pb-2 border border-white/60 z-50">
+      <nav className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-20 glass-premium rounded-[32px] shadow-2xl flex items-center justify-around px-4 z-50">
         {NAV_LINKS.map(({ to, icon: Icon, label }) => {
           const active = location.pathname === to;
           return (
-            <Link key={to} to={to} className="relative flex-1 flex flex-col items-center justify-end gap-0.5 pb-0.5 h-full group">
+            <Link key={to} to={to} className="relative flex flex-col items-center justify-center gap-1 group">
               <div 
-                className={`relative flex items-center justify-center w-11 h-9 rounded-2xl transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                className={`w-12 h-12 flex items-center justify-center rounded-2xl transition-all duration-500 ${
                   active 
-                    ? 'bg-secondary text-primary shadow-md -translate-y-3' 
-                    : 'text-slate-500 group-active:scale-90 hover:text-slate-600'
+                    ? 'bg-secondary text-primary shadow-xl -translate-y-4 scale-110' 
+                    : 'text-slate-500 hover:text-secondary'
                 }`}
               >
-                <Icon size={20} strokeWidth={active ? 2.5 : 2} />
+                <Icon size={22} strokeWidth={active ? 3 : 2} />
               </div>
               
-              <span 
-                className={`text-[9px] font-black uppercase tracking-widest transition-colors duration-300 ${
-                  active ? 'text-secondary' : 'text-slate-500'
-                }`}
-              >
-                {label}
-              </span>
+              {!active && (
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                  {label}
+                </span>
+              )}
             </Link>
           );
         })}
 
         {/* Mobile Profile Trigger */}
-        <div className="relative flex-1 flex flex-col items-center justify-end gap-0.5 pb-0.5 h-full profile-menu-container">
-           <div 
+        <div className="relative profile-menu-container">
+           <button 
              onClick={(e) => {
                e.stopPropagation();
                setShowProfileMenu(!showProfileMenu);
              }}
-             className={`relative flex items-center justify-center w-11 h-9 rounded-2xl transition-all duration-300 ${
+             className={`w-12 h-12 flex items-center justify-center rounded-2xl transition-all duration-500 ${
                showProfileMenu 
-                 ? 'bg-secondary text-primary shadow-md -translate-y-3 scale-110' 
+                 ? 'bg-secondary text-primary shadow-xl -translate-y-4 scale-110' 
                  : 'text-slate-500'
              }`}
            >
-             <User size={20} strokeWidth={showProfileMenu ? 2.5 : 2} />
-           </div>
-           <span className={`text-[9px] font-black uppercase tracking-widest ${showProfileMenu ? 'text-secondary' : 'text-slate-500'}`}>Me</span>
+             <User size={22} strokeWidth={showProfileMenu ? 3 : 2} />
+           </button>
 
-           {/* Mobile Profile Menu */}
-           <div className={`absolute bottom-[110%] right-0 w-48 bg-white/95 backdrop-blur-xl rounded-[24px] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.15)] border border-white p-2 transition-all duration-300 transform origin-bottom-right ${
-             showProfileMenu 
-               ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
-               : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
-           }`}>
-              <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-slate-50 rounded-xl flex items-center gap-3">
-                 <User size={16} /> Profile
-              </button>
-              <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-slate-50 rounded-xl flex items-center gap-3 mt-0.5">
-                 <Settings size={16} /> Settings
-              </button>
-           </div>
+           <AnimatePresence>
+             {showProfileMenu && (
+               <motion.div 
+                 initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                 animate={{ opacity: 1, y: 0, scale: 1 }}
+                 exit={{ opacity: 0, y: -20, scale: 0.9 }}
+                 className="absolute bottom-[130%] right-0 w-48 glass-premium rounded-[24px] shadow-2xl p-2 origin-bottom-right"
+               >
+                  <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-slate-50 rounded-xl flex items-center gap-3">
+                     <User size={16} strokeWidth={2.5} /> Profile
+                  </button>
+                  <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-slate-50 rounded-xl flex items-center gap-3 mt-1">
+                     <Settings size={16} strokeWidth={2.5} /> Settings
+                  </button>
+               </motion.div>
+             )}
+           </AnimatePresence>
         </div>
       </nav>
     </>

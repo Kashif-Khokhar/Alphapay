@@ -9,10 +9,10 @@ export default function PayBills() {
   const [isPaid, setIsPaid] = useState(false);
 
   const categories = [
-    { id: 'electricity', label: 'Electricity', icon: Zap, color: 'bg-amber-100 text-amber-600' },
-    { id: 'mobile', label: 'Mobile Postpaid', icon: Smartphone, color: 'bg-blue-100 text-blue-600' },
-    { id: 'internet', label: 'Internet', icon: Globe, color: 'bg-teal-100 text-teal-600' },
-    { id: 'gas', label: 'Gas', icon: Home, color: 'bg-rose-100 text-rose-600' },
+    { id: 'electricity', label: 'Electricity', icon: Zap, color: 'bg-amber-500/10 text-amber-500' },
+    { id: 'mobile', label: 'Mobile Postpaid', icon: Smartphone, color: 'bg-violet-500/10 text-violet-500' },
+    { id: 'internet', label: 'Internet', icon: Globe, color: 'bg-teal-500/10 text-teal-500' },
+    { id: 'gas', label: 'Gas', icon: Home, color: 'bg-rose-500/10 text-rose-500' },
   ];
 
   const handlePay = (e) => {
@@ -22,45 +22,48 @@ export default function PayBills() {
   };
 
   return (
-    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)', paddingTop: '100px' }}>
+    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ paddingTop: '120px' }}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-[1600px] mx-auto"
+        className="max-w-[1400px] mx-auto"
       >
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-4 mb-10">
           <button 
             onClick={() => navigate(-1)}
-            className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-secondary hover:bg-slate-50 transition-colors"
+            className="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-slate-50 transition-all shadow-sm"
           >
-            <ArrowDownLeft size={20} className="rotate-45" />
+            <ArrowDownLeft size={22} className="rotate-45" />
           </button>
-          <h1 className="text-2xl font-black text-secondary tracking-tighter">Pay Bills</h1>
+          <div>
+            <h1 className="text-3xl font-black text-secondary tracking-tighter">Vault Payments</h1>
+            <p className="text-slate-500 font-bold text-sm mt-1">Settle utility obligations across the network.</p>
+          </div>
         </div>
 
-        <div className="bg-white rounded-[32px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
+        <div className="premium-card p-10 max-w-4xl mx-auto">
           {!selectedCategory ? (
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-8 px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl focus-within:ring-2 focus-within:ring-teal-500 transition-all">
-                <Search size={17} className="text-slate-400 flex-shrink-0" />
+            <div className="space-y-10">
+              <div className="flex items-center gap-4 px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus-within:border-primary/50 focus-within:bg-white transition-all">
+                <Search size={20} className="text-slate-500" />
                 <input
                   type="text"
-                  placeholder="Search biller..."
-                  className="flex-1 bg-transparent border-none text-sm font-bold text-secondary outline-none placeholder:text-slate-400"
+                  placeholder="Filter billers..."
+                  className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-slate-300 tracking-tight"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {categories.map((cat) => (
                   <button 
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat)}
-                    className="flex flex-col items-center gap-4 p-6 rounded-[2rem] border border-slate-50 hover:border-primary/30 hover:bg-slate-50 transition-all group"
+                    className="flex flex-col items-center gap-6 p-8 rounded-[40px] border border-slate-50 hover:border-primary/20 hover:bg-slate-50 transition-all group active:scale-95"
                   >
-                    <div className={`w-14 h-14 rounded-2xl ${cat.color} flex items-center justify-center transition-transform group-hover:scale-110`}>
-                      <cat.icon size={28} />
+                    <div className={`w-16 h-16 rounded-2xl ${cat.color} flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg`}>
+                      <cat.icon size={32} strokeWidth={2.5} />
                     </div>
-                    <span className="text-[11px] font-black text-secondary uppercase tracking-wide text-center leading-tight">{cat.label}</span>
+                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest text-center leading-tight group-hover:text-secondary transition-colors">{cat.label}</span>
                   </button>
                 ))}
               </div>
@@ -69,56 +72,57 @@ export default function PayBills() {
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="text-center py-10"
+              className="text-center py-20"
             >
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 size={32} />
+              <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
+                <CheckCircle2 size={40} />
               </div>
-              <h2 className="text-xl font-black text-secondary mb-2">Bill Paid!</h2>
-              <p className="text-sm text-slate-500">Your payment of PKR 4,500 was successful.</p>
+              <h2 className="text-2xl font-black text-secondary mb-3">Transaction Complete</h2>
+              <p className="text-slate-500 font-bold">Your payment of PKR 4,500 has been verified.</p>
             </motion.div>
           ) : (
-            <div className="space-y-8">
-              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl">
-                <div className={`w-12 h-12 rounded-xl ${selectedCategory.color} flex items-center justify-center`}>
-                  <selectedCategory.icon size={24} />
+            <div className="space-y-10">
+              <div className="flex items-center gap-6 p-6 bg-slate-50 rounded-[32px] border border-slate-100">
+                <div className={`w-14 h-14 rounded-2xl ${selectedCategory.color} flex items-center justify-center shadow-lg`}>
+                  <selectedCategory.icon size={28} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Paying For</p>
-                  <p className="text-sm font-black text-secondary">{selectedCategory.label}</p>
+                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Obligation Type</p>
+                  <p className="font-black text-secondary tracking-tight text-lg">{selectedCategory.label}</p>
                 </div>
                 <button 
                   onClick={() => setSelectedCategory(null)}
-                  className="ml-auto text-[10px] font-black text-primary uppercase tracking-widest"
+                  className="ml-auto px-5 py-2.5 bg-white border border-slate-100 hover:bg-slate-50 rounded-xl text-[10px] font-black text-slate-400 hover:text-secondary uppercase tracking-widest transition-all shadow-sm"
                 >
                   Change
                 </button>
               </div>
 
-              <form onSubmit={handlePay} className="space-y-6">
+              <form onSubmit={handlePay} className="space-y-8">
                 <div>
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">Consumer ID</label>
+                  <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] block mb-4 px-2">Account Identification</label>
                   <input 
                     type="text" 
                     required
-                    placeholder="Enter 14-digit number"
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
+                    placeholder="Enter 14-digit consumer code"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-[28px] py-6 px-8 text-sm font-black text-secondary placeholder:text-slate-300 focus:bg-white focus:border-primary/50 outline-none transition-all tracking-tight shadow-sm"
                   />
                 </div>
 
-                <div className="p-5 bg-slate-900 rounded-[2rem] text-white">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Amount Due</span>
-                    <span className="text-xs font-bold text-primary">Due: Mar 15</span>
+                <div className="p-8 bg-secondary rounded-[40px] text-white relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-10" />
+                  <div className="flex justify-between items-center mb-2 relative z-10">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Calculated Balance Due</span>
+                    <span className="text-[10px] font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Due: Mar 15</span>
                   </div>
-                  <p className="text-2xl font-black tracking-tighter">PKR 4,500.00</p>
+                  <p className="text-4xl font-black tracking-tighter relative z-10">PKR 4,500.00</p>
                 </div>
 
                 <button
                   type="submit"
-                  className="btn btn-primary btn-full"
+                  className="w-full bg-primary text-secondary py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all mt-4"
                 >
-                  Confirm &amp; Pay Now
+                  Confirm &amp; Settle Obligation
                 </button>
               </form>
             </div>

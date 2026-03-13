@@ -16,25 +16,25 @@ export default function Settings() {
     {
       title: 'Profile',
       items: [
-        { icon: User,    label: 'Account Info',   value: 'Edit',       color: 'bg-indigo-50 text-indigo-600' },
-        { icon: Lock,    label: 'Change Password', value: 'Update',     color: 'bg-rose-50 text-rose-600' },
-        { icon: Smartphone, label: 'Linked Devices', value: '2 Active', color: 'bg-amber-50 text-amber-600' },
+        { icon: User,    label: 'Account Info',   value: 'Edit',       color: 'icon-bg-teal icon-action' },
+        { icon: Lock,    label: 'Change Password', value: 'Update',     color: 'icon-bg-rose icon-danger' },
+        { icon: Smartphone, label: 'Linked Devices', value: '2 Active', color: 'icon-bg-amber icon-warning' },
       ]
     },
     {
       title: 'Preferences',
       items: [
-        { icon: Bell,    label: 'Notifications',  value: 'On',          color: 'bg-blue-50 text-blue-600' },
-        { icon: Moon,    label: 'Appearance',      value: 'Light Mode',  color: 'bg-purple-50 text-purple-600' },
-        { icon: Globe,   label: 'Region',          value: 'Pakistan',    color: 'bg-teal-50 text-teal-600' },
-        { icon: Palette, label: 'Theme Colors',    value: 'Emerald',     color: 'bg-amber-50 text-amber-600' },
+        { icon: Bell,    label: 'Notifications',  value: 'On',          color: 'icon-bg-teal icon-action' },
+        { icon: Moon,    label: 'Appearance',      value: 'Light Mode',  color: 'icon-bg-purple icon-premium' },
+        { icon: Globe,   label: 'Region',          value: 'Pakistan',    color: 'icon-bg-teal icon-action' },
+        { icon: Palette, label: 'Theme Colors',    value: 'Emerald',     color: 'icon-bg-amber icon-warning' },
       ]
     },
     {
       title: 'Security',
       items: [
-        { icon: Shield,     label: 'Face ID / Touch ID', value: 'Active', color: 'bg-emerald-50 text-emerald-600' },
-        { icon: Smartphone, label: 'Two-Factor Auth',    value: 'Off',    color: 'bg-rose-50 text-rose-600' },
+        { icon: Shield,     label: 'Face ID / Touch ID', value: 'Active', color: 'icon-bg-emerald icon-success' },
+        { icon: Smartphone, label: 'Two-Factor Auth',    value: 'Off',    color: 'icon-bg-rose icon-danger' },
       ]
     },
   ];
@@ -43,24 +43,24 @@ export default function Settings() {
     {
       title: 'Data & Tracking',
       items: [
-        { icon: Eye,      label: 'Privacy Mode',       value: 'Hidden',   color: 'bg-slate-100 text-slate-600' },
-        { icon: Cookie,   label: 'Cookie Preferences', value: 'Essential', color: 'bg-amber-50 text-amber-600' },
-        { icon: BarChart2,label: 'Analytics & Usage',  value: 'Off',      color: 'bg-indigo-50 text-indigo-600' },
+        { icon: Eye,      label: 'Privacy Mode',       value: 'Hidden',   color: 'icon-bg-violet icon-info' },
+        { icon: Cookie,   label: 'Cookie Preferences', value: 'Essential', color: 'icon-bg-amber icon-warning' },
+        { icon: BarChart2,label: 'Analytics & Usage',  value: 'Off',      color: 'icon-bg-teal icon-action' },
       ]
     },
     {
       title: 'Permissions',
       items: [
-        { icon: MapPin,   label: 'Location Access',    value: 'Denied',   color: 'bg-rose-50 text-rose-600' },
-        { icon: FileText, label: 'Activity History',   value: 'Clear',    color: 'bg-purple-50 text-purple-600' },
-        { icon: User,     label: 'Data Permissions',   value: 'Managed',  color: 'bg-teal-50 text-teal-600' },
+        { icon: MapPin,   label: 'Location Access',    value: 'Denied',   color: 'icon-bg-rose icon-danger' },
+        { icon: FileText, label: 'Activity History',   value: 'Clear',    color: 'icon-bg-purple icon-premium' },
+        { icon: User,     label: 'Data Permissions',   value: 'Managed',  color: 'icon-bg-teal icon-action' },
       ]
     },
     {
       title: 'Identity',
       items: [
-        { icon: UserX,    label: 'Anonymous Mode',     value: 'Off',      color: 'bg-slate-100 text-slate-500' },
-        { icon: Shield,   label: 'Ad Preferences',     value: 'Limited',  color: 'bg-emerald-50 text-emerald-600' },
+        { icon: UserX,    label: 'Anonymous Mode',     value: 'Off',      color: 'icon-bg-violet icon-info' },
+        { icon: Shield,   label: 'Ad Preferences',     value: 'Limited',  color: 'icon-bg-emerald icon-success' },
       ]
     },
   ];
@@ -89,14 +89,14 @@ export default function Settings() {
           <h1 className="text-3xl font-black text-secondary tracking-tighter">Settings</h1>
         </div>
 
-        <div className="bg-white rounded-[40px] shadow-2xl shadow-slate-200/50 border border-slate-100">
+        <div className="bg-white rounded-[56px] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
            {/* Tabs */}
            <div className="flex p-2 bg-slate-50/50 border-b border-slate-100">
               {['Account', 'Wallet', 'Privacy'].map(tab => (
                  <button
                    key={tab}
                    onClick={() => setActiveTab(tab)}
-                   className={`flex-1 py-4 text-xs font-black uppercase tracking-widest rounded-2xl transition-all ${activeTab === tab ? 'bg-white text-secondary shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+                   className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest rounded-3xl transition-all ${activeTab === tab ? 'bg-white text-secondary shadow-md' : 'text-slate-400 hover:text-slate-600'}`}
                  >
                    {tab}
                  </button>
@@ -105,22 +105,22 @@ export default function Settings() {
 
            {/* Account & Privacy tabs — each with own groups */}
            {activeTab !== 'Wallet' && (
-             <div className="px-6 md:px-10 pt-10 pb-8 space-y-8">
+             <div className="px-6 md:px-10 pt-10 pb-8 space-y-10">
                {groups.map((group) => (
                  <div key={group.title}>
-                   <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-2">{group.title}</h3>
-                   <div className="space-y-2">
+                   <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-6 px-4">{group.title}</h3>
+                   <div className="space-y-3">
                      {group.items.map((item) => (
-                       <button key={item.label} className="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-slate-50 transition-all group">
-                         <div className="flex items-center gap-4">
-                            <div className={`w-11 h-11 rounded-2xl ${item.color} flex items-center justify-center transition-transform group-hover:scale-110`}>
-                              <item.icon size={20} />
+                       <button key={item.label} className="w-full flex items-center justify-between p-5 rounded-[32px] hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100">
+                         <div className="flex items-center gap-6">
+                            <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center transition-transform group-hover:scale-110 shadow-sm`}>
+                              <item.icon size={24} strokeWidth={2.5} />
                             </div>
-                            <span className="text-sm font-black text-secondary">{item.label}</span>
+                            <span className="text-base font-black text-secondary">{item.label}</span>
                          </div>
-                         <div className="flex items-center gap-3">
-                            <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">{item.value}</span>
-                            <ChevronRight size={16} className="text-slate-200 group-hover:text-slate-400 transition-colors" />
+                         <div className="flex items-center gap-4">
+                            <span className="text-xs font-black text-slate-400 uppercase tracking-widest">{item.value}</span>
+                            <ChevronRight size={18} className="text-slate-200 group-hover:text-slate-400 transition-colors group-hover:translate-x-1" />
                          </div>
                        </button>
                      ))}
@@ -132,83 +132,83 @@ export default function Settings() {
 
            {/* Wallet tab — Transfer Limits */}
            {activeTab === 'Wallet' && (
-             <div className="px-6 md:px-10 pt-10 pb-8 space-y-6">
+             <div className="px-6 md:px-10 pt-10 pb-8 space-y-8">
                {/* Header */}
-               <div className="flex items-center gap-3">
-                 <div className="w-11 h-11 rounded-2xl bg-orange-50 flex items-center justify-center">
-                   <ShieldCheck size={20} className="text-orange-500" strokeWidth={1.8} />
+               <div className="flex items-center gap-4 px-4">
+                 <div className="w-14 h-14 rounded-2xl icon-bg-orange flex items-center justify-center shadow-sm">
+                   <ShieldCheck size={28} className="icon-spending" strokeWidth={2.5} />
                  </div>
                  <div>
-                   <h3 className="text-sm font-black text-slate-800">Transfer Limits</h3>
-                   <p className="text-[10px] text-orange-500 font-bold uppercase tracking-widest">Verified Account</p>
+                   <h3 className="text-base font-black text-secondary uppercase tracking-tight">Transfer Limits</h3>
+                   <p className="text-[10px] icon-spending font-black uppercase tracking-[0.3em] mt-1">Alpha Verified Account</p>
                  </div>
                </div>
 
                {/* Daily */}
-               <div className="bg-slate-50 rounded-2xl p-5 space-y-3">
-                 <div className="flex items-center gap-2 mb-1">
-                   <TrendingUp size={13} className="text-teal-500" />
-                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Daily Limit</span>
+               <div className="bg-slate-50/50 rounded-[40px] p-7 space-y-6 border border-slate-100 flex flex-col items-center sm:items-stretch">
+                 <div className="flex items-center gap-3">
+                   <TrendingUp size={16} className="icon-success" strokeWidth={3} />
+                   <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Daily Limit</span>
                  </div>
-                 <div className="flex justify-between items-end">
+                 <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-4 text-center sm:text-left">
                    <div>
-                     <p className="text-2xl font-black text-slate-800 tracking-tighter">
+                     <p className="text-3xl font-black text-secondary tracking-tighter">
                        PKR {DAILY_SPENT.toLocaleString()}
                      </p>
-                     <p className="text-[10px] text-slate-400 font-medium mt-0.5">spent today</p>
+                     <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest mt-1 px-2">Total spent today</p>
                    </div>
-                   <p className="text-xs font-black text-slate-500">of PKR {DAILY_LIMIT.toLocaleString()}</p>
+                   <p className="text-sm font-black text-slate-400 uppercase tracking-widest">of PKR {DAILY_LIMIT.toLocaleString()}</p>
                  </div>
-                 <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                 <div className="h-2 w-full bg-slate-200/50 rounded-full overflow-hidden">
                    <div
-                     className="h-full bg-teal-500 rounded-full transition-all duration-700"
+                     className="h-full bg-emerald-500 rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(16,185,129,0.5)]"
                      style={{ width: `${(DAILY_SPENT / DAILY_LIMIT) * 100}%` }}
                    />
                  </div>
-                 <p className="text-[10px] text-slate-400">
+                 <p className="text-[10px] font-black text-emerald-600 uppercase tracking-widest px-2">
                    PKR {(DAILY_LIMIT - DAILY_SPENT).toLocaleString()} remaining today
                  </p>
                </div>
 
                {/* Monthly */}
-               <div className="bg-slate-50 rounded-2xl p-5 space-y-3">
-                 <div className="flex items-center gap-2 mb-1">
-                   <TrendingUp size={13} className="text-indigo-500" />
-                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Monthly Limit</span>
+               <div className="bg-slate-50/50 rounded-[40px] p-7 space-y-6 border border-slate-100 flex flex-col items-center sm:items-stretch">
+                 <div className="flex items-center gap-3">
+                   <TrendingUp size={16} className="icon-action" strokeWidth={3} />
+                   <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Monthly Limit</span>
                  </div>
-                 <div className="flex justify-between items-end">
+                 <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-4 text-center sm:text-left">
                    <div>
-                     <p className="text-2xl font-black text-slate-800 tracking-tighter">
+                     <p className="text-3xl font-black text-secondary tracking-tighter">
                        PKR {MONTHLY_SPENT.toLocaleString()}
                      </p>
-                     <p className="text-[10px] text-slate-400 font-medium mt-0.5">spent this month</p>
+                     <p className="text-[11px] text-slate-500 font-black uppercase tracking-widest mt-1 px-2">Total spent this month</p>
                    </div>
-                   <p className="text-xs font-black text-slate-500">of PKR {MONTHLY_LIMIT.toLocaleString()}</p>
+                   <p className="text-sm font-black text-slate-400 uppercase tracking-widest">of PKR {MONTHLY_LIMIT.toLocaleString()}</p>
                  </div>
-                 <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                 <div className="h-2 w-full bg-slate-200/50 rounded-full overflow-hidden">
                    <div
-                     className="h-full bg-indigo-500 rounded-full transition-all duration-700"
+                     className="h-full bg-indigo-500 rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(99,102,241,0.5)]"
                      style={{ width: `${(MONTHLY_SPENT / MONTHLY_LIMIT) * 100}%` }}
                    />
                  </div>
-                 <p className="text-[10px] text-slate-400">
+                 <p className="text-[11px] font-black text-indigo-600 uppercase tracking-widest px-2">
                    PKR {(MONTHLY_LIMIT - MONTHLY_SPENT).toLocaleString()} remaining this month
                  </p>
                </div>
 
-               {/* Request increase */}
-               <button className="btn btn-outline btn-full flex items-center gap-2">
-                 <ArrowUpRight size={14} /> Request Limit Increase
-               </button>
+                {/* Request increase */}
+                <button className="w-full bg-secondary text-primary py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all mt-4 flex items-center justify-center gap-3">
+                  <ArrowUpRight size={18} strokeWidth={3} /> Request Limit Increase
+                </button>
              </div>
            )}
 
-            <div className="bg-rose-50 p-8 flex flex-col items-center">
-               <p className="text-xs font-black text-rose-600 uppercase tracking-widest mb-4">Danger Zone</p>
-               <button className="w-full bg-white text-rose-500 font-black py-4 rounded-2xl shadow-sm border border-rose-100 hover:bg-rose-500 hover:text-white transition-all">
-                 Delete Account
-               </button>
-            </div>
+             <div className="bg-rose-50/30 p-12 flex flex-col items-center border-t border-rose-100/50">
+                <p className="text-[10px] font-black text-rose-500 uppercase tracking-[0.5em] mb-6">Security Terminal</p>
+                <button className="w-full max-w-sm bg-white text-rose-500 font-black py-5 rounded-[24px] shadow-lg shadow-rose-200/20 border border-rose-100 hover:bg-rose-500 hover:text-white hover:scale-[1.02] transform transition-all duration-300 uppercase tracking-widest text-xs">
+                  Deactivate Archive
+                </button>
+             </div>
          </div>
          {/* Mobile Spacer to clear the bottom dock */}
          <div className="h-40 md:hidden" />

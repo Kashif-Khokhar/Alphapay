@@ -64,7 +64,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
   ];
 
   return (
-    <div className="w-full max-w-lg mx-auto p-8 pt-16 flex flex-col items-center gap-6">
+    <div className="w-full max-w-lg mx-auto p-12 pt-16 flex flex-col items-center gap-10">
 
       {/* Status icon */}
       <div className="relative">
@@ -92,9 +92,9 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
       </div>
 
       {/* Details table */}
-      <div className="w-full rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
+      <div className="w-full rounded-[24px] overflow-hidden border border-slate-100 bg-slate-50/50">
         {rows.map(({ label, value, mono, copyable }, i) => (
-          <div key={label} className={`tx-row flex justify-between items-center px-5 py-3.5 text-sm ${i !== rows.length - 1 ? 'border-b border-slate-100' : ''}`}>
+          <div key={label} className={`tx-row flex justify-between items-center px-8 py-4.5 text-sm ${i !== rows.length - 1 ? 'border-b border-slate-100' : ''}`}>
             <span className="text-slate-600 font-medium text-xs uppercase tracking-wide">{label}</span>
             <div className="flex items-center gap-2">
               <span className={`font-semibold text-right ${mono ? 'font-mono text-emerald-600 text-xs' : 'text-slate-700'}`}>{value}</span>
