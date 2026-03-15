@@ -29,7 +29,7 @@ export default function Checkout() {
           {/* Sidebar */}
           <div className="lg:col-span-4 flex flex-col gap-6 animate-slide-right">
             {/* Recent Payees */}
-            <div className="premium-card p-10 relative overflow-hidden group">
+            <div className="premium-card p-6 relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary alert-glow -mr-16 -mt-16 opacity-10 group-hover:opacity-20 transition-opacity" />
                <h3 className="text-[11px] font-black text-secondary uppercase tracking-[0.4em] mb-10">Recent Stream</h3>
                
@@ -39,7 +39,7 @@ export default function Checkout() {
                    { name: 'Kashif Khokhar', bank: 'Meezan Bank', initial: 'K', color: 'bg-primary/10 text-primary' },
                    { name: 'Ali Hamza', bank: 'HBL', initial: 'A', color: 'bg-violet-500/10 text-violet-500' },
                  ].map((p, i) => (
-                   <div key={i} className="flex items-center justify-between p-5 rounded-[32px] border border-slate-50 hover:bg-slate-50 transition-all cursor-pointer group/item">
+                   <div key={i} className="flex items-center justify-between p-4 rounded-2xl border border-slate-50 hover:bg-slate-50 transition-all cursor-pointer group/item">
                      <div className="flex items-center gap-4">
                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-base ${p.color} transition-transform group-hover/item:scale-110`}>
                          {p.initial}
@@ -58,7 +58,7 @@ export default function Checkout() {
             </div>
 
             {/* Limits */}
-            <div className="bg-secondary rounded-[48px] p-10 text-white relative group overflow-hidden shadow-2xl">
+            <div className="bg-secondary rounded-3xl p-6 text-white relative group overflow-hidden shadow-xl">
                <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-20" />
                <div className="flex items-center gap-4 mb-8">
                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary transition-transform group-hover:scale-110">

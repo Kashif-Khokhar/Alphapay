@@ -89,7 +89,7 @@ export default function Settings() {
           <h1 className="text-3xl font-black text-secondary tracking-tighter">Settings</h1>
         </div>
 
-        <div className="bg-white rounded-[56px] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
            {/* Tabs */}
            <div className="flex p-2 bg-slate-50/50 border-b border-slate-100">
               {['Account', 'Wallet', 'Privacy'].map(tab => (
@@ -111,8 +111,8 @@ export default function Settings() {
                    <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-6 px-4">{group.title}</h3>
                    <div className="space-y-3">
                      {group.items.map((item) => (
-                       <button key={item.label} className="w-full flex items-center justify-between p-5 rounded-[32px] hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100">
-                         <div className="flex items-center gap-6">
+                       <button key={item.label} className="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100">
+                         <div className="flex items-center gap-4">
                             <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center transition-transform group-hover:scale-110 shadow-sm`}>
                               <item.icon size={24} strokeWidth={2.5} />
                             </div>
@@ -145,7 +145,7 @@ export default function Settings() {
                </div>
 
                {/* Daily */}
-               <div className="bg-slate-50/50 rounded-[40px] p-7 space-y-6 border border-slate-100 flex flex-col items-center sm:items-stretch">
+               <div className="bg-slate-50/50 rounded-3xl p-6 space-y-5 border border-slate-100 flex flex-col items-center sm:items-stretch">
                  <div className="flex items-center gap-3">
                    <TrendingUp size={16} className="icon-success" strokeWidth={3} />
                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Daily Limit</span>
@@ -171,7 +171,7 @@ export default function Settings() {
                </div>
 
                {/* Monthly */}
-               <div className="bg-slate-50/50 rounded-[40px] p-7 space-y-6 border border-slate-100 flex flex-col items-center sm:items-stretch">
+               <div className="bg-slate-50/50 rounded-3xl p-6 space-y-5 border border-slate-100 flex flex-col items-center sm:items-stretch">
                  <div className="flex items-center gap-3">
                    <TrendingUp size={16} className="icon-action" strokeWidth={3} />
                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Monthly Limit</span>
@@ -203,7 +203,7 @@ export default function Settings() {
              </div>
            )}
 
-             <div className="bg-rose-50/30 p-12 flex flex-col items-center border-t border-rose-100/50">
+             <div className="bg-rose-50/30 p-8 flex flex-col items-center border-t border-rose-100/50">
                 <p className="text-[10px] font-black text-rose-500 uppercase tracking-[0.5em] mb-6">Security Terminal</p>
                 <button className="w-full max-w-sm bg-white text-rose-500 font-black py-5 rounded-[24px] shadow-lg shadow-rose-200/20 border border-rose-100 hover:bg-rose-500 hover:text-white hover:scale-[1.02] transform transition-all duration-300 uppercase tracking-widest text-xs">
                   Deactivate Archive

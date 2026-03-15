@@ -32,10 +32,10 @@ export default function RequestMoney() {
           <h1 className="text-2xl font-black text-secondary tracking-tighter">Request Money</h1>
         </div>
 
-        <div className="bg-white rounded-[32px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
-          <div className="flex flex-col items-center mb-10">
-            <div className="w-20 h-20 rounded-[2.5rem] bg-secondary flex items-center justify-center text-primary mb-4 shadow-lg">
-              <ArrowDownLeft size={36} strokeWidth={2.5} />
+        <div className="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-slate-100">
+          <div className="flex flex-col items-center mb-8">
+            <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center text-primary mb-4 shadow-sm">
+              <ArrowDownLeft size={28} strokeWidth={2.5} />
             </div>
             <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Generate Request</p>
           </div>
@@ -64,7 +64,7 @@ export default function RequestMoney() {
                     placeholder="0.00"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-16 pr-5 text-lg font-black text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 pl-14 pr-4 text-base font-black text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
                   />
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function RequestMoney() {
                     type="text" 
                     required
                     placeholder="@username"
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-14 pr-5 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 pl-12 pr-4 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
                   />
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function RequestMoney() {
                   placeholder="What's this for?"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 px-5 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all resize-none h-24"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 px-4 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all resize-none h-24"
                 />
               </div>
 

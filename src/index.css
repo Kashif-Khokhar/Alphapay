@@ -137,12 +137,12 @@ h6 {
 
 .premium-card {
   background: white;
-  border-radius: 40px;
+  border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 
     0 10px 40px -10px rgba(0, 0, 0, 0.04),
     0 1px 4px rgba(0, 0, 0, 0.02);
-  padding: 2.5rem;
+  padding: 1.5rem;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 

@@ -49,10 +49,10 @@ export default function Profile() {
           <motion.div variants={itemVariants} className="lg:col-span-4 space-y-8">
             <div className="premium-card flex flex-col items-center">
                <div className="relative group perspective-1000">
-                  <div className="w-40 h-40 rounded-[4rem] bg-secondary text-primary flex items-center justify-center font-black text-5xl shadow-2xl relative z-10 border-4 border-white/5 transition-transform duration-700 group-hover:rotate-y-12">
+                  <div className="w-24 h-24 rounded-3xl bg-secondary text-primary flex items-center justify-center font-black text-4xl shadow-xl relative z-10 border-4 border-white/5 transition-transform duration-700 group-hover:rotate-y-12">
                      {user?.name?.charAt(0) || 'K'}
                   </div>
-                  <div className="absolute inset-0 rounded-[4rem] bg-primary blur-3xl opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute inset-0 rounded-3xl bg-primary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
                   <button className="absolute -bottom-2 -right-2 w-12 h-12 rounded-2xl bg-white shadow-2xl flex items-center justify-center text-secondary hover:text-primary transition-all z-20 hover:scale-110 active:scale-95 border border-slate-50">
                     <Camera size={20} strokeWidth={3} />
                   </button>
@@ -66,7 +66,7 @@ export default function Profile() {
                </div>
             </div>
 
-            <div className="bg-secondary rounded-[48px] p-12 text-white relative group overflow-hidden shadow-2xl">
+            <div className="bg-secondary rounded-3xl p-8 text-white relative group overflow-hidden shadow-xl">
                <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-30 group-hover:scale-125 transition-transform duration-1000" />
                <div className="relative z-10 flex flex-col items-center text-center">
                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4">Vault Balance</p>
@@ -92,7 +92,7 @@ export default function Profile() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <User size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</p>
@@ -102,7 +102,7 @@ export default function Profile() {
 
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <Mail size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email Access</p>
@@ -112,7 +112,7 @@ export default function Profile() {
 
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <IdCard size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Student Credentials</p>
@@ -122,7 +122,7 @@ export default function Profile() {
 
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <ShieldCheck size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Level</p>

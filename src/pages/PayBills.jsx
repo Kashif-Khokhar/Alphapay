@@ -41,7 +41,7 @@ export default function PayBills() {
           </div>
         </div>
 
-        <div className="premium-card p-10 max-w-4xl mx-auto">
+        <div className="premium-card p-6 max-w-4xl mx-auto">
           {!selectedCategory ? (
             <div className="space-y-10">
               <div className="flex items-center gap-4 px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus-within:border-primary/50 focus-within:bg-white transition-all">
@@ -58,7 +58,7 @@ export default function PayBills() {
                   <button 
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat)}
-                    className="flex flex-col items-center gap-6 p-8 rounded-[40px] border border-slate-50 hover:border-primary/20 hover:bg-slate-50 transition-all group active:scale-95"
+                    className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-slate-50 hover:border-primary/20 hover:bg-slate-50 transition-all group active:scale-95"
                   >
                     <div className={`w-16 h-16 rounded-2xl ${cat.color} flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg`}>
                       <cat.icon size={32} strokeWidth={2.5} />
@@ -82,7 +82,7 @@ export default function PayBills() {
             </motion.div>
           ) : (
             <div className="space-y-10">
-              <div className="flex items-center gap-6 p-6 bg-slate-50 rounded-[32px] border border-slate-100">
+              <div className="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100">
                 <div className={`w-14 h-14 rounded-2xl ${selectedCategory.color} flex items-center justify-center shadow-lg`}>
                   <selectedCategory.icon size={28} />
                 </div>
@@ -105,11 +105,11 @@ export default function PayBills() {
                     type="text" 
                     required
                     placeholder="Enter 14-digit consumer code"
-                    className="w-full bg-slate-50 border border-slate-100 rounded-[28px] py-6 px-8 text-sm font-black text-secondary placeholder:text-slate-300 focus:bg-white focus:border-primary/50 outline-none transition-all tracking-tight shadow-sm"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-xl py-4 px-6 text-sm font-black text-secondary placeholder:text-slate-300 focus:bg-white focus:border-primary/50 outline-none transition-all tracking-tight shadow-sm"
                   />
                 </div>
 
-                <div className="p-8 bg-secondary rounded-[40px] text-white relative overflow-hidden group">
+                <div className="p-6 bg-secondary rounded-3xl text-white relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-10" />
                   <div className="flex justify-between items-center mb-2 relative z-10">
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Calculated Balance Due</span>

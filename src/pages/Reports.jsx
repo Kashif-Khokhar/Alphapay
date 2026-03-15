@@ -57,7 +57,7 @@ export default function Reports() {
             <p className="text-slate-500 font-bold text-sm mt-3">Advanced insights into your spending patterns and flow.</p>
           </div>
           <button onClick={() => navigate('/checkout')}
-            className="h-16 px-10 rounded-[24px] bg-secondary text-white flex items-center gap-4 font-black text-xs uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all">
+            className="h-12 px-6 rounded-xl bg-secondary text-white flex items-center gap-3 font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all">
             <CreditCard size={18} /> Make Payment
           </button>
         </div>
@@ -82,7 +82,7 @@ export default function Reports() {
         {/* Charts row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Status Breakdown */}
-          <div className="premium-card p-12 animate-fade-up">
+          <div className="premium-card p-6 animate-fade-up">
             <div className="flex items-center gap-4 mb-10">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                 <BarChart2 size={24} strokeWidth={3} />
@@ -126,7 +126,7 @@ export default function Reports() {
           </div>
 
           {/* Recent Activity Mini */}
-          <div className="premium-card p-12 animate-fade-up">
+          <div className="premium-card p-6 animate-fade-up">
             <div className="flex items-center gap-4 mb-10">
               <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-white">
                 <Activity size={24} strokeWidth={3} />
@@ -135,7 +135,7 @@ export default function Reports() {
             </div>
             <div className="space-y-4">
               {transactions.slice(0, 5).map((tx) => (
-                <div key={tx.transactionId} className="flex items-center justify-between p-6 rounded-[32px] border border-slate-50 hover:bg-slate-50/50 transition-all group">
+                <div key={tx.transactionId} className="flex items-center justify-between p-4 rounded-2xl border border-slate-50 hover:bg-slate-50/50 transition-all group">
                    <div className="flex items-center gap-5">
                       <div className={`w-3 h-3 rounded-full ${tx.status === 'SUCCESS' ? 'bg-primary' : 'bg-rose-500'} animate-pulse`} />
                       <div>

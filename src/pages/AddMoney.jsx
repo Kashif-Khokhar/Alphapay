@@ -36,7 +36,7 @@ export default function AddMoney() {
           <h1 className="text-2xl font-black text-secondary tracking-tighter">Add Money</h1>
         </div>
 
-        <div className="bg-white rounded-[32px] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
+        <div className="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-slate-100">
           {isSuccess ? (
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
@@ -96,7 +96,7 @@ export default function AddMoney() {
           )}
         </div>
 
-        <div className="mt-8 p-6 bg-primary/5 rounded-[2rem] border border-primary/10">
+        <div className="mt-8 p-5 bg-primary/5 rounded-2xl border border-primary/10">
           <div className="flex gap-4">
             <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
                <Wallet size={18} />

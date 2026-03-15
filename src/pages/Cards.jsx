@@ -121,13 +121,21 @@ export default function Cards() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-md bg-white rounded-[40px] p-12 shadow-2xl border border-white"
+              className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl border border-white overflow-hidden"
             >
               <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-black text-slate-800 tracking-tight">Card Limits</h2>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-white">
+                     <Settings size={22} />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-black text-secondary tracking-tight">Card Limits</h2>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Control your spending</p>
+                  </div>
+                </div>
                 <button 
                   onClick={() => setShowLimits(false)}
-                  className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-colors"
+                  className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-slate-100 transition-all shadow-sm"
                 >
                   <Plus size={20} className="rotate-45" />
                 </button>
@@ -135,33 +143,38 @@ export default function Cards() {
 
               <div className="space-y-6">
                 {[
-                  { label: 'Daily Purchase', value: 'PKR 150,000', used: 'PKR 12,400', percent: 8 },
-                  { label: 'Monthly Limit', value: 'PKR 1,500,000', used: 'PKR 12,400', percent: 1 },
-                  { label: 'ATM Withdrawal', value: 'PKR 50,000', used: 'PKR 0', percent: 0 },
-                  { label: 'Online Payment', value: 'PKR 100,000', used: 'PKR 12,400', percent: 12 }
+                  { label: 'Daily Purchase', value: 'PKR 150,000', used: 'PKR 12,400', percent: 8, colorCls: 'bg-emerald-500', textCls: 'text-emerald-500', bgLight: 'bg-emerald-50', shadowCls: 'shadow-[0_0_10px_rgba(16,185,129,0.3)]' },
+                  { label: 'Monthly Limit', value: 'PKR 1,500,000', used: 'PKR 12,400', percent: 1, colorCls: 'bg-indigo-500', textCls: 'text-indigo-500', bgLight: 'bg-indigo-50', shadowCls: 'shadow-[0_0_10px_rgba(99,102,241,0.3)]' },
+                  { label: 'ATM Withdrawal', value: 'PKR 50,000', used: 'PKR 0', percent: 0, colorCls: 'bg-amber-500', textCls: 'text-amber-500', bgLight: 'bg-amber-50', shadowCls: 'shadow-[0_0_10px_rgba(245,158,11,0.3)]' },
+                  { label: 'Online Payment', value: 'PKR 100,000', used: 'PKR 12,400', percent: 12, colorCls: 'bg-violet-500', textCls: 'text-violet-500', bgLight: 'bg-violet-50', shadowCls: 'shadow-[0_0_10px_rgba(139,92,246,0.3)]' }
                 ].map((limit) => (
-                  <div key={limit.label} className="space-y-2">
-                    <div className="flex justify-between text-[11px] font-black uppercase tracking-widest">
-                      <span className="text-slate-400">{limit.label}</span>
-                      <span className="text-slate-800">{limit.used} / {limit.value}</span>
+                  <div key={limit.label} className="group cursor-pointer">
+                    <div className="flex justify-between items-end mb-2">
+                       <div>
+                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">{limit.label}</span>
+                         <span className="text-sm font-black text-secondary tracking-tight">{limit.used} <span className="text-slate-400 font-bold text-xs">/ {limit.value}</span></span>
+                       </div>
+                       <span className={`text-[10px] font-black ${limit.textCls} ${limit.bgLight} px-2 py-1 rounded-md uppercase tracking-widest`}>{limit.percent}%</span>
                     </div>
-                    <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-slate-50 rounded-full overflow-hidden shadow-inner flex items-center">
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${limit.percent}%` }}
-                        className="h-full bg-teal-500 rounded-full"
+                        className={`h-full ${limit.colorCls} rounded-full ${limit.shadowCls} group-hover:scale-y-110 transition-transform`}
                       />
                     </div>
                   </div>
                 ))}
               </div>
 
-              <button 
-                onClick={() => setShowLimits(false)}
-                className="w-full mt-10 bg-slate-900 text-white py-4 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition-colors"
-              >
-                Done
-              </button>
+              <div className="pt-8 mt-2">
+                 <button 
+                   onClick={() => setShowLimits(false)}
+                   className="w-full bg-secondary text-primary py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl hover:shadow-2xl"
+                 >
+                   Save & Apply Limits
+                 </button>
+              </div>
             </motion.div>
           </div>
         )}

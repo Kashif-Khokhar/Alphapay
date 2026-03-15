@@ -44,11 +44,11 @@ export default function History() {
           </div>
           <div className="flex gap-4 shrink-0">
             <button onClick={refresh}
-              className="h-14 px-8 rounded-2xl bg-white border border-slate-100 flex items-center gap-3 font-black text-xs uppercase tracking-widest text-secondary hover:bg-slate-50 transition-all">
+              className="h-12 px-6 rounded-xl bg-white border border-slate-100 flex items-center gap-2 font-black text-xs uppercase tracking-widest text-secondary hover:bg-slate-50 transition-all">
               <RefreshCw size={18} /> Sync
             </button>
             <button onClick={() => navigate('/checkout')}
-              className="h-14 px-8 rounded-2xl bg-primary flex items-center gap-3 font-black text-xs uppercase tracking-widest text-secondary shadow-lg hover:scale-105 active:scale-95 transition-all">
+              className="h-12 px-6 rounded-xl bg-primary flex items-center gap-2 font-black text-xs uppercase tracking-widest text-secondary shadow-lg hover:scale-105 active:scale-95 transition-all">
               <Plus size={18} /> New Entry
             </button>
           </div>
@@ -64,7 +64,7 @@ export default function History() {
                   placeholder="Filter by description or ID..." 
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  className="w-full h-16 pl-16 pr-6 bg-white rounded-[24px] border border-slate-50 shadow-xl shadow-slate-200/40 text-sm font-bold text-secondary placeholder-slate-300 outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full h-12 pl-12 pr-4 bg-white rounded-xl border border-slate-50 shadow-sm shadow-slate-200/40 text-sm font-bold text-secondary placeholder-slate-300 outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
              </div>
           </div>
@@ -74,9 +74,9 @@ export default function History() {
               <button 
                 key={key} 
                 onClick={() => setFilter(key)}
-                className={`h-16 px-8 rounded-[24px] flex items-center gap-4 transition-all duration-500 whitespace-nowrap ${
+                className={`h-12 px-6 rounded-xl flex items-center gap-3 transition-all duration-500 whitespace-nowrap ${
                   filter === key 
-                    ? 'bg-secondary text-white shadow-2xl scale-105' 
+                    ? 'bg-secondary text-white shadow-md scale-105' 
                     : 'bg-white text-slate-400 border border-slate-50 hover:border-primary/20 hover:text-secondary'
                 }`}
               >

@@ -80,13 +80,13 @@ export default function Dashboard() {
         <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div className="md:col-span-12 lg:col-span-8">
              {/* Large Balance Display */}
-             <div className="bg-white rounded-[56px] px-20 py-16 sm:px-28 sm:py-24 shadow-xl border border-slate-50 relative overflow-hidden group flex flex-col items-center text-center">
+             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-50 relative overflow-hidden group flex flex-col items-center text-center">
                 {/* Decorative gradients */}
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:scale-110 transition-transform duration-1000" />
                 <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-slate-500/5 rounded-full blur-[80px] -ml-20 -mb-20" />
                 
                 <div className="relative z-10 flex flex-col items-center gap-10 w-full">
-                  <div className="w-20 h-20 rounded-[32px] icon-bg-emerald flex items-center justify-center shadow-lg border border-white transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
+                  <div className="w-14 h-14 rounded-2xl icon-bg-emerald flex items-center justify-center shadow-lg border border-white transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
                     <Wallet size={36} className="icon-success" strokeWidth={2.5} />
                   </div>
 
@@ -98,11 +98,11 @@ export default function Dashboard() {
                   </div>
                   
                   <div className="flex gap-6">
-                     <button onClick={() => navigate('/checkout')} className="h-16 px-10 rounded-3xl bg-secondary text-primary flex items-center gap-3 shadow-xl hover:scale-105 active:scale-95 transition-all font-black text-sm uppercase tracking-widest">
-                        <Plus size={24} strokeWidth={3} /> Add Funds
+                     <button onClick={() => navigate('/checkout')} className="h-12 px-6 rounded-2xl bg-secondary text-primary flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all font-black text-sm uppercase tracking-widest">
+                        <Plus size={20} strokeWidth={3} /> Add Funds
                      </button>
-                     <button onClick={() => navigate('/card')} className="w-16 h-16 rounded-3xl bg-slate-50 text-secondary border border-slate-100 flex items-center justify-center hover:bg-slate-100 transition-all">
-                        <CreditCard size={24} strokeWidth={2.5} />
+                     <button onClick={() => navigate('/card')} className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary border border-slate-100 flex items-center justify-center hover:bg-slate-100 transition-all">
+                        <CreditCard size={20} strokeWidth={2.5} />
                      </button>
                   </div>
                 </div>
@@ -125,9 +125,9 @@ export default function Dashboard() {
              {/* Insights Card */}
                <div 
                 onClick={() => navigate('/reports')}
-                className="flex-1 bg-white rounded-[56px] px-20 py-16 shadow-xl border border-slate-50 cursor-pointer group hover:border-primary/20 transition-all flex flex-col items-center text-center justify-center gap-6"
+                className="flex-1 bg-white rounded-3xl p-8 shadow-xl border border-slate-50 cursor-pointer group hover:border-primary/20 transition-all flex flex-col items-center text-center justify-center gap-4"
               >
-                <div className="w-20 h-20 rounded-[32px] icon-bg-purple flex items-center justify-center shadow-lg border border-white transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
+                <div className="w-14 h-14 rounded-2xl icon-bg-purple flex items-center justify-center shadow-lg border border-white transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
                   <TrendingUp size={36} className="icon-premium" strokeWidth={2.5} />
                 </div>
                 <div>
@@ -154,7 +154,7 @@ export default function Dashboard() {
                 { label: 'Statements', icon: Activity, color: 'icon-bg-rose', text: 'icon-danger', onClick: () => navigate('/history') },
               ].map((btn, i) => (
                 <button key={btn.label} onClick={btn.onClick} className="premium-card flex flex-col items-center gap-4 group">
-                    <div className={`w-16 h-16 ${btn.color} rounded-3xl flex items-center justify-center shadow-lg border border-white/50 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 group-active:scale-95`}>
+                    <div className={`w-14 h-14 ${btn.color} rounded-2xl flex items-center justify-center shadow-lg border border-white/50 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 group-active:scale-95`}>
                        <btn.icon size={24} className={btn.text} strokeWidth={3} />
                     </div>
                    <span className="text-[11px] font-black text-secondary uppercase tracking-widest">{btn.label}</span>
@@ -215,7 +215,7 @@ export default function Dashboard() {
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="relative w-full max-w-lg bg-white rounded-[32px] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
+                  className="relative w-full max-w-lg bg-white rounded-2xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
                   onClick={e => e.stopPropagation()}
                 >
                   <button 
