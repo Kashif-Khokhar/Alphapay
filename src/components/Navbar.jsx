@@ -159,7 +159,7 @@ export default function Navbar() {
                 }}
                 className={`w-12 h-12 rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-xl shadow-lg hover:scale-105 transition-all outline outline-4 outline-white/50 outline-offset-0 ${showProfileMenu ? 'ring-4 ring-primary/20' : ''}`}
               >
-                {user?.name?.charAt(0) || 'K'}
+                {user?.name?.charAt(0) || 'A'}
               </button>
               
               <AnimatePresence>

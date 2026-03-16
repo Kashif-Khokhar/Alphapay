@@ -32,7 +32,7 @@ export default function Cards() {
           <div className="lg:col-span-7 xl:col-span-6 flex justify-center lg:block">
              <div className="w-full max-w-[500px] perspective-1000">
                 <VirtualCard 
-                   holderName={user?.name || "KASHIF ALI"} 
+                   holderName={user?.name || "ADMIN"} 
                    fullNumber={user?.cardNumber}
                    expiry={user?.expiry}
                    cvv={user?.cvv}

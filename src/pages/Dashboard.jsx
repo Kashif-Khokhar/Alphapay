@@ -70,7 +70,7 @@ export default function Dashboard() {
         <motion.div variants={itemVariants} className="flex justify-between items-end">
           <div>
             <h1 className="text-3xl sm:text-4xl font-black text-secondary tracking-tighter">
-              Hello, {user?.name?.split(' ')[0]} 👋
+              Hello, Admin 👋
             </h1>
             <p className="text-slate-500 font-bold text-sm mt-1">Welcome back to your premium vault.</p>
           </div>

@@ -50,7 +50,7 @@ export default function Profile() {
             <div className="premium-card flex flex-col items-center">
                <div className="relative group perspective-1000">
                   <div className="w-24 h-24 rounded-3xl bg-secondary text-primary flex items-center justify-center font-black text-4xl shadow-xl relative z-10 border-4 border-white/5 transition-transform duration-700 group-hover:rotate-y-12">
-                     {user?.name?.charAt(0) || 'K'}
+                     {user?.name?.charAt(0) || 'A'}
                   </div>
                   <div className="absolute inset-0 rounded-3xl bg-primary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
                   <button className="absolute -bottom-2 -right-2 w-12 h-12 rounded-2xl bg-white shadow-2xl flex items-center justify-center text-secondary hover:text-primary transition-all z-20 hover:scale-110 active:scale-95 border border-slate-50">
