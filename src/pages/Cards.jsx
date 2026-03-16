@@ -11,22 +11,22 @@ export default function Cards() {
   const [showLimits, setShowLimits] = useState(false);
 
   return (
-    <div className="min-h-screen pb-40 px-4 sm:px-8 md:px-12" style={{ paddingTop: '120px' }}>
+    <div className="min-h-screen pb-32 px-4 sm:px-8 md:px-12" style={{ paddingTop: '100px' }}>
       <div className="max-w-[1400px] mx-auto w-full">
         
         {/* Header */}
-        <div className="mb-12 animate-fade-up">
-           <div className="flex items-center gap-3 mb-4">
+        <div className="mb-8 animate-fade-up">
+           <div className="flex items-center gap-3 mb-2">
               <div className="w-2.5 h-2.5 rounded-full bg-primary live-dot" />
               <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Secure Assets</p>
            </div>
            <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Virtual Cards
            </h1>
-           <p className="text-slate-500 font-bold text-sm mt-3 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
+           <p className="text-slate-500 font-bold text-sm mt-2 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Card Presentation */}
           <div className="lg:col-span-7 xl:col-span-6 flex justify-center lg:block">
@@ -44,7 +44,7 @@ export default function Cards() {
           </div>
 
           {/* Controls & Stats */}
-          <div className="lg:col-span-5 xl:col-span-6 space-y-6">
+          <div className="lg:col-span-5 xl:col-span-6 space-y-2">
             
             <div className={`premium-card flex items-center justify-between group transition-all duration-500 ${isFrozen ? 'bg-rose-50/30' : ''}`}>
               <div className="flex items-center gap-6">
@@ -61,7 +61,7 @@ export default function Cards() {
               <div className={`h-3 w-3 ${isFrozen ? 'bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.6)]' : 'bg-primary shadow-[0_0_15px_rgba(16,185,129,0.6)]'} rounded-full animate-pulse`} />
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2">
                {[
                  { label: isFrozen ? 'Unfreeze' : 'Freeze', icon: Snowflake, onClick: () => setIsFrozen(!isFrozen), active: isFrozen, color: 'text-blue-500', bg: 'bg-blue-50/50' },
                  { label: isRevealed ? 'Hide' : 'Reveal', icon: isRevealed ? EyeOff : Eye, onClick: () => setIsRevealed(!isRevealed), active: isRevealed, color: 'text-primary', bg: 'bg-primary/10' },
@@ -81,13 +81,13 @@ export default function Cards() {
             </div>
 
             <div className="premium-card">
-               <h3 className="font-black text-secondary mb-6 text-sm uppercase tracking-widest text-slate-400">Card Metadata</h3>
-               <div className="space-y-5">
-                 <div className="flex justify-between items-center pb-5 border-b border-slate-50">
+               <h3 className="font-black text-secondary mb-4 text-sm uppercase tracking-widest text-slate-400">Card Metadata</h3>
+               <div className="space-y-4">
+                 <div className="flex justify-between items-center pb-4 border-b border-slate-50">
                     <span className="text-sm font-bold text-slate-400">Cardholder</span>
                     <span className="text-sm font-black text-secondary uppercase tracking-tight">{user?.name}</span>
                  </div>
-                 <div className="flex justify-between items-center pb-5 border-b border-slate-50">
+                 <div className="flex justify-between items-center pb-4 border-b border-slate-50">
                     <span className="text-sm font-bold text-slate-400">Region</span>
                     <span className="text-sm font-black text-secondary tracking-tight">Lahore, Pakistan</span>
                  </div>
@@ -123,7 +123,7 @@ export default function Cards() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl border border-white overflow-hidden"
             >
-              <div className="flex justify-between items-center mb-8">
+              <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-white">
                      <Settings size={22} />
@@ -141,7 +141,7 @@ export default function Cards() {
                 </button>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   { label: 'Daily Purchase', value: 'PKR 150,000', used: 'PKR 12,400', percent: 8, colorCls: 'bg-emerald-500', textCls: 'text-emerald-500', bgLight: 'bg-emerald-50', shadowCls: 'shadow-[0_0_10px_rgba(16,185,129,0.3)]' },
                   { label: 'Monthly Limit', value: 'PKR 1,500,000', used: 'PKR 12,400', percent: 1, colorCls: 'bg-indigo-500', textCls: 'text-indigo-500', bgLight: 'bg-indigo-50', shadowCls: 'shadow-[0_0_10px_rgba(99,102,241,0.3)]' },
@@ -167,7 +167,7 @@ export default function Cards() {
                 ))}
               </div>
 
-              <div className="pt-8 mt-2">
+              <div className="pt-6 mt-2">
                  <button 
                    onClick={() => setShowLimits(false)}
                    className="w-full bg-secondary text-primary py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl hover:shadow-2xl"
