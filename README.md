@@ -48,7 +48,7 @@ Experience a stunning light-theme UI with glassmorphism, animated 3D payment car
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Kashif-Khokhar/Alphapay.git
+git clone https://github.com/Admin/Alphapay.git
 cd Alphapay
 
 # 2. Install dependencies
@@ -68,15 +68,24 @@ The application will be available at [http://localhost:5173](http://localhost:51
 src/
 ├── components/
 │   ├── Navbar.jsx           # Responsive Top/Bottom Navigation Dock
-│   ├── VirtualCard.jsx      # Fluid 3D Interactive Card Component
+│   ├── PaymentForm.jsx      # Reusable form for processing payments
 │   ├── SendMoneyFlow.jsx    # Animated peer-to-peer transfer flow
-│   └── StatusMessage.jsx    # Dynamic payment status screens
+│   ├── StatusMessage.jsx    # Dynamic payment status screens
+│   ├── TransactionTable.jsx # Detailed table view for history records
+│   └── VirtualCard.jsx      # Fluid 3D Interactive Card Component
 ├── pages/
-│   ├── Dashboard.jsx        # Smart stats, quick access & activity
+│   ├── AddMoney.jsx         # Funding your wallet
 │   ├── Cards.jsx            # Card management & security portal
-│   ├── Reports.jsx          # Mobile-responsive payment analytics
+│   ├── Checkout.jsx         # Finalizing simulated payments
+│   ├── Dashboard.jsx        # Smart stats, quick access & activity
 │   ├── History.jsx          # Advanced transaction record explorer
-│   └── Profile & Settings   # Account management & preferences
+│   ├── Login.jsx            # Authentication and entry portal
+│   ├── PayBills.jsx         # Simulated utility bill payments
+│   ├── Profile.jsx          # Account details & credentials
+│   ├── Reports.jsx          # Mobile-responsive payment analytics
+│   ├── RequestMoney.jsx     # Requesting funds flow
+│   ├── Settings.jsx         # App configuration & preferences
+│   └── Support.jsx          # Help center & contact
 ├── services/
 │   └── api.js               # Simulated State & Mock API Services
 └── index.css                # Custom animations & global design tokens
@@ -111,8 +120,8 @@ npm run lint     # Run code quality audit
 
 ## 👤 Author
 
-**Kashif Khokhar**  
-[GitHub Profile](https://github.com/Kashif-Khokhar)
+**Admin**  
+[GitHub Profile](https://github.com/Admin)
 
 ---
 
