@@ -48,7 +48,7 @@ Experience a stunning light-theme UI with glassmorphism, animated 3D payment car
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Admin/Alphapay.git
+git clone https://github.com/Kashif-Khokhar/Alphapay.git
 cd Alphapay
 
 # 2. Install dependencies
@@ -120,8 +120,8 @@ npm run lint     # Run code quality audit
 
 ## 👤 Author
 
-**Admin**  
-[GitHub Profile](https://github.com/Admin)
+**Kashif Khokhar**  
+[GitHub Profile](https://github.com/Kashif-Khokhar)
 
 ---
 
