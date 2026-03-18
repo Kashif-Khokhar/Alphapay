@@ -29,7 +29,7 @@ export default function Cards() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Card Presentation */}
-          <div className="lg:col-span-7 xl:col-span-6 flex justify-center lg:block">
+          <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:block">
              <div className="w-full max-w-[500px] perspective-1000">
                 <VirtualCard 
                    holderName={user?.name || "ADMIN"} 
@@ -44,7 +44,7 @@ export default function Cards() {
           </div>
 
           {/* Controls & Stats */}
-          <div className="lg:col-span-5 xl:col-span-6 space-y-2">
+          <div className="lg:col-span-7 xl:col-span-7 space-y-2">
             
             <div className={`premium-card flex items-center justify-between group transition-all duration-500 ${isFrozen ? 'bg-rose-50/30' : ''}`}>
               <div className="flex items-center gap-6">
