@@ -69,11 +69,11 @@ export default function Navbar() {
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1400px] h-20 rounded-[32px] glass-premium shadow-2xl transition-all duration-500 hidden md:flex items-center px-10">
         <div className="w-full flex items-center justify-between h-full">
           <Link to="/dashboard" className="flex items-center gap-4 group">
-            <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
-              <span className="text-primary font-black text-3xl italic">α</span>
+            <div className="w-12 h-12 bg-[#121212] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
+              <span className="text-[#17e0b5] font-black text-3xl italic">α</span>
             </div>
-            <span className="font-black text-2xl tracking-tighter text-secondary">
-              Alpha<span className="text-primary">Pay</span>
+            <span className="font-black text-2xl tracking-tighter text-[#121212]">
+              Alpha<span className="text-[#17e0b5]">Pay</span>
             </span>
           </Link>
 
