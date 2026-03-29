@@ -109,8 +109,8 @@ export default function VirtualCard({
       >
         {/* Top Header: Brand Focus */}
         <div className="flex justify-between items-start">
-          <div className="flex items-center drop-shadow-[0_0_25px_rgba(16,185,129,0.5)]">
-             <span className="text-primary font-black text-6xl italic select-none tracking-tighter">α</span>
+          <div className="flex items-center drop-shadow-[0_0_20px_rgba(23,224,181,0.6)]">
+             <span className="text-[#17e0b5] font-black text-6xl italic select-none tracking-tighter">α</span>
           </div>
           
           <div className="bg-white/5 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10">
