@@ -14,7 +14,7 @@ function AnimatedBalance({ value }) {
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="text-4xl font-black flex items-baseline gap-1 tracking-tighter text-slate-900"
+      className="text-4xl font-black flex items-baseline gap-1 tracking-tighter text-white"
     >
       <span className="text-xl font-bold opacity-70">PKR</span>
       {value.toLocaleString()}
@@ -72,7 +72,7 @@ export default function Dashboard() {
             <h1 className="text-3xl sm:text-4xl font-black text-secondary tracking-tighter">
               Hello, Admin 👋
             </h1>
-            <p className="text-slate-500 font-bold text-sm mt-1">Welcome back to your premium vault.</p>
+            <p className="text-slate-400 font-bold text-sm mt-1">Welcome back to your premium vault.</p>
           </div>
         </motion.div>
 
@@ -80,7 +80,7 @@ export default function Dashboard() {
         <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div className="md:col-span-12 lg:col-span-8">
              {/* Large Balance Display */}
-             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-50 relative overflow-hidden group flex flex-col items-center text-center">
+             <div className="glass-premium rounded-3xl p-6 sm:p-8 relative overflow-hidden group flex flex-col items-center text-center">
                 {/* Decorative gradients */}
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:scale-110 transition-transform duration-1000" />
                 <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-slate-500/5 rounded-full blur-[80px] -ml-20 -mb-20" />
@@ -101,18 +101,18 @@ export default function Dashboard() {
                      <button onClick={() => navigate('/checkout')} className="h-12 px-6 rounded-2xl bg-secondary text-primary flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all font-black text-sm uppercase tracking-widest">
                         <Plus size={20} strokeWidth={3} /> Add Funds
                      </button>
-                     <button onClick={() => navigate('/card')} className="w-12 h-12 rounded-2xl bg-slate-50 text-secondary border border-slate-100 flex items-center justify-center hover:bg-slate-100 transition-all">
+                     <button onClick={() => navigate('/card')} className="w-12 h-12 rounded-2xl bg-white/5 text-secondary border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
                         <CreditCard size={20} strokeWidth={2.5} />
                      </button>
                   </div>
                 </div>
 
-                <div className="mt-10 w-full max-w-md flex justify-center gap-8 items-center border-t border-slate-100 pt-8">
+                <div className="mt-10 w-full max-w-md flex justify-center gap-8 items-center border-t border-white/10 pt-8">
                    <div>
                       <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Monthly Spent</p>
                       <p className="text-secondary font-black text-xl tracking-tighter">PKR 42,850</p>
                    </div>
-                   <div className="w-px h-10 bg-slate-100" />
+                   <div className="w-px h-10 bg-white/10" />
                    <div>
                       <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Savings Growth</p>
                       <p className="text-emerald-500 font-black text-xl tracking-tighter">+12.4%</p>
@@ -125,7 +125,7 @@ export default function Dashboard() {
              {/* Insights Card */}
                <div 
                 onClick={() => navigate('/reports')}
-                className="flex-1 bg-white rounded-3xl p-8 shadow-xl border border-slate-50 cursor-pointer group hover:border-primary/20 transition-all flex flex-col items-center text-center justify-center gap-4"
+                className="flex-1 glass-premium rounded-3xl p-8 cursor-pointer group hover:border-primary/50 transition-all flex flex-col items-center text-center justify-center gap-4"
               >
                 <div className="w-14 h-14 rounded-2xl icon-bg-purple flex items-center justify-center shadow-lg border border-white transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
                   <TrendingUp size={36} className="icon-premium" strokeWidth={2.5} />
@@ -134,7 +134,7 @@ export default function Dashboard() {
                    <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em] mb-3">Analysis</p>
                    <p className="text-2xl font-black text-secondary tracking-tight uppercase">Finance<br/>Insights</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-all">
                    <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
                 </div>
              </div>
@@ -215,12 +215,12 @@ export default function Dashboard() {
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="relative w-full max-w-lg bg-white rounded-2xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
+                  className="relative w-full max-w-lg glass-premium rounded-2xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]"
                   onClick={e => e.stopPropagation()}
                 >
                   <button 
                     onClick={() => setSelectedTx(null)}
-                    className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all border border-slate-100"
+                    className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all border border-white/10"
                   >
                     <X size={20} />
                   </button>
@@ -239,3 +239,4 @@ export default function Dashboard() {
     </div>
   );
 }
+

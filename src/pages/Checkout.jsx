@@ -17,7 +17,7 @@ export default function Checkout() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Send Money
             </h1>
-            <p className="text-slate-500 font-bold text-sm mt-3">Instantly transfer assets across the global banking mesh.</p>
+            <p className="text-slate-400 font-bold text-sm mt-3">Instantly transfer assets across the global banking mesh.</p>
           </div>
         </div>
 
@@ -39,17 +39,17 @@ export default function Checkout() {
                    { name: 'Admin', bank: 'Meezan Bank', initial: 'A', color: 'bg-primary/10 text-primary' },
                    { name: 'Ali Hamza', bank: 'HBL', initial: 'A', color: 'bg-violet-500/10 text-violet-500' },
                  ].map((p, i) => (
-                   <div key={i} className="flex items-center justify-between p-4 rounded-2xl border border-slate-50 hover:bg-slate-50 transition-all cursor-pointer group/item">
+                   <div key={i} className="flex items-center justify-between p-4 rounded-2xl border border-white/5 hover:bg-white/5 transition-all cursor-pointer group/item">
                      <div className="flex items-center gap-4">
                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-base ${p.color} transition-transform group-hover/item:scale-110`}>
                          {p.initial}
                        </div>
                        <div>
-                         <p className="text-sm font-black text-secondary group-hover/item:text-primary transition-colors">{p.name}</p>
-                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">{p.bank}</p>
+                         <p className="text-sm font-black text-secondary transition-colors">{p.name}</p>
+                         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">{p.bank}</p>
                        </div>
                      </div>
-                     <div className="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center text-slate-500 opacity-0 group-hover/item:opacity-100 transition-all">
+                     <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 opacity-0 group-hover/item:opacity-100 transition-all">
                        <Send size={14} />
                      </div>
                    </div>
@@ -58,7 +58,7 @@ export default function Checkout() {
             </div>
 
             {/* Limits */}
-            <div className="bg-secondary rounded-3xl p-6 text-white relative group overflow-hidden shadow-xl">
+            <div className="glass-premium rounded-3xl p-6 text-white relative group overflow-hidden shadow-xl">
                <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-20" />
                <div className="flex items-center gap-4 mb-8">
                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary transition-transform group-hover:scale-110">
@@ -100,7 +100,7 @@ export default function Checkout() {
                  </div>
                </div>
 
-                <div className="mt-10 flex items-center justify-center gap-2 py-4 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                <div className="mt-10 flex items-center justify-center gap-2 py-4 bg-white/5 rounded-2xl border border-white/10 shadow-sm">
                   <Zap size={14} className="text-primary" />
                   <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Network Fees &middot; 0.00%</p>
                 </div>
@@ -114,3 +114,4 @@ export default function Checkout() {
     </div>
   );
 }
+

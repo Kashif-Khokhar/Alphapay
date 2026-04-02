@@ -10,7 +10,7 @@ const POPULAR_BANKS = [
   { id: 'meezan',  name: 'Meezan Bank', color: 'bg-purple-800', icon: <img src="https://ui-avatars.com/api/?name=Meezan&background=6b21a8&color=fff&rounded=true&bold=true" alt="Meezan" className="w-10 h-10 rounded-full shadow-sm" /> },
   { id: 'faysal',  name: 'Faysal Bank', color: 'bg-blue-600', icon: <img src="https://ui-avatars.com/api/?name=Faysal&background=2563eb&color=fff&rounded=true&bold=true" alt="Faysal" className="w-10 h-10 rounded-full shadow-sm" /> },
   { id: 'hbl',     name: 'HBL', color: 'bg-emerald-700', icon: <img src="https://ui-avatars.com/api/?name=HBL&background=047857&color=fff&rounded=true&bold=true" alt="HBL" className="w-10 h-10 rounded-full shadow-sm" /> },
-  { id: 'other',   name: 'Other Banks...', color: 'bg-slate-200', icon: <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 shadow-sm border border-slate-200"><Building2 size={18} /></div> },
+  { id: 'other',   name: 'Other Banks...', color: 'bg-white/20', icon: <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-slate-400 shadow-sm border border-slate-200"><Building2 size={18} /></div> },
 ];
 
 const fadeInVariants = {
@@ -83,16 +83,16 @@ export default function SendMoneyFlow() {
       <div className="absolute inset-0 bg-primary/5 -z-10" />
       
       {/* Header / Back Button */}
-      <div className="px-10 py-8 border-b border-slate-50 flex items-center justify-between">
+      <div className="px-10 py-8 border-b border-white/5 flex items-center justify-between">
         {step > 1 ? (
-          <button onClick={prevStep} className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-slate-100 transition-all">
+          <button onClick={prevStep} className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all">
             <ChevronLeft size={20} />
           </button>
         ) : <div className="w-12 h-12" />}
         
         <div className="flex gap-3">
           {[1, 2, 3].map(i => (
-            <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${step >= i ? 'w-10 bg-primary' : 'w-2 bg-slate-100'}`} />
+            <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${step >= i ? 'w-10 bg-primary' : 'w-2 bg-white/10'}`} />
           ))}
         </div>
         <div className="w-12 h-12" />
@@ -107,11 +107,11 @@ export default function SendMoneyFlow() {
             <motion.div key="step1" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col">
               <div className="mb-10">
                 <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Select Institution</h2>
-                <p className="text-slate-500 font-bold text-sm">Choose a gateway for your asset transfer.</p>
+                <p className="text-slate-400 font-bold text-sm">Choose a gateway for your asset transfer.</p>
               </div>
               
-              <div className="flex items-center gap-4 mb-8 px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100 focus-within:border-primary/50 focus-within:bg-white transition-all">
-                <Search size={20} className="text-slate-500" />
+              <div className="flex items-center gap-4 mb-8 px-6 py-4 bg-white/5 rounded-2xl border border-white/10 focus-within:border-primary/50 focus-within:bg-white/10 transition-all">
+                <Search size={20} className="text-slate-300" />
                 <input
                   type="text"
                   placeholder="Filter network..."
@@ -140,7 +140,7 @@ export default function SendMoneyFlow() {
                       <button
                         key={bank.id}
                         onClick={() => { setBankSearch(''); handleBankSelect(bank); }}
-                        className="bg-slate-50 border border-slate-100 p-5 flex flex-row items-center gap-4 rounded-[28px] transition-all hover:bg-white hover:border-primary/20 hover:scale-[1.02] active:scale-95 group shadow-sm"
+                        className="bg-white/5 border border-white/10 p-5 flex flex-row items-center gap-4 rounded-[28px] transition-all hover:bg-white/10 hover:border-primary/20 hover:scale-[1.02] active:scale-95 group shadow-sm"
                       >
                         <div className="transition-transform group-hover:scale-110 duration-500">
                           {bank.icon}
@@ -157,7 +157,7 @@ export default function SendMoneyFlow() {
           {/* STEP 2: ENTER ACCOUNT */}
           {step === 2 && (
             <motion.div key="step2" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col">
-              <div className="flex items-center gap-5 mb-10 p-6 bg-slate-50 rounded-[32px] border border-slate-100 shadow-sm">
+              <div className="flex items-center gap-5 mb-10 p-6 bg-white/5 rounded-[32px] border border-white/10 shadow-sm">
                 {formData.bank?.icon}
                 <div>
                   <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Channel</p>
@@ -167,11 +167,11 @@ export default function SendMoneyFlow() {
 
               <div className="mb-10">
                 <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Global Address</h2>
-                <p className="text-slate-500 font-bold text-sm">Enter the IBAN or account hash of the recipient.</p>
+                <p className="text-slate-400 font-bold text-sm">Enter the IBAN or account hash of the recipient.</p>
               </div>
 
               <form onSubmit={handleAccountSubmit} className="flex-1 flex flex-col">
-                <div className="flex items-center gap-5 mb-10 px-8 py-6 bg-slate-50 border-2 border-slate-100 rounded-[32px] focus-within:border-primary focus-within:bg-white transition-all shadow-sm">
+                <div className="flex items-center gap-5 mb-10 px-8 py-6 bg-white/5 border-2 border-white/10 rounded-[32px] focus-within:border-primary focus-within:bg-white/10 transition-all shadow-sm">
                   <User className="text-primary" size={24} />
                   <input
                     type="text"
@@ -200,12 +200,12 @@ export default function SendMoneyFlow() {
           {/* STEP 3: ENTER AMOUNT */}
           {step === 3 && status !== 'done' && (
             <motion.div key="step3" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col text-center">
-              <div className="flex flex-col items-center justify-center mb-12 bg-slate-50 py-8 px-10 rounded-[40px] border border-slate-100 shadow-sm max-w-sm mx-auto w-full relative">
-                <div className="w-14 h-14 bg-white rounded-2xl shadow-xl flex items-center justify-center mb-4 absolute -top-7 border border-slate-100">
+              <div className="flex flex-col items-center justify-center mb-12 bg-white/5 py-8 px-10 rounded-[40px] border border-white/10 shadow-sm max-w-sm mx-auto w-full relative">
+                <div className="w-14 h-14 glass-premium rounded-2xl shadow-xl flex items-center justify-center mb-4 absolute -top-7 border border-white/10">
                   <User size={24} className="text-primary" />
                 </div>
                 <p className="text-secondary font-black text-xl tracking-tight mb-1">{formData.accountTitle}</p>
-                <p className="text-slate-500 text-[11px] font-black uppercase tracking-widest">{formData.bank?.name} &bull; {formData.accountNumber.slice(-4)}</p>
+                <p className="text-slate-400 text-[11px] font-black uppercase tracking-widest">{formData.bank?.name} &bull; {formData.accountNumber.slice(-4)}</p>
               </div>
 
               <form onSubmit={handleSend} className="flex-1 flex flex-col">
@@ -228,7 +228,7 @@ export default function SendMoneyFlow() {
                     placeholder="Transfer Memo (optional)" 
                     value={formData.purpose}
                     onChange={e => set('purpose', e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-5 px-8 text-center text-sm font-black text-secondary placeholder:text-slate-300 focus:bg-white focus:border-primary/30 outline-none transition-all shadow-sm" 
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 px-8 text-center text-sm font-black text-secondary placeholder:text-slate-400 focus:bg-white/10 focus:border-primary/30 outline-none transition-all shadow-sm" 
                   />
                 </div>
 
@@ -250,7 +250,7 @@ export default function SendMoneyFlow() {
                 
                 <div className="flex items-center justify-center gap-2 mt-4">
                   <ShieldCheck size={14} className="text-primary" />
-                  <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">End-to-End Encryption Active</p>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">End-to-End Encryption Active</p>
                 </div>
               </form>
             </motion.div>
@@ -268,3 +268,4 @@ export default function SendMoneyFlow() {
     </div>
   );
 }
+

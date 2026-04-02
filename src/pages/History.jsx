@@ -40,11 +40,11 @@ export default function History() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               History
             </h1>
-            <p className="text-slate-500 font-bold text-sm mt-3">A complete record of your vault's activity and transactions.</p>
+            <p className="text-slate-400 font-bold text-sm mt-3">A complete record of your vault's activity and transactions.</p>
           </div>
           <div className="flex gap-4 shrink-0">
             <button onClick={refresh}
-              className="h-12 px-6 rounded-xl bg-white border border-slate-100 flex items-center gap-2 font-black text-xs uppercase tracking-widest text-secondary hover:bg-slate-50 transition-all">
+              className="h-12 px-6 rounded-xl glass-premium border border-white/10 flex items-center gap-2 font-black text-xs uppercase tracking-widest text-secondary hover:bg-white/5 transition-all">
               <RefreshCw size={18} /> Sync
             </button>
             <button onClick={() => navigate('/checkout')}
@@ -64,7 +64,7 @@ export default function History() {
                   placeholder="Filter by description or ID..." 
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  className="w-full h-12 pl-12 pr-4 bg-white rounded-xl border border-slate-50 shadow-sm shadow-slate-200/40 text-sm font-bold text-secondary placeholder-slate-300 outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full h-12 pl-12 pr-4 glass-premium rounded-xl border border-white/5 shadow-sm shadow-slate-200/40 text-sm font-bold text-secondary placeholder-slate-300 outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
              </div>
           </div>
@@ -77,13 +77,13 @@ export default function History() {
                 className={`h-12 px-6 rounded-xl flex items-center gap-3 transition-all duration-500 whitespace-nowrap ${
                   filter === key 
                     ? 'bg-secondary text-white shadow-md scale-105' 
-                    : 'bg-white text-slate-400 border border-slate-50 hover:border-primary/20 hover:text-secondary'
+                    : 'glass-premium text-slate-400 border border-white/5 hover:border-primary/20 hover:text-secondary'
                 }`}
               >
                 <Icon size={18} strokeWidth={3} className={filter === key ? 'text-primary' : ''} />
                 <span className="text-[11px] font-black uppercase tracking-widest">{label}</span>
                 <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black ${
-                  filter === key ? 'bg-white/10 text-primary' : 'bg-slate-50 text-slate-400'
+                  filter === key ? 'bg-white/10 text-primary' : 'bg-white/5 text-slate-400'
                 }`}>
                   {counts[key]}
                 </span>
@@ -108,3 +108,4 @@ export default function History() {
     </div>
   );
 }
+

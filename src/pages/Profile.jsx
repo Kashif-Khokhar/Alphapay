@@ -38,7 +38,7 @@ export default function Profile() {
           </div>
           <button 
             onClick={() => navigate(-1)}
-            className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-secondary hover:bg-slate-50 transition-all shadow-xl shadow-slate-200/40"
+            className="w-14 h-14 rounded-2xl glass-premium border border-white/10 flex items-center justify-center text-secondary hover:bg-white/5 transition-all shadow-xl shadow-slate-200/40"
           >
             <ArrowLeft size={24} strokeWidth={3} />
           </button>
@@ -53,7 +53,7 @@ export default function Profile() {
                      {user?.name?.charAt(0) || 'A'}
                   </div>
                   <div className="absolute inset-0 rounded-3xl bg-primary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <button className="absolute -bottom-2 -right-2 w-12 h-12 rounded-2xl bg-white shadow-2xl flex items-center justify-center text-secondary hover:text-primary transition-all z-20 hover:scale-110 active:scale-95 border border-slate-50">
+                  <button className="absolute -bottom-2 -right-2 w-12 h-12 rounded-2xl glass-premium shadow-2xl flex items-center justify-center text-secondary hover:text-primary transition-all z-20 hover:scale-110 active:scale-95 border border-white/5">
                     <Camera size={20} strokeWidth={3} />
                   </button>
                </div>
@@ -79,7 +79,7 @@ export default function Profile() {
                       className="h-full bg-primary shadow-[0_0_20px_rgba(16,185,129,0.8)]"
                     />
                  </div>
-                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mt-6 italic">Secure Asset Allocation</p>
+                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-6 italic">Secure Asset Allocation</p>
                </div>
             </div>
           </motion.div>
@@ -92,7 +92,7 @@ export default function Profile() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <User size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</p>
@@ -102,7 +102,7 @@ export default function Profile() {
 
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <Mail size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email Access</p>
@@ -112,7 +112,7 @@ export default function Profile() {
 
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <IdCard size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Student Credentials</p>
@@ -122,7 +122,7 @@ export default function Profile() {
 
                   <div className="space-y-2 group">
                     <div className="flex items-center gap-4 mb-4">
-                       <div className="w-10 h-10 rounded-xl bg-slate-50 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+                       <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <ShieldCheck size={22} strokeWidth={3} />
                        </div>
                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Level</p>
@@ -134,7 +134,7 @@ export default function Profile() {
                   </div>
                 </div>
 
-                <div className="mt-16 flex flex-col sm:flex-row gap-6 border-t border-slate-50 pt-10">
+                <div className="mt-16 flex flex-col sm:flex-row gap-6 border-t border-white/5 pt-10">
                   <button onClick={() => navigate('/settings')} className="flex-1 h-16 bg-secondary text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] shadow-2xl active:scale-[0.98]">
                     Modify Portfolio
                   </button>
@@ -143,7 +143,7 @@ export default function Profile() {
                       localStorage.removeItem('uniPay_user');
                       window.location.reload();
                     }}
-                    className="flex-1 h-16 bg-white border border-slate-100 text-slate-400 font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-rose-50 hover:text-rose-500 hover:border-rose-100 transition-all"
+                    className="flex-1 h-16 glass-premium border border-white/10 text-slate-400 font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-rose-50 hover:text-rose-500 hover:border-rose-100 transition-all"
                   >
                     Reset Environment
                   </button>
@@ -158,3 +158,4 @@ export default function Profile() {
     </div>
   );
 }
+

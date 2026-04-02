@@ -25,19 +25,19 @@ export default function RequestMoney() {
         <div className="flex items-center gap-4 mb-8">
           <button 
             onClick={() => navigate(-1)}
-            className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-secondary hover:bg-slate-50 transition-colors"
+            className="w-10 h-10 rounded-full glass-premium shadow-sm flex items-center justify-center text-secondary hover:bg-white/5 transition-colors"
           >
             <ArrowDownLeft size={20} className="rotate-45" />
           </button>
           <h1 className="text-2xl font-black text-secondary tracking-tighter">Request Money</h1>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-slate-100">
+        <div className="glass-premium rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-white/10">
           <div className="flex flex-col items-center mb-8">
             <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center text-primary mb-4 shadow-sm">
               <ArrowDownLeft size={28} strokeWidth={2.5} />
             </div>
-            <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Generate Request</p>
+            <p className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Generate Request</p>
           </div>
 
           {isRequested ? (
@@ -50,45 +50,45 @@ export default function RequestMoney() {
                 <ShieldCheck size={32} />
               </div>
               <h2 className="text-xl font-black text-secondary mb-2">Request Sent!</h2>
-              <p className="text-sm text-slate-500">Redirecting to dashboard...</p>
+              <p className="text-sm text-slate-400">Redirecting to dashboard...</p>
             </motion.div>
           ) : (
             <form onSubmit={handleRequest} className="space-y-6">
               <div>
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] block mb-2 px-1">Amount (PKR)</label>
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">Amount (PKR)</label>
                 <div className="relative">
-                  <span className="absolute left-5 top-1/2 -translate-y-1/2 text-lg font-black text-slate-500">PKR</span>
+                  <span className="absolute left-5 top-1/2 -translate-y-1/2 text-lg font-black text-slate-400">PKR</span>
                   <input 
                     type="number" 
                     required
                     placeholder="0.00"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 pl-14 pr-4 text-base font-black text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-14 pr-4 text-base font-black text-secondary focus:glass-premium focus:border-primary/50 outline-none transition-all"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] block mb-2 px-1">From (Username/Tag)</label>
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">From (Username/Tag)</label>
                 <div className="relative">
-                  <User size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <User size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input 
                     type="text" 
                     required
                     placeholder="@username"
-                    className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 pl-12 pr-4 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-sm font-bold text-secondary focus:glass-premium focus:border-primary/50 outline-none transition-all"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] block mb-2 px-1">Note (Optional)</label>
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-2 px-1">Note (Optional)</label>
                 <textarea 
                   placeholder="What's this for?"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 px-4 text-sm font-bold text-secondary focus:bg-white focus:border-primary/50 outline-none transition-all resize-none h-24"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-secondary focus:glass-premium focus:border-primary/50 outline-none transition-all resize-none h-24"
                 />
               </div>
 
@@ -105,3 +105,4 @@ export default function RequestMoney() {
     </div>
   );
 }
+

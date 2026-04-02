@@ -78,7 +78,7 @@ export default function PaymentForm({ onSubmit, isLoading }) {
             <div className="flex items-center justify-end gap-4 px-8">
               <div className="flex-1 h-8 rounded" style={{ background: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 4px, transparent 4px, transparent 8px)' }} />
               <span className="text-[8px] font-bold tracking-widest text-white/30 uppercase">CVV</span>
-              <div className="bg-white text-slate-900 px-4 py-1.5 rounded-lg font-mono font-black text-base tracking-[0.3em] min-w-[65px] text-center shadow-lg">
+              <div className="glass-premium text-white px-4 py-1.5 rounded-lg font-mono font-black text-base tracking-[0.3em] min-w-[65px] text-center shadow-lg">
                 {form.cvv || '●●●'}
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function PaymentForm({ onSubmit, isLoading }) {
 
       {/* ── Form ── */}
       <form onSubmit={handleSubmit}
-        className="hover-card holo-card bg-white w-full max-w-lg rounded-2xl p-8 shadow-lg border border-emerald-100">
+        className="hover-card holo-card glass-premium w-full max-w-lg rounded-2xl p-8 shadow-lg border border-emerald-100">
 
         <div className="grid grid-cols-2 gap-4 mb-4">
           <Field label="Card Holder" icon={<User size={13} />} error={errors.name} focused={focused === 'name'}>
@@ -133,7 +133,7 @@ export default function PaymentForm({ onSubmit, isLoading }) {
           <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Description (Optional)</label>
           <input type="text" placeholder="e.g. Semester Fee, Lab Fee…" value={form.description}
             onChange={e => set('description', e.target.value)}
-            className="glow-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none" />
+            className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none" />
         </div>
 
         <button type="submit" disabled={isLoading}
@@ -156,7 +156,7 @@ export default function PaymentForm({ onSubmit, isLoading }) {
 }
 
 const inp = (err) =>
-  `glow-input w-full bg-slate-50 border rounded-xl pl-9 pr-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none transition-all duration-200
+  `glow-input w-full bg-white/5 border rounded-xl pl-9 pr-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none transition-all duration-200
   ${err ? 'border-rose-300' : 'border-slate-200'}`;
 
 function Field({ label, icon, error, children, cls = '', focused }) {
@@ -171,3 +171,4 @@ function Field({ label, icon, error, children, cls = '', focused }) {
     </div>
   );
 }
+

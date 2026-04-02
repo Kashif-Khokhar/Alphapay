@@ -23,7 +23,7 @@ export default function Cards() {
            <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Virtual Cards
            </h1>
-           <p className="text-slate-500 font-bold text-sm mt-2 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
+           <p className="text-slate-400 font-bold text-sm mt-2 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -65,7 +65,7 @@ export default function Cards() {
                {[
                  { label: isFrozen ? 'Unfreeze' : 'Freeze', icon: Snowflake, onClick: () => setIsFrozen(!isFrozen), active: isFrozen, color: 'text-blue-500', bg: 'bg-blue-50/50' },
                  { label: isRevealed ? 'Hide' : 'Reveal', icon: isRevealed ? EyeOff : Eye, onClick: () => setIsRevealed(!isRevealed), active: isRevealed, color: 'text-primary', bg: 'bg-primary/10' },
-                 { label: 'Limits', icon: Settings, onClick: () => setShowLimits(true), active: false, color: 'text-secondary', bg: 'bg-slate-50' }
+                 { label: 'Limits', icon: Settings, onClick: () => setShowLimits(true), active: false, color: 'text-secondary', bg: 'bg-white/5' }
                ].map((ctrl) => (
                  <button 
                    key={ctrl.label}
@@ -73,7 +73,7 @@ export default function Cards() {
                    className={`premium-card flex flex-col items-center gap-3 group active:scale-95 ${ctrl.active ? ctrl.bg : ''}`}
                  >
                     <ctrl.icon size={22} strokeWidth={3} className={`transition-all group-hover:scale-110 ${ctrl.active ? ctrl.color : 'text-slate-400 group-hover:text-secondary'}`} />
-                    <span className={`text-[10px] font-black uppercase tracking-widest ${ctrl.active ? 'text-secondary' : 'text-slate-500 group-hover:text-secondary'}`}>
+                    <span className={`text-[10px] font-black uppercase tracking-widest ${ctrl.active ? 'text-secondary' : 'text-slate-400 group-hover:text-secondary'}`}>
                       {ctrl.label}
                     </span>
                  </button>
@@ -83,11 +83,11 @@ export default function Cards() {
             <div className="premium-card">
                <h3 className="font-black text-secondary mb-4 text-sm uppercase tracking-widest text-slate-400">Card Metadata</h3>
                <div className="space-y-4">
-                 <div className="flex justify-between items-center pb-4 border-b border-slate-50">
+                 <div className="flex justify-between items-center pb-4 border-b border-white/5">
                     <span className="text-sm font-bold text-slate-400">Cardholder</span>
                     <span className="text-sm font-black text-secondary uppercase tracking-tight">{user?.name}</span>
                  </div>
-                 <div className="flex justify-between items-center pb-4 border-b border-slate-50">
+                 <div className="flex justify-between items-center pb-4 border-b border-white/5">
                     <span className="text-sm font-bold text-slate-400">Region</span>
                     <span className="text-sm font-black text-secondary tracking-tight">Lahore, Pakistan</span>
                  </div>
@@ -121,7 +121,7 @@ export default function Cards() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-2xl border border-white overflow-hidden"
+              className="relative w-full max-w-md glass-premium rounded-3xl p-8 shadow-2xl border border-white overflow-hidden"
             >
               <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-4">
@@ -135,7 +135,7 @@ export default function Cards() {
                 </div>
                 <button 
                   onClick={() => setShowLimits(false)}
-                  className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-slate-100 transition-all shadow-sm"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-white/10 transition-all shadow-sm"
                 >
                   <Plus size={20} className="rotate-45" />
                 </button>
@@ -156,7 +156,7 @@ export default function Cards() {
                        </div>
                        <span className={`text-[10px] font-black ${limit.textCls} ${limit.bgLight} px-2 py-1 rounded-md uppercase tracking-widest`}>{limit.percent}%</span>
                     </div>
-                    <div className="h-2 w-full bg-slate-50 rounded-full overflow-hidden shadow-inner flex items-center">
+                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden shadow-inner flex items-center">
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${limit.percent}%` }}
@@ -182,3 +182,4 @@ export default function Cards() {
     </div>
   );
 }
+

@@ -90,7 +90,7 @@ export default function Login() {
               <span className="w-2 h-2 rounded-full bg-emerald-500 live-dot" />
               <span className="text-xs font-bold text-emerald-700">System Online</span>
             </div>
-            <h1 className="text-5xl font-black text-slate-800 leading-[1.1] tracking-tight mb-4"
+            <h1 className="text-5xl font-black text-white leading-[1.1] tracking-tight mb-4"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Pay Smarter,<br />
               <span className="gradient-text">Not Harder.</span>
@@ -117,14 +117,14 @@ export default function Login() {
           <div className="flex gap-6">
             {[['₨ 2B+', 'Processed'], ['99.9%', 'Uptime'], ['< 1s', 'Payment Speed']].map(([val, label]) => (
               <div key={label} className="flex flex-col">
-                <span className="text-2xl font-black text-slate-800">{val}</span>
-                <span className="text-xs text-slate-500 font-medium">{label}</span>
+                <span className="text-2xl font-black text-white">{val}</span>
+                <span className="text-xs text-slate-400 font-medium">{label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-slate-500 text-xs">University of Technology · FinTech Division · 2025</p>
+        <p className="text-slate-400 text-xs">University of Technology · FinTech Division · 2025</p>
       </div>
 
       {/* Vertical divider */}
@@ -155,7 +155,7 @@ export default function Login() {
             </div>
 
             <div className="mb-7">
-              <h2 className="text-2xl font-black text-slate-800 tracking-tight"
+              <h2 className="text-2xl font-black text-white tracking-tight"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Welcome back</h2>
               <p className="text-slate-600 text-sm mt-1">Sign in to access your payment dashboard</p>
             </div>
@@ -171,31 +171,31 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {/* Username */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Username</label>
+                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Username</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
-                    ${focused === 'username' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
+                    ${focused === 'username' ? 'bg-emerald-100' : 'bg-white/10'}`}>
                     <User size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'username' ? 'text-emerald-600' : 'text-slate-400'}`} />
                   </div>
                   <input type="text" placeholder="e.g. student123" value={form.username} autoComplete="username"
                     onFocus={() => setFocused('username')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
-                    className="glow-input w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-sm text-slate-800 placeholder-slate-400 outline-none" />
+                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-sm text-white placeholder-slate-400 outline-none" />
                 </div>
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-2">Password</label>
+                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Password</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
-                    ${focused === 'password' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
+                    ${focused === 'password' ? 'bg-emerald-100' : 'bg-white/10'}`}>
                     <Lock size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'password' ? 'text-emerald-600' : 'text-slate-400'}`} />
                   </div>
                   <input type={showPass ? 'text' : 'password'} placeholder="••••••••" value={form.password} autoComplete="current-password"
                     onFocus={() => setFocused('password')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                    className="glow-input w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-slate-800 placeholder-slate-400 outline-none" />
+                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-white placeholder-slate-400 outline-none" />
                   <button type="button" onClick={() => setShowPass(v => !v)}
                     className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200">
                     {showPass ? <EyeOff size={13} /> : <Eye size={13} />}
@@ -222,10 +222,11 @@ export default function Login() {
             </form>
 
             <div className="gradient-line mt-7 mb-4" />
-            <p className="text-center text-slate-500 text-[11px]">University of Technology · FinTech Payment Portal · v2.0</p>
+            <p className="text-center text-slate-400 text-[11px]">University of Technology · FinTech Payment Portal · v2.0</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
+

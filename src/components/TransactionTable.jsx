@@ -14,11 +14,11 @@ export default function TransactionTable({ transactions = [] }) {
 
   return (
     <>
-      <div className="bg-white rounded-[56px] p-8 animate-fade-up shadow-xl shadow-slate-200/40 border border-slate-50 overflow-hidden">
+      <div className="glass-premium rounded-[56px] p-8 animate-fade-up shadow-xl shadow-slate-200/40 border border-white/5 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-100" style={{ background: 'rgba(240,253,244,0.7)' }}>
+              <tr className="border-b border-white/10" style={{ background: 'rgba(240,253,244,0.7)' }}>
                 {[
                   { label: 'Transaction ID', icon: <TrendingUp size={10} className="text-emerald-500" /> },
                   { label: 'Description',   icon: null },
@@ -28,7 +28,7 @@ export default function TransactionTable({ transactions = [] }) {
                   { label: 'Date',          icon: null },
                 ].map(({ label, icon }) => (
                   <th key={label} className={`px-10 py-6 text-left whitespace-nowrap ${label === 'Transaction ID' ? 'w-[200px]' : ''}`}>
-                    <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                    <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-400">
                       {icon}{label}
                     </div>
                   </th>
@@ -42,8 +42,8 @@ export default function TransactionTable({ transactions = [] }) {
                     <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-100 flex items-center justify-center text-emerald-500 mx-auto mb-5">
                        <Receipt size={28} strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-lg font-black text-slate-800 mb-2">No Transactions Found</h3>
-                    <p className="text-slate-500 text-sm">Try changing your filters or make your first payment.</p>
+                    <h3 className="text-lg font-black text-white mb-2">No Transactions Found</h3>
+                    <p className="text-slate-400 text-sm">Try changing your filters or make your first payment.</p>
                   </td>
                 </tr>
               ) : (
@@ -54,7 +54,7 @@ export default function TransactionTable({ transactions = [] }) {
                     <tr 
                       key={tx.transactionId} 
                       onClick={() => setSelectedTx(tx)}
-                      className="tx-row border-b border-slate-50 last:border-0 cursor-pointer hover:bg-slate-50/80 transition-colors"
+                      className="tx-row border-b border-white/5 last:border-0 cursor-pointer hover:bg-slate-50/80 transition-colors"
                     >
                       <td className="px-10 py-6 w-[200px] tx-indicator-cell">
                         <div className="flex items-center gap-1.5 px-1">
@@ -80,7 +80,7 @@ export default function TransactionTable({ transactions = [] }) {
             </tbody>
           </table>
         </div>
-        <div className="px-8 py-4 flex items-center justify-between border-t border-slate-50 bg-slate-50/50">
+        <div className="px-8 py-4 flex items-center justify-between border-t border-white/5 bg-slate-50/50">
           <p className="text-[10px] text-slate-400 font-medium">
             Showing <span className="text-slate-600 font-bold">{transactions.length}</span> transaction{transactions.length !== 1 ? 's' : ''}
           </p>
@@ -102,12 +102,12 @@ export default function TransactionTable({ transactions = [] }) {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative w-full max-w-lg bg-white rounded-[40px] p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
+                className="relative w-full max-w-lg glass-premium rounded-[40px] p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
                 onClick={e => e.stopPropagation()}
               >
                 <button 
                   onClick={() => setSelectedTx(null)}
-                  className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all border border-slate-100"
+                  className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all border border-white/10"
                 >
                   <X size={20} />
                 </button>
@@ -122,3 +122,4 @@ export default function TransactionTable({ transactions = [] }) {
     </>
   );
 }
+

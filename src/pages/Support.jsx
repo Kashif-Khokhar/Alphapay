@@ -42,14 +42,14 @@ export default function Support() {
             <span className="w-2 h-2 rounded-full bg-rose-500 live-dot" />
             <p className="text-xs font-bold uppercase tracking-widest text-rose-600">Help Center</p>
           </div>
-          <h1 className="text-2xl sm:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3"
+          <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight flex items-center gap-3"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             <div className="w-11 h-11 rounded-xl bg-rose-100 flex items-center justify-center">
               <LifeBuoy size={20} className="text-rose-600" strokeWidth={2} />
             </div>
             Help &amp; Support
           </h1>
-          <p className="text-slate-500 text-sm mt-2 ml-0 md:ml-14">Get help with your payments or contact the university team.</p>
+          <p className="text-slate-400 text-sm mt-2 ml-0 md:ml-14">Get help with your payments or contact the university team.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-start">
@@ -57,13 +57,13 @@ export default function Support() {
             {/* Contact Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-up animate-delay-100">
               {CONTACT_CARDS.map(({ Icon, label, value, sub, bg, text, border }) => (
-                <div key={label} className={`sidebar-card bg-white rounded-2xl p-5 flex flex-col gap-4 cursor-default border shadow-sm ${border}`}>
+                <div key={label} className={`sidebar-card glass-premium rounded-2xl p-5 flex flex-col gap-4 cursor-default border shadow-sm ${border}`}>
                   <div className={`w-11 h-11 rounded-xl ${bg} ${text} flex items-center justify-center`}>
                     <Icon size={18} strokeWidth={1.8} />
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{label}</p>
-                    <p className="text-sm font-bold text-slate-800">{value}</p>
+                    <p className="text-sm font-bold text-white">{value}</p>
                     <p className="text-[11px] text-slate-400 mt-0.5">{sub}</p>
                   </div>
                 </div>
@@ -71,12 +71,12 @@ export default function Support() {
             </div>
 
             {/* FAQ */}
-            <div className="hover-card holo-card bg-white rounded-2xl p-6 border border-slate-100 shadow-sm animate-fade-up animate-delay-200">
+            <div className="hover-card holo-card glass-premium rounded-2xl p-6 border border-white/10 shadow-sm animate-fade-up animate-delay-200">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
                   <BookOpen size={14} className="text-amber-600" />
                 </div>
-                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500">Frequently Asked Questions</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Frequently Asked Questions</h2>
               </div>
               <div className="space-y-2">
                 {FAQS.map((faq, i) => (
@@ -88,12 +88,12 @@ export default function Support() {
                       style={{ background: openFaq === i ? 'rgba(16,185,129,0.04)' : 'transparent' }}>
                       <span className={`text-sm font-semibold transition-colors duration-200 ${openFaq === i ? 'text-emerald-700' : 'text-slate-700'}`}>{faq.q}</span>
                       <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300
-                        ${openFaq === i ? 'bg-emerald-100 text-emerald-600 rotate-90' : 'bg-slate-100 text-slate-400'}`}>
+                        ${openFaq === i ? 'bg-emerald-100 text-emerald-600 rotate-90' : 'bg-white/10 text-slate-400'}`}>
                         <ChevronRight size={13} />
                       </div>
                     </button>
                     {openFaq === i && (
-                      <div className="px-5 pb-5 pt-2 text-sm text-slate-500 leading-relaxed animate-fade-down border-t border-slate-100">
+                      <div className="px-5 pb-5 pt-2 text-sm text-slate-400 leading-relaxed animate-fade-down border-t border-white/10">
                         <div className="flex gap-2.5">
                           <AlertCircle size={13} className="text-emerald-500 flex-shrink-0 mt-0.5" />
                           {faq.a}
@@ -112,7 +112,7 @@ export default function Support() {
                 { label: 'History',  sub: 'View transactions', Icon: Clock, bg: 'bg-amber-100', text: 'text-amber-600', to: '/history' },
               ].map(({ label, sub, Icon, bg, text, to }) => (
                 <button key={label} onClick={() => navigate(to)}
-                  className="btn-glow hover-card bg-white rounded-xl p-4 flex items-center gap-3 text-left border border-slate-100 shadow-sm">
+                  className="btn-glow hover-card glass-premium rounded-xl p-4 flex items-center gap-3 text-left border border-white/10 shadow-sm">
                   <div className={`w-9 h-9 rounded-lg ${bg} ${text} flex items-center justify-center flex-shrink-0`}>
                     <Icon size={16} strokeWidth={1.8} />
                   </div>
@@ -127,13 +127,13 @@ export default function Support() {
           </div>
 
           {/* Contact form */}
-          <div className="hover-card holo-card bg-white rounded-2xl p-6 border border-rose-100 shadow-sm animate-slide-right">
+          <div className="hover-card holo-card glass-premium rounded-2xl p-6 border border-rose-100 shadow-sm animate-slide-right">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center">
                 <MessageSquare size={14} className="text-rose-600" />
               </div>
               <div>
-                <h2 className="text-sm font-bold text-slate-800">Send a Message</h2>
+                <h2 className="text-sm font-bold text-white">Send a Message</h2>
                 <p className="text-[10px] text-rose-600 font-semibold">We'll respond within 24 hours</p>
               </div>
             </div>
@@ -144,8 +144,8 @@ export default function Support() {
                   <CheckCircle size={36} strokeWidth={1.5} />
                 </div>
                 <div className="text-center">
-                  <p className="text-slate-800 font-black text-xl">Message Sent!</p>
-                  <p className="text-slate-500 text-sm mt-1">Our team will get back to you within 24 hours.</p>
+                  <p className="text-white font-black text-xl">Message Sent!</p>
+                  <p className="text-slate-400 text-sm mt-1">Our team will get back to you within 24 hours.</p>
                 </div>
                 <div className="flex gap-1 mt-2">
                   {[0,1,2].map(i => <span key={i} className="w-2 h-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />)}
@@ -162,14 +162,14 @@ export default function Support() {
                     <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">{label}</label>
                     <input type={type} placeholder={placeholder} value={form[key]} required
                       onChange={e => set(key, e.target.value)}
-                      className="glow-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none" />
+                      className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none" />
                   </div>
                 ))}
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Message</label>
                   <textarea rows={4} placeholder="Describe your issue in detail…" value={form.message} required
                     onChange={e => set('message', e.target.value)}
-                    className="glow-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none resize-none" />
+                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none resize-none" />
                 </div>
                 <button type="submit" className="btn btn-primary btn-full mt-1">
                   <Send size={13} /> Send Message <Sparkles size={11} className="opacity-70" />
@@ -188,3 +188,4 @@ export default function Support() {
     </div>
   );
 }
+

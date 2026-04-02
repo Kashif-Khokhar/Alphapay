@@ -82,7 +82,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
 
       {/* Title */}
       <div className="text-center">
-        <h2 className="text-2xl font-black text-slate-800 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+        <h2 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
           {cfg.title}
         </h2>
         <p className="text-slate-600 text-sm mt-1">{cfg.subtitle}</p>
@@ -92,15 +92,15 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
       </div>
 
       {/* Details table */}
-      <div className="w-full rounded-[24px] overflow-hidden border border-slate-100 bg-slate-50/50">
+      <div className="w-full rounded-[24px] overflow-hidden border border-white/10 bg-slate-50/50">
         {rows.map(({ label, value, mono, copyable }, i) => (
-          <div key={label} className={`tx-row flex justify-between items-center px-8 py-4.5 text-sm ${i !== rows.length - 1 ? 'border-b border-slate-100' : ''}`}>
+          <div key={label} className={`tx-row flex justify-between items-center px-8 py-4.5 text-sm ${i !== rows.length - 1 ? 'border-b border-white/10' : ''}`}>
             <span className="text-slate-600 font-medium text-xs uppercase tracking-wide">{label}</span>
             <div className="flex items-center gap-2">
               <span className={`font-semibold text-right ${mono ? 'font-mono text-emerald-600 text-xs' : 'text-slate-700'}`}>{value}</span>
               {copyable && (
                 <button onClick={copyId} className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-all duration-200
-                  ${copied ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-200 text-slate-600 hover:bg-slate-300'}`}>
+                  ${copied ? 'bg-emerald-100 text-emerald-600' : 'bg-white/20 text-slate-600 hover:bg-slate-300'}`}>
                   <Copy size={10} />
                 </button>
               )}
@@ -118,15 +118,16 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
         </button>
         {transaction.status === 'FAILED' && onRetry && (
           <button onClick={onRetry}
-            className="btn-glow flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 bg-white border border-slate-200 shadow-sm hover:border-slate-300">
+            className="btn-glow flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 glass-premium border border-slate-200 shadow-sm hover:border-slate-300">
             <RefreshCw size={14} /> Try Again
           </button>
         )}
         <button onClick={() => { navigate('/history'); onClose?.(); }}
-          className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-slate-600 hover:text-emerald-600 font-bold text-sm bg-white border border-slate-200 shadow-sm hover:border-emerald-200 transition-colors">
+          className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-slate-600 hover:text-emerald-600 font-bold text-sm glass-premium border border-slate-200 shadow-sm hover:border-emerald-200 transition-colors">
           History <ArrowRight size={13} />
         </button>
       </div>
     </div>
   );
 }
+

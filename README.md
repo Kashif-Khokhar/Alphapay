@@ -9,7 +9,7 @@
 # ⚡ AlphaPay — Next-Gen University Payment Portal
 
 **A premium, mobile-first simulated university fee payment portal built with React + Vite.**  
-Experience a stunning light-theme UI with glassmorphism, animated 3D payment cards, real-time analytics, and cinematic micro-interactions designed for the ultimate mobile experience.
+Experience a visually stunning dark-mode UI with rich glassmorphism, glowing neon accents, animated 3D payment cards, real-time analytics, and cinematic micro-interactions designed for the ultimate mobile experience.
 
 </div>
 
@@ -21,7 +21,7 @@ Experience a stunning light-theme UI with glassmorphism, animated 3D payment car
 - 💸 **Smart Transaction Intel** — Corrected directionality logic (Sent/Received) with click-to-view interactive digital receipts.
 - 📊 **Cinematic Analytics** — High-performance animated charts for spending insights and success rates.
 - 📋 **Advanced Ledger** — Fully searchable transaction table with responsive card views and detailed status tracking.
-- 🎨 **White Glassmorphism** — Premium aesthetics with emerald accents, HSL color palettes, and high-performance micro-interactions.
+- 🎨 **Dark Mode Glassmorphism** — Premium aesthetics with deep space blacks, glowing neon emerald accents, and high-performance micro-interactions.
 
 ---
 

@@ -6,7 +6,7 @@ import { getTransactions, getCurrentUser } from '../services/api';
 
 function AnimatedBar({ pct, color, delay = 0 }) {
   return (
-    <div className="h-2.5 rounded-full overflow-hidden bg-slate-100">
+    <div className="h-2.5 rounded-full overflow-hidden bg-white/10">
       <div className={`h-full ${color} rounded-full animate-bar-grow relative overflow-hidden`}
         style={{ width: `${Math.max(pct, 0)}%`, animationDelay: `${delay}ms` }}>
         <div className="progress-stripes absolute inset-0 opacity-30" />
@@ -54,7 +54,7 @@ export default function Reports() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Analytics
             </h1>
-            <p className="text-slate-500 font-bold text-sm mt-3">Advanced insights into your spending patterns and flow.</p>
+            <p className="text-slate-400 font-bold text-sm mt-3">Advanced insights into your spending patterns and flow.</p>
           </div>
           <button onClick={() => navigate('/checkout')}
             className="h-12 px-6 rounded-xl bg-secondary text-white flex items-center gap-3 font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all">
@@ -68,7 +68,7 @@ export default function Reports() {
             <div key={label}
               className="premium-card flex flex-col gap-6 animate-fade-up"
               style={{ animationDelay: `${(i + 1) * 100}ms` }}>
-              <div className={`w-14 h-14 rounded-2xl bg-slate-50 ${text} flex items-center justify-center`}>
+              <div className={`w-14 h-14 rounded-2xl bg-white/5 ${text} flex items-center justify-center`}>
                 <Icon size={24} strokeWidth={3} />
               </div>
               <div>
@@ -107,7 +107,7 @@ export default function Reports() {
                         <span className="text-lg font-black text-secondary tracking-tighter">PKR {amount.toLocaleString()}</span>
                       </div>
                     </div>
-                    <div className="h-3 rounded-full bg-slate-50 overflow-hidden">
+                    <div className="h-3 rounded-full bg-white/5 overflow-hidden">
                        <motion.div 
                          initial={{ width: 0 }}
                          animate={{ width: `${pct}%` }}
@@ -135,7 +135,7 @@ export default function Reports() {
             </div>
             <div className="space-y-4">
               {transactions.slice(0, 5).map((tx) => (
-                <div key={tx.transactionId} className="flex items-center justify-between p-4 rounded-2xl border border-slate-50 hover:bg-slate-50/50 transition-all group">
+                <div key={tx.transactionId} className="flex items-center justify-between p-4 rounded-2xl border border-white/5 hover:bg-slate-50/50 transition-all group">
                    <div className="flex items-center gap-5">
                       <div className={`w-3 h-3 rounded-full ${tx.status === 'SUCCESS' ? 'bg-primary' : 'bg-rose-500'} animate-pulse`} />
                       <div>
@@ -150,7 +150,7 @@ export default function Reports() {
               ))}
             </div>
             <button onClick={() => navigate('/history')}
-              className="mt-8 w-full h-14 rounded-2xl border border-slate-100 flex items-center justify-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-secondary hover:bg-slate-50 transition-all">
+              className="mt-8 w-full h-14 rounded-2xl border border-white/10 flex items-center justify-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-secondary hover:bg-white/5 transition-all">
               Detailed Ledger
             </button>
           </div>
@@ -163,14 +163,14 @@ export default function Reports() {
           ].map(({ label, sub, Icon, to }) => (
             <button key={label} onClick={() => navigate(to)}
               className="premium-card flex items-center gap-8 text-left group">
-              <div className="w-16 h-16 rounded-3xl bg-slate-50 text-secondary flex items-center justify-center transition-all group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
+              <div className="w-16 h-16 rounded-3xl bg-white/5 text-secondary flex items-center justify-center transition-all group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                 <Icon size={24} strokeWidth={3} />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-black text-secondary tracking-widest uppercase">{label}</p>
                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">{sub}</p>
               </div>
-              <div className="w-12 h-12 rounded-full border border-slate-50 flex items-center justify-center text-slate-200 group-hover:text-primary group-hover:border-primary/20 transition-all">
+              <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-slate-200 group-hover:text-primary group-hover:border-primary/20 transition-all">
                 <ArrowRight size={20} strokeWidth={3} />
               </div>
             </button>
@@ -183,3 +183,4 @@ export default function Reports() {
     </div>
   );
 }
+
