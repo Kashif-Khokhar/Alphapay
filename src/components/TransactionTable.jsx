@@ -9,8 +9,7 @@ const STATUS = {
   PROCESSING: { badgeCls: 'icon-warning icon-bg-amber   border-amber-100',    dot: 'bg-amber-500',   Icon: Clock      },
 };
 
-export default function TransactionTable({ transactions = [] }) {
-  const [selectedTx, setSelectedTx] = useState(null);
+export default function TransactionTable({ transactions = [], onSelectTx }) {
 
   return (
     <>
@@ -53,8 +52,8 @@ export default function TransactionTable({ transactions = [] }) {
                   return (
                     <tr 
                       key={tx.transactionId} 
-                      onClick={() => setSelectedTx(tx)}
-                      className="tx-row border-b border-white/5 last:border-0 cursor-pointer hover:bg-slate-50/80 transition-colors"
+                      onClick={() => onSelectTx?.(tx)}
+                      className="tx-row border-b border-white/5 last:border-0 cursor-pointer hover:bg-white/5 transition-colors"
                     >
                       <td className="px-10 py-6 w-[200px] tx-indicator-cell">
                         <div className="flex items-center gap-1.5 px-1">
@@ -91,34 +90,6 @@ export default function TransactionTable({ transactions = [] }) {
         </div>
       </div>
 
-      <AnimatePresence>
-        {selectedTx && (
-          <div 
-            className="fixed inset-0 z-[10000] overflow-y-auto no-scrollbar bg-slate-900/60 backdrop-blur-md px-4 py-8 flex justify-center items-center"
-            onClick={() => setSelectedTx(null)}
-          >
-            <div className="w-full flex justify-center py-4">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative w-full max-w-lg glass-premium rounded-[40px] p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
-                onClick={e => e.stopPropagation()}
-              >
-                <button 
-                  onClick={() => setSelectedTx(null)}
-                  className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all border border-white/10"
-                >
-                  <X size={20} />
-                </button>
-                <div className="w-full pb-8">
-                  <StatusMessage transaction={selectedTx} onClose={() => setSelectedTx(null)} />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        )}
-      </AnimatePresence>
     </>
   );
 }

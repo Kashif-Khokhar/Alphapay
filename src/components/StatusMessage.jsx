@@ -58,74 +58,78 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
   const rows = [
     { label: 'Transaction ID', value: transaction.transactionId,                              mono: true,  copyable: true  },
     { label: 'Amount',         value: `PKR ${parseFloat(transaction.amount).toLocaleString()}`, mono: false, copyable: false },
-    { label: 'Card',           value: transaction.cardNumber,                                  mono: true,  copyable: false },
+    { label: 'Card Number',    value: transaction.cardNumber,                                  mono: true,  copyable: false },
     { label: 'Description',    value: transaction.description || 'University Fee Payment',     mono: false, copyable: false },
-    { label: 'Date',           value: transaction.date,                                        mono: false, copyable: false },
+    { label: 'Transaction Date', value: transaction.date,                                      mono: false, copyable: false },
   ];
 
   return (
-    <div className="w-full max-w-lg mx-auto p-12 pt-16 flex flex-col items-center gap-10">
-
-      {/* Status icon */}
-      <div className="relative">
-        <div className={`absolute inset-[-12px] rounded-full animate-pulse-glow opacity-30 ${cfg.ringBg} border ${cfg.ringBorder}`} />
-        <div className={`w-24 h-24 rounded-full border-2 ${cfg.ringBorder} ${cfg.ringBg} ${cfg.textColor} flex items-center justify-center relative z-10`}>
-          {transaction.status === 'PROCESSING'
-            ? <Icon size={44} className="animate-spin-slow" strokeWidth={1.5} />
-            : <Icon size={44} strokeWidth={1.5} />
-          }
-        </div>
-        {transaction.status === 'SUCCESS' && (
-          <Sparkles size={14} className="absolute -top-1 -right-1 text-amber-500" style={{ animationDelay: '0.5s' }} />
-        )}
-      </div>
-
-      {/* Title */}
-      <div className="text-center">
-        <h2 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-          {cfg.title}
-        </h2>
-        <p className="text-slate-600 text-sm mt-1">{cfg.subtitle}</p>
-        <span className={`badge-pop inline-flex items-center gap-1.5 mt-3 px-4 py-1.5 rounded-full text-xs font-bold border cursor-default ${cfg.badgeCls}`}>
-          <Icon size={10} /> {transaction.status}
-        </span>
-      </div>
-
-      {/* Details table */}
-      <div className="w-full rounded-[24px] overflow-hidden border border-white/10 bg-slate-50/50">
-        {rows.map(({ label, value, mono, copyable }, i) => (
-          <div key={label} className={`tx-row flex justify-between items-center px-8 py-4.5 text-sm ${i !== rows.length - 1 ? 'border-b border-white/10' : ''}`}>
-            <span className="text-slate-600 font-medium text-xs uppercase tracking-wide">{label}</span>
-            <div className="flex items-center gap-2">
-              <span className={`font-semibold text-right ${mono ? 'font-mono text-emerald-600 text-xs' : 'text-slate-700'}`}>{value}</span>
-              {copyable && (
-                <button onClick={copyId} className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-all duration-200
-                  ${copied ? 'bg-emerald-100 text-emerald-600' : 'bg-white/20 text-slate-600 hover:bg-slate-300'}`}>
-                  <Copy size={10} />
-                </button>
-              )}
+    <div className="w-full animate-fade-down">
+      <div className="glass-premium rounded-[32px] overflow-hidden border border-white/10 shadow-2xl relative">
+        <div className="p-6 md:p-10 flex flex-col items-start gap-8">
+          
+          {/* Compact Header */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-6">
+            <div className="flex items-center gap-5">
+              <div className={`w-16 h-16 rounded-2xl border-2 ${cfg.ringBorder} ${cfg.ringBg} ${cfg.textColor} flex items-center justify-center relative flex-shrink-0 animate-scale-in`}>
+                <Icon size={32} strokeWidth={1.5} className={transaction.status === 'PROCESSING' ? 'animate-spin-slow' : ''} />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-xl font-black text-white tracking-tight leading-tight">{cfg.title}</h2>
+                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest">{cfg.subtitle}</p>
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap gap-3">
+              <span className={`badge-pop inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-[10px] font-black border cursor-default bg-white/5 ${cfg.textColor} border-white/10`}>
+                <div className={`w-1.5 h-1.5 rounded-full ${transaction.status === 'SUCCESS' ? 'bg-emerald-500' : transaction.status === 'FAILED' ? 'bg-rose-500' : 'bg-amber-500'}`} />
+                {transaction.status}
+              </span>
+              <button 
+                onClick={() => { navigate('/dashboard'); onClose?.(); }}
+                className="btn-glow flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-white font-black text-[10px] uppercase tracking-widest"
+                style={{ background: cfg.btnBg }}>
+                <LayoutDashboard size={12} /> Dashboard
+              </button>
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* Buttons */}
-      <div className="flex flex-wrap gap-3 w-full justify-center">
-        <button onClick={() => { navigate('/dashboard'); onClose?.(); }}
-          className="btn-glow flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-bold text-sm"
-          style={{ background: cfg.btnBg, boxShadow: `0 8px 20px ${cfg.btnShadow}` }}>
-          <LayoutDashboard size={14} /> Dashboard
-        </button>
-        {transaction.status === 'FAILED' && onRetry && (
-          <button onClick={onRetry}
-            className="btn-glow flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm text-slate-600 glass-premium border border-slate-200 shadow-sm hover:border-slate-300">
-            <RefreshCw size={14} /> Try Again
-          </button>
-        )}
-        <button onClick={() => { navigate('/history'); onClose?.(); }}
-          className="btn-glow flex items-center gap-2 px-5 py-2.5 rounded-xl text-slate-600 hover:text-emerald-600 font-bold text-sm glass-premium border border-slate-200 shadow-sm hover:border-emerald-200 transition-colors">
-          History <ArrowRight size={13} />
-        </button>
+          <div className="w-full h-px bg-white/5" />
+
+          {/* 2-Column Detail Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 w-full">
+            {rows.map(({ label, value, mono, copyable }) => (
+              <div key={label} className="group relative flex items-center justify-between animate-fade-up">
+                <div className="space-y-1">
+                  <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">{label}</span>
+                  <div className="flex items-center gap-2">
+                    <span className={`font-black tracking-tight ${mono ? 'font-mono text-primary text-[11px]' : 'text-secondary text-sm'}`}>{value}</span>
+                    {copyable && (
+                      <button onClick={copyId} className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-all
+                        ${copied ? 'bg-emerald-500 text-white' : 'bg-white/5 text-slate-500 hover:text-white'}`}>
+                        {copied ? <CheckCircle size={10} /> : <Copy size={10} />}
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Footer Area with Action Close */}
+          <div className="w-full flex justify-end pt-2">
+             <button onClick={onClose} className="px-6 py-2 rounded-xl text-slate-400 font-bold text-[11px] uppercase tracking-widest hover:text-white hover:bg-white/5 transition-all border border-white/5">
+                Close Details
+             </button>
+          </div>
+        </div>
+        
+        {/* Receipt Edge Styling */}
+        <div className="h-1.5 w-full flex items-center justify-center gap-1 px-4 opacity-10">
+           {Array.from({length: 40}).map((_, i) => (
+             <div key={i} className="h-full w-4 bg-slate-300 rounded-full flex-shrink-0" />
+           ))}
+        </div>
       </div>
     </div>
   );

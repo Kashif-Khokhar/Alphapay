@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { History as HistoryIcon, CreditCard, RefreshCw, TrendingUp, CheckCircle, XCircle, Search, Filter, Plus } from 'lucide-react';
+import { RefreshCw, TrendingUp, CheckCircle, XCircle, Search, Plus } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import TransactionTable from '../components/TransactionTable';
+import StatusMessage from '../components/StatusMessage';
 import { getTransactions } from '../services/api';
 
 const FILTERS = [
@@ -13,6 +15,7 @@ const FILTERS = [
 export default function History() {
   const navigate = useNavigate();
   const [transactions, setTransactions] = useState(() => getTransactions());
+  const [selectedTx, setSelectedTx] = useState(null);
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
   const refresh = () => setTransactions(getTransactions());
@@ -98,8 +101,22 @@ export default function History() {
           </p>
         )}
 
+        <AnimatePresence mode="wait">
+          {selectedTx && (
+            <motion.div 
+               initial={{ height: 0, opacity: 0, scale: 0.98 }}
+               animate={{ height: 'auto', opacity: 1, scale: 1 }}
+               exit={{ height: 0, opacity: 0, scale: 0.98 }}
+               className="mb-12 overflow-hidden"
+            >
+              <StatusMessage transaction={selectedTx} onClose={() => setSelectedTx(null)} />
+              <div className="h-px w-full bg-white/5 mt-8 block lg:hidden" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="animate-fade-up">
-           <TransactionTable transactions={filtered} />
+           <TransactionTable transactions={filtered} onSelectTx={setSelectedTx} />
         </div>
 
         {/* Mobile Spacer to clear the bottom dock */}
