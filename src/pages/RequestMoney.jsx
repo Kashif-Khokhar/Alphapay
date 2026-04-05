@@ -58,7 +58,7 @@ export default function RequestMoney() {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="max-w-2xl mx-auto">
+        <motion.div variants={itemVariants} className="w-full">
           <div className="glass-premium rounded-[2.5rem] p-8 sm:p-12 border border-white/10 relative overflow-hidden group">
             {/* Decorative gradients */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-500/5 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:scale-110 transition-transform duration-1000" />
@@ -88,28 +88,28 @@ export default function RequestMoney() {
                 <form onSubmit={handleRequest} className="space-y-8">
                   <motion.div variants={itemVariants}>
                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] block mb-3 px-2">Amount (PKR)</label>
-                    <div className="relative group/input">
-                      <span className="absolute left-6 top-1/2 -translate-y-1/2 text-lg font-black text-slate-500 group-focus-within/input:text-primary transition-colors">PKR</span>
+                    <div className="flex items-center gap-4 h-16 bg-white/5 border border-white/5 rounded-2xl px-6 group/input focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/30 transition-all">
+                      <span className="text-lg font-black text-slate-500 group-focus-within/input:text-primary transition-colors shrink-0">PKR</span>
                       <input 
                         type="number" 
                         required
                         placeholder="0.00"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="w-full h-16 bg-white/5 border border-white/5 rounded-2xl pl-16 pr-6 text-xl font-black text-secondary placeholder-slate-600 outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all"
+                        className="w-full h-full bg-transparent text-xl font-black text-secondary placeholder-slate-600 outline-none"
                       />
                     </div>
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] block mb-3 px-2">Recipient Handle</label>
-                    <div className="relative group/input">
-                      <User size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/input:text-primary transition-colors" />
+                    <div className="flex items-center gap-4 h-16 bg-white/5 border border-white/5 rounded-2xl px-6 group/input focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/30 transition-all">
+                      <User size={20} className="text-slate-500 group-focus-within/input:text-primary transition-colors shrink-0" />
                       <input 
                         type="text" 
                         required
                         placeholder="@username or tag"
-                        className="w-full h-16 bg-white/5 border border-white/5 rounded-2xl pl-16 pr-6 text-sm font-bold text-secondary placeholder-slate-600 outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all uppercase tracking-widest"
+                        className="w-full h-full bg-transparent text-sm font-bold text-secondary placeholder-slate-600 outline-none uppercase tracking-widest"
                       />
                     </div>
                   </motion.div>
