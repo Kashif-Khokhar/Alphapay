@@ -72,7 +72,7 @@ export default function Dashboard() {
             <h1 className="text-3xl sm:text-4xl font-black text-secondary tracking-tighter">
               Hello, Admin 👋
             </h1>
-            <p className="text-slate-400 font-bold text-sm mt-1">Welcome back to your premium vault.</p>
+            <p className="text-slate-300 font-bold text-sm mt-1">Welcome back to your premium vault.</p>
           </div>
         </motion.div>
 
@@ -91,7 +91,7 @@ export default function Dashboard() {
                   </div>
 
                   <div className="space-y-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">Total Liquid Assets</p>
+                    <p className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-300">Total Liquid Assets</p>
                     <div className="text-secondary">
                        <AnimatedBalance value={user?.balance || 0} />
                     </div>
@@ -109,12 +109,12 @@ export default function Dashboard() {
 
                 <div className="mt-10 w-full max-w-md flex justify-center gap-8 items-center border-t border-white/10 pt-8">
                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Monthly Spent</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-300 mb-2">Monthly Spent</p>
                       <p className="text-secondary font-black text-xl tracking-tighter">PKR 42,850</p>
                    </div>
                    <div className="w-px h-10 bg-white/10" />
                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Savings Growth</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-300 mb-2">Savings Growth</p>
                       <p className="text-emerald-500 font-black text-xl tracking-tighter">+12.4%</p>
                    </div>
                 </div>
@@ -131,7 +131,7 @@ export default function Dashboard() {
                   <TrendingUp size={36} className="icon-premium" strokeWidth={2.5} />
                 </div>
                 <div>
-                   <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em] mb-3">Analysis</p>
+                   <p className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em] mb-3">Analysis</p>
                    <p className="text-2xl font-black text-secondary tracking-tight uppercase">Finance<br/>Insights</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-all">
@@ -144,7 +144,7 @@ export default function Dashboard() {
         {/* Quick Actions */}
         <motion.div variants={itemVariants} className="space-y-8">
             <div className="flex justify-between items-center px-10">
-               <h2 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Vault Services</h2>
+               <h2 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em]">Vault Services</h2>
             </div>
            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
@@ -166,7 +166,7 @@ export default function Dashboard() {
         {/* Transactions Feed */}
         <motion.div variants={itemVariants} className="space-y-8 pb-20">
             <div className="flex justify-between items-center px-10">
-               <h2 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Recent Activity</h2>
+               <h2 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em]">Recent Activity</h2>
               <button onClick={() => navigate('/history')} className="text-xs font-black text-primary hover:opacity-75 transition-opacity uppercase tracking-widest">Full Ledger</button>
            </div>
 
@@ -183,7 +183,7 @@ export default function Dashboard() {
                        </div>
                       <div>
                          <p className="text-base font-black text-secondary tracking-tight">{tx.description}</p>
-                         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] mt-1">{tx.date}</p>
+                         <p className="text-[10px] text-slate-300 font-bold uppercase tracking-[0.2em] mt-1">{tx.date}</p>
                       </div>
                    </div>
                    <div className="text-right">

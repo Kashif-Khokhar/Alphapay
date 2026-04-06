@@ -43,7 +43,7 @@ export default function History() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               History
             </h1>
-            <p className="text-slate-400 font-bold text-sm mt-3">A complete record of your vault's activity and transactions.</p>
+            <p className="text-slate-300 font-bold text-sm mt-3">A complete record of your vault's activity and transactions.</p>
           </div>
           <div className="flex gap-4 shrink-0">
             <button onClick={refresh}
@@ -80,13 +80,13 @@ export default function History() {
                 className={`h-12 px-6 rounded-xl flex items-center gap-3 transition-all duration-500 whitespace-nowrap ${
                   filter === key 
                     ? 'bg-secondary text-white shadow-md scale-105' 
-                    : 'glass-premium text-slate-400 border border-white/5 hover:border-primary/20 hover:text-secondary'
+                    : 'glass-premium text-slate-300 border border-white/5 hover:border-primary/20 hover:text-secondary'
                 }`}
               >
                 <Icon size={18} strokeWidth={3} className={filter === key ? 'text-primary' : ''} />
                 <span className="text-[11px] font-black uppercase tracking-widest">{label}</span>
                 <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black ${
-                  filter === key ? 'bg-white/10 text-primary' : 'bg-white/5 text-slate-400'
+                  filter === key ? 'bg-white/10 text-primary' : 'bg-white/5 text-slate-300'
                 }`}>
                   {counts[key]}
                 </span>
@@ -96,7 +96,7 @@ export default function History() {
         </div>
 
         {search && (
-          <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-6">
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-6">
             Refining by <span className="text-primary italic">"{search}"</span> — Found {filtered.length} matches
           </p>
         )}

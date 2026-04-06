@@ -27,7 +27,7 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
                   { label: 'Date',          icon: null },
                 ].map(({ label, icon }) => (
                   <th key={label} className={`px-10 py-6 text-left whitespace-nowrap ${label === 'Transaction ID' ? 'w-[200px]' : ''}`}>
-                    <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900">
                       {icon}{label}
                     </div>
                   </th>
@@ -61,8 +61,8 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
                           <span className="badge-pop font-mono text-[11px] text-emerald-700 font-bold cursor-default whitespace-nowrap">{tx.transactionId}</span>
                         </div>
                       </td>
-                      <td className="px-10 py-6 text-slate-600 max-w-[200px] truncate text-xs">{tx.description || 'University Fee'}</td>
-                      <td className="px-10 py-6 font-mono text-[11px] text-slate-400">{tx.cardNumber}</td>
+                      <td className="px-10 py-6 text-slate-300 max-w-[200px] truncate text-xs">{tx.description || 'University Fee'}</td>
+                      <td className="px-10 py-6 font-mono text-[11px] text-slate-300">{tx.cardNumber}</td>
                       <td className="px-10 py-6"><span className="font-black text-secondary text-sm">PKR {parseFloat(tx.amount).toLocaleString()}</span></td>
                       <td className="px-10 py-6">
                         <span className={`badge-pop inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-black border cursor-default ${cfg.badgeCls}`}>
@@ -71,7 +71,7 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
                           {tx.status}
                         </span>
                       </td>
-                      <td className="px-10 py-6 text-slate-400 text-[11px] whitespace-nowrap font-mono">{tx.date}</td>
+                      <td className="px-10 py-6 text-slate-300 text-[11px] whitespace-nowrap font-mono">{tx.date}</td>
                     </tr>
                   );
                 })

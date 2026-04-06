@@ -171,31 +171,31 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {/* Username */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Username</label>
+                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-600 mb-2">Username</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
-                    ${focused === 'username' ? 'bg-emerald-100' : 'bg-white/10'}`}>
+                    ${focused === 'username' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
                     <User size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'username' ? 'text-emerald-600' : 'text-slate-400'}`} />
                   </div>
                   <input type="text" placeholder="e.g. student123" value={form.username} autoComplete="username"
                     onFocus={() => setFocused('username')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
-                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-sm text-white placeholder-slate-400 outline-none" />
+                    className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-emerald-500 transition-all" />
                 </div>
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Password</label>
+                <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-600 mb-2">Password</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
-                    ${focused === 'password' ? 'bg-emerald-100' : 'bg-white/10'}`}>
+                    ${focused === 'password' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
                     <Lock size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'password' ? 'text-emerald-600' : 'text-slate-400'}`} />
                   </div>
                   <input type={showPass ? 'text' : 'password'} placeholder="••••••••" value={form.password} autoComplete="current-password"
                     onFocus={() => setFocused('password')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-white placeholder-slate-400 outline-none" />
+                    className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-emerald-500 transition-all" />
                   <button type="button" onClick={() => setShowPass(v => !v)}
                     className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200">
                     {showPass ? <EyeOff size={13} /> : <Eye size={13} />}

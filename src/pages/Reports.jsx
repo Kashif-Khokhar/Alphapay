@@ -54,7 +54,7 @@ export default function Reports() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Analytics
             </h1>
-            <p className="text-slate-400 font-bold text-sm mt-3">Advanced insights into your spending patterns and flow.</p>
+            <p className="text-slate-300 font-bold text-sm mt-3">Advanced insights into your spending patterns and flow.</p>
           </div>
           <button onClick={() => navigate('/checkout')}
             className="h-12 px-6 rounded-xl bg-secondary text-white flex items-center gap-3 font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all">
@@ -72,7 +72,7 @@ export default function Reports() {
                 <Icon size={24} strokeWidth={3} />
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{label}</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-300 mb-2">{label}</p>
                 <p className="text-2xl font-black text-secondary tracking-tighter">{value}</p>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function Reports() {
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                 <BarChart2 size={24} strokeWidth={3} />
               </div>
-              <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400">Status Allocation</h2>
+              <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-300">Status Allocation</h2>
             </div>
             {transactions.length === 0 ? (
               <div className="text-center py-20">
@@ -116,8 +116,8 @@ export default function Reports() {
                        />
                     </div>
                     <div className="flex justify-between mt-3">
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{pct.toFixed(1)}% weight</p>
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{count} txns</p>
+                      <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">{pct.toFixed(1)}% weight</p>
+                      <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">{count} txns</p>
                     </div>
                   </div>
                 ))}
@@ -131,7 +131,7 @@ export default function Reports() {
               <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-white">
                 <Activity size={24} strokeWidth={3} />
               </div>
-              <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400">Stream Activity</h2>
+              <h2 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-300">Stream Activity</h2>
             </div>
             <div className="space-y-4">
               {transactions.slice(0, 5).map((tx) => (
@@ -140,7 +140,7 @@ export default function Reports() {
                       <div className={`w-3 h-3 rounded-full ${tx.status === 'SUCCESS' ? 'bg-primary' : 'bg-rose-500'} animate-pulse`} />
                       <div>
                          <p className="text-xs font-black text-secondary uppercase tracking-tight truncate max-w-[150px]">{tx.description || 'Entry'}</p>
-                         <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">{tx.date}</p>
+                         <p className="text-[9px] text-slate-300 font-bold uppercase tracking-widest mt-1">{tx.date}</p>
                       </div>
                    </div>
                    <div className="text-right">
@@ -168,7 +168,7 @@ export default function Reports() {
               </div>
               <div className="flex-1">
                 <p className="text-sm font-black text-secondary tracking-widest uppercase">{label}</p>
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">{sub}</p>
+                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mt-1">{sub}</p>
               </div>
               <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-slate-200 group-hover:text-primary group-hover:border-primary/20 transition-all">
                 <ArrowRight size={20} strokeWidth={3} />

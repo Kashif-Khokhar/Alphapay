@@ -156,13 +156,13 @@ export default function PaymentForm({ onSubmit, isLoading }) {
 }
 
 const inp = (err) =>
-  `glow-input w-full bg-white/5 border rounded-xl pl-9 pr-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none transition-all duration-200
+  `glow-input w-full bg-white/5 border rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-slate-400 outline-none transition-all duration-200
   ${err ? 'border-rose-300' : 'border-slate-200'}`;
 
 function Field({ label, icon, error, children, cls = '', focused }) {
   return (
-    <div className={cls}>
-      <label className={`block text-[10px] font-bold uppercase tracking-widest mb-1.5 transition-colors duration-200 ${focused ? 'text-emerald-600' : 'text-slate-400'}`}>{label}</label>
+    <div className={`space-y-2 ${cls} animate-fade-up`}>
+      <label className={`block text-[11px] font-bold uppercase tracking-widest mb-1.5 transition-colors duration-200 ${focused ? 'text-emerald-500' : 'text-slate-300'}`}>{label}</label>
       <div className="relative">
         <span className={`absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-200 ${focused ? 'text-emerald-500' : 'text-slate-400'}`}>{icon}</span>
         {children}
