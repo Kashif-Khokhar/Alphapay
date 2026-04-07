@@ -200,12 +200,14 @@ export default function SendMoneyFlow() {
           {/* STEP 3: ENTER AMOUNT */}
           {step === 3 && status !== 'done' && (
             <motion.div key="step3" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col text-center">
-              <div className="flex flex-col items-center justify-center mb-12 bg-white/5 py-8 px-10 rounded-[40px] border border-white/10 shadow-sm max-w-sm mx-auto w-full relative">
-                <div className="w-14 h-14 glass-premium rounded-2xl shadow-xl flex items-center justify-center mb-4 absolute -top-7 border border-white/10">
+              <div className="flex items-center gap-6 mb-12 bg-white/5 py-6 px-10 rounded-[40px] border border-white/10 shadow-sm max-w-sm mx-auto w-full group">
+                <div className="w-14 h-14 glass-premium rounded-2xl shadow-xl flex-shrink-0 flex items-center justify-center border border-white/10 transition-transform group-hover:scale-110">
                   <User size={24} className="text-primary" />
                 </div>
-                <p className="text-secondary font-black text-xl tracking-tight mb-1">{formData.accountTitle}</p>
-                <p className="text-slate-400 text-[11px] font-black uppercase tracking-widest">{formData.bank?.name} &bull; {formData.accountNumber.slice(-4)}</p>
+                <div className="text-left">
+                  <p className="text-secondary font-black text-xl tracking-tight mb-1">{formData.accountTitle}</p>
+                  <p className="text-slate-400 text-[11px] font-black uppercase tracking-widest">{formData.bank?.name} &bull; {formData.accountNumber.slice(-4)}</p>
+                </div>
               </div>
 
               <form onSubmit={handleSend} className="flex-1 flex flex-col">
