@@ -114,7 +114,7 @@ export default function VirtualCard({
           </div>
           
           <div className="bg-white/5 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10">
-            <span className="text-white text-[9px] font-black tracking-[0.3em] uppercase opacity-60">Titanium Virtual</span>
+            <span className="text-white text-[9px] font-black tracking-[0.3em] uppercase opacity-60">Virtual</span>
           </div>
         </div>
 
