@@ -126,25 +126,39 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                    className="absolute top-[120%] right-0 w-80 glass-premium rounded-[32px] shadow-2xl p-2 z-[60] origin-top-right"
+                    className="absolute top-[120%] right-0 w-[420px] bg-[#050505]/95 rounded-[48px] shadow-[0_40px_100px_rgba(0,0,0,0.8)] p-3 z-[60] origin-top-right border border-white/10 backdrop-blur-[60px] saturate-[200%]"
                   >
-                    <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between">
-                      <h3 className="font-black text-secondary text-sm">Notifications</h3>
-                      <span className="px-2.5 py-1 bg-primary/20 text-primary text-[10px] font-black uppercase tracking-wider rounded-full">3 New</span>
+                    <div className="px-8 py-7 flex items-center justify-between">
+                      <div>
+                         <h3 className="font-black text-white text-xl tracking-tight leading-none mb-1.5">Intelligence</h3>
+                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Live Stream Pipeline</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                         <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.15)]">3 Active</span>
+                      </div>
                     </div>
-                    <div className="max-h-[320px] overflow-y-auto p-1 space-y-1">
+
+                    <div className="max-h-[400px] overflow-y-auto p-1 space-y-2 custom-scrollbar">
                       {NOTIFICATIONS.map((notif) => (
-                        <div key={notif.id} className="p-4 hover:bg-white/10 rounded-2xl transition-colors flex items-start gap-4 cursor-pointer group">
-                          <div className={`w-12 h-12 rounded-2xl ${notif.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${notif.color}`}>
-                            <notif.icon size={20} strokeWidth={3} />
+                        <div key={notif.id} className="p-5 hover:bg-white/5 rounded-[32px] transition-all flex items-start gap-5 cursor-pointer group border border-transparent hover:border-white/5">
+                          <div className={`w-14 h-14 rounded-2xl ${notif.bgColor} bg-white/5 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 ${notif.color} border border-white/5 shadow-lg`}>
+                            <notif.icon size={24} strokeWidth={2.5} />
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-extrabold text-secondary text-[13px] truncate">{notif.title}</h4>
-                            <p className="text-slate-400 text-[11px] leading-relaxed mt-0.5">{notif.message}</p>
-                            <span className="text-[10px] text-slate-400 font-bold mt-1.5 inline-block uppercase tracking-wider">{notif.time}</span>
+                          <div className="flex-1 min-w-0 py-1">
+                            <div className="flex justify-between items-start gap-2">
+                               <h4 className="font-black text-white text-base tracking-tight">{notif.title}</h4>
+                               <span className="text-[9px] text-slate-500 font-bold uppercase tracking-widest shrink-0 mt-1">{notif.time}</span>
+                            </div>
+                            <p className="text-slate-400 text-xs leading-relaxed mt-2 font-medium">{notif.message}</p>
                           </div>
                         </div>
                       ))}
+                    </div>
+
+                    <div className="p-4 mt-2">
+                       <button className="w-full py-4 rounded-2xl bg-white/5 text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] hover:bg-white/10 hover:text-white transition-all border border-white/5">
+                          Flush Intelligence Cache
+                       </button>
                     </div>
                   </motion.div>
                 )}
@@ -168,26 +182,30 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                    className="absolute top-[120%] right-0 w-60 glass-premium rounded-[32px] shadow-2xl p-2 z-[60] origin-top-right"
+                    className="absolute top-[120%] right-0 w-[280px] bg-[#050505]/95 rounded-[40px] shadow-[0_40px_100px_rgba(0,0,0,0.8)] p-3 z-[60] origin-top-right border border-white/10 backdrop-blur-[60px] saturate-[200%]"
                   >
-                     <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-4 text-sm font-black text-secondary hover:bg-white/10 rounded-2xl transition-colors flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white">
+                     <div className="px-6 py-5 border-b border-white/5 mb-2">
+                        <p className="text-[9px] font-black text-slate-500 uppercase tracking-[0.4em] mb-1">Identity</p>
+                        <h4 className="text-white font-black text-base truncate">{user?.name || "Administrator"}</h4>
+                     </div>
+                     <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-5 py-4 text-xs font-black text-white hover:bg-white/5 rounded-3xl transition-all flex items-center gap-4 group">
+                        <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:scale-110 group-hover:rotate-3 transition-all border border-white/5">
                           <User size={18} strokeWidth={3} />
                         </div>
-                        Profile
+                        Vault Profile
                      </button>
-                     <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-4 text-sm font-black text-secondary hover:bg-white/10 rounded-2xl transition-colors flex items-center gap-4 mt-1">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white">
+                     <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-5 py-4 text-xs font-black text-white hover:bg-white/5 rounded-3xl transition-all flex items-center gap-4 mt-1 group">
+                        <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:scale-110 group-hover:rotate-3 transition-all border border-white/5">
                           <Settings size={18} strokeWidth={3} />
                         </div>
-                        Settings
+                        Protocols
                       </button>
-                      <div className="h-px bg-white/10 my-1 mx-2" />
-                      <button className="w-full text-left px-4 py-4 text-sm font-black text-rose-500 hover:bg-rose-50 rounded-2xl transition-colors flex items-center gap-4">
-                         <div className="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center">
+                      <div className="h-px bg-white/5 my-2 mx-4" />
+                      <button className="w-full text-left px-5 py-4 text-xs font-black text-rose-500 hover:bg-rose-500/10 rounded-3xl transition-all flex items-center gap-4 group">
+                         <div className="w-10 h-10 rounded-2xl bg-rose-500/10 flex items-center justify-center border border-rose-500/20 group-hover:scale-110 transition-all">
                             <AlertCircle size={18} strokeWidth={3} />
                          </div>
-                         Logout
+                         Terminate Session
                       </button>
                   </motion.div>
                 )}
