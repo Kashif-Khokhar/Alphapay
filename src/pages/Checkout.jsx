@@ -36,8 +36,8 @@ export default function Checkout() {
                <div className="space-y-4 relative z-10">
                  {[
                    { name: 'Rohan Ali', bank: 'SadaPay', initial: 'R', color: 'bg-emerald-500/10 text-emerald-500' },
-                   { name: 'Admin', bank: 'Meezan Bank', initial: 'A', color: 'bg-primary/10 text-primary' },
-                   { name: 'Ali Hamza', bank: 'HBL', initial: 'A', color: 'bg-violet-500/10 text-violet-500' },
+                   { name: 'Kashif Khokhar', bank: 'Standard Chartered', initial: 'K', color: 'bg-blue-600/10 text-blue-600' },
+                   { name: 'Ali Hamza', bank: 'Bank Alfalah', initial: 'A', color: 'bg-red-500/10 text-red-500' },
                  ].map((p, i) => (
                    <div key={i} className="flex items-center justify-between p-4 rounded-2xl border border-white/5 hover:bg-white/5 transition-all cursor-pointer group/item">
                      <div className="flex items-center gap-4">

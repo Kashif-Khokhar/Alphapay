@@ -10,6 +10,14 @@ const POPULAR_BANKS = [
   { id: 'meezan',  name: 'Meezan Bank', color: 'bg-purple-800', icon: <img src="https://ui-avatars.com/api/?name=Meezan&background=6b21a8&color=fff&rounded=true&bold=true" alt="Meezan" className="w-10 h-10 rounded-full shadow-sm" /> },
   { id: 'faysal',  name: 'Faysal Bank', color: 'bg-blue-600', icon: <img src="https://ui-avatars.com/api/?name=Faysal&background=2563eb&color=fff&rounded=true&bold=true" alt="Faysal" className="w-10 h-10 rounded-full shadow-sm" /> },
   { id: 'hbl',     name: 'HBL', color: 'bg-emerald-700', icon: <img src="https://ui-avatars.com/api/?name=HBL&background=047857&color=fff&rounded=true&bold=true" alt="HBL" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'ubl',     name: 'UBL', color: 'bg-sky-600', icon: <img src="https://ui-avatars.com/api/?name=UBL&background=0284c7&color=fff&rounded=true&bold=true" alt="UBL" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'allied',  name: 'Allied Bank', color: 'bg-sky-700', icon: <img src="https://ui-avatars.com/api/?name=Allied&background=0369a1&color=fff&rounded=true&bold=true" alt="Allied" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'mcb',     name: 'MCB Bank', color: 'bg-green-600', icon: <img src="https://ui-avatars.com/api/?name=MCB&background=16a34a&color=fff&rounded=true&bold=true" alt="MCB" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'alfalah', name: 'Bank Alfalah', color: 'bg-red-800', icon: <img src="https://ui-avatars.com/api/?name=Alfalah&background=991b1b&color=fff&rounded=true&bold=true" alt="Alfalah" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'habibmetro', name: 'Habib Metro', color: 'bg-blue-900', icon: <img src="https://ui-avatars.com/api/?name=HabibM&background=1e3a8a&color=fff&rounded=true&bold=true" alt="HabibMetro" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'scb',     name: 'Standard Chartered', color: 'bg-blue-700', icon: <img src="https://ui-avatars.com/api/?name=SCB&background=1d4ed8&color=fff&rounded=true&bold=true" alt="SCB" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'bop',     name: 'Bank of Punjab', color: 'bg-amber-600', icon: <img src="https://ui-avatars.com/api/?name=BOP&background=d97706&color=fff&rounded=true&bold=true" alt="BOP" className="w-10 h-10 rounded-full shadow-sm" /> },
+  { id: 'askari',  name: 'Askari Bank', color: 'bg-emerald-900', icon: <img src="https://ui-avatars.com/api/?name=Askari&background=064e3b&color=fff&rounded=true&bold=true" alt="Askari" className="w-10 h-10 rounded-full shadow-sm" /> },
   { id: 'other',   name: 'Other Banks...', color: 'bg-white/20', icon: <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-slate-400 shadow-sm border border-slate-200"><Building2 size={18} /></div> },
 ];
 
