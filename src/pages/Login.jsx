@@ -54,17 +54,17 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex overflow-hidden relative"
-      style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 40%, #fffbeb 100%)' }}>
+      style={{ background: 'linear-gradient(135deg, #eef2ff 0%, #e0e7ff 40%, #f5f3ff 100%)' }}>
 
       {/* Light decorative blobs */}
       <div className="absolute w-[700px] h-[700px] rounded-full -top-80 -left-80 animate-blob-1 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)', filter: 'blur(80px)' }} />
       <div className="absolute w-[500px] h-[500px] rounded-full -bottom-60 -right-60 animate-blob-2 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 70%)', filter: 'blur(80px)' }} />
 
       {/* Subtle grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{ backgroundImage: 'linear-gradient(rgba(16,185,129,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.4) 1px,transparent 1px)', backgroundSize: '52px 52px' }} />
+        style={{ backgroundImage: 'linear-gradient(rgba(99,102,241,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.4) 1px,transparent 1px)', backgroundSize: '52px 52px' }} />
 
       {/* Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -75,22 +75,22 @@ export default function Login() {
       <div className={`hidden lg:flex flex-col justify-between w-[45%] p-12 relative transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg"
-            style={{ background: 'linear-gradient(135deg, #10b981, #059669)', boxShadow: '0 0 20px rgba(16,185,129,0.4)' }}>
+            style={{ background: 'linear-gradient(135deg, #6366f1, #4f46e5)', boxShadow: '0 0 20px rgba(99,102,241,0.4)' }}>
             <Zap size={20} className="text-white" strokeWidth={2.5} />
           </div>
           <div>
             <h2 className="text-xl font-black gradient-text" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>AlphaPay</h2>
-            <p className="text-[10px] tracking-widest text-emerald-600 uppercase font-bold">University Portal</p>
+            <p className="text-[10px] tracking-widest text-indigo-600 uppercase font-bold">University Portal</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-300/60 bg-emerald-50 mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 live-dot" />
-              <span className="text-xs font-bold text-emerald-700">System Online</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-300/60 bg-indigo-50 mb-6">
+              <span className="w-2 h-2 rounded-full bg-indigo-500 live-dot" />
+              <span className="text-xs font-bold text-indigo-700">System Online</span>
             </div>
-            <h1 className="text-5xl font-black text-white leading-[1.1] tracking-tight mb-4"
+            <h1 className="text-5xl font-black text-secondary leading-[1.1] tracking-tight mb-4"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Pay Smarter,<br />
               <span className="gradient-text">Not Harder.</span>
@@ -104,9 +104,9 @@ export default function Login() {
           <div className="grid grid-cols-2 gap-3">
             {FEATURES.map(({ icon: Icon, text }, i) => (
               <div key={i}
-                className={`flex items-center gap-2.5 px-4 py-3 rounded-xl bg-white/70 border border-emerald-100 shadow-sm animate-fade-up animate-delay-${(i + 1) * 100}`}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-emerald-100">
-                  <Icon size={14} className="text-emerald-600" />
+                className={`flex items-center gap-2.5 px-4 py-3 rounded-xl bg-white/70 border border-indigo-100 shadow-sm animate-fade-up animate-delay-${(i + 1) * 100}`}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-indigo-100">
+                  <Icon size={14} className="text-indigo-600" />
                 </div>
                 <span className="text-xs font-semibold text-slate-700">{text}</span>
               </div>
@@ -117,7 +117,7 @@ export default function Login() {
           <div className="flex gap-6">
             {[['₨ 2B+', 'Processed'], ['99.9%', 'Uptime'], ['< 1s', 'Payment Speed']].map(([val, label]) => (
               <div key={label} className="flex flex-col">
-                <span className="text-2xl font-black text-white">{val}</span>
+                <span className="text-2xl font-black text-secondary">{val}</span>
                 <span className="text-xs text-slate-400 font-medium">{label}</span>
               </div>
             ))}
@@ -129,7 +129,7 @@ export default function Login() {
 
       {/* Vertical divider */}
       <div className="hidden lg:block w-px self-stretch my-8"
-        style={{ background: 'linear-gradient(to bottom, transparent, rgba(16,185,129,0.25), rgba(245,158,11,0.15), transparent)' }} />
+        style={{ background: 'linear-gradient(to bottom, transparent, rgba(99,102,241,0.25), rgba(236,72,153,0.15), transparent)' }} />
 
       {/* Right panel — form */}
       <div className={`flex-1 flex items-center justify-center px-6 py-10 transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
@@ -138,14 +138,14 @@ export default function Login() {
             style={{
               background: 'rgba(255,255,255,0.92)',
               backdropFilter: 'blur(24px)',
-              border: '1px solid rgba(16,185,129,0.2)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(16,185,129,0.08)',
+              border: '1px solid rgba(99,102,241,0.2)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(99,102,241,0.08)',
             }}>
 
             {/* Mobile logo */}
             <div className="lg:hidden flex flex-col items-center gap-3 mb-8">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl"
-                style={{ background: 'linear-gradient(135deg, #10b981, #059669, #f59e0b)', boxShadow: '0 0 24px rgba(16,185,129,0.4)' }}>
+                style={{ background: 'linear-gradient(135deg, #6366f1, #4f46e5, #ec4899)', boxShadow: '0 0 24px rgba(99,102,241,0.4)' }}>
                 <Zap size={26} className="text-white" strokeWidth={2.5} />
               </div>
               <div className="text-center">
@@ -155,15 +155,15 @@ export default function Login() {
             </div>
 
             <div className="mb-7">
-              <h2 className="text-2xl font-black text-white tracking-tight"
+              <h2 className="text-2xl font-black text-black tracking-tight"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Welcome back</h2>
               <p className="text-slate-600 text-sm mt-1">Sign in to access your payment dashboard</p>
             </div>
 
             {/* Demo hint */}
-            <div className="flex items-center gap-3 rounded-2xl px-4 py-3 mb-6 bg-emerald-50 border border-emerald-200">
-              <AlertCircle size={13} className="text-emerald-600 flex-shrink-0 animate-float" />
-              <p className="text-emerald-700 text-xs font-medium">
+            <div className="flex items-center gap-3 rounded-2xl px-4 py-3 mb-6 bg-indigo-50 border border-indigo-200">
+              <AlertCircle size={13} className="text-indigo-600 flex-shrink-0 animate-float" />
+              <p className="text-indigo-700 text-xs font-medium">
                 <strong>Demo mode</strong> — Enter any username &amp; password to sign in
               </p>
             </div>
@@ -174,13 +174,13 @@ export default function Login() {
                 <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-600 mb-2">Username</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
-                    ${focused === 'username' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
-                    <User size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'username' ? 'text-emerald-600' : 'text-slate-400'}`} />
+                    ${focused === 'username' ? 'bg-indigo-100' : 'bg-slate-100'}`}>
+                    <User size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'username' ? 'text-indigo-600' : 'text-slate-400'}`} />
                   </div>
                   <input type="text" placeholder="e.g. student123" value={form.username} autoComplete="username"
                     onFocus={() => setFocused('username')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
-                    className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-emerald-500 transition-all" />
+                    className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-indigo-500 transition-all" />
                 </div>
               </div>
 
@@ -189,15 +189,15 @@ export default function Login() {
                 <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-600 mb-2">Password</label>
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
-                    ${focused === 'password' ? 'bg-emerald-100' : 'bg-slate-100'}`}>
-                    <Lock size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'password' ? 'text-emerald-600' : 'text-slate-400'}`} />
+                    ${focused === 'password' ? 'bg-indigo-100' : 'bg-slate-100'}`}>
+                    <Lock size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'password' ? 'text-indigo-600' : 'text-slate-400'}`} />
                   </div>
                   <input type={showPass ? 'text' : 'password'} placeholder="••••••••" value={form.password} autoComplete="current-password"
                     onFocus={() => setFocused('password')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                    className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-emerald-500 transition-all" />
+                    className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-indigo-500 transition-all" />
                   <button type="button" onClick={() => setShowPass(v => !v)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200">
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200">
                     {showPass ? <EyeOff size={13} /> : <Eye size={13} />}
                   </button>
                 </div>
@@ -229,4 +229,5 @@ export default function Login() {
     </div>
   );
 }
+
 

@@ -86,8 +86,9 @@ export default function VirtualCard({
       <div 
         className="absolute inset-0 transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(165deg, #030712 0%, #064e3b 45%, #065f46 75%, #10b981 100%)'
+          background: 'linear-gradient(165deg, #020617 0%, #1e1b4b 45%, #312e81 75%, #4f46e5 100%)'
         }}
+
       />
 
       {/* Interactive Glare overlay - dynamic and sharp */}
@@ -109,9 +110,10 @@ export default function VirtualCard({
       >
         {/* Top Header: Brand Focus */}
         <div className="flex justify-between items-start">
-          <div className="flex items-center drop-shadow-[0_0_20px_rgba(23,224,181,0.6)]">
-             <span className="text-[#17e0b5] font-black text-6xl italic select-none tracking-tighter">α</span>
+          <div className="flex items-center drop-shadow-[0_0_20px_rgba(99,102,241,0.6)]">
+             <span className="text-secondary font-black text-6xl italic select-none tracking-tighter">α</span>
           </div>
+
           
           <div className="bg-white/5 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10">
             <span className="text-white text-[9px] font-black tracking-[0.3em] uppercase opacity-60">Virtual</span>

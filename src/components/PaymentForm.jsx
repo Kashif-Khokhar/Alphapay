@@ -41,13 +41,15 @@ export default function PaymentForm({ onSubmit, isLoading }) {
           <div className="absolute inset-0 rounded-[20px] p-6 flex flex-col justify-between shadow-2xl overflow-hidden backface-hidden"
             style={{
               backfaceVisibility: 'hidden',
-              background: 'linear-gradient(135deg, #022c22 0%, #064e3b 45%, #065f46 70%, #10b981 120%)',
-              boxShadow: '0 32px 72px rgba(0,0,0,0.35), 0 0 40px rgba(16,185,129,0.2)',
+              background: 'linear-gradient(135deg, #020617 0%, #1e1b4b 45%, #312e81 70%, #4f46e5 120%)',
+              boxShadow: '0 32px 72px rgba(0,0,0,0.35), 0 0 40px var(--primary-glow)',
+
             }}>
             <div className="absolute inset-0 rounded-[20px]"
               style={{ background: 'linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.06) 40%, transparent 55%)', pointerEvents: 'none' }} />
             <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full"
-              style={{ background: 'radial-gradient(circle, rgba(16,185,129,0.2), transparent 70%)', pointerEvents: 'none' }} />
+              style={{ background: 'radial-gradient(circle, var(--primary-glow), transparent 70%)', pointerEvents: 'none' }} />
+
 
             <div className="flex justify-between items-start relative z-10">
               <div className="w-11 h-8 rounded-md overflow-hidden" style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)', boxShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
@@ -87,8 +89,9 @@ export default function PaymentForm({ onSubmit, isLoading }) {
         </div>
 
         <div className="absolute -bottom-6 left-0 right-0 flex items-center justify-center gap-1.5">
-          <Sparkles size={10} className="text-emerald-500" />
+          <Sparkles size={10} className="text-primary" />
           <p className="text-[10px] text-slate-400 font-medium">Click card to reveal CVV</p>
+
         </div>
       </div>
 
@@ -138,7 +141,8 @@ export default function PaymentForm({ onSubmit, isLoading }) {
 
         <button type="submit" disabled={isLoading}
           className="btn-glow w-full flex items-center justify-center gap-2.5 text-white font-black py-4 rounded-xl text-base disabled:opacity-60 disabled:cursor-not-allowed"
-          style={{ background: 'linear-gradient(135deg, #059669, #10b981)', boxShadow: isLoading ? 'none' : '0 12px 28px rgba(16,185,129,0.35)' }}>
+          style={{ background: 'linear-gradient(135deg, #4f46e5, #6366f1)', boxShadow: isLoading ? 'none' : '0 12px 28px rgba(99,102,241,0.35)' }}>
+
           {isLoading ? (
             <><span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin-slow" /> Processing…</>
           ) : (
@@ -162,9 +166,10 @@ const inp = (err) =>
 function Field({ label, icon, error, children, cls = '', focused }) {
   return (
     <div className={`space-y-2 ${cls} animate-fade-up`}>
-      <label className={`block text-[11px] font-bold uppercase tracking-widest mb-1.5 transition-colors duration-200 ${focused ? 'text-emerald-500' : 'text-slate-300'}`}>{label}</label>
+      <label className={`block text-[11px] font-bold uppercase tracking-widest mb-1.5 transition-colors duration-200 ${focused ? 'text-primary' : 'text-slate-300'}`}>{label}</label>
       <div className="relative">
-        <span className={`absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-200 ${focused ? 'text-emerald-500' : 'text-slate-400'}`}>{icon}</span>
+        <span className={`absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-200 ${focused ? 'text-primary' : 'text-slate-400'}`}>{icon}</span>
+
         {children}
       </div>
       {error && <p className="mt-1 text-[11px] text-rose-500 flex items-center gap-1"><span>⚠</span>{error}</p>}

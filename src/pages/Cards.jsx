@@ -58,7 +58,8 @@ export default function Cards() {
                     </p>
                  </div>
               </div>
-              <div className={`h-3 w-3 ${isFrozen ? 'bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.6)]' : 'bg-primary shadow-[0_0_15px_rgba(16,185,129,0.6)]'} rounded-full animate-pulse`} />
+              <div className={`h-3 w-3 ${isFrozen ? 'bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.6)]' : 'bg-primary shadow-[0_0_15px_var(--primary-glow)]'} rounded-full animate-pulse`} />
+
             </div>
 
             <div className="grid grid-cols-3 gap-2">
@@ -143,7 +144,8 @@ export default function Cards() {
 
               <div className="space-y-4">
                 {[
-                  { label: 'Daily Purchase', value: 'PKR 150,000', used: 'PKR 12,400', percent: 8, colorCls: 'bg-emerald-500', textCls: 'text-emerald-500', bgLight: 'bg-emerald-50', shadowCls: 'shadow-[0_0_10px_rgba(16,185,129,0.3)]' },
+                  { label: 'Daily Purchase', value: 'PKR 150,000', used: 'PKR 12,400', percent: 8, colorCls: 'bg-primary', textCls: 'text-primary', bgLight: 'bg-primary/10', shadowCls: 'shadow-[0_0_10px_var(--primary-glow)]' },
+
                   { label: 'Monthly Limit', value: 'PKR 1,500,000', used: 'PKR 12,400', percent: 1, colorCls: 'bg-indigo-500', textCls: 'text-indigo-500', bgLight: 'bg-indigo-50', shadowCls: 'shadow-[0_0_10px_rgba(99,102,241,0.3)]' },
                   { label: 'ATM Withdrawal', value: 'PKR 50,000', used: 'PKR 0', percent: 0, colorCls: 'bg-amber-500', textCls: 'text-amber-500', bgLight: 'bg-amber-50', shadowCls: 'shadow-[0_0_10px_rgba(245,158,11,0.3)]' },
                   { label: 'Online Payment', value: 'PKR 100,000', used: 'PKR 12,400', percent: 12, colorCls: 'bg-violet-500', textCls: 'text-violet-500', bgLight: 'bg-violet-50', shadowCls: 'shadow-[0_0_10px_rgba(139,92,246,0.3)]' }

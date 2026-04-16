@@ -12,8 +12,9 @@ const CONFIG = {
     textColor: 'text-emerald-600',
     badgeCls: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     glow: '0 0 40px rgba(16,185,129,0.15)',
-    btnBg: 'linear-gradient(135deg, #059669, #10b981)',
-    btnShadow: 'rgba(16,185,129,0.3)',
+    btnBg: 'linear-gradient(135deg, #4f46e5, #6366f1)',
+    btnShadow: 'rgba(99,102,241,0.3)',
+
   },
   FAILED: {
     Icon: XCircle,
@@ -24,8 +25,9 @@ const CONFIG = {
     textColor: 'text-rose-600',
     badgeCls: 'bg-rose-50 text-rose-700 border-rose-200',
     glow: '0 0 40px rgba(244,63,94,0.1)',
-    btnBg: 'linear-gradient(135deg, #059669, #10b981)',
-    btnShadow: 'rgba(16,185,129,0.3)',
+    btnBg: 'linear-gradient(135deg, #4f46e5, #6366f1)',
+    btnShadow: 'rgba(99,102,241,0.3)',
+
   },
   PROCESSING: {
     Icon: Clock,
@@ -36,8 +38,9 @@ const CONFIG = {
     textColor: 'text-amber-600',
     badgeCls: 'bg-amber-50 text-amber-700 border-amber-200',
     glow: '0 0 40px rgba(245,158,11,0.1)',
-    btnBg: 'linear-gradient(135deg, #059669, #10b981)',
-    btnShadow: 'rgba(16,185,129,0.3)',
+    btnBg: 'linear-gradient(135deg, #4f46e5, #6366f1)',
+    btnShadow: 'rgba(99,102,241,0.3)',
+
   },
 };
 

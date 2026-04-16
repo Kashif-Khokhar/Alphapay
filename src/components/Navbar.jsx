@@ -1,8 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings, CheckCircle2, AlertCircle, Info, Wallet } from 'lucide-react';
+import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings, CheckCircle2, AlertCircle, Info, Wallet, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getCurrentUser } from '../services/api';
+import { useTheme } from './ThemeProvider';
+
 
 const NAV_LINKS = [
   { to: '/dashboard', label: 'Home',    icon: LayoutDashboard, color: 'icon-success' },
@@ -49,7 +51,9 @@ export default function Navbar() {
   const navigate  = useNavigate();
   const location  = useLocation();
   const user      = getCurrentUser();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+
   const [showNotifications, setShowNotifications] = useState(false);
   
   useEffect(() => {
@@ -70,12 +74,13 @@ export default function Navbar() {
         <div className="w-full flex items-center justify-between h-full">
           <Link to="/dashboard" className="flex items-center gap-4 group">
             <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
-              <span className="text-[#17e0b5] font-black text-3xl italic">α</span>
+              <span className="text-secondary font-black text-3xl italic">α</span>
             </div>
             <span className="font-black text-2xl tracking-tighter text-white">
-              Alpha<span className="text-[#17e0b5]">Pay</span>
+              Alpha<span className="text-primary">Pay</span>
             </span>
           </Link>
+
 
           {/* Desktop Links */}
           <ul className="flex items-center gap-2">
@@ -107,7 +112,17 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-6">
+            {/* Theme Toggle Button */}
+            <button 
+              onClick={toggleTheme}
+              className="w-12 h-12 flex items-center justify-center rounded-2xl text-slate-400 hover:bg-white/10 hover:text-white transition-all"
+              title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
             <div className="relative notifications-container">
+
               <button 
                 onClick={(e) => {
                   e.stopPropagation();
@@ -256,7 +271,16 @@ export default function Navbar() {
              <User size={22} strokeWidth={showProfileMenu ? 3 : 2} />
            </button>
 
+           {/* Mobile Theme Toggle */}
+           <button 
+             onClick={toggleTheme}
+             className="w-12 h-12 flex items-center justify-center rounded-2xl transition-all text-slate-400"
+           >
+             {isDarkMode ? <Sun size={22} /> : <Moon size={22} />}
+           </button>
+
            <AnimatePresence>
+
              {showProfileMenu && (
                <motion.div 
                  initial={{ opacity: 0, y: -20, scale: 0.9 }}

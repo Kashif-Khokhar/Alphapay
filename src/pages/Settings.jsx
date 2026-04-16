@@ -3,13 +3,16 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Bell, Shield, Smartphone, Globe,
-  Moon, ChevronRight, User, Palette, Eye,
+  Moon, Sun, ChevronRight, User, Palette, Eye,
   ShieldCheck, TrendingUp, ArrowUpRight,
   Lock, FileText, MapPin, BarChart2, Cookie, UserX
 } from 'lucide-react';
+import { useTheme } from '../components/ThemeProvider';
+
 
 export default function Settings() {
   const navigate = useNavigate();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [activeTab, setActiveTab] = useState('Account');
 
   const accountGroups = [
@@ -25,9 +28,21 @@ export default function Settings() {
       title: 'Preferences',
       items: [
         { icon: Bell,    label: 'Notifications',  value: 'On',          color: 'icon-bg-teal icon-action' },
-        { icon: Moon,    label: 'Appearance',      value: 'Light Mode',  color: 'icon-bg-purple icon-premium' },
+        { 
+          icon: isDarkMode ? Moon : Sun,    
+          label: 'Appearance',      
+          value: isDarkMode ? 'Dark Mode' : 'Light Mode',  
+          color: 'icon-bg-purple icon-premium',
+          onClick: toggleTheme 
+        },
         { icon: Globe,   label: 'Region',          value: 'Pakistan',    color: 'icon-bg-teal icon-action' },
-        { icon: Palette, label: 'Theme Colors',    value: 'Emerald',     color: 'icon-bg-amber icon-warning' },
+        { 
+          icon: Palette, 
+          label: 'Theme Colors',    
+          value: 'Royal Indigo',     
+          color: 'icon-bg-amber icon-warning',
+          onClick: () => alert('Color customization coming soon!') 
+        },
       ]
     },
     {
@@ -64,6 +79,7 @@ export default function Settings() {
       ]
     },
   ];
+
 
   const DAILY_LIMIT   = 400000;
   const DAILY_SPENT   = 60000;
@@ -111,7 +127,11 @@ export default function Settings() {
                    <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-6 px-4">{group.title}</h3>
                    <div className="space-y-3">
                      {group.items.map((item) => (
-                       <button key={item.label} className="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-white/5 transition-all group border border-transparent hover:border-white/10">
+                       <button 
+                         key={item.label} 
+                         onClick={item.onClick}
+                         className="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-white/5 transition-all group border border-transparent hover:border-white/10"
+                       >
                          <div className="flex items-center gap-4">
                             <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center transition-transform group-hover:scale-110 shadow-sm`}>
                               <item.icon size={24} strokeWidth={2.5} />
@@ -212,8 +232,7 @@ export default function Settings() {
          </div>
          {/* Mobile Spacer to clear the bottom dock */}
          <div className="h-40 md:hidden" />
-       </motion.div>
+      </motion.div>
     </div>
   );
 }
-

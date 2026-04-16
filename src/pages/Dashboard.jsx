@@ -82,7 +82,8 @@ export default function Dashboard() {
              {/* Large Balance Display */}
              <div className="glass-premium rounded-3xl p-6 sm:p-8 relative overflow-hidden group flex flex-col items-center text-center">
                 {/* Decorative gradients */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:scale-110 transition-transform duration-1000" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:scale-110 transition-transform duration-1000" />
+
                 <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-slate-500/5 rounded-full blur-[80px] -ml-20 -mb-20" />
                 
                 <div className="relative z-10 flex flex-col items-center gap-10 w-full">
