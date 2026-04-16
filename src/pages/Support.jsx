@@ -15,10 +15,11 @@ const FAQS = [
 ];
 
 const CONTACT_CARDS = [
-  { Icon: Mail,          label: 'Email Support',  value: 'support@university.edu',  sub: 'Within 24 hours',   bg: 'bg-emerald-100', text: 'text-emerald-600', border: 'border-emerald-200' },
-  { Icon: Phone,         label: 'Phone Helpdesk', value: '+92 21 111 000 001',       sub: 'Mon–Fri, 9AM–5PM',  bg: 'bg-amber-100',   text: 'text-amber-600',   border: 'border-amber-200'   },
-  { Icon: MessageSquare, label: 'Live Chat',       value: 'Start a conversation',    sub: 'Office hours only', bg: 'bg-teal-100',    text: 'text-teal-600',    border: 'border-teal-200'    },
+  { Icon: Mail,          label: 'Email Support',  value: 'support@university.edu',  sub: 'Within 24 hours',   bg: 'icon-bg-teal',    text: 'icon-action',  border: 'border-white/10' },
+  { Icon: Phone,         label: 'Phone Helpdesk', value: '+92 21 111 000 001',       sub: 'Mon–Fri, 9AM–5PM',  bg: 'icon-bg-amber',   text: 'icon-warning', border: 'border-white/10' },
+  { Icon: MessageSquare, label: 'Live Chat',       value: 'Start a conversation',    sub: 'Office hours only', bg: 'icon-bg-violet',  text: 'icon-info',    border: 'border-white/10' },
 ];
+
 
 export default function Support() {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ export default function Support() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 50%, #fffbeb 100%)', paddingTop: '100px' }}>
+    <div className="min-h-screen" style={{ paddingTop: '100px' }}>
+
       <div className="max-w-[1600px] mx-auto w-full px-4 sm:px-8 md:px-12 pt-8 pb-40">
         {/* Header */}
         <div className="mb-10 animate-fade-up">
@@ -81,21 +83,22 @@ export default function Support() {
               <div className="space-y-2">
                 {FAQS.map((faq, i) => (
                   <div key={i} className="rounded-xl overflow-hidden border transition-colors duration-200"
-                    style={{ borderColor: openFaq === i ? 'rgba(16,185,129,0.3)' : 'rgba(226,232,240,1)' }}>
+                    style={{ borderColor: openFaq === i ? 'rgba(99,102,241,0.3)' : 'rgba(255,255,255,0.05)' }}>
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
                       className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left transition-colors duration-200"
-                      style={{ background: openFaq === i ? 'rgba(16,185,129,0.04)' : 'transparent' }}>
-                      <span className={`text-sm font-semibold transition-colors duration-200 ${openFaq === i ? 'text-emerald-700' : 'text-slate-700'}`}>{faq.q}</span>
+                      style={{ background: openFaq === i ? 'rgba(99,102,241,0.04)' : 'transparent' }}>
+                      <span className={`text-sm font-semibold transition-colors duration-200 ${openFaq === i ? 'text-primary' : 'text-secondary'}`}>{faq.q}</span>
                       <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300
-                        ${openFaq === i ? 'bg-emerald-100 text-emerald-600 rotate-90' : 'bg-white/10 text-slate-400'}`}>
+                        ${openFaq === i ? 'bg-primary/10 text-primary rotate-90' : 'bg-white/10 text-slate-400'}`}>
                         <ChevronRight size={13} />
                       </div>
                     </button>
+
                     {openFaq === i && (
                       <div className="px-5 pb-5 pt-2 text-sm text-slate-400 leading-relaxed animate-fade-down border-t border-white/10">
                         <div className="flex gap-2.5">
-                          <AlertCircle size={13} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                          <AlertCircle size={13} className="text-primary flex-shrink-0 mt-0.5" />
                           {faq.a}
                         </div>
                       </div>
@@ -108,8 +111,9 @@ export default function Support() {
             {/* Quick links */}
             <div className="grid grid-cols-2 gap-3 animate-fade-up animate-delay-300">
               {[
-                { label: 'Pay Fee', sub: 'Go to checkout', Icon: CheckCircle, bg: 'bg-emerald-100', text: 'text-emerald-600', to: '/checkout' },
-                { label: 'History',  sub: 'View transactions', Icon: Clock, bg: 'bg-amber-100', text: 'text-amber-600', to: '/history' },
+                { label: 'Pay Fee', sub: 'Go to checkout', Icon: CheckCircle, bg: 'icon-bg-teal', text: 'icon-action', to: '/checkout' },
+                { label: 'History',  sub: 'View transactions', Icon: Clock, bg: 'icon-bg-amber', text: 'icon-warning', to: '/history' },
+
               ].map(({ label, sub, Icon, bg, text, to }) => (
                 <button key={label} onClick={() => navigate(to)}
                   className="btn-glow hover-card glass-premium rounded-xl p-4 flex items-center gap-3 text-left border border-white/10 shadow-sm">
@@ -140,15 +144,17 @@ export default function Support() {
 
             {sent ? (
               <div className="flex flex-col items-center justify-center py-14 gap-4 animate-scale-in">
-                <div className="animate-float w-20 h-20 rounded-full bg-emerald-100 border-2 border-emerald-300 flex items-center justify-center text-emerald-600">
+                <div className="animate-float w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center text-primary">
                   <CheckCircle size={36} strokeWidth={1.5} />
                 </div>
+
                 <div className="text-center">
                   <p className="text-white font-black text-xl">Message Sent!</p>
                   <p className="text-slate-400 text-sm mt-1">Our team will get back to you within 24 hours.</p>
                 </div>
                 <div className="flex gap-1 mt-2">
-                  {[0,1,2].map(i => <span key={i} className="w-2 h-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />)}
+                  {[0,1,2].map(i => <span key={i} className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />)}
+
                 </div>
               </div>
             ) : (

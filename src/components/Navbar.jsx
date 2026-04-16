@@ -73,13 +73,14 @@ export default function Navbar() {
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1400px] h-20 rounded-[32px] glass-premium shadow-2xl transition-all duration-500 hidden md:flex items-center px-10">
         <div className="w-full flex items-center justify-between h-full">
           <Link to="/dashboard" className="flex items-center gap-4 group">
-            <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6">
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 logo-glow">
               <span className="text-secondary font-black text-3xl italic">α</span>
             </div>
-            <span className="font-black text-2xl tracking-tighter text-white">
-              Alpha<span className="text-primary">Pay</span>
+            <span className="font-black text-2xl tracking-tighter gradient-text">
+              AlphaPay
             </span>
           </Link>
+
 
 
           {/* Desktop Links */}
