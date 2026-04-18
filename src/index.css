@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-bg-main: var(--bg-main);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+}
+
 :root {
   --primary: #6366f1; /* Royal Indigo */
   --primary-glow: rgba(99, 102, 241, 0.6);
@@ -11,6 +22,7 @@
   --text-muted: #94a3b8; /* Slate 400 */
   --glass-bg: rgba(15, 23, 42, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --border-main: rgba(255, 255, 255, 0.1);
   
   /* Icon Jewel Tones */
   --jewel-emerald: #10b981;
@@ -29,9 +41,10 @@
   --accent: #e11d48; /* Rose 600 */
   --bg-main: #f8fafc; /* Slate 50 */
   --text-main: #1e293b; /* Slate 800 */
-  --text-muted: #64748b; /* Slate 500 */
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(15, 23, 42, 0.1);
+  --text-muted: #475569; /* Slate 600 for better visibility */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --border-main: rgba(15, 23, 42, 0.05);
 }
 
 * {

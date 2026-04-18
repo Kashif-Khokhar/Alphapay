@@ -91,7 +91,7 @@ export default function Navbar() {
               return (
                 <li key={to}>
                   <Link to={to} className="relative px-6 py-3 flex items-center group">
-                    <div className={`flex items-center gap-2.5 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-slate-400 group-hover:text-white'}`}>
+                    <div className={`flex items-center gap-2.5 text-[15px] font-bold transition-all duration-300 ${active ? 'text-secondary' : 'text-muted group-hover:text-primary'}`}>
                       <Icon 
                         size={18} 
                         strokeWidth={active ? 3 : 2} 
@@ -146,8 +146,8 @@ export default function Navbar() {
                   >
                     <div className="px-8 py-7 flex items-center justify-between">
                       <div>
-                         <h3 className="font-black text-white text-xl tracking-tight leading-none mb-1.5">Intelligence</h3>
-                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Live Stream Pipeline</p>
+                         <h3 className="font-black text-secondary text-xl tracking-tight leading-none mb-1.5">Intelligence</h3>
+                         <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Live Stream Pipeline</p>
                       </div>
                       <div className="flex items-center gap-3">
                          <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.15)]">3 Active</span>
@@ -162,17 +162,17 @@ export default function Navbar() {
                           </div>
                           <div className="flex-1 min-w-0 py-1">
                             <div className="flex justify-between items-start gap-2">
-                               <h4 className="font-black text-white text-base tracking-tight">{notif.title}</h4>
-                               <span className="text-[9px] text-slate-500 font-bold uppercase tracking-widest shrink-0 mt-1">{notif.time}</span>
+                               <h4 className="font-black text-secondary text-base tracking-tight">{notif.title}</h4>
+                               <span className="text-[9px] text-muted font-bold uppercase tracking-widest shrink-0 mt-1">{notif.time}</span>
                             </div>
-                            <p className="text-slate-400 text-xs leading-relaxed mt-2 font-medium">{notif.message}</p>
+                            <p className="text-muted text-xs leading-relaxed mt-2 font-medium">{notif.message}</p>
                           </div>
                         </div>
                       ))}
                     </div>
 
                     <div className="p-4 mt-2">
-                       <button className="w-full py-4 rounded-2xl bg-white/5 text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] hover:bg-white/10 hover:text-white transition-all border border-white/5">
+                       <button className="w-full py-4 rounded-2xl bg-white/5 text-[10px] font-black text-muted uppercase tracking-[0.3em] hover:bg-white/10 hover:text-secondary transition-all border border-white/5">
                           Flush Intelligence Cache
                        </button>
                     </div>
@@ -201,17 +201,17 @@ export default function Navbar() {
                     className="absolute top-[120%] right-0 w-[280px] bg-[#050505]/95 rounded-[40px] shadow-[0_40px_100px_rgba(0,0,0,0.8)] p-3 z-[60] origin-top-right border border-white/10 backdrop-blur-[60px] saturate-[200%]"
                   >
                      <div className="px-6 py-5 border-b border-white/5 mb-2">
-                        <p className="text-[9px] font-black text-slate-500 uppercase tracking-[0.4em] mb-1">Identity</p>
-                        <h4 className="text-white font-black text-base truncate">{user?.name || "Administrator"}</h4>
+                        <p className="text-[9px] font-black text-muted uppercase tracking-[0.4em] mb-1">Identity</p>
+                        <h4 className="text-secondary font-black text-base truncate">{user?.name || "Administrator"}</h4>
                      </div>
-                     <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-5 py-4 text-xs font-black text-white hover:bg-white/5 rounded-3xl transition-all flex items-center gap-4 group">
-                        <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:scale-110 group-hover:rotate-3 transition-all border border-white/5">
+                     <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-5 py-4 text-xs font-black text-secondary hover:bg-white/5 rounded-3xl transition-all flex items-center gap-4 group">
+                        <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-muted group-hover:scale-110 group-hover:rotate-3 transition-all border border-white/5">
                           <User size={18} strokeWidth={3} />
                         </div>
                         Vault Profile
                      </button>
-                     <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-5 py-4 text-xs font-black text-white hover:bg-white/5 rounded-3xl transition-all flex items-center gap-4 mt-1 group">
-                        <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:scale-110 group-hover:rotate-3 transition-all border border-white/5">
+                     <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-5 py-4 text-xs font-black text-secondary hover:bg-white/5 rounded-3xl transition-all flex items-center gap-4 mt-1 group">
+                        <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-muted group-hover:scale-110 group-hover:rotate-3 transition-all border border-white/5">
                           <Settings size={18} strokeWidth={3} />
                         </div>
                         Protocols

@@ -59,7 +59,7 @@ export default function Profile() {
                </div>
                <div className="text-center mt-10">
                  <h2 className="text-2xl font-black text-secondary tracking-tight">{user?.name}</h2>
-                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mt-2">Alpha Member Since 2024</p>
+                 <p className="text-[10px] font-black text-muted uppercase tracking-[0.3em] mt-2">Alpha Member Since 2024</p>
                  <div className="flex items-center justify-center gap-1.5 mt-5">
                    {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-primary text-primary" />)}
                  </div>
@@ -79,7 +79,7 @@ export default function Profile() {
                       className="h-full bg-primary shadow-[0_0_20px_rgba(16,185,129,0.8)]"
                     />
                  </div>
-                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-6 italic">Secure Asset Allocation</p>
+                 <p className="text-[10px] font-black uppercase tracking-widest text-muted mt-6 italic">Secure Asset Allocation</p>
                </div>
             </div>
           </motion.div>
@@ -87,7 +87,7 @@ export default function Profile() {
           {/* Details Panel */}
           <motion.div variants={itemVariants} className="lg:col-span-8 space-y-8">
              <div className="premium-card">
-                <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em] mb-12 text-center">Validated Security Data</h3>
+                <h3 className="text-[11px] font-black text-muted uppercase tracking-[0.4em] mb-12 text-center">Validated Security Data</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2 group">
@@ -125,7 +125,7 @@ export default function Profile() {
                        <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <ShieldCheck size={22} strokeWidth={3} />
                        </div>
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security Level</p>
+                       <p className="text-[10px] font-black text-muted uppercase tracking-widest">Security Level</p>
                     </div>
                     <div className="pl-20 flex items-center gap-3">
                        <p className="text-xl font-black text-secondary">Verified</p>
@@ -143,7 +143,7 @@ export default function Profile() {
                       localStorage.removeItem('uniPay_user');
                       window.location.reload();
                     }}
-                    className="flex-1 h-16 glass-premium border border-white/10 text-slate-400 font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-rose-50 hover:text-rose-500 hover:border-rose-100 transition-all"
+                    className="flex-1 h-16 glass-premium border border-white/10 text-muted font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-rose-50 hover:text-rose-500 hover:border-rose-100 transition-all"
                   >
                     Reset Environment
                   </button>

@@ -14,7 +14,7 @@ function AnimatedBalance({ value }) {
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="text-4xl font-black flex items-baseline gap-1 tracking-tighter text-white"
+      className="text-4xl font-black flex items-baseline gap-1 tracking-tighter text-secondary"
     >
       <span className="text-xl font-bold opacity-70">PKR</span>
       {value.toLocaleString()}
@@ -72,7 +72,7 @@ export default function Dashboard() {
             <h1 className="text-3xl sm:text-4xl font-black text-secondary tracking-tighter">
               Hello, Admin 👋
             </h1>
-            <p className="text-slate-300 font-bold text-sm mt-1">Welcome back to your premium vault.</p>
+            <p className="text-muted font-bold text-sm mt-1">Welcome back to your premium vault.</p>
           </div>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Dashboard() {
                   </div>
 
                   <div className="space-y-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-300">Total Liquid Assets</p>
+                    <p className="text-[11px] font-black uppercase tracking-[0.4em] text-muted">Total Liquid Assets</p>
                     <div className="text-secondary">
                        <AnimatedBalance value={user?.balance || 0} />
                     </div>
@@ -132,10 +132,10 @@ export default function Dashboard() {
                   <TrendingUp size={36} className="icon-premium" strokeWidth={2.5} />
                 </div>
                 <div>
-                   <p className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em] mb-3">Analysis</p>
+                   <p className="text-[11px] font-black text-muted uppercase tracking-[0.4em] mb-3">Analysis</p>
                    <p className="text-2xl font-black text-secondary tracking-tight uppercase">Finance<br/>Insights</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-muted group-hover:bg-primary/10 group-hover:text-primary transition-all">
                    <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
                 </div>
              </div>
@@ -167,7 +167,7 @@ export default function Dashboard() {
         {/* Transactions Feed */}
         <motion.div variants={itemVariants} className="space-y-8 pb-20">
             <div className="flex justify-between items-center px-10">
-               <h2 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em]">Recent Activity</h2>
+               <h2 className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Recent Activity</h2>
               <button onClick={() => navigate('/history')} className="text-xs font-black text-primary hover:opacity-75 transition-opacity uppercase tracking-widest">Full Ledger</button>
            </div>
 
@@ -184,7 +184,7 @@ export default function Dashboard() {
                        </div>
                       <div>
                          <p className="text-base font-black text-secondary tracking-tight">{tx.description}</p>
-                         <p className="text-[10px] text-slate-300 font-bold uppercase tracking-[0.2em] mt-1">{tx.date}</p>
+                         <p className="text-[10px] text-muted font-bold uppercase tracking-[0.2em] mt-1">{tx.date}</p>
                       </div>
                    </div>
                    <div className="text-right">

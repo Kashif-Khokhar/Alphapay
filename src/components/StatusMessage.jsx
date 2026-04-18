@@ -78,8 +78,8 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
                 <Icon size={32} strokeWidth={1.5} className={transaction.status === 'PROCESSING' ? 'animate-spin-slow' : ''} />
               </div>
               <div className="space-y-1">
-                <h2 className="text-xl font-black text-white tracking-tight leading-tight">{cfg.title}</h2>
-                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest">{cfg.subtitle}</p>
+                <h2 className="text-xl font-black text-secondary tracking-tight leading-tight">{cfg.title}</h2>
+                <p className="text-muted text-[11px] font-bold uppercase tracking-widest">{cfg.subtitle}</p>
               </div>
             </div>
             
@@ -104,12 +104,12 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
             {rows.map(({ label, value, mono, copyable }) => (
               <div key={label} className="group relative flex items-center justify-between animate-fade-up">
                 <div className="space-y-1">
-                  <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">{label}</span>
+                  <span className="block text-[9px] font-black uppercase tracking-[0.2em] text-muted">{label}</span>
                   <div className="flex items-center gap-2">
                     <span className={`font-black tracking-tight ${mono ? 'font-mono text-primary text-[11px]' : 'text-secondary text-sm'}`}>{value}</span>
                     {copyable && (
                       <button onClick={copyId} className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-all
-                        ${copied ? 'bg-emerald-500 text-white' : 'bg-white/5 text-slate-500 hover:text-white'}`}>
+                        ${copied ? 'bg-emerald-500 text-white' : 'bg-white/5 text-muted hover:text-secondary'}`}>
                         {copied ? <CheckCircle size={10} /> : <Copy size={10} />}
                       </button>
                     )}
@@ -121,7 +121,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
 
           {/* Footer Area with Action Close */}
           <div className="w-full flex justify-end pt-2">
-             <button onClick={onClose} className="px-6 py-2 rounded-xl text-slate-400 font-bold text-[11px] uppercase tracking-widest hover:text-white hover:bg-white/5 transition-all border border-white/5">
+             <button onClick={onClose} className="px-6 py-2 rounded-xl text-muted font-bold text-[11px] uppercase tracking-widest hover:text-secondary hover:bg-white/5 transition-all border border-white/5">
                 Close Details
              </button>
           </div>

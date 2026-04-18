@@ -79,8 +79,8 @@ export default function Login() {
             <Zap size={20} className="text-white" strokeWidth={2.5} />
           </div>
           <div>
-            <h2 className="text-xl font-black gradient-text" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>AlphaPay</h2>
-            <p className="text-[10px] tracking-widest text-indigo-600 uppercase font-bold">University Portal</p>
+            <h1 className="text-3xl font-black gradient-text tracking-tighter">AlphaPay</h1>
+            <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Next-Gen Finance</p>
           </div>
         </div>
 
@@ -95,9 +95,7 @@ export default function Login() {
               Pay Smarter,<br />
               <span className="gradient-text">Not Harder.</span>
             </h1>
-            <p className="text-slate-600 text-base leading-relaxed max-w-sm">
-              The most advanced university payment platform. Instant, secure, and beautifully designed.
-            </p>
+            <p className="text-muted font-bold text-sm mt-2 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
           </div>
 
           {/* Feature pills */}
@@ -115,12 +113,10 @@ export default function Login() {
 
           {/* Stats */}
           <div className="flex gap-6">
-            {[['₨ 2B+', 'Processed'], ['99.9%', 'Uptime'], ['< 1s', 'Payment Speed']].map(([val, label]) => (
-              <div key={label} className="flex flex-col">
-                <span className="text-2xl font-black text-secondary">{val}</span>
-                <span className="text-xs text-slate-400 font-medium">{label}</span>
-              </div>
-            ))}
+            <div>
+              <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Sandbox Environment</p>
+              <p className="text-xs text-indigo-400/60 leading-relaxed font-medium">Enter any student UID and access key to proceed with the demonstration.</p>
+            </div>
           </div>
         </div>
 
@@ -148,10 +144,10 @@ export default function Login() {
                 style={{ background: 'linear-gradient(135deg, #6366f1, #4f46e5, #ec4899)', boxShadow: '0 0 24px rgba(99,102,241,0.4)' }}>
                 <Zap size={26} className="text-white" strokeWidth={2.5} />
               </div>
-              <div className="text-center">
-                <h1 className="text-3xl font-black gradient-text" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>AlphaPay</h1>
-                <p className="text-slate-600 text-sm mt-1">University Payment Portal</p>
-              </div>
+              <div className="mb-10 text-center lg:text-left">
+              <h3 className="text-3xl font-black text-secondary tracking-tight mb-2">Initialize Session</h3>
+              <p className="text-muted font-medium">Access your secure identity vault</p>
+            </div>
             </div>
 
             <div className="mb-7">
