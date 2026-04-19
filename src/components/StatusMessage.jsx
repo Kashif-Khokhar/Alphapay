@@ -68,7 +68,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
 
   return (
     <div className="w-full animate-fade-down">
-      <div className="glass-premium rounded-[32px] overflow-hidden border border-white/10 shadow-2xl relative">
+      <div className="glass-premium rounded-[32px] overflow-hidden shadow-2xl relative">
         <div className="p-6 md:p-10 flex flex-col items-start gap-8">
           
           {/* Compact Header */}
@@ -84,7 +84,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
             </div>
             
             <div className="flex flex-wrap gap-3">
-              <span className={`badge-pop inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-[10px] font-black border cursor-default bg-white/5 ${cfg.textColor} border-white/10`}>
+              <span className={`badge-pop inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-[10px] font-black border cursor-default bg-secondary/5 ${cfg.textColor} border-secondary/10`}>
                 <div className={`w-1.5 h-1.5 rounded-full ${transaction.status === 'SUCCESS' ? 'bg-emerald-500' : transaction.status === 'FAILED' ? 'bg-rose-500' : 'bg-amber-500'}`} />
                 {transaction.status}
               </span>
@@ -97,7 +97,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
             </div>
           </div>
 
-          <div className="w-full h-px bg-white/5" />
+          <div className="w-full h-px bg-secondary/10" />
 
           {/* 2-Column Detail Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 w-full">
@@ -109,7 +109,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
                     <span className={`font-black tracking-tight ${mono ? 'font-mono text-primary text-[11px]' : 'text-secondary text-sm'}`}>{value}</span>
                     {copyable && (
                       <button onClick={copyId} className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-all
-                        ${copied ? 'bg-emerald-500 text-white' : 'bg-white/5 text-muted hover:text-secondary'}`}>
+                        ${copied ? 'bg-emerald-500 text-white' : 'bg-secondary/10 text-muted hover:text-secondary'}`}>
                         {copied ? <CheckCircle size={10} /> : <Copy size={10} />}
                       </button>
                     )}
@@ -121,7 +121,7 @@ export default function StatusMessage({ transaction, onRetry, onClose }) {
 
           {/* Footer Area with Action Close */}
           <div className="w-full flex justify-end pt-2">
-             <button onClick={onClose} className="px-6 py-2 rounded-xl text-muted font-bold text-[11px] uppercase tracking-widest hover:text-secondary hover:bg-white/5 transition-all border border-white/5">
+             <button onClick={onClose} className="px-6 py-2 rounded-xl text-muted font-bold text-[11px] uppercase tracking-widest hover:text-secondary hover:bg-secondary/10 transition-all border border-secondary/10">
                 Close Details
              </button>
           </div>
