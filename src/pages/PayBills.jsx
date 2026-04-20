@@ -36,8 +36,8 @@ export default function PayBills() {
             <ArrowDownLeft size={22} className="rotate-45" />
           </button>
           <div>
-            <h1 className="text-3xl font-black text-secondary tracking-tighter">Vault Payments</h1>
-            <p className="text-slate-400 font-bold text-sm mt-1">Settle utility obligations across the network.</p>
+            <h1 className="text-3xl font-black text-secondary tracking-tighter">Bill Payments</h1>
+            <p className="text-slate-400 font-bold text-sm mt-1">Pay your utility bills quickly and securely.</p>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export default function PayBills() {
                 <Search size={20} className="text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Filter billers..."
+                  placeholder="Search billers..."
                   className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-slate-300 tracking-tight"
                 />
               </div>
@@ -77,8 +77,8 @@ export default function PayBills() {
               <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
                 <CheckCircle2 size={40} />
               </div>
-              <h2 className="text-2xl font-black text-secondary mb-3">Transaction Complete</h2>
-              <p className="text-slate-400 font-bold">Your payment of PKR 4,500 has been verified.</p>
+              <h2 className="text-2xl font-black text-secondary mb-3">Payment Successful</h2>
+              <p className="text-slate-400 font-bold">Your payment of PKR 4,500 has been processed.</p>
             </motion.div>
           ) : (
             <div className="space-y-10">
@@ -87,7 +87,7 @@ export default function PayBills() {
                   <selectedCategory.icon size={28} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Obligation Type</p>
+                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Biller Category</p>
                   <p className="font-black text-secondary tracking-tight text-lg">{selectedCategory.label}</p>
                 </div>
                 <button 
@@ -100,11 +100,11 @@ export default function PayBills() {
 
               <form onSubmit={handlePay} className="space-y-8">
                 <div>
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] block mb-4 px-2">Account Identification</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] block mb-4 px-2">Consumer Number</label>
                   <input 
                     type="text" 
                     required
-                    placeholder="Enter 14-digit consumer code"
+                    placeholder="Enter your consumer number"
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-sm font-black text-secondary placeholder:text-slate-300 focus:glass-premium focus:border-primary/50 outline-none transition-all tracking-tight shadow-sm"
                   />
                 </div>
@@ -112,7 +112,7 @@ export default function PayBills() {
                 <div className="p-6 bg-secondary rounded-3xl text-white relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-10" />
                   <div className="flex justify-between items-center mb-2 relative z-10">
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Calculated Balance Due</span>
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Amount Payable</span>
                     <span className="text-[10px] font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Due: Mar 15</span>
                   </div>
                   <p className="text-4xl font-black tracking-tighter relative z-10">PKR 4,500.00</p>
@@ -122,7 +122,7 @@ export default function PayBills() {
                   type="submit"
                   className="w-full bg-primary text-secondary py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all mt-4"
                 >
-                  Confirm &amp; Settle Obligation
+                  Pay Now
                 </button>
               </form>
             </div>

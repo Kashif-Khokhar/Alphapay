@@ -108,7 +108,7 @@ export default function Settings() {
         <div className="glass-premium rounded-3xl shadow-xl overflow-hidden">
            {/* Tabs */}
            <div className="flex p-2 bg-white/5 border-b border-white/10">
-              {['Account', 'Wallet', 'Privacy'].map(tab => (
+              {['Account', 'Limits', 'Privacy'].map(tab => (
                  <button
                    key={tab}
                    onClick={() => setActiveTab(tab)}
@@ -120,7 +120,7 @@ export default function Settings() {
            </div>
 
            {/* Account & Privacy tabs — each with own groups */}
-           {activeTab !== 'Wallet' && (
+           {activeTab !== 'Limits' && (
              <div className="px-6 md:px-10 pt-10 pb-8 space-y-10">
                {groups.map((group) => (
                  <div key={group.title}>
@@ -150,8 +150,8 @@ export default function Settings() {
              </div>
            )}
 
-           {/* Wallet tab — Transfer Limits */}
-           {activeTab === 'Wallet' && (
+           {/* Limits tab — Transfer Limits */}
+           {activeTab === 'Limits' && (
              <div className="px-6 md:px-10 pt-10 pb-8 space-y-8">
                {/* Header */}
                <div className="flex items-center gap-4 px-4">
@@ -160,7 +160,7 @@ export default function Settings() {
                  </div>
                  <div>
                    <h3 className="text-base font-black text-secondary uppercase tracking-tight">Transfer Limits</h3>
-                   <p className="text-[10px] icon-spending font-black uppercase tracking-[0.3em] mt-1">Alpha Verified Account</p>
+                   <p className="text-[10px] icon-spending font-black uppercase tracking-[0.3em] mt-1">Verified Account</p>
                  </div>
                </div>
 
@@ -224,9 +224,9 @@ export default function Settings() {
            )}
 
              <div className="bg-rose-500/10 p-8 flex flex-col items-center border-t border-rose-500/20">
-                <p className="text-[10px] font-black text-rose-500 uppercase tracking-[0.5em] mb-6">Security Terminal</p>
+                <p className="text-[10px] font-black text-rose-500 uppercase tracking-[0.5em] mb-6">Account Security</p>
                 <button className="w-full max-w-sm glass-premium text-rose-500 font-black py-5 rounded-[24px] shadow-lg border border-rose-500/20 hover:bg-rose-500 hover:text-white hover:scale-[1.02] hover:border-rose-500 transform transition-all duration-300 uppercase tracking-widest text-xs">
-                  Deactivate Archive
+                  Deactivate Account
                 </button>
              </div>
          </div>

@@ -61,7 +61,7 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
                           <span className="badge-pop font-mono text-[11px] text-secondary font-bold cursor-default whitespace-nowrap">{tx.transactionId}</span>
                         </div>
                       </td>
-                      <td className="px-10 py-6 text-muted max-w-[200px] truncate text-xs">{tx.description || 'University Fee'}</td>
+                      <td className="px-10 py-6 text-muted max-w-[200px] truncate text-xs">{tx.description || 'Account Payment'}</td>
                       <td className="px-10 py-6 font-mono text-[11px] text-muted">{tx.cardNumber}</td>
                       <td className="px-10 py-6"><span className="font-black text-secondary text-sm">PKR {parseFloat(tx.amount).toLocaleString()}</span></td>
                       <td className="px-10 py-6">

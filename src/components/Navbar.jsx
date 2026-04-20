@@ -146,11 +146,11 @@ export default function Navbar() {
                   >
                     <div className="px-8 py-7 flex items-center justify-between">
                       <div>
-                         <h3 className="font-black text-secondary text-xl tracking-tight leading-none mb-1.5">Intelligence</h3>
-                         <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Live Stream Pipeline</p>
+                         <h3 className="font-black text-secondary text-xl tracking-tight leading-none mb-1.5">Notifications</h3>
+                         <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Recent Updates</p>
                       </div>
                       <div className="flex items-center gap-3">
-                         <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.15)]">3 Active</span>
+                         <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.15)]">3 New</span>
                       </div>
                     </div>
 
@@ -173,7 +173,7 @@ export default function Navbar() {
 
                     <div className="p-4 mt-2">
                        <button className="w-full py-4 rounded-2xl bg-secondary/5 text-[10px] font-black text-muted uppercase tracking-[0.3em] hover:bg-secondary/10 hover:text-secondary transition-all border border-secondary/10">
-                          Flush Intelligence Cache
+                          Clear Notifications
                        </button>
                     </div>
                   </motion.div>
@@ -208,21 +208,21 @@ export default function Navbar() {
                         <div className="w-10 h-10 rounded-2xl bg-secondary/5 flex items-center justify-center text-muted group-hover:scale-110 group-hover:rotate-3 transition-all border border-secondary/10">
                           <User size={18} strokeWidth={3} />
                         </div>
-                        Vault Profile
-                     </button>
-                     <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-5 py-4 text-xs font-black text-secondary hover:bg-secondary/5 rounded-3xl transition-all flex items-center gap-4 mt-1 group">
-                        <div className="w-10 h-10 rounded-2xl bg-secondary/5 flex items-center justify-center text-muted group-hover:scale-110 group-hover:rotate-3 transition-all border border-secondary/10">
-                          <Settings size={18} strokeWidth={3} />
-                        </div>
-                        Protocols
+                        My Profile
                       </button>
-                      <div className="h-px bg-secondary/10 my-2 mx-4" />
-                      <button className="w-full text-left px-5 py-4 text-xs font-black text-rose-500 hover:bg-rose-500/10 rounded-3xl transition-all flex items-center gap-4 group">
-                         <div className="w-10 h-10 rounded-2xl bg-rose-500/10 flex items-center justify-center border border-rose-500/20 group-hover:scale-110 transition-all">
-                            <AlertCircle size={18} strokeWidth={3} />
+                      <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-5 py-4 text-xs font-black text-secondary hover:bg-secondary/5 rounded-3xl transition-all flex items-center gap-4 mt-1 group">
+                         <div className="w-10 h-10 rounded-2xl bg-secondary/5 flex items-center justify-center text-muted group-hover:scale-110 group-hover:rotate-3 transition-all border border-secondary/10">
+                           <Settings size={18} strokeWidth={3} />
                          </div>
-                         Terminate Session
-                      </button>
+                         Settings
+                       </button>
+                       <div className="h-px bg-secondary/10 my-2 mx-4" />
+                       <button className="w-full text-left px-5 py-4 text-xs font-black text-rose-500 hover:bg-rose-500/10 rounded-3xl transition-all flex items-center gap-4 group">
+                          <div className="w-10 h-10 rounded-2xl bg-rose-500/10 flex items-center justify-center border border-rose-500/20 group-hover:scale-110 transition-all">
+                             <AlertCircle size={18} strokeWidth={3} />
+                          </div>
+                          Log Out
+                       </button>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -290,7 +290,7 @@ export default function Navbar() {
                  className="absolute bottom-[130%] right-0 w-48 glass-premium rounded-[24px] shadow-2xl p-2 origin-bottom-right"
                >
                   <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-secondary/10 rounded-xl flex items-center gap-3">
-                     <User size={16} strokeWidth={2.5} /> Profile
+                     <User size={16} strokeWidth={2.5} /> My Profile
                   </button>
                   <button onClick={() => { setShowProfileMenu(false); navigate('/settings'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-secondary/10 rounded-xl flex items-center gap-3 mt-1">
                      <Settings size={16} strokeWidth={2.5} /> Settings

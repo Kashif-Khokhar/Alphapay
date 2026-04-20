@@ -114,15 +114,15 @@ export default function SendMoneyFlow() {
           {step === 1 && (
             <motion.div key="step1" variants={fadeInVariants} initial="initial" animate="animate" exit="exit" className="flex-1 flex flex-col">
               <div className="mb-10">
-                <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Select Institution</h2>
-                <p className="text-slate-400 font-bold text-sm">Choose a gateway for your asset transfer.</p>
+                <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Select Bank</h2>
+                <p className="text-slate-400 font-bold text-sm">Choose a bank for your money transfer.</p>
               </div>
               
               <div className="flex items-center gap-4 mb-8 px-6 py-4 bg-white/5 rounded-2xl border border-white/10 focus-within:border-primary/50 focus-within:bg-white/10 transition-all">
                 <Search size={20} className="text-slate-300" />
                 <input
                   type="text"
-                  placeholder="Filter network..."
+                  placeholder="Search bank..."
                   value={bankSearch}
                   onChange={e => setBankSearch(e.target.value)}
                   className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-slate-300 tracking-tight"
@@ -168,14 +168,14 @@ export default function SendMoneyFlow() {
               <div className="flex items-center gap-5 mb-10 p-6 bg-white/5 rounded-[32px] border border-white/10 shadow-sm">
                 {formData.bank?.icon}
                 <div>
-                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Channel</p>
+                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-1">Bank</p>
                   <p className="font-black text-secondary tracking-tight">{formData.bank?.name}</p>
                 </div>
               </div>
 
               <div className="mb-10">
-                <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Global Address</h2>
-                <p className="text-slate-400 font-bold text-sm">Enter the IBAN or account hash of the recipient.</p>
+                <h2 className="text-2xl font-black text-secondary tracking-tight mb-2">Account Details</h2>
+                <p className="text-slate-400 font-bold text-sm">Enter the IBAN or account number of the recipient.</p>
               </div>
 
               <form onSubmit={handleAccountSubmit} className="flex-1 flex flex-col">
@@ -198,7 +198,7 @@ export default function SendMoneyFlow() {
                     disabled={formData.accountNumber.length < 8 || status === 'checking'}
                     className="w-full bg-primary text-secondary py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
                   >
-                    {status === 'checking' ? <div className="w-5 h-5 border-3 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto" /> : 'Validate Address'}
+                    {status === 'checking' ? <div className="w-5 h-5 border-3 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto" /> : 'Verify Account'}
                   </button>
                 </div>
               </form>
@@ -252,7 +252,7 @@ export default function SendMoneyFlow() {
                       <div className="w-6 h-6 border-3 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto" />
                     ) : (
                       <div className="flex items-center justify-center gap-3">
-                        <Send size={20} strokeWidth={3} /> Execute Transfer
+                        <Send size={20} strokeWidth={3} /> Send Money
                       </div>
                     )}
                   </button>
@@ -260,7 +260,7 @@ export default function SendMoneyFlow() {
                 
                 <div className="flex items-center justify-center gap-2 mt-4">
                   <ShieldCheck size={14} className="text-primary" />
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">End-to-End Encryption Active</p>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Secure Transfer Service</p>
                 </div>
               </form>
             </motion.div>

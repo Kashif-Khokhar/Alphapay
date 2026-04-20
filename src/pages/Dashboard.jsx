@@ -70,9 +70,9 @@ export default function Dashboard() {
         <motion.div variants={itemVariants} className="flex justify-between items-end">
           <div>
             <h1 className="text-3xl sm:text-4xl font-black text-secondary tracking-tighter">
-              Hello, Admin 👋
+              Welcome Back 👋
             </h1>
-            <p className="text-muted font-bold text-sm mt-1">Welcome back to your premium vault.</p>
+            <p className="text-muted font-bold text-sm mt-1">Here is what is happening with your account today.</p>
           </div>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Dashboard() {
                   </div>
 
                   <div className="space-y-4">
-                    <p className="text-[11px] font-black uppercase tracking-[0.4em] text-muted">Total Liquid Assets</p>
+                    <p className="text-[11px] font-black uppercase tracking-[0.4em] text-muted">Current Balance</p>
                     <div className="text-secondary">
                        <AnimatedBalance value={user?.balance || 0} />
                     </div>
@@ -100,7 +100,7 @@ export default function Dashboard() {
                   
                   <div className="flex gap-6">
                      <button onClick={() => navigate('/checkout')} className="h-12 px-6 rounded-2xl bg-secondary text-primary flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all font-black text-sm uppercase tracking-widest">
-                        <Plus size={20} strokeWidth={3} /> Add Funds
+                        <Plus size={20} strokeWidth={3} /> Add Money
                      </button>
                      <button onClick={() => navigate('/card')} className="w-12 h-12 rounded-2xl bg-white/5 text-secondary border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
                         <CreditCard size={20} strokeWidth={2.5} />
@@ -132,8 +132,8 @@ export default function Dashboard() {
                   <TrendingUp size={36} className="icon-premium" strokeWidth={2.5} />
                 </div>
                 <div>
-                   <p className="text-[11px] font-black text-muted uppercase tracking-[0.4em] mb-3">Analysis</p>
-                   <p className="text-2xl font-black text-secondary tracking-tight uppercase">Finance<br/>Insights</p>
+                   <p className="text-[11px] font-black text-muted uppercase tracking-[0.4em] mb-3">Finance</p>
+                   <p className="text-2xl font-black text-secondary tracking-tight uppercase">Spending<br/>Insights</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-muted group-hover:bg-primary/10 group-hover:text-primary transition-all">
                    <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
@@ -145,7 +145,7 @@ export default function Dashboard() {
         {/* Quick Actions */}
         <motion.div variants={itemVariants} className="space-y-8">
             <div className="flex justify-between items-center px-10">
-               <h2 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em]">Vault Services</h2>
+               <h2 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em]">Banking Services</h2>
             </div>
            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
@@ -167,8 +167,8 @@ export default function Dashboard() {
         {/* Transactions Feed */}
         <motion.div variants={itemVariants} className="space-y-8 pb-20">
             <div className="flex justify-between items-center px-10">
-               <h2 className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Recent Activity</h2>
-              <button onClick={() => navigate('/history')} className="text-xs font-black text-primary hover:opacity-75 transition-opacity uppercase tracking-widest">Full Ledger</button>
+               <h2 className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Recent Transactions</h2>
+              <button onClick={() => navigate('/history')} className="text-xs font-black text-primary hover:opacity-75 transition-opacity uppercase tracking-widest">View Statement</button>
            </div>
 
            <div className="space-y-3">
@@ -199,7 +199,7 @@ export default function Dashboard() {
               )) : (
                 <div className="premium-card p-20 text-center border-dashed">
                    <Activity size={40} className="mx-auto text-slate-200 mb-6" />
-                   <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em]">The vault is empty</p>
+                   <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em]">No transactions yet</p>
                 </div>
               )}
            </div>

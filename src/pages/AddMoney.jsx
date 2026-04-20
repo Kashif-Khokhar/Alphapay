@@ -46,8 +46,8 @@ export default function AddMoney() {
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 size={32} />
               </div>
-              <h2 className="text-xl font-black text-secondary mb-2">Money Added!</h2>
-              <p className="text-sm text-slate-400">PKR {parseFloat(amount).toLocaleString()} added to your wallet successfully.</p>
+              <h2 className="text-xl font-black text-secondary mb-2">Success!</h2>
+              <p className="text-sm text-slate-400">PKR {parseFloat(amount).toLocaleString()} has been added to your account.</p>
             </motion.div>
           ) : (
             <form onSubmit={handleAdd} className="space-y-8">
@@ -102,7 +102,7 @@ export default function AddMoney() {
                <Wallet size={18} />
             </div>
             <div>
-              <p className="text-xs font-black text-secondary uppercase tracking-widest mb-1">Current Limit</p>
+              <p className="text-xs font-black text-secondary uppercase tracking-widest mb-1">Remaining Limit</p>
               <p className="text-[10px] text-slate-400 leading-relaxed font-bold">You can add up to PKR 150,000 more today to stay within your daily limit.</p>
             </div>
           </div>

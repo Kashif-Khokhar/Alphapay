@@ -38,21 +38,21 @@ export default function History() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2.5 h-2.5 rounded-full bg-primary live-dot" />
-              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Digital Ledger</p>
+              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Account Activity</p>
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               History
             </h1>
-            <p className="text-muted font-bold text-sm mt-3">A complete record of your vault's activity and transactions.</p>
+            <p className="text-muted font-bold text-sm mt-3">Search and view all your past transactions here.</p>
           </div>
           <div className="flex gap-4 shrink-0">
             <button onClick={refresh}
               className="h-12 px-6 rounded-xl glass-premium border border-white/10 flex items-center gap-2 font-black text-xs uppercase tracking-widest text-secondary hover:bg-white/5 transition-all">
-              <RefreshCw size={18} /> Sync
+              <RefreshCw size={18} /> Refresh
             </button>
             <button onClick={() => navigate('/checkout')}
               className="h-12 px-6 rounded-xl bg-primary flex items-center gap-2 font-black text-xs uppercase tracking-widest text-secondary shadow-lg hover:scale-105 active:scale-95 transition-all">
-              <Plus size={18} /> New Entry
+              <Plus size={18} /> Send Money
             </button>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function History() {
                 <Search size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors" />
                 <input 
                   type="text" 
-                  placeholder="Filter by description or ID..." 
+                  placeholder="Search transactions..." 
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   className="w-full h-12 pl-12 pr-4 glass-premium rounded-xl border border-white/5 shadow-sm shadow-slate-200/40 text-sm font-bold text-secondary placeholder:text-muted outline-none focus:ring-2 focus:ring-primary/20 transition-all"

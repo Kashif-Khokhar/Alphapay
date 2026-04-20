@@ -149,8 +149,8 @@ export default function Support() {
                 </div>
 
                 <div className="text-center">
-                  <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter mb-4">Support Center</h1>
-                  <p className="text-muted font-bold text-sm max-w-lg">Our elite response team is standing by to resolve your technical inquiries with surgical precision.</p>
+                  <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter mb-4">Help Center</h1>
+                  <p className="text-muted font-bold text-sm max-w-lg">Our customer support team is standing by to resolve your inquiries as quickly as possible.</p>
                 </div>
                 <div className="flex gap-1 mt-2">
                   {[0,1,2].map(i => <span key={i} className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />)}

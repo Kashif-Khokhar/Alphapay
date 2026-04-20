@@ -31,7 +31,7 @@ export const makePayment = async (paymentData) => {
         name: paymentData.name,
         cardNumber: `**** **** **** ${paymentData.cardNumber.slice(-4)}`,
         amount: parseFloat(paymentData.amount).toFixed(2),
-        description: paymentData.description || 'University Fee Payment',
+        description: paymentData.description || 'Account Payment',
         status,
         date: new Date().toLocaleString('en-US', {
           year: 'numeric',
@@ -95,8 +95,8 @@ export const loginUser = async (username, password) => {
         const cardDetails = generateCardDetails();
         const user = {
           name: username === 'admin' ? 'Admin User' : username,
-          email: `${username}@alphapay.edu`,
-          studentId: 'STU-' + Math.floor(10000 + Math.random() * 90000),
+          email: `${username}@alphapay.pk`,
+          studentId: 'ACC-' + Math.floor(10000 + Math.random() * 90000),
           balance: (Math.random() * 5000 + 500).toFixed(2),
           ...cardDetails
         };
@@ -137,8 +137,8 @@ export const getCurrentUser = () => {
   const cardDetails = generateCardDetails();
   const defaultUser = {
     name: 'Admin',
-    email: 'admin@alphapay.edu',
-    studentId: 'STU-1204',
+    email: 'admin@alphapay.pk',
+    studentId: 'ACC-1204',
     balance: 14500.00,
     ...cardDetails
   };

@@ -6,7 +6,7 @@ import { loginUser } from '../services/api';
 const FEATURES = [
   { icon: Shield,    text: '256-bit SSL Encrypted' },
   { icon: TrendingUp, text: 'Real-time Analytics' },
-  { icon: Users,     text: '50,000+ Students' },
+  { icon: Users,     text: '50,000+ Users' },
   { icon: Globe,     text: 'Nationwide Network' },
 ];
 
@@ -80,7 +80,7 @@ export default function Login() {
           </div>
           <div>
             <h1 className="text-3xl font-black gradient-text tracking-tighter">AlphaPay</h1>
-            <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Next-Gen Finance</p>
+            <p className="text-[10px] font-black text-muted uppercase tracking-[0.4em]">Digital Banking</p>
           </div>
         </div>
 
@@ -92,10 +92,10 @@ export default function Login() {
             </div>
             <h1 className="text-5xl font-black text-secondary leading-[1.1] tracking-tight mb-4"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Pay Smarter,<br />
-              <span className="gradient-text">Not Harder.</span>
+              Banking Made<br />
+              <span className="gradient-text">Simple.</span>
             </h1>
-            <p className="text-muted font-bold text-sm mt-2 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
+            <p className="text-muted font-bold text-sm mt-2 max-w-lg">Control your spending, set limits, and manage your finances with ease and security.</p>
           </div>
 
           {/* Feature pills */}
@@ -114,13 +114,13 @@ export default function Login() {
           {/* Stats */}
           <div className="flex gap-6">
             <div>
-              <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Sandbox Environment</p>
-              <p className="text-xs text-indigo-400/60 leading-relaxed font-medium">Enter any student UID and access key to proceed with the demonstration.</p>
+              <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Secure Environment</p>
+              <p className="text-xs text-indigo-400/60 leading-relaxed font-medium">Enter your credentials to access your account securely.</p>
             </div>
           </div>
         </div>
 
-        <p className="text-slate-400 text-xs">University of Technology · FinTech Division · 2025</p>
+        <p className="text-slate-400 text-xs">AlphaPay · Digital Banking Division · 2026</p>
       </div>
 
       {/* Vertical divider */}
@@ -145,8 +145,8 @@ export default function Login() {
                 <Zap size={26} className="text-white" strokeWidth={2.5} />
               </div>
               <div className="mb-10 text-center lg:text-left">
-              <h3 className="text-3xl font-black text-secondary tracking-tight mb-2">Initialize Session</h3>
-              <p className="text-muted font-medium">Access your secure identity vault</p>
+              <h3 className="text-3xl font-black text-secondary tracking-tight mb-2">Sign In</h3>
+              <p className="text-muted font-medium">Access your secure account</p>
             </div>
             </div>
 
