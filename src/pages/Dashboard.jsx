@@ -99,7 +99,7 @@ export default function Dashboard() {
                   </div>
                   
                   <div className="flex gap-6">
-                     <button onClick={() => navigate('/checkout')} className="h-12 px-6 rounded-2xl bg-secondary text-primary flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all font-black text-sm uppercase tracking-widest">
+                     <button onClick={() => navigate('/checkout')} className="h-12 px-6 rounded-2xl bg-primary text-white flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all font-black text-sm uppercase tracking-widest">
                         <Plus size={20} strokeWidth={3} /> Add Money
                      </button>
                      <button onClick={() => navigate('/card')} className="w-12 h-12 rounded-2xl bg-white/5 text-secondary border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">

@@ -56,10 +56,10 @@ export default function Reports() {
             </h1>
             <p className="text-slate-300 font-bold text-sm mt-3">Search and view all your past transactions here.</p>
           </div>
-          <button onClick={() => navigate('/checkout')}
-            className="h-12 px-6 rounded-xl bg-secondary text-white flex items-center gap-3 font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all">
-            <CreditCard size={18} /> Make Payment
-          </button>
+           <button onClick={() => navigate('/checkout')}
+             className="h-12 px-6 rounded-xl bg-primary text-white flex items-center gap-3 font-black text-xs uppercase tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all">
+             <CreditCard size={18} /> Send Money
+           </button>
         </div>
 
         {/* Stat Cards */}

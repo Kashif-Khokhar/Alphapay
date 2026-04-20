@@ -79,7 +79,7 @@ export default function History() {
                 onClick={() => setFilter(key)}
                 className={`h-12 px-6 rounded-xl flex items-center gap-3 transition-all duration-500 whitespace-nowrap ${
                   filter === key 
-                    ? 'bg-secondary text-white shadow-md scale-105' 
+                    ? 'bg-primary text-white shadow-lg scale-105 shadow-primary/20' 
                     : 'glass-premium text-slate-300 border border-white/5 hover:border-primary/20 hover:text-secondary'
                 }`}
               >

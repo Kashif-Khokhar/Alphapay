@@ -32,7 +32,7 @@ export default function Profile() {
           <div>
             <div className="flex items-center gap-3 mb-4">
                <div className="w-2.5 h-2.5 rounded-full bg-primary live-dot" />
-               <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Identity Vault</p>
+               <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Account Security</p>
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">My Profile</h1>
           </div>
@@ -59,7 +59,7 @@ export default function Profile() {
                </div>
                <div className="text-center mt-10">
                  <h2 className="text-2xl font-black text-secondary tracking-tight">{user?.name}</h2>
-                 <p className="text-[10px] font-black text-muted uppercase tracking-[0.3em] mt-2">Alpha Member Since 2024</p>
+                 <p className="text-[10px] font-black text-muted uppercase tracking-[0.3em] mt-2">Member Since 2024</p>
                  <div className="flex items-center justify-center gap-1.5 mt-5">
                    {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-primary text-primary" />)}
                  </div>
@@ -69,7 +69,7 @@ export default function Profile() {
             <div className="bg-secondary rounded-3xl p-8 text-white relative group overflow-hidden shadow-xl">
                <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-30 group-hover:scale-125 transition-transform duration-1000" />
                <div className="relative z-10 flex flex-col items-center text-center">
-                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4">Vault Balance</p>
+                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4">Total Balance</p>
                  <p className="text-4xl font-black tracking-tighter text-white">PKR {Number(user?.balance).toLocaleString()}</p>
                  <div className="h-1.5 bg-white/5 rounded-full mt-8 overflow-hidden w-full">
                     <motion.div 
@@ -79,7 +79,7 @@ export default function Profile() {
                       className="h-full bg-primary shadow-[0_0_20px_rgba(16,185,129,0.8)]"
                     />
                  </div>
-                 <p className="text-[10px] font-black uppercase tracking-widest text-muted mt-6 italic">Secure Asset Allocation</p>
+                 <p className="text-[10px] font-black uppercase tracking-widest text-muted mt-6 italic">Secure Account Management</p>
                </div>
             </div>
           </motion.div>
@@ -87,7 +87,7 @@ export default function Profile() {
           {/* Details Panel */}
           <motion.div variants={itemVariants} className="lg:col-span-8 space-y-8">
              <div className="premium-card">
-                <h3 className="text-[11px] font-black text-muted uppercase tracking-[0.4em] mb-12 text-center">Validated Security Data</h3>
+                <h3 className="text-[11px] font-black text-muted uppercase tracking-[0.4em] mb-12 text-center">Verified Account Details</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2 group">
@@ -115,7 +115,7 @@ export default function Profile() {
                        <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <IdCard size={22} strokeWidth={3} />
                        </div>
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Student Credentials</p>
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Account ID</p>
                     </div>
                     <p className="text-xl font-black text-secondary pl-20">{user?.studentId}</p>
                   </div>
@@ -135,8 +135,8 @@ export default function Profile() {
                 </div>
 
                 <div className="mt-16 flex flex-col sm:flex-row gap-6 border-t border-white/5 pt-10">
-                  <button onClick={() => navigate('/settings')} className="flex-1 h-16 bg-secondary text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-slate-800 transition-all hover:scale-[1.02] shadow-2xl active:scale-[0.98]">
-                    Modify Portfolio
+                  <button onClick={() => navigate('/settings')} className="flex-1 h-16 bg-primary text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-opacity-90 transition-all hover:scale-[1.02] shadow-2xl active:scale-[0.98]">
+                    Edit Profile
                   </button>
                     <button 
                     onClick={() => {
@@ -145,7 +145,7 @@ export default function Profile() {
                     }}
                     className="flex-1 h-16 glass-premium border border-white/10 text-muted font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-rose-50 hover:text-rose-500 hover:border-rose-100 transition-all"
                   >
-                    Reset Environment
+                    Reset Account
                   </button>
                 </div>
              </div>

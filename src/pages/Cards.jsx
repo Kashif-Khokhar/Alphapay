@@ -16,14 +16,10 @@ export default function Cards() {
         
         {/* Header */}
         <div className="mb-8 animate-fade-up">
-           <div className="flex items-center gap-3 mb-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-primary live-dot" />
-              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Secure Assets</p>
-           </div>
            <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Virtual Cards
            </h1>
-           <p className="text-slate-400 font-bold text-sm mt-2 max-w-lg">Manage your digital spending with surgical precision. Control limits, freeze instantly, and reveal details with a tap.</p>
+           <p className="text-slate-400 font-bold text-sm mt-2 max-w-lg">Control your card spending, set limits, and manage security features instantly.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -82,7 +78,7 @@ export default function Cards() {
             </div>
 
             <div className="premium-card">
-               <h3 className="font-black text-secondary mb-4 text-sm uppercase tracking-widest text-slate-400">Card Metadata</h3>
+               <h3 className="font-black text-secondary mb-4 text-sm uppercase tracking-widest text-slate-400">Card Details</h3>
                <div className="space-y-4">
                  <div className="flex justify-between items-center pb-4 border-b border-white/5">
                     <span className="text-sm font-bold text-slate-400">Cardholder</span>
@@ -94,8 +90,8 @@ export default function Cards() {
                  </div>
                  <div className="flex justify-between items-center">
                     <span className="text-sm font-bold text-slate-400">Payment Network</span>
-                    <div className="px-4 py-1.5 bg-secondary rounded-full">
-                       <span className="text-[10px] font-black tracking-[0.2em] text-white uppercase italic">VISA Premium</span>
+                    <div className="px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full">
+                       <span className="text-[10px] font-black tracking-[0.2em] text-primary uppercase italic">VISA Premium</span>
                     </div>
                  </div>
                </div>
