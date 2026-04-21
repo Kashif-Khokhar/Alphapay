@@ -75,7 +75,7 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Top Nav */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1400px] h-20 rounded-[32px] glass-premium shadow-2xl transition-all duration-500 hidden md:flex items-center px-10">
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1400px] h-20 rounded-[32px] bg-solid-premium shadow-2xl transition-all duration-500 hidden md:flex items-center px-10">
         <div className="w-full flex items-center justify-between h-full">
           <Link to="/dashboard" className="flex items-center gap-4 group">
             <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 group-hover:rotate-6 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 logo-glow">
@@ -192,7 +192,7 @@ export default function Navbar() {
                   e.stopPropagation();
                   setShowProfileMenu(!showProfileMenu);
                 }}
-                className={`w-12 h-12 rounded-2xl bg-secondary text-primary flex items-center justify-center font-black text-xl shadow-lg hover:scale-105 transition-all outline outline-4 outline-white/50 outline-offset-0 ${showProfileMenu ? 'ring-4 ring-primary/20' : ''}`}
+                className={`w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-lg hover:scale-105 transition-all outline outline-4 outline-primary/20 outline-offset-0 ${showProfileMenu ? 'ring-4 ring-primary/20' : ''}`}
               >
                 {user?.name?.charAt(0) || 'A'}
               </button>
@@ -237,7 +237,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Bottom Nav (Floating Dock) */}
-      <nav className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-20 glass-premium rounded-[32px] shadow-2xl flex items-center justify-around px-4 z-50">
+      <nav className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-20 bg-solid-premium rounded-[32px] shadow-2xl flex items-center justify-around px-4 z-50">
         {NAV_LINKS.map(({ to, icon: Icon, label }) => {
           const active = location.pathname === to;
           return (
