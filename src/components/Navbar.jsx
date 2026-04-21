@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { LayoutDashboard, CreditCard, History, BarChart2, Bell, User, Settings, CheckCircle2, AlertCircle, Info, Wallet, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getCurrentUser } from '../services/api';
+import { getCurrentUser, logoutUser } from '../services/api';
 import { useTheme } from './ThemeProvider';
 
 
@@ -55,6 +55,11 @@ export default function Navbar() {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   const [showNotifications, setShowNotifications] = useState(false);
+  
+  const handleLogout = () => {
+    logoutUser();
+    navigate('/login');
+  };
   
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -142,7 +147,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                    className="absolute top-[120%] right-0 w-[420px] glass-premium rounded-[48px] p-3 z-[60] origin-top-right shadow-2xl"
+                    className="absolute top-[120%] right-0 w-[420px] bg-solid-premium rounded-[48px] p-3 z-[60] origin-top-right shadow-2xl"
                   >
                     <div className="px-8 py-7 flex items-center justify-between">
                       <div>
@@ -198,7 +203,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 15, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                    className="absolute top-[120%] right-0 w-[280px] glass-premium rounded-[40px] p-3 z-[60] origin-top-right shadow-2xl"
+                    className="absolute top-[120%] right-0 w-[280px] bg-solid-premium rounded-[40px] p-3 z-[60] origin-top-right shadow-2xl"
                   >
                      <div className="px-6 py-5 border-b border-secondary/10 mb-2">
                         <p className="text-[9px] font-black text-muted uppercase tracking-[0.4em] mb-1">Identity</p>
@@ -217,7 +222,7 @@ export default function Navbar() {
                          Settings
                        </button>
                        <div className="h-px bg-secondary/10 my-2 mx-4" />
-                       <button className="w-full text-left px-5 py-4 text-xs font-black text-rose-500 hover:bg-rose-500/10 rounded-3xl transition-all flex items-center gap-4 group">
+                       <button onClick={handleLogout} className="w-full text-left px-5 py-4 text-xs font-black text-rose-500 hover:bg-rose-500/10 rounded-3xl transition-all flex items-center gap-4 group">
                           <div className="w-10 h-10 rounded-2xl bg-rose-500/10 flex items-center justify-center border border-rose-500/20 group-hover:scale-110 transition-all">
                              <AlertCircle size={18} strokeWidth={3} />
                           </div>
@@ -287,7 +292,7 @@ export default function Navbar() {
                  initial={{ opacity: 0, y: -20, scale: 0.9 }}
                  animate={{ opacity: 1, y: 0, scale: 1 }}
                  exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                 className="absolute bottom-[130%] right-0 w-48 glass-premium rounded-[24px] shadow-2xl p-2 origin-bottom-right"
+                 className="absolute bottom-[130%] right-0 w-48 bg-solid-premium rounded-[24px] shadow-2xl p-2 origin-bottom-right"
                >
                   <button onClick={() => { setShowProfileMenu(false); navigate('/profile'); }} className="w-full text-left px-4 py-3 text-xs font-black text-secondary hover:bg-secondary/10 rounded-xl flex items-center gap-3">
                      <User size={16} strokeWidth={2.5} /> My Profile
