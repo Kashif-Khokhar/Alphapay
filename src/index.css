@@ -23,6 +23,10 @@
   --glass-bg: rgba(15, 23, 42, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
   --border-main: rgba(255, 255, 255, 0.1);
+  --user-avatar-bg: var(--primary);
+  --user-avatar-text: #ffffff;
+  
+  
   
   /* Icon Jewel Tones */
   --jewel-emerald: #10b981;
@@ -45,6 +49,10 @@
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(15, 23, 42, 0.08);
   --border-main: rgba(15, 23, 42, 0.05);
+  --user-avatar-bg: #0f172a; /* Deep Navy/Slate for Light Mode */
+  --user-avatar-text: #ffffff;
+  
+  
 }
 
 * {

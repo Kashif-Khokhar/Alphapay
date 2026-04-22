@@ -49,7 +49,7 @@ export default function Profile() {
           <motion.div variants={itemVariants} className="lg:col-span-4 space-y-8">
             <div className="premium-card flex flex-col items-center">
                <div className="relative group perspective-1000">
-                  <div className="w-24 h-24 rounded-3xl bg-secondary text-primary flex items-center justify-center font-black text-4xl shadow-xl relative z-10 border-4 border-white/5 transition-transform duration-700 group-hover:rotate-y-12">
+                  <div className="w-24 h-24 rounded-3xl bg-[var(--user-avatar-bg)] text-[var(--user-avatar-text)] flex items-center justify-center font-black text-4xl shadow-xl relative z-10 border-4 border-white/5 transition-transform duration-700 group-hover:rotate-y-12">
                      {user?.name?.charAt(0) || 'A'}
                   </div>
                   <div className="absolute inset-0 rounded-3xl bg-primary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />

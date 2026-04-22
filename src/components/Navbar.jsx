@@ -192,7 +192,7 @@ export default function Navbar() {
                   e.stopPropagation();
                   setShowProfileMenu(!showProfileMenu);
                 }}
-                className={`w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-lg hover:scale-105 transition-all outline outline-4 outline-primary/20 outline-offset-0 ${showProfileMenu ? 'ring-4 ring-primary/20' : ''}`}
+                className={`w-12 h-12 rounded-2xl bg-[var(--user-avatar-bg)] text-white flex items-center justify-center font-black text-xl shadow-lg hover:scale-105 transition-all outline outline-4 outline-primary/20 outline-offset-0 ${showProfileMenu ? 'ring-4 ring-primary/20' : ''}`}
               >
                 {user?.name?.charAt(0) || 'A'}
               </button>
@@ -245,7 +245,7 @@ export default function Navbar() {
               <div 
                 className={`w-12 h-12 flex items-center justify-center rounded-2xl transition-all duration-500 ${
                   active 
-                    ? 'bg-secondary text-primary shadow-xl -translate-y-4 scale-110' 
+                    ? 'bg-[var(--user-avatar-bg)] text-[var(--user-avatar-text)] shadow-xl -translate-y-4 scale-110' 
                     : 'text-slate-400 hover:text-secondary'
                 }`}
               >
@@ -270,7 +270,7 @@ export default function Navbar() {
              }}
              className={`w-12 h-12 flex items-center justify-center rounded-2xl transition-all duration-500 ${
                showProfileMenu 
-                 ? 'bg-secondary text-primary shadow-xl -translate-y-4 scale-110' 
+                 ? 'bg-[var(--user-avatar-bg)] text-[var(--user-avatar-text)] shadow-xl -translate-y-4 scale-110' 
                  : 'text-slate-400'
              }`}
            >
