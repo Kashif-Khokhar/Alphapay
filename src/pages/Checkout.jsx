@@ -17,7 +17,7 @@ export default function Checkout() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Send Money
             </h1>
-            <p className="text-slate-400 font-bold text-sm mt-3">Instantly transfer assets across the global banking mesh.</p>
+            <p className="text-muted font-bold text-sm mt-3">Instantly transfer assets across the global banking mesh.</p>
           </div>
         </div>
 
@@ -46,10 +46,10 @@ export default function Checkout() {
                        </div>
                        <div>
                          <p className="text-sm font-black text-secondary transition-colors">{p.name}</p>
-                         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">{p.bank}</p>
+                         <p className="text-[10px] text-muted font-bold uppercase tracking-widest mt-1">{p.bank}</p>
                        </div>
                      </div>
-                     <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 opacity-0 group-hover/item:opacity-100 transition-all">
+                     <div className="w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-muted opacity-0 group-hover/item:opacity-100 transition-all">
                        <Send size={14} />
                      </div>
                    </div>
@@ -72,7 +72,7 @@ export default function Checkout() {
                
                <div className="space-y-8">
                  <div className="space-y-3">
-                   <div className="flex justify-between text-[11px] font-black uppercase tracking-widest text-slate-400">
+                   <div className="flex justify-between text-[11px] font-black uppercase tracking-widest text-muted">
                      <span>Daily Limit</span>
                      <span className="text-white">PKR 400,000</span>
                    </div>
@@ -86,7 +86,7 @@ export default function Checkout() {
                  </div>
                  
                  <div className="space-y-3">
-                   <div className="flex justify-between text-[11px] font-black uppercase tracking-widest text-slate-400">
+                   <div className="flex justify-between text-[11px] font-black uppercase tracking-widest text-muted">
                      <span>Monthly Limit</span>
                      <span className="text-white">PKR 1,000,000</span>
                    </div>
@@ -102,7 +102,7 @@ export default function Checkout() {
 
                 <div className="mt-10 flex items-center justify-center gap-2 py-4 bg-white/5 rounded-2xl border border-white/10 shadow-sm">
                   <Zap size={14} className="text-primary" />
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Network Fees &middot; 0.00%</p>
+                  <p className="text-[10px] text-muted font-bold uppercase tracking-widest">Network Fees &middot; 0.00%</p>
                 </div>
             </div>
           </div>

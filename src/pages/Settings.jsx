@@ -112,7 +112,7 @@ export default function Settings() {
                  <button
                    key={tab}
                    onClick={() => setActiveTab(tab)}
-                   className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest rounded-3xl transition-all ${activeTab === tab ? 'glass-premium text-white shadow-md' : 'text-slate-400 hover:text-white'}`}
+                   className={`flex-1 py-4 text-[11px] font-black uppercase tracking-widest rounded-3xl transition-all ${activeTab === tab ? 'glass-premium text-white shadow-md' : 'text-muted hover:text-white'}`}
                  >
                    {tab}
                  </button>
@@ -124,7 +124,7 @@ export default function Settings() {
              <div className="px-6 md:px-10 pt-10 pb-8 space-y-10">
                {groups.map((group) => (
                  <div key={group.title}>
-                   <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-6 px-4">{group.title}</h3>
+                   <h3 className="text-[10px] font-black text-muted uppercase tracking-[0.4em] mb-6 px-4">{group.title}</h3>
                    <div className="space-y-3">
                      {group.items.map((item) => (
                        <button 
@@ -139,8 +139,8 @@ export default function Settings() {
                             <span className="text-base font-black text-secondary">{item.label}</span>
                          </div>
                          <div className="flex items-center gap-4">
-                            <span className="text-xs font-black text-slate-400 uppercase tracking-widest">{item.value}</span>
-                            <ChevronRight size={18} className="text-slate-200 group-hover:text-slate-400 transition-colors group-hover:translate-x-1" />
+                            <span className="text-xs font-black text-muted uppercase tracking-widest">{item.value}</span>
+                            <ChevronRight size={18} className="text-slate-200 group-hover:text-muted transition-colors group-hover:translate-x-1" />
                          </div>
                        </button>
                      ))}
@@ -168,16 +168,16 @@ export default function Settings() {
                <div className="bg-white/5 rounded-3xl p-6 space-y-5 border border-white/10 flex flex-col items-center sm:items-stretch">
                  <div className="flex items-center gap-3">
                    <TrendingUp size={16} className="icon-success" strokeWidth={3} />
-                   <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Daily Limit</span>
+                   <span className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Daily Limit</span>
                  </div>
                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-4 text-center sm:text-left">
                    <div>
                      <p className="text-3xl font-black text-secondary tracking-tighter">
                        PKR {DAILY_SPENT.toLocaleString()}
                      </p>
-                     <p className="text-[11px] text-slate-400 font-black uppercase tracking-widest mt-1 px-2">Total spent today</p>
+                     <p className="text-[11px] text-muted font-black uppercase tracking-widest mt-1 px-2">Total spent today</p>
                    </div>
-                   <p className="text-sm font-black text-slate-400 uppercase tracking-widest">of PKR {DAILY_LIMIT.toLocaleString()}</p>
+                   <p className="text-sm font-black text-muted uppercase tracking-widest">of PKR {DAILY_LIMIT.toLocaleString()}</p>
                  </div>
                  <div className="h-2 w-full bg-white/20/50 rounded-full overflow-hidden">
                    <div
@@ -194,16 +194,16 @@ export default function Settings() {
                <div className="bg-white/5 rounded-3xl p-6 space-y-5 border border-white/10 flex flex-col items-center sm:items-stretch">
                  <div className="flex items-center gap-3">
                    <TrendingUp size={16} className="icon-action" strokeWidth={3} />
-                   <span className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Monthly Limit</span>
+                   <span className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Monthly Limit</span>
                  </div>
                  <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-4 text-center sm:text-left">
                    <div>
                      <p className="text-3xl font-black text-secondary tracking-tighter">
                        PKR {MONTHLY_SPENT.toLocaleString()}
                      </p>
-                     <p className="text-[11px] text-slate-400 font-black uppercase tracking-widest mt-1 px-2">Total spent this month</p>
+                     <p className="text-[11px] text-muted font-black uppercase tracking-widest mt-1 px-2">Total spent this month</p>
                    </div>
-                   <p className="text-sm font-black text-slate-400 uppercase tracking-widest">of PKR {MONTHLY_LIMIT.toLocaleString()}</p>
+                   <p className="text-sm font-black text-muted uppercase tracking-widest">of PKR {MONTHLY_LIMIT.toLocaleString()}</p>
                  </div>
                  <div className="h-2 w-full bg-white/20/50 rounded-full overflow-hidden">
                    <div

@@ -31,13 +31,13 @@ export default function PayBills() {
         <div className="flex items-center gap-4 mb-10">
           <button 
             onClick={() => navigate(-1)}
-            className="w-12 h-12 rounded-2xl glass-premium border border-white/10 flex items-center justify-center text-slate-400 hover:text-secondary hover:bg-white/5 transition-all shadow-sm"
+            className="w-12 h-12 rounded-2xl glass-premium border border-white/10 flex items-center justify-center text-muted hover:text-secondary hover:bg-white/5 transition-all shadow-sm"
           >
             <ArrowDownLeft size={22} className="rotate-45" />
           </button>
           <div>
             <h1 className="text-3xl font-black text-secondary tracking-tighter">Bill Payments</h1>
-            <p className="text-slate-400 font-bold text-sm mt-1">Pay your utility bills quickly and securely.</p>
+            <p className="text-muted font-bold text-sm mt-1">Pay your utility bills quickly and securely.</p>
           </div>
         </div>
 
@@ -45,11 +45,11 @@ export default function PayBills() {
           {!selectedCategory ? (
             <div className="space-y-10">
               <div className="flex items-center gap-4 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus-within:border-primary/50 focus-within:glass-premium transition-all">
-                <Search size={20} className="text-slate-400" />
+                <Search size={20} className="text-muted" />
                 <input
                   type="text"
                   placeholder="Search billers..."
-                  className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-slate-300 tracking-tight"
+                  className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-muted tracking-tight"
                 />
               </div>
 
@@ -63,7 +63,7 @@ export default function PayBills() {
                     <div className={`w-16 h-16 rounded-2xl ${cat.color} flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg`}>
                       <cat.icon size={32} strokeWidth={2.5} />
                     </div>
-                    <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest text-center leading-tight group-hover:text-secondary transition-colors">{cat.label}</span>
+                    <span className="text-[11px] font-black text-muted uppercase tracking-widest text-center leading-tight group-hover:text-secondary transition-colors">{cat.label}</span>
                   </button>
                 ))}
               </div>
@@ -78,7 +78,7 @@ export default function PayBills() {
                 <CheckCircle2 size={40} />
               </div>
               <h2 className="text-2xl font-black text-secondary mb-3">Payment Successful</h2>
-              <p className="text-slate-400 font-bold">Your payment of PKR 4,500 has been processed.</p>
+              <p className="text-muted font-bold">Your payment of PKR 4,500 has been processed.</p>
             </motion.div>
           ) : (
             <div className="space-y-10">
@@ -92,7 +92,7 @@ export default function PayBills() {
                 </div>
                 <button 
                   onClick={() => setSelectedCategory(null)}
-                  className="ml-auto px-5 py-2.5 glass-premium border border-white/10 hover:bg-white/5 rounded-xl text-[10px] font-black text-slate-400 hover:text-secondary uppercase tracking-widest transition-all shadow-sm"
+                  className="ml-auto px-5 py-2.5 glass-premium border border-white/10 hover:bg-white/5 rounded-xl text-[10px] font-black text-muted hover:text-secondary uppercase tracking-widest transition-all shadow-sm"
                 >
                   Change
                 </button>
@@ -100,19 +100,19 @@ export default function PayBills() {
 
               <form onSubmit={handlePay} className="space-y-8">
                 <div>
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] block mb-4 px-2">Consumer Number</label>
+                  <label className="text-[10px] font-black text-muted uppercase tracking-[0.4em] block mb-4 px-2">Consumer Number</label>
                   <input 
                     type="text" 
                     required
                     placeholder="Enter your consumer number"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-sm font-black text-secondary placeholder:text-slate-300 focus:glass-premium focus:border-primary/50 outline-none transition-all tracking-tight shadow-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-sm font-black text-secondary placeholder:text-muted focus:glass-premium focus:border-primary/50 outline-none transition-all tracking-tight shadow-sm"
                   />
                 </div>
 
                 <div className="p-6 bg-secondary rounded-3xl text-white relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[100px] -mr-24 -mt-24 opacity-10" />
                   <div className="flex justify-between items-center mb-2 relative z-10">
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Amount Payable</span>
+                    <span className="text-[10px] font-black text-muted uppercase tracking-widest">Amount Payable</span>
                     <span className="text-[10px] font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Due: Mar 15</span>
                   </div>
                   <p className="text-4xl font-black tracking-tighter relative z-10">PKR 4,500.00</p>

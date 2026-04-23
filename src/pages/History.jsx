@@ -61,7 +61,7 @@ export default function History() {
         <div className="flex flex-col lg:flex-row lg:items-center gap-6 mb-10">
           <div className="flex-1 max-w-xl group">
              <div className="relative">
-                <Search size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors" />
+                <Search size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-muted group-focus-within:text-primary transition-colors" />
                 <input 
                   type="text" 
                   placeholder="Search transactions..." 
@@ -80,7 +80,7 @@ export default function History() {
                 className={`h-12 px-6 rounded-xl flex items-center gap-3 transition-all duration-500 whitespace-nowrap ${
                   filter === key 
                     ? 'bg-primary text-white shadow-lg scale-105 shadow-primary/20' 
-                    : 'glass-premium text-slate-300 border border-white/5 hover:border-primary/20 hover:text-secondary'
+                    : 'glass-premium text-muted border border-white/5 hover:border-primary/20 hover:text-secondary'
                 }`}
               >
                 <Icon size={18} strokeWidth={3} className={filter === key ? 'text-primary' : ''} />

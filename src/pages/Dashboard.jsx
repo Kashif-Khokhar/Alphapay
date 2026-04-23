@@ -110,12 +110,12 @@ export default function Dashboard() {
 
                 <div className="mt-10 w-full max-w-md flex justify-center gap-8 items-center border-t border-white/10 pt-8">
                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-300 mb-2">Monthly Spent</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-muted mb-2">Monthly Spent</p>
                       <p className="text-secondary font-black text-xl tracking-tighter">PKR 42,850</p>
                    </div>
                    <div className="w-px h-10 bg-white/10" />
                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-300 mb-2">Savings Growth</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-muted mb-2">Savings Growth</p>
                       <p className="text-emerald-500 font-black text-xl tracking-tighter">+12.4%</p>
                    </div>
                 </div>
@@ -145,7 +145,7 @@ export default function Dashboard() {
         {/* Quick Actions */}
         <motion.div variants={itemVariants} className="space-y-8">
             <div className="flex justify-between items-center px-10">
-               <h2 className="text-[11px] font-black text-slate-300 uppercase tracking-[0.4em]">Banking Services</h2>
+               <h2 className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Banking Services</h2>
             </div>
            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
@@ -198,8 +198,8 @@ export default function Dashboard() {
                 </div>
               )) : (
                 <div className="premium-card p-20 text-center border-dashed">
-                   <Activity size={40} className="mx-auto text-slate-200 mb-6" />
-                   <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em]">No transactions yet</p>
+                   <Activity size={40} className="mx-auto text-muted/30 mb-6" />
+                   <p className="text-[11px] font-black text-muted uppercase tracking-[0.3em]">No transactions yet</p>
                 </div>
               )}
            </div>
@@ -221,7 +221,7 @@ export default function Dashboard() {
                 >
                   <button 
                     onClick={() => setSelectedTx(null)}
-                    className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all border border-white/10"
+                    className="absolute top-5 right-5 z-[60] w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted hover:text-white hover:bg-white/10 transition-all border border-white/10"
                   >
                     <X size={20} />
                   </button>

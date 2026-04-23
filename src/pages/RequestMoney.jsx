@@ -46,7 +46,7 @@ export default function RequestMoney() {
             <h1 className="text-4xl sm:text-5xl font-black text-secondary tracking-tighter">
               Generate Request
             </h1>
-            <p className="text-slate-400 font-bold text-sm mt-3">Request funds from any AlphaPay user securely.</p>
+            <p className="text-muted font-bold text-sm mt-3">Request funds from any AlphaPay user securely.</p>
           </div>
           <div className="flex gap-4 shrink-0">
              <button 
@@ -69,7 +69,7 @@ export default function RequestMoney() {
                 <div className="w-20 h-20 rounded-3xl icon-bg-teal flex items-center justify-center shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 mb-6">
                   <ArrowDownLeft size={40} className="icon-action" strokeWidth={2.5} />
                 </div>
-                <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Vault Transfer Request</p>
+                <p className="text-[11px] font-black text-muted uppercase tracking-[0.4em]">Vault Transfer Request</p>
               </div>
 
               {isRequested ? (
@@ -82,14 +82,14 @@ export default function RequestMoney() {
                     <ShieldCheck size={48} strokeWidth={2.5} />
                   </div>
                   <h2 className="text-3xl font-black text-secondary mb-3 tracking-tighter">Request Broadcasted!</h2>
-                  <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Securing vault redirect...</p>
+                  <p className="text-sm font-bold text-muted uppercase tracking-widest">Securing vault redirect...</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleRequest} className="space-y-8">
                   <motion.div variants={itemVariants}>
-                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] block mb-3 px-2">Amount (PKR)</label>
+                    <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] block mb-3 px-2">Amount (PKR)</label>
                     <div className="flex items-center gap-4 h-16 bg-white/5 border border-white/5 rounded-2xl px-6 group/input focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/30 transition-all">
-                      <span className="text-lg font-black text-slate-500 group-focus-within/input:text-primary transition-colors shrink-0">PKR</span>
+                      <span className="text-lg font-black text-muted group-focus-within/input:text-primary transition-colors shrink-0">PKR</span>
                       <input 
                         type="number" 
                         required
@@ -102,9 +102,9 @@ export default function RequestMoney() {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] block mb-3 px-2">Recipient Handle</label>
+                    <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] block mb-3 px-2">Recipient Handle</label>
                     <div className="flex items-center gap-4 h-16 bg-white/5 border border-white/5 rounded-2xl px-6 group/input focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/30 transition-all">
-                      <User size={20} className="text-slate-500 group-focus-within/input:text-primary transition-colors shrink-0" />
+                      <User size={20} className="text-muted group-focus-within/input:text-primary transition-colors shrink-0" />
                       <input 
                         type="text" 
                         required
@@ -115,7 +115,7 @@ export default function RequestMoney() {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] block mb-3 px-2">Transaction Memo</label>
+                    <label className="text-[10px] font-black text-muted uppercase tracking-[0.3em] block mb-3 px-2">Transaction Memo</label>
                     <textarea 
                       placeholder="What is this request for?"
                       value={note}
@@ -134,7 +134,7 @@ export default function RequestMoney() {
             </div>
           </div>
           
-          <div className="mt-8 flex items-center justify-center gap-2 text-slate-500">
+          <div className="mt-8 flex items-center justify-center gap-2 text-muted">
             <ShieldCheck size={14} />
             <span className="text-[9px] font-black uppercase tracking-widest">End-to-End Encrypted Request</span>
           </div>

@@ -51,7 +51,7 @@ export default function Support() {
             </div>
             Help &amp; Support
           </h1>
-          <p className="text-slate-400 text-sm mt-2 ml-0 md:ml-14">Get help with your payments or contact the university team.</p>
+          <p className="text-muted text-sm mt-2 ml-0 md:ml-14">Get help with your payments or contact the university team.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-start">
@@ -64,9 +64,9 @@ export default function Support() {
                     <Icon size={18} strokeWidth={1.8} />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{label}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted mb-1">{label}</p>
                     <p className="text-sm font-bold text-white">{value}</p>
-                    <p className="text-[11px] text-slate-400 mt-0.5">{sub}</p>
+                    <p className="text-[11px] text-muted mt-0.5">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -78,7 +78,7 @@ export default function Support() {
                 <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
                   <BookOpen size={14} className="text-amber-600" />
                 </div>
-                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Frequently Asked Questions</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-muted">Frequently Asked Questions</h2>
               </div>
               <div className="space-y-2">
                 {FAQS.map((faq, i) => (
@@ -90,13 +90,13 @@ export default function Support() {
                       style={{ background: openFaq === i ? 'rgba(99,102,241,0.04)' : 'transparent' }}>
                       <span className={`text-sm font-semibold transition-colors duration-200 ${openFaq === i ? 'text-primary' : 'text-secondary'}`}>{faq.q}</span>
                       <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300
-                        ${openFaq === i ? 'bg-primary/10 text-primary rotate-90' : 'bg-white/10 text-slate-400'}`}>
+                        ${openFaq === i ? 'bg-primary/10 text-primary rotate-90' : 'bg-white/10 text-muted'}`}>
                         <ChevronRight size={13} />
                       </div>
                     </button>
 
                     {openFaq === i && (
-                      <div className="px-5 pb-5 pt-2 text-sm text-slate-400 leading-relaxed animate-fade-down border-t border-white/10">
+                      <div className="px-5 pb-5 pt-2 text-sm text-muted leading-relaxed animate-fade-down border-t border-white/10">
                         <div className="flex gap-2.5">
                           <AlertCircle size={13} className="text-primary flex-shrink-0 mt-0.5" />
                           {faq.a}
@@ -122,9 +122,9 @@ export default function Support() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs font-bold text-slate-700">{label}</p>
-                    <p className="text-[10px] text-slate-400 truncate">{sub}</p>
+                    <p className="text-[10px] text-muted truncate">{sub}</p>
                   </div>
-                  <ArrowRight size={12} className="text-slate-400 ml-auto flex-shrink-0" />
+                  <ArrowRight size={12} className="text-muted ml-auto flex-shrink-0" />
                 </button>
               ))}
             </div>
@@ -165,22 +165,22 @@ export default function Support() {
                   { key: 'subject', label: 'Subject',       type: 'text',  placeholder: 'e.g. Payment issue' },
                 ].map(({ key, label, type, placeholder }) => (
                   <div key={key}>
-                    <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">{label}</label>
+                    <label className="block text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">{label}</label>
                     <input type={type} placeholder={placeholder} value={form[key]} required
                       onChange={e => set(key, e.target.value)}
-                      className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none" />
+                      className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-muted outline-none" />
                   </div>
                 ))}
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Message</label>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">Message</label>
                   <textarea rows={4} placeholder="Describe your issue in detail…" value={form.message} required
                     onChange={e => set('message', e.target.value)}
-                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none resize-none" />
+                    className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-muted outline-none resize-none" />
                 </div>
                 <button type="submit" className="btn btn-primary btn-full mt-1">
                   <Send size={13} /> Send Message <Sparkles size={11} className="opacity-70" />
                 </button>
-                <p className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 mt-1">
+                <p className="flex items-center justify-center gap-1.5 text-[10px] text-muted mt-1">
                   <AlertCircle size={10} /> Demo mode — messages are not actually sent
                 </p>
               </form>

@@ -95,7 +95,7 @@ export default function Profile() {
                        <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <User size={22} strokeWidth={3} />
                        </div>
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</p>
+                       <p className="text-[10px] font-black text-muted uppercase tracking-widest">Full Name</p>
                     </div>
                     <p className="text-xl font-black text-secondary pl-20">{user?.name}</p>
                   </div>
@@ -105,7 +105,7 @@ export default function Profile() {
                        <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <Mail size={22} strokeWidth={3} />
                        </div>
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email Access</p>
+                       <p className="text-[10px] font-black text-muted uppercase tracking-widest">Email Access</p>
                     </div>
                     <p className="text-xl font-black text-secondary pl-20 break-all">{user?.email}</p>
                   </div>
@@ -115,7 +115,7 @@ export default function Profile() {
                        <div className="w-10 h-10 rounded-xl bg-white/5 text-secondary flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-primary/10 group-hover:text-primary">
                           <IdCard size={22} strokeWidth={3} />
                        </div>
-                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Account ID</p>
+                       <p className="text-[10px] font-black text-muted uppercase tracking-widest">Account ID</p>
                     </div>
                     <p className="text-xl font-black text-secondary pl-20">{user?.studentId}</p>
                   </div>

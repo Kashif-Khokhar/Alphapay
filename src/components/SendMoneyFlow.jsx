@@ -119,13 +119,13 @@ export default function SendMoneyFlow() {
               </div>
               
               <div className="flex items-center gap-4 mb-8 px-6 py-4 bg-white/5 rounded-2xl border border-white/10 focus-within:border-primary/50 focus-within:bg-white/10 transition-all">
-                <Search size={20} className="text-slate-300" />
+                <Search size={20} className="text-muted" />
                 <input
                   type="text"
                   placeholder="Search bank..."
                   value={bankSearch}
                   onChange={e => setBankSearch(e.target.value)}
-                  className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-slate-300 tracking-tight"
+                  className="flex-1 bg-transparent border-none text-sm font-black text-secondary outline-none placeholder:text-muted tracking-tight"
                 />
               </div>
 

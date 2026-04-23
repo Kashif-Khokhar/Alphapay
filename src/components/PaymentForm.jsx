@@ -90,7 +90,7 @@ export default function PaymentForm({ onSubmit, isLoading }) {
 
         <div className="absolute -bottom-6 left-0 right-0 flex items-center justify-center gap-1.5">
           <Sparkles size={10} className="text-primary" />
-          <p className="text-[10px] text-slate-400 font-medium">Click card to reveal CVV</p>
+          <p className="text-[10px] text-muted font-medium">Click card to reveal CVV</p>
 
         </div>
       </div>
@@ -133,10 +133,10 @@ export default function PaymentForm({ onSubmit, isLoading }) {
         </div>
 
         <div className="mb-6">
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Description (Optional)</label>
+          <label className="block text-[10px] font-bold uppercase tracking-widest text-muted mb-1.5">Description (Optional)</label>
           <input type="text" placeholder="e.g. Semester Fee, Lab Fee…" value={form.description}
             onChange={e => set('description', e.target.value)}
-            className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none" />
+            className="glow-input w-full bg-white/5 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 placeholder-muted outline-none" />
         </div>
 
         <button type="submit" disabled={isLoading}
@@ -151,8 +151,8 @@ export default function PaymentForm({ onSubmit, isLoading }) {
         </button>
 
         <div className="flex items-center justify-center gap-2 mt-4">
-          <Shield size={10} className="text-slate-400" />
-          <p className="text-[11px] text-slate-400">256-bit SSL encrypted · Simulated for demonstration</p>
+          <Shield size={10} className="text-muted" />
+          <p className="text-[11px] text-muted">256-bit SSL encrypted · Simulated for demonstration</p>
         </div>
       </form>
     </div>
@@ -160,15 +160,15 @@ export default function PaymentForm({ onSubmit, isLoading }) {
 }
 
 const inp = (err) =>
-  `glow-input w-full bg-white/5 border rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-slate-400 outline-none transition-all duration-200
+  `glow-input w-full bg-white/5 border rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-muted outline-none transition-all duration-200
   ${err ? 'border-rose-300' : 'border-slate-200'}`;
 
 function Field({ label, icon, error, children, cls = '', focused }) {
   return (
     <div className={`space-y-2 ${cls} animate-fade-up`}>
-      <label className={`block text-[11px] font-bold uppercase tracking-widest mb-1.5 transition-colors duration-200 ${focused ? 'text-primary' : 'text-slate-300'}`}>{label}</label>
+      <label className={`block text-[11px] font-bold uppercase tracking-widest mb-1.5 transition-colors duration-200 ${focused ? 'text-primary' : 'text-muted'}`}>{label}</label>
       <div className="relative">
-        <span className={`absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-200 ${focused ? 'text-primary' : 'text-slate-400'}`}>{icon}</span>
+        <span className={`absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-200 ${focused ? 'text-primary' : 'text-muted'}`}>{icon}</span>
 
         {children}
       </div>

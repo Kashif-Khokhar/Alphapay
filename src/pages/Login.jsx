@@ -120,7 +120,7 @@ export default function Login() {
           </div>
         </div>
 
-        <p className="text-slate-400 text-xs">AlphaPay · Digital Banking Division · 2026</p>
+        <p className="text-muted text-xs">AlphaPay · Digital Banking Division · 2026</p>
       </div>
 
       {/* Vertical divider */}
@@ -171,7 +171,7 @@ export default function Login() {
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
                     ${focused === 'username' ? 'bg-indigo-100' : 'bg-slate-100'}`}>
-                    <User size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'username' ? 'text-indigo-600' : 'text-slate-400'}`} />
+                    <User size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'username' ? 'text-indigo-600' : 'text-muted'}`} />
                   </div>
                   <input type="text" placeholder="e.g. student123" value={form.username} autoComplete="username"
                     onFocus={() => setFocused('username')} onBlur={() => setFocused('')}
@@ -186,14 +186,14 @@ export default function Login() {
                 <div className="relative">
                   <div className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200
                     ${focused === 'password' ? 'bg-indigo-100' : 'bg-slate-100'}`}>
-                    <Lock size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'password' ? 'text-indigo-600' : 'text-slate-400'}`} />
+                    <Lock size={13} className={`pointer-events-none transition-colors duration-200 ${focused === 'password' ? 'text-indigo-600' : 'text-muted'}`} />
                   </div>
                   <input type={showPass ? 'text' : 'password'} placeholder="••••••••" value={form.password} autoComplete="current-password"
                     onFocus={() => setFocused('password')} onBlur={() => setFocused('')}
                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                     className="glow-input w-full bg-white/20 border border-slate-200 rounded-xl pl-12 pr-12 py-3.5 text-sm text-slate-900 placeholder-slate-500 outline-none focus:border-indigo-500 transition-all" />
                   <button type="button" onClick={() => setShowPass(v => !v)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200">
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200">
                     {showPass ? <EyeOff size={13} /> : <Eye size={13} />}
                   </button>
                 </div>
@@ -218,7 +218,7 @@ export default function Login() {
             </form>
 
             <div className="gradient-line mt-7 mb-4" />
-            <p className="text-center text-slate-400 text-[11px]">University of Technology · FinTech Payment Portal · v2.0</p>
+            <p className="text-center text-muted text-[11px]">University of Technology · FinTech Payment Portal · v2.0</p>
           </div>
         </div>
       </div>
