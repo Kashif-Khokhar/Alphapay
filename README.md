@@ -1,19 +1,30 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
-<img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
-<img src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
-<img src="https://img.shields.io/badge/Framer_Motion-12-EF0082?style=for-the-badge&logo=framer&logoColor=white" />
-<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
+<img src="public/favicon.svg" width="100" height="100" alt="AlphaPay Logo" />
 
-# ⚡ AlphaPay — Next-Gen University Payment Portal
+# ⚡ AlphaPay
+### Next-Gen University Payment Portal
 
-**A premium, mobile-first simulated university fee payment portal built with React + Vite.**  
-Experience a visually stunning dark-mode UI with rich glassmorphism, glowing neon accents, animated 3D payment cards, real-time analytics, and cinematic micro-interactions designed for the ultimate mobile experience.
+**A premium, mobile-first simulated university fee payment portal built with React + Vite.**
+
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-EF0082?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![License-MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-screenshots">Screenshots</a>
+</p>
 
 </div>
 
 ---
+
+## ✨ Features
 
 - 🌐 **Fluid Full-Width Interface** — Expansive, ultra-wide optimized layout (up to 1600px) for a truly desktop-premium experience.
 - 📱 **Mobile-First Foundation** — Seamless parity between desktop and mobile with a custom floating navigation dock.
@@ -28,7 +39,7 @@ Experience a visually stunning dark-mode UI with rich glassmorphism, glowing neo
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
-|---|---|
+| :--- | :--- |
 | **React 19** | Modern UI Component Framework |
 | **Vite 7** | Ultra-fast Build Tool & Dev Server |
 | **Tailwind CSS 4** | Modern Utility-First Styling |
@@ -41,87 +52,77 @@ Experience a visually stunning dark-mode UI with rich glassmorphism, glowing neo
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- npm / yarn / pnpm
+- **Node.js** (v18.0.0 or higher)
+- **npm** or **yarn**
 
 ### Installation
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/Kashif-Khokhar/Alphapay.git
-cd Alphapay
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Kashif-Khokhar/Alphapay.git
+   cd Alphapay
+   ```
 
-# 2. Install dependencies
-npm install
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# 3. Start the dev server
-npm run dev
-```
+3. **Launch the development server**
+   ```bash
+   npm run dev
+   ```
 
-The application will be available at [http://localhost:5173](http://localhost:5173).
-
----
-
-## 📂 Project Structure
-
-```
-src/
-├── components/
-│   ├── Navbar.jsx           # Responsive Top/Bottom Navigation Dock
-│   ├── PaymentForm.jsx      # Reusable form for processing payments
-│   ├── SendMoneyFlow.jsx    # Animated peer-to-peer transfer flow
-│   ├── StatusMessage.jsx    # Dynamic payment status screens
-│   ├── TransactionTable.jsx # Detailed table view for history records
-│   └── VirtualCard.jsx      # Fluid 3D Interactive Card Component
-├── pages/
-│   ├── AddMoney.jsx         # Funding your wallet
-│   ├── Cards.jsx            # Card management & security portal
-│   ├── Checkout.jsx         # Finalizing simulated payments
-│   ├── Dashboard.jsx        # Smart stats, quick access & activity
-│   ├── History.jsx          # Advanced transaction record explorer
-│   ├── Login.jsx            # Authentication and entry portal
-│   ├── PayBills.jsx         # Simulated utility bill payments
-│   ├── Profile.jsx          # Account details & credentials
-│   ├── Reports.jsx          # Mobile-responsive payment analytics
-│   ├── RequestMoney.jsx     # Requesting funds flow
-│   ├── Settings.jsx         # App configuration & preferences
-│   └── Support.jsx          # Help center & contact
-├── services/
-│   └── api.js               # Simulated State & Mock API Services
-└── index.css                # Custom animations & global design tokens
-```
+The application will be live at `http://localhost:5173`.
 
 ---
 
 ## 📸 Screenshots
 
-> **Note**: This is a pure demonstration project. All data is simulated and no real financial transactions take place.
+> [!NOTE]
+> This is a **pure demonstration project**. All data is simulated, and no real financial transactions take place.
 
-| Mobile Dashboard | 3D Virtual Card |
-|---|---|
-| Floating dock + Quick access | Flip preview + Responsive scale |
+### 🖥️ Desktop Experience
 
-| Payment Analytics | Transaction History |
-|---|---|
-| Animated insights cards | Responsive mobile card list |
+| Dashboard | Virtual Cards |
+| :---: | :---: |
+| ![Dashboard Desktop](public/screenshots/dashboard_desktop.png) | ![Cards Desktop](public/screenshots/cards_desktop.png) |
+
+### 📱 Mobile Experience & Analytics
+
+| Mobile Dashboard | Transaction History |
+| :---: | :---: |
+| ![Dashboard Mobile](public/screenshots/dashboard_mobile.png) | ![Reports Desktop](public/screenshots/reports_desktop.png) |
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/          # Reusable UI components (Cards, Forms, Nav)
+├── pages/               # Page-level components (Dashboard, History, etc.)
+├── services/            # Mock API & data simulation services
+├── assets/              # Static assets and images
+├── App.jsx              # Main application entry and routing
+└── index.css            # Global styles and design tokens
+```
 
 ---
 
 ## 📜 Available Scripts
 
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run code quality audit
-```
+- `npm run dev`: Starts the Vite development server.
+- `npm run build`: Compiles the application for production.
+- `npm run preview`: Locally previews the production build.
+- `npm run lint`: Runs ESLint to check for code quality issues.
 
 ---
 
 ## 👤 Author
 
-**Kashif Khokhar**  
-[GitHub Profile](https://github.com/Kashif-Khokhar)
+**Kashif Khokhar**
+- GitHub: [@Kashif-Khokhar](https://github.com/Kashif-Khokhar)
 
 ---
 
