@@ -10,5 +10,8 @@ export default defineConfig({
   ],
   server: {
     open: false,
+  },
+  preview: {
+    open: false,
   }
 })

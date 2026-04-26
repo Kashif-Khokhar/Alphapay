@@ -86,7 +86,7 @@ export default function History() {
                 <Icon size={18} strokeWidth={3} className={filter === key ? 'text-primary' : ''} />
                 <span className="text-[11px] font-black uppercase tracking-widest">{label}</span>
                 <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black ${
-                  filter === key ? 'bg-white/10 text-primary' : 'bg-white/5 text-muted'
+                  filter === key ? 'bg-white/10 text-white' : 'bg-white/5 text-muted'
                 }`}>
                   {counts[key]}
                 </span>
