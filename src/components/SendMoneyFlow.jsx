@@ -131,15 +131,28 @@ export default function SendMoneyFlow() {
 
               {(() => {
                 const q = bankSearch.trim().toLowerCase();
+                const filtered = q
+                  ? POPULAR_BANKS.filter(bank => 
+                      bank.name.toLowerCase().includes(q)
+                    )
+                  : POPULAR_BANKS;
+
                 const sorted = q
-                  ? [...POPULAR_BANKS].sort((a, b) => {
+                  ? [...filtered].sort((a, b) => {
                       const an = a.name.toLowerCase();
                       const bn = b.name.toLowerCase();
+                      
+                      // Exact match first
+                      if (an === q) return -1;
+                      if (bn === q) return 1;
+                      
+                      // Starts with match next
                       const aStarts = an.startsWith(q);
                       const bStarts = bn.startsWith(q);
                       if (aStarts && !bStarts) return -1;
                       if (!aStarts && bStarts) return 1;
-                      return 0;
+                      
+                      return an.localeCompare(bn);
                     })
                   : POPULAR_BANKS;
                 return (
