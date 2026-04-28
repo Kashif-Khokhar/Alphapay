@@ -119,6 +119,17 @@ src/
 
 ---
 
+## 🛠️ Troubleshooting
+
+**PowerShell Execution Policy Error (Windows)**
+If you encounter a `PSSecurityException` error when running scripts like `npm run dev` in PowerShell on Windows, you may need to update your execution policy to allow local scripts. You can resolve this by running the following command in your PowerShell terminal:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+---
+
 ## 👤 Author
 
 **Kashif Khokhar**
