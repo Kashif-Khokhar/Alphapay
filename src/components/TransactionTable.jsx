@@ -26,7 +26,7 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
                   { label: 'Status',        icon: null },
                   { label: 'Date',          icon: null },
                 ].map(({ label, icon }) => (
-                  <th key={label} className={`px-10 py-6 text-left whitespace-nowrap ${label === 'Transaction ID' ? 'w-[200px]' : ''}`}>
+                  <th key={label} className={`px-14 py-6 text-left whitespace-nowrap ${label === 'Transaction ID' ? 'w-[200px]' : ''}`}>
                     <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-secondary">
                       {icon}{label}
                     </div>
@@ -55,23 +55,23 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
                       onClick={() => onSelectTx?.(tx)}
                       className="tx-row border-b border-primary/5 last:border-0 cursor-pointer hover:bg-primary/5 transition-colors"
                     >
-                      <td className="px-10 py-6 w-[200px] tx-indicator-cell">
+                      <td className="px-14 py-6 w-[200px] tx-indicator-cell">
                         <div className="flex items-center gap-1.5 px-1">
                           <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
                           <span className="badge-pop font-mono text-[11px] text-secondary font-bold cursor-default whitespace-nowrap">{tx.transactionId}</span>
                         </div>
                       </td>
-                      <td className="px-10 py-6 text-muted max-w-[200px] truncate text-xs">{tx.description || 'Account Payment'}</td>
-                      <td className="px-10 py-6 font-mono text-[11px] text-muted">{tx.cardNumber}</td>
-                      <td className="px-10 py-6"><span className="font-black text-secondary text-sm">PKR {parseFloat(tx.amount).toLocaleString()}</span></td>
-                      <td className="px-10 py-6">
+                      <td className="px-14 py-6 text-muted max-w-[200px] truncate text-xs">{tx.description || 'Account Payment'}</td>
+                      <td className="px-14 py-6 font-mono text-[11px] text-muted">{tx.cardNumber}</td>
+                      <td className="px-14 py-6"><span className="font-black text-secondary text-sm">PKR {parseFloat(tx.amount).toLocaleString()}</span></td>
+                      <td className="px-14 py-6">
                         <span className={`badge-pop inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-black border cursor-default ${cfg.badgeCls}`}>
                           <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
                           <Icon size={10} strokeWidth={2.5} />
                           {tx.status}
                         </span>
                       </td>
-                      <td className="px-10 py-6 text-muted text-[11px] whitespace-nowrap font-mono">{tx.date}</td>
+                      <td className="px-14 py-6 text-muted text-[11px] whitespace-nowrap font-mono">{tx.date}</td>
                     </tr>
                   );
                 })
@@ -79,7 +79,7 @@ export default function TransactionTable({ transactions = [], onSelectTx }) {
             </tbody>
           </table>
         </div>
-        <div className="px-8 py-4 flex items-center justify-between border-t border-white/5 bg-slate-50/50">
+        <div className="px-14 py-6 flex items-center justify-between border-t border-white/5 bg-slate-50/50">
           <p className="text-[10px] text-muted font-medium">
             Showing <span className="text-secondary font-bold">{transactions.length}</span> transaction{transactions.length !== 1 ? 's' : ''}
           </p>
